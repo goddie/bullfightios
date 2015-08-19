@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="ZURCHLXC.TTF">
+            <string>ZurichBT-LightExtraCondensed</string>
+            <string>ZurichBT-LightExtraCondensed</string>
+            <string>ZurichBT-LightExtraCondensed</string>
+            <string>ZurichBT-LightExtraCondensed</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MFTeamInfoTopCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="历时战绩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtW-Dq-TRS">
+                        <rect key="frame" x="119" y="11" width="82" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="82" id="jvl-rd-t3N"/>
+                            <constraint firstAttribute="height" constant="21" id="uyE-7V-tJ5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.46274509800000002" green="0.5450980392" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1I-59-gEA">
+                        <rect key="frame" x="19" y="4" width="32" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="0LX-UL-Geh"/>
+                            <constraint firstAttribute="width" constant="32" id="onO-Ed-gzg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ZurichBT-LightExtraCondensed" family="Zurich" pointSize="30"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="战" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9r-iM-8Zi">
+                        <rect key="frame" x="46" y="16" width="16" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="3C2-8v-Ktl"/>
+                            <constraint firstAttribute="width" constant="16" id="G2u-kt-Kjf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEE-9c-xH6">
+                        <rect key="frame" x="69" y="4" width="32" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="G1p-yh-kDv"/>
+                            <constraint firstAttribute="height" constant="35" id="Rji-gI-gls"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ZurichBT-LightExtraCondensed" family="Zurich" pointSize="30"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="胜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDI-d3-lPl">
+                        <rect key="frame" x="96" y="16" width="16" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="EMI-hb-cd7"/>
+                            <constraint firstAttribute="width" constant="16" id="aBk-nv-hu9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHD-T9-wmU">
+                        <rect key="frame" x="205" y="4" width="32" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="I9X-0B-7Qw"/>
+                            <constraint firstAttribute="height" constant="35" id="Wl2-8s-EaZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ZurichBT-LightExtraCondensed" family="Zurich" pointSize="30"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="战" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqb-dm-kPe">
+                        <rect key="frame" x="233" y="16" width="16" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Azf-pl-qgm"/>
+                            <constraint firstAttribute="width" constant="16" id="iEF-gB-U40"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98K-dk-gp9">
+                        <rect key="frame" x="257" y="4" width="32" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="Rwk-H1-HlX"/>
+                            <constraint firstAttribute="height" constant="35" id="Uco-Z4-dX3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ZurichBT-LightExtraCondensed" family="Zurich" pointSize="30"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="胜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10F-fb-2PL">
+                        <rect key="frame" x="284" y="17" width="16" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="87H-KO-2R2"/>
+                            <constraint firstAttribute="width" constant="16" id="K9q-4R-TeV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hqb-dm-kPe" firstAttribute="leading" secondItem="aHD-T9-wmU" secondAttribute="trailing" constant="-4" id="9Gb-MX-2af"/>
+                    <constraint firstItem="10F-fb-2PL" firstAttribute="top" secondItem="98K-dk-gp9" secondAttribute="bottom" constant="-22" id="DBP-PZ-bje"/>
+                    <constraint firstAttribute="centerY" secondItem="fEE-9c-xH6" secondAttribute="centerY" id="DIe-D0-nz2"/>
+                    <constraint firstItem="dDI-d3-lPl" firstAttribute="top" secondItem="UtW-Dq-TRS" secondAttribute="bottom" constant="-16" id="FQd-N5-MBT"/>
+                    <constraint firstItem="dDI-d3-lPl" firstAttribute="leading" secondItem="fEE-9c-xH6" secondAttribute="trailing" constant="-5" id="I2a-j7-6f5"/>
+                    <constraint firstAttribute="centerY" secondItem="aHD-T9-wmU" secondAttribute="centerY" id="OI9-Vx-Y6v"/>
+                    <constraint firstItem="hqb-dm-kPe" firstAttribute="top" secondItem="aHD-T9-wmU" secondAttribute="bottom" constant="-23" id="QbG-eB-Foa"/>
+                    <constraint firstAttribute="centerY" secondItem="98K-dk-gp9" secondAttribute="centerY" id="QdZ-Z9-N7J"/>
+                    <constraint firstItem="10F-fb-2PL" firstAttribute="leading" secondItem="98K-dk-gp9" secondAttribute="trailing" constant="-5" id="Tq7-gk-bHI"/>
+                    <constraint firstAttribute="centerY" secondItem="v1I-59-gEA" secondAttribute="centerY" id="Vm7-xD-KJm"/>
+                    <constraint firstAttribute="centerX" secondItem="aHD-T9-wmU" secondAttribute="centerX" constant="-61" id="WLg-N6-TQ2"/>
+                    <constraint firstItem="98K-dk-gp9" firstAttribute="leading" secondItem="hqb-dm-kPe" secondAttribute="trailing" constant="8" id="Woz-7I-qiB"/>
+                    <constraint firstAttribute="centerY" secondItem="UtW-Dq-TRS" secondAttribute="centerY" id="d5K-KW-S7d"/>
+                    <constraint firstItem="X9r-iM-8Zi" firstAttribute="leading" secondItem="v1I-59-gEA" secondAttribute="trailing" constant="-5" id="gyI-me-Oh7"/>
+                    <constraint firstItem="X9r-iM-8Zi" firstAttribute="top" secondItem="fEE-9c-xH6" secondAttribute="bottom" constant="-23" id="nY4-a8-3L0"/>
+                    <constraint firstAttribute="centerX" secondItem="dDI-d3-lPl" secondAttribute="centerX" constant="56" id="quV-g6-tf0"/>
+                    <constraint firstAttribute="centerX" secondItem="UtW-Dq-TRS" secondAttribute="centerX" id="vU5-kg-7WZ"/>
+                    <constraint firstItem="fEE-9c-xH6" firstAttribute="leading" secondItem="X9r-iM-8Zi" secondAttribute="trailing" constant="7" id="y0p-9m-XPH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="txtFight1" destination="v1I-59-gEA" id="E9o-eS-g2p"/>
+                <outlet property="txtFight2" destination="aHD-T9-wmU" id="hIH-Lj-XAB"/>
+                <outlet property="txtName" destination="UtW-Dq-TRS" id="xD9-AT-bhS"/>
+                <outlet property="txtWin1" destination="fEE-9c-xH6" id="nA8-jZ-BeC"/>
+                <outlet property="txtWin2" destination="98K-dk-gp9" id="NaY-ZW-J4J"/>
+            </connections>
+            <point key="canvasLocation" x="575" y="392"/>
+        </tableViewCell>
+    </objects>
+</document>

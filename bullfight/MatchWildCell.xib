@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="190" id="KGk-i7-Jjw" customClass="MatchWildCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed_free_match_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="kor-vv-di4">
+                        <rect key="frame" x="8" y="8" width="304" height="146"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="东丹体育中心18号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABZ-PB-hJV">
+                        <rect key="frame" x="98" y="78" width="125" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="Ef5-Rr-MLU"/>
+                            <constraint firstAttribute="width" constant="125" id="RLK-G8-p1Q"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12月18日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uM5-6D-4fo">
+                        <rect key="frame" x="111" y="95" width="98" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="98" id="0sv-yo-Hwm"/>
+                            <constraint firstAttribute="height" constant="18" id="gwj-Th-pm7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晴转多云" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60d-69-9Gg">
+                        <rect key="frame" x="114" y="114" width="92" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="KXE-Ks-o4I"/>
+                            <constraint firstAttribute="width" constant="92" id="UcT-de-KgU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2O-Oc-Rlv">
+                        <rect key="frame" x="0.0" y="162" width="320" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="ohE-IP-elv"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shared_icon_badge_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="14H-He-Oe6">
+                        <rect key="frame" x="259" y="8" width="53" height="53"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="53" id="0oK-4M-z1K"/>
+                            <constraint firstAttribute="height" constant="53" id="tdO-7D-8Me"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="野球娱乐场" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EON-1U-Mcw">
+                        <rect key="frame" x="81" y="37" width="158" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="C7c-ij-IFP"/>
+                            <constraint firstAttribute="width" constant="158" id="W1J-au-pcT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ABZ-PB-hJV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="70" id="1AH-xz-GQh"/>
+                    <constraint firstItem="60d-69-9Gg" firstAttribute="top" secondItem="uM5-6D-4fo" secondAttribute="bottom" constant="1" id="2C8-64-w4a"/>
+                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4h6-fp-oKK"/>
+                    <constraint firstAttribute="bottom" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" id="7ta-Jw-p9f"/>
+                    <constraint firstAttribute="trailing" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" id="R2l-T8-iTQ"/>
+                    <constraint firstAttribute="centerX" secondItem="uM5-6D-4fo" secondAttribute="centerX" id="Svi-fV-Wwu"/>
+                    <constraint firstAttribute="centerX" secondItem="T2O-Oc-Rlv" secondAttribute="centerX" id="UPE-ix-K6j"/>
+                    <constraint firstAttribute="centerX" secondItem="EON-1U-Mcw" secondAttribute="centerX" id="axK-PD-eta"/>
+                    <constraint firstAttribute="centerX" secondItem="ABZ-PB-hJV" secondAttribute="centerX" id="b4H-kA-mOe"/>
+                    <constraint firstAttribute="centerX" secondItem="60d-69-9Gg" secondAttribute="centerX" id="d0J-jm-o5l"/>
+                    <constraint firstItem="14H-He-Oe6" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="fFE-tv-MeE"/>
+                    <constraint firstItem="uM5-6D-4fo" firstAttribute="top" secondItem="ABZ-PB-hJV" secondAttribute="bottom" constant="3" id="m6B-VW-gP0"/>
+                    <constraint firstItem="EON-1U-Mcw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="29" id="phP-G4-nzu"/>
+                    <constraint firstItem="14H-He-Oe6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="zY9-eR-e2j"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.086274509799999996" green="0.1647058824" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="imgBot" destination="T2O-Oc-Rlv" id="QCf-Ts-hmJ"/>
+                <outlet property="txtDate" destination="uM5-6D-4fo" id="eCL-R6-UF3"/>
+                <outlet property="txtPlace" destination="ABZ-PB-hJV" id="GXz-QE-GsJ"/>
+                <outlet property="txtWeather" destination="60d-69-9Gg" id="95J-ts-W9R"/>
+                <outlet property="viewTop" destination="14H-He-Oe6" id="4yE-vc-tcI"/>
+            </connections>
+            <point key="canvasLocation" x="318" y="297"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="feed_free_match_bg.png" width="233" height="108"/>
+        <image name="shared_icon_badge_active.png" width="53" height="53"/>
+    </resources>
+</document>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchTeam">
+            <connections>
+                <outlet property="btnParent" destination="oUv-RO-qrU" id="Y3L-R3-Bqc"/>
+                <outlet property="tableView" destination="ij4-Za-vCA" id="1Yq-2P-GJd"/>
+                <outlet property="topView" destination="Ajz-rX-pMl" id="jLf-HU-Mt7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ij4-Za-vCA">
+                    <rect key="frame" x="0.0" y="50" width="600" height="550"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Lrb-Uw-d1D"/>
+                        <outlet property="delegate" destination="-1" id="jjj-Xd-OIZ"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUv-RO-qrU">
+                    <rect key="frame" x="275" y="550" width="50" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="cPd-CP-KyQ"/>
+                        <constraint firstAttribute="width" constant="50" id="sYB-Rc-UbB"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ajz-rX-pMl">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="16l-eg-SXN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ij4-Za-vCA" secondAttribute="trailing" id="Ic2-N7-QnJ"/>
+                <constraint firstItem="ij4-Za-vCA" firstAttribute="top" secondItem="Ajz-rX-pMl" secondAttribute="bottom" id="JTm-ff-s0X"/>
+                <constraint firstAttribute="bottom" secondItem="ij4-Za-vCA" secondAttribute="bottom" id="MIS-xe-van"/>
+                <constraint firstItem="ij4-Za-vCA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="N8M-LB-6as"/>
+                <constraint firstItem="Ajz-rX-pMl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Oxb-gP-fVt"/>
+                <constraint firstAttribute="centerX" secondItem="oUv-RO-qrU" secondAttribute="centerX" id="TJz-Me-vOp"/>
+                <constraint firstItem="Ajz-rX-pMl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="X3A-Tj-4bC"/>
+                <constraint firstAttribute="trailing" secondItem="Ajz-rX-pMl" secondAttribute="trailing" id="bLL-sY-fNq"/>
+                <constraint firstAttribute="bottom" secondItem="oUv-RO-qrU" secondAttribute="bottom" id="zHJ-3c-Ybb"/>
+            </constraints>
+            <point key="canvasLocation" x="704" y="414"/>
+        </view>
+    </objects>
+</document>
