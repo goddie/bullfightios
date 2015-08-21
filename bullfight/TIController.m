@@ -22,20 +22,19 @@
 @end
 
 @implementation TIController
-{
-    NSArray *cellArr;
-    NSInteger tabIndex;
-    NSString *cellIdentifier;
-    NSArray *dataArr;
-    NSArray *cellHeightArr;
-    TITop *top;
-    
-    Team *entity;
-    
-    NSMutableArray *dataArr1;
-    NSMutableArray *dataArr2;
-    NSMutableArray *dataArr3;
-}
+
+
+NSArray *cellArr;
+NSInteger tabIndex = 0;
+NSString *cellIdentifier;
+NSArray *dataArr;
+NSArray *cellHeightArr;
+NSInteger topHeight;
+
+NSMutableArray *dataArr1;
+NSMutableArray *dataArr2;
+NSMutableArray *dataArr3;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,17 +43,26 @@
     
      self.tableView.backgroundColor  = [GlobalConst lightAppBgColor];
     
-    top = [[TITop alloc] initWithNibName:@"TITop" bundle:nil];
-    [self addChildViewController:top];
-    
-    top.parent = self;
-    
+    [self initData];
+    [self getTop];
+    [self getData];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)initData
+{
     cellHeightArr = @[
                       @[@190,@44],
                       @[@70],
                       @[@62],
                       @[@190]
                       ];
+    topHeight =335;
     cellArr = @[
                 @[@"MatchFinishCell",@"TeamDataCell"],
                 @[@"TIPositionCell"],
@@ -62,49 +70,31 @@
                 @[@"MatchFinishCell"]
                 
                 ];
-    dataArr = @[@[@"东单体育中心18号场地",@"12月28日 14:00-15:30",@"晴转多云",@"裁判员一名，数据员两名",@"接受系统赛前通知提醒"],
-                @[@"场均得分",@"场均篮板",@"场均助攻",@"场均失误",@"场均盖帽"],
-                @[@"后卫",@"中锋",@"前锋"],
-                @[@"打的很好，我也参加了",@"打的很好，我也参加了",@"打的很好，我也参加了",@"打的很好，我也参加了",@"打的很好，我也参加了"]];
-    
-    tabIndex = 0;
     
     cellIdentifier = [cellArr objectAtIndex:tabIndex];
-    
-    
+
     dataArr1 = [NSMutableArray arrayWithCapacity:10];
     dataArr2 = [NSMutableArray arrayWithCapacity:10];
     dataArr3 = [NSMutableArray arrayWithCapacity:10];
-    
-    [self getData];
-    
-   
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
--(void)reminder
+-(UIView*)getTop
 {
-    //    TIController *c1 = [[TIController alloc] initWithNibName:@"TIController" bundle:nil];
-    //    [self.navigationController pushViewController:c1 animated:YES];
+    TITop *top = [[TITop alloc] initWithNibName:@"TITop" bundle:nil];
+    top.team = self.team;
+    [self addChildViewController:top];
+    return top.view;
 }
 
 
--(void)switchView:(id)sender{
-    
-    UISegmentedControl *control = (UISegmentedControl *)sender;
-    tabIndex = control.selectedSegmentIndex;
+-(void)changeTab:(NSInteger)idx
+{
+    tabIndex = idx;
     cellIdentifier = [cellArr objectAtIndex:tabIndex];
     [self.tableView reloadData];
-    
     [self getTabData];
-    
 }
-
 
 
 -(void)getTabData
@@ -121,15 +111,11 @@
                                      };
         
         [dataArr1 removeAllObjects];
-        
         [self post:@"matchdatateam/json/teammatch" params:parameters success:^(id responseObj) {
-            
             NSDictionary *dict = (NSDictionary *)responseObj;
-            
             if ([[dict objectForKey:@"code"] intValue]==1) {
                 NSArray *arr = [dict objectForKey:@"data"];
                 NSError *error = nil;
-                
                 for (NSDictionary *data in arr) {
                     MatchFight *model = [MTLJSONAdapter modelOfClass:[MatchFight class] fromJSONDictionary:data error:&error];
 //                    NSLog(@"%@",[error description]);
@@ -138,10 +124,7 @@
                     }
                 }
                 [self.tableView reloadData];
-                
             }
-            
-            
         }];
     }
     
@@ -190,7 +173,6 @@
         
     }
     
-    
     //荣誉
     if (tabIndex==3) {
         
@@ -201,7 +183,7 @@
 -(void)getData
 {
 
-    if([self.uuid length]==0)
+    if(!self.uuid)
     {
         return;
     }
@@ -210,7 +192,6 @@
                                  @"tid":self.uuid
                                  };
     
-    
     [self post:@"team/json/getteam" params:parameters success:^(id responseObj) {
         
         NSDictionary *dict = (NSDictionary *)responseObj;
@@ -218,9 +199,9 @@
         if ([[dict objectForKey:@"code"] intValue]==1) {
             
             NSDictionary *data = [dict objectForKey:@"data"];
-            entity = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:data error:nil];
             
-            [self bindTeam];
+            _team = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:data error:nil];
+            
         }
         
     }];
@@ -229,17 +210,17 @@
 }
 
 
--(void)bindTeam
-{
- 
-    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:entity.avatar]];
-    [top.img sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
-    
-    
-    top.txtFound.text = [GlobalUtil getDateFromUNIX:entity.createdDate];
-    top.txtName.text = entity.name;
-    top.txtInfo.text = entity.info;
-}
+//-(void)bindTeam
+//{
+// 
+//    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:entity.avatar]];
+//    [top.img sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+//    
+//    
+//    top.txtFound.text = [GlobalUtil getDateFromUNIX:entity.createdDate];
+//    top.txtName.text = entity.name;
+//    top.txtInfo.text = entity.info;
+//}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -365,12 +346,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 335.0f;
+    return topHeight;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return top.view;
+    return [self getTop];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section

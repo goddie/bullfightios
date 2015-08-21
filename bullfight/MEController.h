@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MatchFight.h"
 
 @interface MEController : UITableViewController
 
@@ -14,5 +15,6 @@
 
 -(void)switchView:(id)sender;
 
+@property (nonatomic, strong) MatchFight *matchFight;
 
 @end

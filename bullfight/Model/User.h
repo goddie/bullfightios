@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSString *email;
 
 @property (nonatomic, strong) NSString *regIp;
+@property (nonatomic, strong) NSString *avatar;
 
 /**
  *  昵称

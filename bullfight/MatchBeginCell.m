@@ -20,7 +20,7 @@
     self.viewTop.backgroundColor = [UIColor clearColor];
     [self.viewTop addSubview:iv];
     
-    [GlobalUtil set9PathImage:self.imgBot imageName:@"cellBottom.png" top:2.0f right:5.0f];
+    [GlobalUtil set9PathImage:self.imgBot imageName:@"cellBottom.png" insets:UIEdgeInsetsMake(0, 2, 0, 2)];
 
     
     

@@ -8,19 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "TIController.h"
+#import "Team.h"
 
 @interface TITop : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIImageView *img;
 @property (weak, nonatomic) IBOutlet UILabel *txtName;
 @property (weak, nonatomic) IBOutlet UILabel *txtFound;
 @property (weak, nonatomic) IBOutlet UILabel *txtInfo;
 
 @property (weak, nonatomic) IBOutlet UIButton *btn1;
+
 - (IBAction)btn1Click:(id)sender;
 
-
-@property (weak, nonatomic) TIController *parent;
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
+
+@property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
+
+@property (nonatomic, strong) Team *team;
 
 @end

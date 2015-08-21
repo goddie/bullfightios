@@ -7,13 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Team.h"
 
-@interface TIController : UITableViewController
 
--(void)reminder;
+@protocol TeamTopDelegate<NSObject>
 
--(void)switchView:(id)sender;
+@required
+
+
+-(void)changeTab:(NSInteger)idx;
+
+@end
+
+
+
+@interface TIController : UITableViewController<TeamTopDelegate>
 
 @property (nonatomic, strong) NSString *uuid;
+@property (nonatomic, strong) Team *team;
+
 
 @end

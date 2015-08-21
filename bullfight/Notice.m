@@ -9,28 +9,207 @@
 #import "Notice.h"
 #import "NoticeCell.h"
 #import "UIViewController+Custome.h"
+#import "Message.h"
+#import "MatchFight.h"
+#import "MFWildController.h"
+#import "MEController.h"
+#import "MFController.h"
+#import "Team.h"
+
 
 @interface Notice ()
 
 @end
 
 @implementation Notice
+{
+    NSMutableArray *dataArr;
+    NSMutableArray *dataArr2;
+    NSMutableArray *dataArr3;
+    Team *curTeam;
+    Message *curMessage;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self globalConfig];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    dataArr =  [NSMutableArray arrayWithCapacity:10];
+    dataArr2 =  [NSMutableArray arrayWithCapacity:10];
+    dataArr3 =  [NSMutableArray arrayWithCapacity:10];
+    [self getData];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = @"消息";
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)getData
+{
+    NSString *uuid = [LoginUtil getLocalUUID];
+    
+    if(uuid == nil)
+    {
+        return;
+    }
+    
+    NSDictionary *parameters = @{
+                                 @"uid":uuid,
+                                 @"p":@"1"
+                                 };
+    
+    
+    [self post:@"message/json/usermessage" params:parameters success:^(id responseObj) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            
+            NSArray *arr = [dict objectForKey:@"data"];
+            NSError *error = nil;
+            
+            for (NSDictionary *data in arr) {
+                
+                
+                Message *model = [MTLJSONAdapter modelOfClass:[Message class] fromJSONDictionary:data error:&error];
+                
+                //                NSLog(@"%@",[error description]);
+                
+                if (model!=nil) {
+                    [dataArr addObject:model];
+                }
+                
+                if ([model.type intValue]==1) {
+                    
+                    NSDictionary *dc = [data objectForKey:@"matchFight"];
+                    MatchFight *model2 = [MTLJSONAdapter modelOfClass:[MatchFight class] fromJSONDictionary:dc error:&error];
+                    if (model2!=nil) {
+                        
+                        [dataArr2 addObject:model2];
+                        
+                    }
+
+                }
+                
+                if ([model.type intValue]==2) {
+                    
+                    
+                    NSDictionary *dc = [data objectForKey:@"team"];
+                    Team *model2 = [MTLJSONAdapter modelOfClass:[MatchFight class] fromJSONDictionary:dc error:&error];
+                    if (model2!=nil) {
+                        
+                        [dataArr3 addObject:model2];
+                        
+                    }
+                    
+                }
+                
+                
+            }
+
+            [self.tableView reloadData];
+        }
+        
+    }];
+
+}
+
+
+-(void)accept
+{
+    
+    NSString *uuid = [LoginUtil getLocalUUID];
+    
+    if(!uuid)
+    {
+        return;
+    }
+    
+    if(!curTeam)
+    {
+        return;
+    }
+    
+    NSDictionary *parameters = @{
+                                 @"uid":uuid,
+                                 @"tid":curTeam.uuid
+                                 };
+    
+    __weak Notice * wself = self;
+    [self post:@"teamuser/json/join" params:parameters success:^(id responseObj) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            
+            [self.tableView reloadData];
+            
+            
+        }
+        
+
+        if ([dict objectForKey:@"msg"]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[dict objectForKey:@"msg"] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+        [wself delete:curMessage.uuid];
+        
+    }];
+
+}
+
+
+-(void)delete:(NSString*)mid
+{
+    NSString *uuid = [LoginUtil getLocalUUID];
+    
+    if(!uuid)
+    {
+        return;
+    }
+    
+    
+    NSDictionary *parameters = @{
+                                 @"uid":uuid,
+                                 @"mid":mid
+                                 };
+    
+    
+    [self post:@"message/json/delete" params:parameters success:^(id responseObj) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            
+            
+            [self.tableView reloadData];
+        }
+        
+    }];
+
+}
+
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+//    NSLog(@"clickButtonAtIndex:%d",buttonIndex);
+    if (alertView.tag==100) {
+        if (buttonIndex==0) {
+            return ;
+        }
+        
+        if (buttonIndex==1) {
+            [self accept];
+        }
+    }
 }
 
 #pragma mark - Table view data source
@@ -42,7 +221,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return dataArr.count;
 }
 
 
@@ -63,11 +242,59 @@
         
     }
     
+    Message *entity = (Message*)[dataArr objectAtIndex:indexPath.row];
+    
+    cell.txtTime.text = [GlobalUtil getDateFromUNIX:entity.createdDate];
+    cell.txtContent.text = entity.title;
+    
     return  cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    Message *entity = (Message*)[dataArr objectAtIndex:indexPath.row];
+    
+    curMessage = entity;
+    
+    if ([entity.type intValue]==1) {
+        
+        MatchFight *mf = [dataArr2 objectAtIndex:indexPath.row];
+        int s = [mf.status intValue];
+        if (s==0) {
+            
+            MFWildController *c1 = [[MFWildController alloc] initWithNibName:@"MFWildController" bundle:nil];
+            c1.matchFight = mf;
+            
+            [self.navigationController pushViewController:c1 animated:YES];
+            
+        }
+        
+        if (s==1) {
+            MFController *c1 = [[MFController alloc] initWithNibName:@"MFController" bundle:nil];
+            c1.matchFight = mf;
+            [self.navigationController pushViewController:c1 animated:YES];
+        }
+        
+        if (s==2){
+            MEController *c1 = [[MEController alloc] initWithNibName:@"MEController" bundle:nil];
+            c1.matchFight = mf;
+            [self.navigationController pushViewController:c1 animated:YES];
+        }
+
+    }
+    
+    if ([entity.type intValue]==2)
+    {
+        curTeam = (Team*)[dataArr3 objectAtIndex:indexPath.row];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"邀请入队" message:entity.content delegate:self cancelButtonTitle:@"暂不加入" otherButtonTitles:@"加入队伍", nil];
+        
+        alert.tag = 100;
+        
+        [alert show];
+    }
+    
     
 }
 

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MatchFight.h"
 
-@interface MCPay : UITableViewController
+@interface MCPay : UITableViewController<UIAlertViewDelegate>
+
+@property (nonatomic, strong) MatchFight *matchFight;
 
 @end

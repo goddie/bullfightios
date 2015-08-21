@@ -20,4 +20,6 @@
 
 @property (weak, nonatomic) MEController *parent;
 
+@property (weak, nonatomic) MatchFight *matchFight;
+
 @end

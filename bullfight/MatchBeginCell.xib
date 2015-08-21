@@ -97,8 +97,9 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2O-Oc-Rlv">
                         <rect key="frame" x="0.0" y="162" width="320" height="27"/>
+                        <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="27" id="ohE-IP-elv"/>
+                            <constraint firstAttribute="height" constant="27" id="pv5-1R-xrB"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shared_icon_badge_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="14H-He-Oe6">
@@ -133,16 +134,15 @@
                     <constraint firstItem="ABZ-PB-hJV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="1AH-xz-GQh"/>
                     <constraint firstItem="60d-69-9Gg" firstAttribute="top" secondItem="uM5-6D-4fo" secondAttribute="bottom" constant="1" id="2C8-64-w4a"/>
                     <constraint firstAttribute="centerX" secondItem="0Nz-ih-OGj" secondAttribute="centerX" constant="-20" id="2rv-B7-TwZ"/>
-                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4h6-fp-oKK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" constant="-8" id="5KQ-uu-WvE"/>
                     <constraint firstAttribute="centerX" secondItem="z7a-pk-v84" secondAttribute="centerX" id="6fg-3d-YdV"/>
-                    <constraint firstAttribute="bottom" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" id="7ta-Jw-p9f"/>
+                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="70g-JR-4YH"/>
                     <constraint firstAttribute="centerX" secondItem="cBe-OR-wDj" secondAttribute="centerX" constant="90" id="93N-Fm-wki"/>
                     <constraint firstItem="z7a-pk-v84" firstAttribute="top" secondItem="60d-69-9Gg" secondAttribute="bottom" constant="15" id="GDa-dx-xaP"/>
-                    <constraint firstAttribute="trailing" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" id="R2l-T8-iTQ"/>
                     <constraint firstItem="cBe-OR-wDj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="55" id="SaI-uA-A7m"/>
                     <constraint firstAttribute="centerX" secondItem="uM5-6D-4fo" secondAttribute="centerX" id="Svi-fV-Wwu"/>
                     <constraint firstAttribute="centerX" secondItem="dzB-Yr-i2K" secondAttribute="centerX" constant="20" id="U8S-kn-JW4"/>
-                    <constraint firstAttribute="centerX" secondItem="T2O-Oc-Rlv" secondAttribute="centerX" id="UPE-ix-K6j"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" constant="-8" id="WHf-hm-ZW4"/>
                     <constraint firstAttribute="centerX" secondItem="ABZ-PB-hJV" secondAttribute="centerX" id="b4H-kA-mOe"/>
                     <constraint firstItem="0Nz-ih-OGj" firstAttribute="top" secondItem="60d-69-9Gg" secondAttribute="bottom" constant="12" id="crn-M6-PJ8"/>
                     <constraint firstAttribute="centerX" secondItem="60d-69-9Gg" secondAttribute="centerX" id="d0J-jm-o5l"/>
@@ -172,7 +172,7 @@
                 <outlet property="txtWeather" destination="60d-69-9Gg" id="95J-ts-W9R"/>
                 <outlet property="viewTop" destination="14H-He-Oe6" id="4yE-vc-tcI"/>
             </connections>
-            <point key="canvasLocation" x="183" y="474"/>
+            <point key="canvasLocation" x="-117" y="1024"/>
         </tableViewCell>
     </objects>
     <resources>

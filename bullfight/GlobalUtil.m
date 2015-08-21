@@ -41,6 +41,30 @@
     
 }
 
++ (void)set9PathImage:(UIView *)view imageName:(NSString*)imageName insets:(UIEdgeInsets)insets
+{
+    UIImage* image = [UIImage imageNamed:imageName];
+    
+    // 指定为拉伸模式，伸缩后重新赋值
+    image = [image resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+    
+    [view setBackgroundColor:[UIColor clearColor]];
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
+//    [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    
+//    NSLayoutConstraint *c1 = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeTop multiplier:1.0f constant:0];
+//    NSLayoutConstraint *c2 = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0];
+//    NSLayoutConstraint *c3 = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0];
+//    NSLayoutConstraint *c4 = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:0];
+//    
+//    [imageView addConstraints:@[c1,c2,c3,c4]];
+    
+    imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+    
+    [view addSubview:imageView];
+}
+
 
 + (void)setButtonColor:(UIButton*)button color:(NSString*)color
 {

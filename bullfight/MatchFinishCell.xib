@@ -79,7 +79,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2O-Oc-Rlv">
                         <rect key="frame" x="0.0" y="162" width="320" height="27"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="27" id="06X-ii-xov"/>
+                            <constraint firstAttribute="height" constant="27" id="yYS-w6-Ddy"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shared_icon_badge_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="14H-He-Oe6">
@@ -133,12 +133,11 @@
                 <constraints>
                     <constraint firstItem="ABZ-PB-hJV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="1AH-xz-GQh"/>
                     <constraint firstAttribute="centerX" secondItem="cBe-OR-wDj" secondAttribute="centerX" constant="90" id="93N-Fm-wki"/>
-                    <constraint firstAttribute="centerX" secondItem="T2O-Oc-Rlv" secondAttribute="centerX" id="CNs-GL-zae"/>
-                    <constraint firstAttribute="trailing" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" id="Fu1-eY-wfD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" constant="-8" id="9Pd-85-B7T"/>
                     <constraint firstItem="z7a-pk-v84" firstAttribute="leading" secondItem="dzB-Yr-i2K" secondAttribute="trailing" constant="-12" id="H3u-Ge-kL9"/>
                     <constraint firstAttribute="centerX" secondItem="z7a-pk-v84" secondAttribute="centerX" id="HsW-Cl-cEZ"/>
-                    <constraint firstAttribute="bottom" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" id="Ihg-xW-T34"/>
                     <constraint firstItem="z7a-pk-v84" firstAttribute="top" secondItem="UZl-jW-HaX" secondAttribute="bottom" constant="2" id="Jif-rD-cxp"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" constant="-8" id="KS7-l7-G9J"/>
                     <constraint firstAttribute="centerY" secondItem="UZl-jW-HaX" secondAttribute="centerY" id="RHW-qJ-1lI"/>
                     <constraint firstItem="cBe-OR-wDj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="55" id="SaI-uA-A7m"/>
                     <constraint firstAttribute="centerX" secondItem="uM5-6D-4fo" secondAttribute="centerX" id="Svi-fV-Wwu"/>
@@ -147,7 +146,7 @@
                     <constraint firstItem="0Nz-ih-OGj" firstAttribute="leading" secondItem="dzB-Yr-i2K" secondAttribute="trailing" constant="5" id="Vqi-Ef-SZZ"/>
                     <constraint firstAttribute="centerX" secondItem="ABZ-PB-hJV" secondAttribute="centerX" id="b4H-kA-mOe"/>
                     <constraint firstItem="14H-He-Oe6" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="fFE-tv-MeE"/>
-                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fOi-xk-ahQ"/>
+                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="fqZ-rN-x4j"/>
                     <constraint firstItem="iEv-fE-Eb6" firstAttribute="top" secondItem="cBe-OR-wDj" secondAttribute="bottom" constant="6" id="gSq-ZQ-c6w"/>
                     <constraint firstItem="fv0-bF-TR8" firstAttribute="centerX" secondItem="Grp-HQ-TZq" secondAttribute="centerX" id="l6V-TV-Xhp"/>
                     <constraint firstItem="cBe-OR-wDj" firstAttribute="centerX" secondItem="iEv-fE-Eb6" secondAttribute="centerX" id="len-Sd-I85"/>

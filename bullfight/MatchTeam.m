@@ -18,6 +18,8 @@
 #import "MatchFight.h"
 #import "UIImageView+WebCache.h"
 #import "MyButton.h"
+#import "MFWildController.h"
+#import "MEController.h"
 
 @interface MatchTeam ()
 
@@ -128,17 +130,16 @@
     
 }
 
+
 -(void)openTeam1:(id)sender;
 {
     TIController *c1 = [[TIController alloc] initWithNibName:@"TIController" bundle:nil];
-    
-    
     MyButton *btn = (MyButton*)sender;
-    
-    c1.uuid = [NSString stringWithFormat:@"%@",btn.data];
-    
+    NSDictionary* dict =(NSDictionary*)btn.data;
+    Team *t = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:dict error:nil];
+    c1.team = t;
+    c1.uuid = t.uuid;
     [self.navigationController pushViewController:c1 animated:YES];
-    
 }
 
 
@@ -350,15 +351,16 @@
         }
         
         
-        [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openTeam1:) data:[entity.host objectForKey:@"id"]];
-        [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1:) data:[entity.guest objectForKey:@"id"]];
+        
+        [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openTeam1:) data:entity.host ];
+        [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1:) data:entity.guest ];
         
         
         NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
         NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
         [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
         
-        NSString *a2 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
+        NSString *a2 = [@"" stringByAppendingString:[entity.guest objectForKey:@"avatar"]];
         NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
         [cell.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
 
@@ -386,7 +388,7 @@
         }
         
         
-        [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openTeam1:) data:[entity.host objectForKey:@"id"]];
+        [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openTeam1:) data:entity.host];
 //        [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1) data:[entity.guest objectForKey:@"id"]];
         //[GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1) data:10];
         
@@ -422,15 +424,15 @@
     }
     
     
-    [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openTeam1:) data:[entity.host objectForKey:@"id"]];
-    [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1:) data:[entity.guest objectForKey:@"id"]];
+    [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openTeam1:) data:entity.host];
+    [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1:) data:entity.guest];
     
     
     NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
     NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
     [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
     
-    NSString *a2 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
+    NSString *a2 = [@"" stringByAppendingString:[entity.guest objectForKey:@"avatar"]];
     NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
     [cell.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
     
@@ -455,10 +457,35 @@
 //    UITableViewCell *cell  = [tableView cellForRowAtIndexPath:indexPath];
 //    cell.selectionStyle  = UITableViewCellSelectionStyleNone;
     
-    MFController *c1= [[MFController alloc] initWithNibName:@"MFController" bundle:nil];
-    c1.matchFight = entity;
-    c1.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:c1 animated:YES];
+    if([entity.status intValue]==0)
+    {
+        MFWildController *c1= [[MFWildController alloc] initWithNibName:@"MFWildController" bundle:nil];
+        c1.matchFight = entity;
+        c1.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:c1 animated:YES];
+
+    }
+    
+    if([entity.status intValue]==1)
+    {
+        MFController *c1= [[MFController alloc] initWithNibName:@"MFController" bundle:nil];
+        c1.matchFight = entity;
+        c1.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:c1 animated:YES];
+    }
+    
+    
+    if([entity.status intValue]==2)
+    {
+        MEController *c1 = [[MEController alloc] initWithNibName:@"MEController" bundle:nil];
+        c1.matchFight = entity;
+        c1.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:c1 animated:YES];
+
+    }
+    
+    
+
 }
 
 

@@ -39,7 +39,8 @@
              @"fans":@"fans",
              @"city":@"city",
              @"block":@"block",
-             @"steal":@"steal"
+             @"steal":@"steal",
+             @"avatar":@"avatar"
              };
 }
 

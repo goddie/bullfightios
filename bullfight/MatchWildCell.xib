@@ -50,7 +50,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2O-Oc-Rlv">
                         <rect key="frame" x="0.0" y="162" width="320" height="27"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="27" id="ohE-IP-elv"/>
+                            <constraint firstAttribute="height" constant="27" id="Bxw-3W-0Tn"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shared_icon_badge_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="14H-He-Oe6">
@@ -74,17 +74,16 @@
                 <constraints>
                     <constraint firstItem="ABZ-PB-hJV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="70" id="1AH-xz-GQh"/>
                     <constraint firstItem="60d-69-9Gg" firstAttribute="top" secondItem="uM5-6D-4fo" secondAttribute="bottom" constant="1" id="2C8-64-w4a"/>
-                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4h6-fp-oKK"/>
-                    <constraint firstAttribute="bottom" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" id="7ta-Jw-p9f"/>
-                    <constraint firstAttribute="trailing" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" id="R2l-T8-iTQ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" constant="-8" id="KK1-5x-bWt"/>
                     <constraint firstAttribute="centerX" secondItem="uM5-6D-4fo" secondAttribute="centerX" id="Svi-fV-Wwu"/>
-                    <constraint firstAttribute="centerX" secondItem="T2O-Oc-Rlv" secondAttribute="centerX" id="UPE-ix-K6j"/>
                     <constraint firstAttribute="centerX" secondItem="EON-1U-Mcw" secondAttribute="centerX" id="axK-PD-eta"/>
                     <constraint firstAttribute="centerX" secondItem="ABZ-PB-hJV" secondAttribute="centerX" id="b4H-kA-mOe"/>
                     <constraint firstAttribute="centerX" secondItem="60d-69-9Gg" secondAttribute="centerX" id="d0J-jm-o5l"/>
                     <constraint firstItem="14H-He-Oe6" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="fFE-tv-MeE"/>
                     <constraint firstItem="uM5-6D-4fo" firstAttribute="top" secondItem="ABZ-PB-hJV" secondAttribute="bottom" constant="3" id="m6B-VW-gP0"/>
                     <constraint firstItem="EON-1U-Mcw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="29" id="phP-G4-nzu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" constant="-8" id="ur7-bP-DWV"/>
+                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="wK1-q8-3Ss"/>
                     <constraint firstItem="14H-He-Oe6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="zY9-eR-e2j"/>
                 </constraints>
             </tableViewCellContentView>

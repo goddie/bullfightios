@@ -88,7 +88,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2O-Oc-Rlv">
                         <rect key="frame" x="0.0" y="162" width="320" height="27"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="27" id="8hI-Rg-FUN"/>
+                            <constraint firstAttribute="height" constant="27" id="P2E-hM-362"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shared_icon_badge_unknow.png" translatesAutoresizingMaskIntoConstraints="NO" id="14H-He-Oe6">
@@ -126,23 +126,22 @@
                     <constraint firstAttribute="centerX" secondItem="z7a-pk-v84" secondAttribute="centerX" id="6fg-3d-YdV"/>
                     <constraint firstAttribute="centerX" secondItem="cBe-OR-wDj" secondAttribute="centerX" constant="90" id="93N-Fm-wki"/>
                     <constraint firstItem="z7a-pk-v84" firstAttribute="top" secondItem="60d-69-9Gg" secondAttribute="bottom" constant="15" id="GDa-dx-xaP"/>
-                    <constraint firstAttribute="centerX" secondItem="T2O-Oc-Rlv" secondAttribute="centerX" id="Jii-m6-PDR"/>
                     <constraint firstItem="cBe-OR-wDj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="55" id="SaI-uA-A7m"/>
                     <constraint firstAttribute="centerX" secondItem="uM5-6D-4fo" secondAttribute="centerX" id="Svi-fV-Wwu"/>
                     <constraint firstAttribute="centerX" secondItem="dzB-Yr-i2K" secondAttribute="centerX" constant="20" id="U8S-kn-JW4"/>
                     <constraint firstAttribute="centerX" secondItem="ABZ-PB-hJV" secondAttribute="centerX" id="b4H-kA-mOe"/>
                     <constraint firstItem="0Nz-ih-OGj" firstAttribute="top" secondItem="60d-69-9Gg" secondAttribute="bottom" constant="12" id="crn-M6-PJ8"/>
                     <constraint firstAttribute="centerX" secondItem="60d-69-9Gg" secondAttribute="centerX" id="d0J-jm-o5l"/>
-                    <constraint firstAttribute="bottom" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" id="eRV-Z0-2Mq"/>
                     <constraint firstItem="14H-He-Oe6" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="fFE-tv-MeE"/>
                     <constraint firstItem="iEv-fE-Eb6" firstAttribute="top" secondItem="cBe-OR-wDj" secondAttribute="bottom" constant="6" id="gSq-ZQ-c6w"/>
-                    <constraint firstAttribute="trailing" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" id="lQl-gf-OCN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" constant="-8" id="hlw-hK-yKZ"/>
                     <constraint firstItem="cBe-OR-wDj" firstAttribute="centerX" secondItem="iEv-fE-Eb6" secondAttribute="centerX" id="len-Sd-I85"/>
+                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="lew-ll-ogi"/>
                     <constraint firstItem="uM5-6D-4fo" firstAttribute="top" secondItem="ABZ-PB-hJV" secondAttribute="bottom" constant="3" id="m6B-VW-gP0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" constant="-8" id="o3f-VJ-jhE"/>
                     <constraint firstAttribute="centerX" secondItem="fv0-bF-TR8" secondAttribute="centerX" constant="-90" id="odq-rD-2FO"/>
                     <constraint firstItem="fv0-bF-TR8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="55" id="rqY-xK-dMi"/>
                     <constraint firstItem="dzB-Yr-i2K" firstAttribute="top" secondItem="60d-69-9Gg" secondAttribute="bottom" constant="12" id="w34-uZ-L12"/>
-                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yno-oU-4zM"/>
                     <constraint firstItem="14H-He-Oe6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="zY9-eR-e2j"/>
                 </constraints>
             </tableViewCellContentView>

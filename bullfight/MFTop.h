@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
 
 @property (weak, nonatomic) MFController *parent;
+@property (weak, nonatomic) MatchFight *matchFight;
 
 @end

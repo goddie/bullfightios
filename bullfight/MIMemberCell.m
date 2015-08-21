@@ -11,7 +11,7 @@
 @implementation MIMemberCell
 
 - (void)awakeFromNib {
-    [GlobalUtil setMaskImageQuick:self.img1 withMask:@"shared_avatar_mask_small.png" point:CGPointMake(60.0f, 70.0f)];
+    [GlobalUtil setMaskImageQuick:self.img1 withMask:@"shared_avatar_mask_medium.png" point:CGPointMake(60.0f, 70.0f)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

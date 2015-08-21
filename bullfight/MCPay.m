@@ -10,6 +10,7 @@
 #import "MCPayCell.h"
 #import "MCPayTotalCell.h"
 #import "MCPayCouponCell.h"
+#import "UIViewController+Custome.h"
 
 @interface MCPay ()
 
@@ -23,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    dataArr = @[@[@"3vs3比赛场地费用",@"¥20"],@[@"3vs3比赛裁判费用",@"¥10"],@[@"3vs3比赛数据员费用",@"¥30"],@[@"费用总计",@"¥30"]];
+    dataArr = @[@[@"3vs3比赛场地费用",@"¥20"],@[@"3vs3比赛裁判费用",@"¥10"],@[@"3vs3比赛数据员费用",@"¥30"],@[@"费用总计",@"¥300"]];
     
     self.view.backgroundColor = [GlobalConst appBgColor];
 }
@@ -46,13 +47,77 @@
     [GlobalUtil set9PathImage:btn1 imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     [parent addSubview:btn1];
     
+    [btn1 addTarget:self  action:@selector(btn1Click) forControlEvents:UIControlEventTouchUpInside];
+    
     UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, 50.0f, 120.0f, 30.0f)];
     [btn2 setTitle:@"支付宝支付" forState:UIControlStateNormal];
     [btn2.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [GlobalUtil set9PathImage:btn2 imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     [parent addSubview:btn2];
+    [btn2 addTarget:self  action:@selector(btn2Click) forControlEvents:UIControlEventTouchUpInside];
     
     return parent;
+}
+
+-(void)btn1Click
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付确认" message:@"您将使用支付宝支付300元" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"确认", nil];
+    alert.tag = 100;
+    [alert show];
+}
+
+
+-(void)btn2Click
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付确认" message:@"您将使用微信支付300元" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"确认", nil];
+    alert.tag=200;
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"clickButtonAtIndex:%ld",buttonIndex);
+    
+    if (buttonIndex==0) {
+        return;
+    }
+    
+    NSString *uuid = [LoginUtil getLocalUUID];
+    if (uuid.length==0) {
+        return;
+    }
+    
+    
+    NSDictionary *parameters = @{
+                                 @"uid":uuid,
+                                 @"mfid":self.matchFight.uuid
+                                 };
+    
+    MCPay *c1 = [[MCPay alloc] initWithNibName:@"MCPay" bundle:nil];
+    [self.navigationController pushViewController:c1 animated:YES];
+    
+    [self post:@"matchfight/json/accept" params:parameters success:^(id responseObj) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        
+        NSString *msg = [NSString stringWithFormat:@"%@",[dict objectForKey:@"msg"]];
+        
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            
+            
+            
+        }
+        
+        if (msg.length>0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            [alert show];
+        }
+        
+    }];
+    
+    
+    
 }
 
 

@@ -9,6 +9,9 @@
 #import "My.h"
 #import "UIViewController+Custome.h"
 #import "MyData.h"
+#import "UIImageView+WebCache.h"
+#import "MyTeamController.h"
+
 
 @interface My ()
 
@@ -107,7 +110,8 @@
 
 -(void)view2Click
 {
-    
+    MyTeamController *c1 = [[MyTeamController alloc] initWithNibName:@"MyTeamController" bundle:nil];
+    [self.navigationController pushViewController:c1 animated:YES];
 }
 
 -(void)view3Click
