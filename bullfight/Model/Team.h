@@ -90,4 +90,19 @@
  */
 @property (nonatomic, strong) NSNumber *createdDate;
 
+/**
+ *  投篮命中率
+ */
+@property (nonatomic, strong) NSNumber *goalPercent;
+
+/**
+ *  罚球命中率
+ */
+@property (nonatomic, strong) NSNumber *freeGoalPercent;
+
+/**
+ *  三分命中率
+ */
+@property (nonatomic, strong) NSNumber *threeGoalPercent;
+
 @end

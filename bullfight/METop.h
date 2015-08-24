@@ -18,8 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *txtNo2;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
 
-@property (weak, nonatomic) MEController *parent;
-
 @property (weak, nonatomic) MatchFight *matchFight;
+@property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
+
 
 @end

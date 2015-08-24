@@ -14,8 +14,8 @@
     // Initialization code
     
     
-    [GlobalUtil setMaskImageQuick:self.img1 withMask:@"shared_avatar_mask_small.png" point:CGPointMake(55.0f, 55.0f)];
-    [GlobalUtil setMaskImageQuick:self.img2 withMask:@"shared_avatar_mask_small.png" point:CGPointMake(55.0f, 55.0f)];
+    [GlobalUtil setMaskImageQuick:self.img1 withMask:@"shared_avatar_mask_large.png" point:CGPointMake(65.0f, 65.0f)];
+    [GlobalUtil setMaskImageQuick:self.img2 withMask:@"shared_avatar_mask_large.png" point:CGPointMake(65.0f, 65.0f)];
     
     
 }

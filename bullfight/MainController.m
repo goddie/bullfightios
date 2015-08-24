@@ -34,7 +34,7 @@
     UINavigationController* nav1 = [[UINavigationController alloc] initWithRootViewController:c1];
     nav1.tabBarItem.title=@"比赛";
     nav1.tabBarItem.image=[UIImage imageNamed:@"tab_icon_match_active.png"];
-    nav1.tabBarItem.badgeValue=@"99";
+    //nav1.tabBarItem.badgeValue=@"99";
     
     
 //    GateController *c2=[[GateController alloc] initWithNibName:@"GateController" bundle:nil];

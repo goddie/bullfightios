@@ -46,19 +46,22 @@ static AppDelegate *appDelegate = nil;
     mainController=[[MainController alloc] initWithNibName:@"MainController" bundle:nil];
     
     
-    if ([LoginUtil getLocalUUID]==NULL) {
-        
-        RegOne *c1  = [[RegOne alloc] initWithNibName:@"RegOne" bundle:nil];
-        
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c1];
-        
-        //设置控制器为Window的根控制器
-        self.window.rootViewController=nav;
-    }else
-    {
-        //设置控制器为Window的根控制器
-        self.window.rootViewController=mainController;
-    }
+//    if ([LoginUtil getLocalUUID]==NULL) {
+//        
+//        RegOne *c1  = [[RegOne alloc] initWithNibName:@"RegOne" bundle:nil];
+//        
+//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c1];
+//        
+//        //设置控制器为Window的根控制器
+//        self.window.rootViewController=nav;
+//    }else
+//    {
+//        //设置控制器为Window的根控制器
+//        self.window.rootViewController=mainController;
+//    }
+    
+    
+    self.window.rootViewController=mainController;
     
     //2.设置Window为主窗口并显示出来
     [self.window makeKeyAndVisible];
@@ -111,12 +114,15 @@ static AppDelegate *appDelegate = nil;
 
 -(void)changeRoot
 {
+    [self.window.rootViewController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     
-    [self.window addSubview:mainController.view];
-    
-    [self.window.rootViewController.view removeFromSuperview];
-    
-    self.window.rootViewController = mainController;
+//    [self.window addSubview:mainController.view];
+//    
+//    [self.window.rootViewController.view removeFromSuperview];
+//    
+//    self.window.rootViewController = mainController;
 }
 
 
@@ -124,6 +130,24 @@ static AppDelegate *appDelegate = nil;
     
     return appDelegate;
     
+}
+
+-(void)loginPage
+{
+    NSString *uuid = [LoginUtil getLocalUUID];
+    
+    if (!uuid) {
+        
+        RegOne *c1 = [[RegOne alloc] initWithNibName:@"RegOne" bundle:nil];
+        
+        UINavigationController *nav  = [[UINavigationController alloc] initWithRootViewController:c1];
+        
+        [appDelegate.window.rootViewController presentViewController:nav animated:YES completion:^{
+            
+        }];
+        
+    }
+
 }
 
 @end

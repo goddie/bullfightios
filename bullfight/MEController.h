@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MatchFight.h"
+#import "TIController.h"
 
-@interface MEController : UITableViewController
+@interface MEController : TIController
 
--(void)openTeam1;
 
--(void)switchView:(id)sender;
-
-@property (nonatomic, strong) MatchFight *matchFight;
 
 @end

@@ -48,4 +48,5 @@
 @property (nonatomic, strong) NSString *city;
 @property (nonatomic, strong) NSNumber *block;
 @property (nonatomic, strong) NSNumber *steal;
+@property (nonatomic, strong) NSNumber *age;
 @end

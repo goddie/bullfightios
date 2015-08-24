@@ -15,6 +15,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *img3;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
 
-@property (weak, nonatomic) MIController *parent;
+
+
+@property (weak, nonatomic) MatchFight *matchFight;
+
+@property (nonatomic, strong) Team *team;
+
+@property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
+
+
 
 @end

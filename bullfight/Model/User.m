@@ -40,7 +40,8 @@
              @"city":@"city",
              @"block":@"block",
              @"steal":@"steal",
-             @"avatar":@"avatar"
+             @"avatar":@"avatar",
+             @"age":@"age"
              };
 }
 

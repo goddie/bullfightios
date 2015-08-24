@@ -7,8 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchCreate">
             <connections>
                 <outlet property="btnClose" destination="4OV-yr-jo0" id="HS6-L8-95O"/>
-                <outlet property="btnFree" destination="ABV-dV-gkr" id="8LO-ir-YZQ"/>
-                <outlet property="btnTeam" destination="mcB-pM-G9C" id="EME-9r-0o3"/>
+                <outlet property="btnFree" destination="mcB-pM-G9C" id="vVy-ho-n0q"/>
+                <outlet property="btnTeam" destination="ABV-dV-gkr" id="sNq-XD-Fw5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,7 +27,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="btnFreeClick:" destination="-1" eventType="touchUpInside" id="m84-ru-qFu"/>
+                        <action selector="btnTeamClick:" destination="-1" eventType="touchUpInside" id="2uX-Xb-Qft"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcB-pM-G9C">
@@ -40,7 +40,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="btnTeamClick:" destination="-1" eventType="touchUpInside" id="cnu-7Q-aKB"/>
+                        <action selector="btnFreeClick:" destination="-1" eventType="touchUpInside" id="BUf-av-LfQ"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_match_divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="fZc-j4-miX">

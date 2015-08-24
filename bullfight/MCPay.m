@@ -11,6 +11,8 @@
 #import "MCPayTotalCell.h"
 #import "MCPayCouponCell.h"
 #import "UIViewController+Custome.h"
+#import "UIImageView+WebCache.h"
+#import "UIViewController+Custome.h"
 
 @interface MCPay ()
 
@@ -24,9 +26,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self globalConfig];
+    
     dataArr = @[@[@"3vs3比赛场地费用",@"¥20"],@[@"3vs3比赛裁判费用",@"¥10"],@[@"3vs3比赛数据员费用",@"¥30"],@[@"费用总计",@"¥300"]];
     
-    self.view.backgroundColor = [GlobalConst appBgColor];
+ 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,11 +41,11 @@
 
 -(UIView*)getFoot
 {
-    float w = self.view.frame.size.width;
+    float w = [UIScreen mainScreen].bounds.size.width;
     
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 200)];
     
-    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, 10.0f, 120.0f, 30.0f)];
+    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, 20.0f, 120.0f, 30.0f)];
     [btn1 setTitle:@"微信支付" forState:UIControlStateNormal];
     [btn1.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [GlobalUtil set9PathImage:btn1 imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
@@ -49,7 +53,7 @@
     
     [btn1 addTarget:self  action:@selector(btn1Click) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, 50.0f, 120.0f, 30.0f)];
+    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, btn1.frame.origin.y+btn1.frame.size.height+20, 120.0f, 30.0f)];
     [btn2 setTitle:@"支付宝支付" forState:UIControlStateNormal];
     [btn2.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [GlobalUtil set9PathImage:btn2 imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
@@ -74,9 +78,15 @@
     [alert show];
 }
 
+
+
+
+
+
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"clickButtonAtIndex:%ld",buttonIndex);
+    NSLog(@"clickButtonAtIndex:%ld",(long)buttonIndex);
     
     if (buttonIndex==0) {
         return;
@@ -88,28 +98,54 @@
     }
     
     
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[self.matchFight.start doubleValue]];
+    
+    NSString *start =  [formatter stringFromDate:startDate];
+    
+    
+    NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:[self.matchFight.end doubleValue]];
+    NSString *end = [formatter stringFromDate:endDate];
+    
+    NSLog(@"%@",[self.matchFight description]);
+    
     NSDictionary *parameters = @{
                                  @"uid":uuid,
-                                 @"mfid":self.matchFight.uuid
+                                 @"tid":[self.matchFight.host objectForKey:@"hostid"],
+                                 @"aid":[self.matchFight.arena objectForKey:@"aid"],
+                                 @"matchType":[NSString stringWithFormat:@"%@",self.matchFight.matchType],
+                                 @"status":@"0",
+                                 @"startStr":start,
+                                 @"endStr":end,
+                                 @"guestScore":@"0",
+                                 @"hostScore":@"0",
+                                 @"teamSize":[NSString stringWithFormat:@"%@",self.matchFight.teamSize],
+                                 @"judge":[NSString stringWithFormat:@"%@",self.matchFight.judge],
+                                 @"dataRecord":[NSString stringWithFormat:@"%@",self.matchFight.dataRecord],
+                                 @"isPay":@"1",
+                                 @"fee":@"800"
                                  };
     
-    MCPay *c1 = [[MCPay alloc] initWithNibName:@"MCPay" bundle:nil];
-    [self.navigationController pushViewController:c1 animated:YES];
+//    MCPay *c1 = [[MCPay alloc] initWithNibName:@"MCPay" bundle:nil];
+//    [self.navigationController pushViewController:c1 animated:YES];
     
-    [self post:@"matchfight/json/accept" params:parameters success:^(id responseObj) {
+    [self post:@"matchfight/json/add" params:parameters success:^(id responseObj) {
         
         NSDictionary *dict = (NSDictionary *)responseObj;
         
-        NSString *msg = [NSString stringWithFormat:@"%@",[dict objectForKey:@"msg"]];
+ 
         
         if ([[dict objectForKey:@"code"] intValue]==1) {
             
-            
+            [self.navigationController popToRootViewControllerAnimated:YES];
             
         }
         
-        if (msg.length>0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        if ([dict objectForKey:@"msg"]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[dict objectForKey:@"msg"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             
             [alert show];
         }

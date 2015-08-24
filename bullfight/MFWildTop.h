@@ -23,4 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn1;
 - (IBAction)btn1Click:(id)sender;
 
+@property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
+
 @end

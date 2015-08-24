@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Team.h"
-
+#import "MatchFight.h"
+#import "User.h"
 
 @protocol TeamTopDelegate<NSObject>
+
 
 @required
 
@@ -22,9 +24,23 @@
 
 
 @interface TIController : UITableViewController<TeamTopDelegate>
+{
+    NSArray *cellArr;
+    NSInteger tabIndex;
+    NSString *cellIdentifier;
+    NSArray *dataArr;
+    NSArray *cellHeightArr;
+    NSInteger topHeight;
+    
+    NSMutableArray *dataArr1;
+    NSMutableArray *dataArr2;
+    NSMutableArray *dataArr3;
+    NSMutableArray *dataArr4;
+    UIView *sectionHeader;
+}
 
 @property (nonatomic, strong) NSString *uuid;
 @property (nonatomic, strong) Team *team;
-
-
+@property (nonatomic, strong) MatchFight *matchFight;
+@property (nonatomic, strong) User *user;
 @end

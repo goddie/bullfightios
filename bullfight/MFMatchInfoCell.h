@@ -12,5 +12,6 @@
 @interface MFMatchInfoCell : BaseTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *txt1;
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
+ 
 
 @end

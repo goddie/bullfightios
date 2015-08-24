@@ -20,6 +20,8 @@
     [GlobalUtil setMaskImageQuick:self.img1 withMask:@"round_mask.png" point:CGPointMake(40.0f, 40.0f)];
     [GlobalUtil setMaskImageQuick:self.img2 withMask:@"round_mask.png" point:CGPointMake(40.0f, 40.0f)];
     [GlobalUtil setMaskImageQuick:self.img3 withMask:@"round_mask.png" point:CGPointMake(40.0f, 40.0f)];
+    
+    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,8 +31,7 @@
 
 
 -(void)switchView:(id)sender{
-    
-    [self.parent switchView:sender];
-    
+    [self.topDelegate changeTab:self.seg.selectedSegmentIndex];
 }
+
 @end

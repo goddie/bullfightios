@@ -47,6 +47,7 @@
  * 5 5on5
  */
 @property (nonatomic, strong) NSNumber *teamSize;
+
 @property (nonatomic, strong) NSDictionary *arena;
 
 /**
@@ -77,6 +78,11 @@
  * 是否支付
  */
 @property (nonatomic, strong) NSNumber *isPay;
+
+/**
+ *  比赛费用
+ */
+@property (nonatomic, strong) NSNumber *fee;
 
 
 @end

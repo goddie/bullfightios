@@ -1,7 +1,7 @@
  //
 //  MyTeamController.m
 //  bullfight
-//
+//  我的队伍
 //  Created by goddie on 15/8/20.
 //  Copyright (c) 2015年 santao. All rights reserved.
 //

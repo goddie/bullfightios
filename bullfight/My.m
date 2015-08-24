@@ -11,6 +11,9 @@
 #import "MyData.h"
 #import "UIImageView+WebCache.h"
 #import "MyTeamController.h"
+#import "UserInfo.h"
+#import "RegOne.h"
+#import "AppDelegate.h"
 
 
 @interface My ()
@@ -38,11 +41,60 @@
     
     
     self.title = @"我";
+    
+    [self addRightNavButton];
 }
 
 
+-(void)addRightNavButton
+{
+    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [refreshButton setFrame:CGRectMake(0,0,26,30)];
+    
+    [refreshButton setTitle:@"退出" forState:UIControlStateNormal];
+    [refreshButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+    refreshButton.userInteractionEnabled = YES;
+    //[refreshButton setImage:[UIImage imageNamed:@"nav_filter.png"] forState:UIControlStateNormal];
+    
+    // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
+    
+    UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    
+    self.navigationItem.rightBarButtonItem = refreshBarButton;
+    [refreshButton addTarget:self action:@selector(rightPush) forControlEvents:UIControlEventTouchUpInside];
+
+
+}
+
+
+
+-(void)rightPush
+{
+    [LoginUtil clearLocal];
+    
+    [[AppDelegate delegate] loginPage];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
+    NSString *uuid = [LoginUtil getLocalUUID];
+    
+    if (!uuid) {
+        
+        RegOne *c1 = [[RegOne alloc] initWithNibName:@"RegOne" bundle:nil];
+        
+        UINavigationController *nav  = [[UINavigationController alloc] initWithRootViewController:c1];
+        
+        [self presentViewController:nav animated:YES completion:^{
+            
+        }];
+        
+        
+        
+    }
+    
+    
+    
     [self getData];
 }
 
@@ -120,7 +172,9 @@
 }
 
 - (IBAction)btn1Click:(id)sender {
-    
+    UserInfo *c1 = [[UserInfo alloc] initWithNibName:@"UserInfo" bundle:nil];
+    c1.user = entity;
+    [self.navigationController pushViewController:c1 animated:YES];
 }
 
 - (IBAction)btn2Click:(id)sender {

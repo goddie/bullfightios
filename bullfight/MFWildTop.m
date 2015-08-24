@@ -46,16 +46,8 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)openTeam1
-{
-    [self.parent openTeam1];
-}
-
-
 -(void)switchView:(id)sender{
-    
-    [self.parent switchView:sender];
-    
+    [self.topDelegate changeTab:self.seg.selectedSegmentIndex];
 }
 
 

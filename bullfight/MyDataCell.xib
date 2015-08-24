@@ -43,9 +43,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="场均得分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJl-uN-c4R">
-                        <rect key="frame" x="8" y="13" width="55" height="21"/>
+                        <rect key="frame" x="8" y="13" width="80" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="55" id="60N-Tb-ip8"/>
+                            <constraint firstAttribute="width" constant="80" id="60N-Tb-ip8"/>
                             <constraint firstAttribute="height" constant="21" id="ruT-TL-bdN"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -53,9 +53,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="场均得分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cp-Mv-IqW">
-                        <rect key="frame" x="172" y="13" width="55" height="21"/>
+                        <rect key="frame" x="172" y="13" width="80" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="55" id="7D7-v2-eMW"/>
+                            <constraint firstAttribute="width" constant="80" id="7D7-v2-eMW"/>
                             <constraint firstAttribute="height" constant="21" id="x9d-6F-iUj"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -63,17 +63,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSd-LM-NhT">
-                        <rect key="frame" x="71" y="13" width="77" height="34"/>
+                        <rect key="frame" x="96" y="13" width="60" height="34"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="3Wd-1W-cYL"/>
-                            <constraint firstAttribute="width" constant="77" id="j0d-Pg-dlr"/>
+                            <constraint firstAttribute="width" constant="60" id="j0d-Pg-dlr"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ZurichBT-LightExtraCondensed" family="Zurich" pointSize="30"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxI-Z4-Pqn">
-                        <rect key="frame" x="235" y="12" width="77" height="34"/>
+                        <rect key="frame" x="260" y="12" width="77" height="34"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="77" id="20K-hG-AAq"/>
                             <constraint firstAttribute="height" constant="34" id="cZ3-Ha-fDd"/>

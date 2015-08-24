@@ -142,7 +142,7 @@
                 <constraint firstItem="GMD-Nv-Iby" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="53" id="xlm-OR-Him"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="510" y="300"/>
+            <point key="canvasLocation" x="106" y="222"/>
         </view>
     </objects>
     <resources>

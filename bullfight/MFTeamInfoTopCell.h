@@ -15,4 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *txtFight2;
 @property (weak, nonatomic) IBOutlet UILabel *txtWin2;
 @property (weak, nonatomic) IBOutlet UILabel *txtName;
+@property (weak, nonatomic) IBOutlet UILabel *txta;
+@property (weak, nonatomic) IBOutlet UILabel *txtb;
+
+
+
 @end

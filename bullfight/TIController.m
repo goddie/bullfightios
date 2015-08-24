@@ -16,6 +16,7 @@
 #import "UIImageView+WebCache.h"
 #import "MatchFight.h"
 #import "User.h"
+#import "TeamDataCell.h"
 
 @interface TIController ()
 
@@ -24,16 +25,6 @@
 @implementation TIController
 
 
-NSArray *cellArr;
-NSInteger tabIndex = 0;
-NSString *cellIdentifier;
-NSArray *dataArr;
-NSArray *cellHeightArr;
-NSInteger topHeight;
-
-NSMutableArray *dataArr1;
-NSMutableArray *dataArr2;
-NSMutableArray *dataArr3;
 
 
 - (void)viewDidLoad {
@@ -46,6 +37,8 @@ NSMutableArray *dataArr3;
     [self initData];
     [self getTop];
     [self getData];
+    
+    tabIndex = 0;
 }
 
 
@@ -71,33 +64,47 @@ NSMutableArray *dataArr3;
                 
                 ];
     
-    cellIdentifier = [cellArr objectAtIndex:tabIndex];
+    cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
 
     dataArr1 = [NSMutableArray arrayWithCapacity:10];
     dataArr2 = [NSMutableArray arrayWithCapacity:10];
     dataArr3 = [NSMutableArray arrayWithCapacity:10];
-
+    dataArr4 = [NSMutableArray arrayWithCapacity:10];
 }
+
+
 
 -(UIView*)getTop
 {
+    if(sectionHeader)
+    {
+        return sectionHeader;
+    }
+    
     TITop *top = [[TITop alloc] initWithNibName:@"TITop" bundle:nil];
+    top.topDelegate = self;
     top.team = self.team;
     [self addChildViewController:top];
-    return top.view;
+    sectionHeader = top.view;
+    
+    return sectionHeader;
 }
 
 
 -(void)changeTab:(NSInteger)idx
 {
+    if(tabIndex==idx)
+    {
+        return;
+    }
+    
     tabIndex = idx;
     cellIdentifier = [cellArr objectAtIndex:tabIndex];
-    [self.tableView reloadData];
-    [self getTabData];
+    [self getData];
 }
 
 
--(void)getTabData
+-(void)getData
 {
     //战绩
     if (tabIndex==0) {
@@ -132,17 +139,17 @@ NSMutableArray *dataArr3;
     //阵容
     if (tabIndex==1) {
         
-        if (self.uuid.length==0) {
+        if (!self.team) {
             return;
         }
         
         NSDictionary *parameters = @{
-                                     @"tid":self.uuid
+                                     @"tid":self.team.uuid
                                      };
         
         [dataArr2 removeAllObjects];
         
-        [self post:@"matchdatateam/json/teammatch" params:parameters success:^(id responseObj) {
+        [self post:@"teamuser/json/memberlist" params:parameters success:^(id responseObj) {
             
             NSDictionary *dict = (NSDictionary *)responseObj;
             
@@ -168,8 +175,9 @@ NSMutableArray *dataArr3;
     //数据
     if (tabIndex==2) {
         
+       
         
-        
+               
         
     }
     
@@ -180,34 +188,34 @@ NSMutableArray *dataArr3;
 }
 
 
--(void)getData
-{
-
-    if(!self.uuid)
-    {
-        return;
-    }
-    
-    NSDictionary *parameters = @{
-                                 @"tid":self.uuid
-                                 };
-    
-    [self post:@"team/json/getteam" params:parameters success:^(id responseObj) {
-        
-        NSDictionary *dict = (NSDictionary *)responseObj;
-        
-        if ([[dict objectForKey:@"code"] intValue]==1) {
-            
-            NSDictionary *data = [dict objectForKey:@"data"];
-            
-            _team = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:data error:nil];
-            
-        }
-        
-    }];
-
-    
-}
+//-(void)getData
+//{
+//
+//    if(!self.uuid)
+//    {
+//        return;
+//    }
+//    
+//    NSDictionary *parameters = @{
+//                                 @"tid":self.uuid
+//                                 };
+//    
+//    [self post:@"team/json/getteam" params:parameters success:^(id responseObj) {
+//        
+//        NSDictionary *dict = (NSDictionary *)responseObj;
+//        
+//        if ([[dict objectForKey:@"code"] intValue]==1) {
+//            
+//            NSDictionary *data = [dict objectForKey:@"data"];
+//            
+//            _team = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:data error:nil];
+//            
+//        }
+//        
+//    }];
+//
+//    
+//}
 
 
 //-(void)bindTeam
@@ -243,7 +251,7 @@ NSMutableArray *dataArr3;
     }
     
     if (tabIndex==3) {
-        return 0;
+        return dataArr4.count;
     }
     
     
@@ -264,9 +272,34 @@ NSMutableArray *dataArr3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
+    cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
     
     if (tabIndex==0) {
+        
+        
+        if(indexPath.row==0)
+        {
+            cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:1];
+            
+            TeamDataCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil) {
+                NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
+                cell = [nibArray objectAtIndex:0];
+            }
+            
+            cell.txt1.text = [GlobalUtil toString:self.team.playCount];
+            cell.txt2.text = [GlobalUtil toString:self.team.win];
+            cell.txt3.text = [GlobalUtil toString:self.team.lose];
+            cell.txt4.text = [GlobalUtil toString:self.team.draw];
+            
+            
+            return cell;
+        }
+        
+        
+        
+        MatchFight *entity = (MatchFight*)[dataArr1 objectAtIndex:indexPath.row];
         
         MatchFinishCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
@@ -276,12 +309,46 @@ NSMutableArray *dataArr3;
         
         //cell.txt1.text = [[dataArr objectAtIndex:tabIndex] objectAtIndex:indexPath.row];
         
+        cell.txtTeam1.text = [entity.host objectForKey:@"name"];
+        cell.txtTeam2.text = [entity.guest objectForKey:@"name"];
+        cell.txtNum1.text = [GlobalUtil toString:entity.teamSize];
+        cell.txtNum2.text = [GlobalUtil toString:entity.teamSize];
+        
+        cell.txtPlace.text = [entity.arena objectForKey:@"name"];
+        cell.txtScore.text = [NSString stringWithFormat:@"%@:%@",[GlobalUtil toString:entity.hostScore],[GlobalUtil toString:entity.guestScore]];
+        
+        if([entity.host objectForKey:@"avatar"])
+        {
+            NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
+            NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
+            [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
+        
+        
+        if([entity.guest objectForKey:@"avatar"])
+        {
+            NSString *a2 = [@"" stringByAppendingString:[entity.guest objectForKey:@"avatar"]];
+            NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
+            [cell.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
+
+
+        if (entity.hostScore>entity.guestScore) {
+            [cell setCorner:1];
+        }else
+        {
+            [cell setCorner:2];
+        }
+        
+
         
         return cell;
         
     }
     
     if (tabIndex==1) {
+        
+        User *entity = (User*)[dataArr2 objectAtIndex:indexPath.row];
         
         TIPositionCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
@@ -291,6 +358,17 @@ NSMutableArray *dataArr3;
         
        // cell.txtName.text = [[dataArr objectAtIndex:tabIndex] objectAtIndex:indexPath.row];
         
+        cell.txtName.text = entity.nickname;
+        cell.txtPos.text = entity.position;
+        cell.txtWeight.text = [NSString stringWithFormat:@"身高:%@cm",[GlobalUtil toString:entity.weight]];
+        cell.txtHeight.text = [NSString stringWithFormat:@"体重:%@kg",[GlobalUtil toString:entity.height]];
+        
+        if(entity.avatar)
+        {
+            NSString *a2 = [@"" stringByAppendingString:entity.avatar];
+            NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
+            [cell.img1 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
         
         return cell;
         
@@ -346,6 +424,7 @@ NSMutableArray *dataArr3;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+
     return topHeight;
 }
 

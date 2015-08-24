@@ -1,13 +1,17 @@
 //
 //  MatchCreate.m
 //  bullfight
-//
+//  创建比赛
 //  Created by goddie on 15/8/9.
 //  Copyright (c) 2015年 santao. All rights reserved.
 //
 
 #import "MatchCreate.h"
 #import "MCTeam.h"
+#import "MatchFight.h"
+#import "UIImageView+WebCache.h"
+#import "UIViewController+Custome.h"
+#import "MCPlace.h"
 
 @interface MatchCreate ()
 
@@ -17,8 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [GlobalConst appBgColor];
+ 
+    
+    [self globalConfig];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,14 +46,28 @@
 
 - (IBAction)btnFreeClick:(id)sender {
     
-    MCTeam *c1 = [[MCTeam alloc] initWithNibName:@"MCTeam" bundle:nil];
+    MatchFight *matchFight = [MatchFight new];
+    matchFight.matchType = [NSNumber numberWithInt:2];
+    
+    
+    MCPlace *c1 = [[MCPlace alloc] initWithNibName:@"MCPlace" bundle:nil];
+    c1.matchFight = matchFight;
     [self.navigationController pushViewController:c1 animated:YES];
+    
+//    MCTeam *c1 = [[MCTeam alloc] initWithNibName:@"MCTeam" bundle:nil];
+//    [self.navigationController pushViewController:c1 animated:YES];
     
 }
 
 - (IBAction)btnTeamClick:(id)sender {
     
+    MatchFight *matchFight = [MatchFight new];
+    matchFight.matchType = [NSNumber numberWithInt:1];
     
+    
+    MCTeam *c1 = [[MCTeam alloc] initWithNibName:@"MCTeam" bundle:nil];
+    c1.matchFight = matchFight;
+    [self.navigationController pushViewController:c1 animated:YES];
     
 }
 

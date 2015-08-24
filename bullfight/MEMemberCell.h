@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *txt32;
 @property (weak, nonatomic) IBOutlet UILabel *txt41;
 @property (weak, nonatomic) IBOutlet UILabel *txt42;
+
+
+
 @property (weak, nonatomic) IBOutlet UILabel *txt13;
 
 @property (weak, nonatomic) IBOutlet UILabel *txt14;
@@ -36,6 +39,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *txt44;
 
+@property (weak, nonatomic) IBOutlet UILabel *txt51;
+@property (weak, nonatomic) IBOutlet UILabel *txt52;
+@property (weak, nonatomic) IBOutlet UILabel *txt53;
+@property (weak, nonatomic) IBOutlet UILabel *txt54;
 
 @property (weak, nonatomic) IBOutlet UILabel *txtPos;
 

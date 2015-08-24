@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MatchFight.h"
+#import "UIViewController+Custome.h"
+#import "UIImageView+WebCache.h"
 
 @interface MCPay : UITableViewController<UIAlertViewDelegate>
 

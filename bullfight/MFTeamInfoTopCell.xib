@@ -140,8 +140,10 @@
                 <outlet property="txtName" destination="UtW-Dq-TRS" id="xD9-AT-bhS"/>
                 <outlet property="txtWin1" destination="fEE-9c-xH6" id="nA8-jZ-BeC"/>
                 <outlet property="txtWin2" destination="98K-dk-gp9" id="NaY-ZW-J4J"/>
+                <outlet property="txta" destination="hqb-dm-kPe" id="3qs-qa-8W8"/>
+                <outlet property="txtb" destination="10F-fb-2PL" id="eLm-7o-pL3"/>
             </connections>
-            <point key="canvasLocation" x="575" y="392"/>
+            <point key="canvasLocation" x="418" y="386"/>
         </tableViewCell>
     </objects>
 </document>

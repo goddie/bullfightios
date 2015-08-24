@@ -9,8 +9,19 @@
 /* Begin PBXBuildFile section */
 		C20885C21B777BE00050B042 /* MCTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = C20885C01B777BE00050B042 /* MCTeam.m */; };
 		C20885C31B777BE00050B042 /* MCTeam.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20885C11B777BE00050B042 /* MCTeam.xib */; };
+		C20CB17F1B8A2C10001D96F3 /* MCTeamList.m in Sources */ = {isa = PBXBuildFile; fileRef = C20CB17D1B8A2C10001D96F3 /* MCTeamList.m */; };
+		C20CB1801B8A2C10001D96F3 /* MCTeamList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20CB17E1B8A2C10001D96F3 /* MCTeamList.xib */; };
+		C20CB1841B8A5B8C001D96F3 /* MCPlaceList.m in Sources */ = {isa = PBXBuildFile; fileRef = C20CB1821B8A5B8B001D96F3 /* MCPlaceList.m */; };
+		C20CB1851B8A5B8C001D96F3 /* MCPlaceList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20CB1831B8A5B8C001D96F3 /* MCPlaceList.xib */; };
+		C20CB1891B8A5D5E001D96F3 /* ArenaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C20CB1871B8A5D5E001D96F3 /* ArenaCell.m */; };
+		C20CB18A1B8A5D5E001D96F3 /* ArenaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20CB1881B8A5D5E001D96F3 /* ArenaCell.xib */; };
 		C2573C731B7102BF0079309C /* MatchBeginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2573C711B7102BF0079309C /* MatchBeginCell.m */; };
 		C2573C741B7102BF0079309C /* MatchBeginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2573C721B7102BF0079309C /* MatchBeginCell.xib */; };
+		C263511A1B8865C80061A93E /* MFMatchNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C26351181B8865C80061A93E /* MFMatchNoticeCell.m */; };
+		C263511B1B8865C80061A93E /* MFMatchNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26351191B8865C80061A93E /* MFMatchNoticeCell.xib */; };
+		C263511E1B8897510061A93E /* MatchDataUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C263511D1B8897510061A93E /* MatchDataUser.m */; };
+		C263512C1B88B4EB0061A93E /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C263512A1B88B4EB0061A93E /* UserInfo.m */; };
+		C263512D1B88B4EB0061A93E /* UserInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = C263512B1B88B4EB0061A93E /* UserInfo.xib */; };
 		C28DEE081B7792F2008FB14A /* MCPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = C28DEE061B7792F2008FB14A /* MCPlace.m */; };
 		C28DEE091B7792F2008FB14A /* MCPlace.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28DEE071B7792F2008FB14A /* MCPlace.xib */; };
 		C28DEE0D1B7797D3008FB14A /* MCJudge.m in Sources */ = {isa = PBXBuildFile; fileRef = C28DEE0B1B7797D3008FB14A /* MCJudge.m */; };
@@ -568,11 +579,28 @@
 		C20885BF1B777BE00050B042 /* MCTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTeam.h; sourceTree = "<group>"; };
 		C20885C01B777BE00050B042 /* MCTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTeam.m; sourceTree = "<group>"; };
 		C20885C11B777BE00050B042 /* MCTeam.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTeam.xib; sourceTree = "<group>"; };
+		C20CB17C1B8A2C10001D96F3 /* MCTeamList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTeamList.h; sourceTree = "<group>"; };
+		C20CB17D1B8A2C10001D96F3 /* MCTeamList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTeamList.m; sourceTree = "<group>"; };
+		C20CB17E1B8A2C10001D96F3 /* MCTeamList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTeamList.xib; sourceTree = "<group>"; };
+		C20CB1811B8A5B8B001D96F3 /* MCPlaceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPlaceList.h; sourceTree = "<group>"; };
+		C20CB1821B8A5B8B001D96F3 /* MCPlaceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPlaceList.m; sourceTree = "<group>"; };
+		C20CB1831B8A5B8C001D96F3 /* MCPlaceList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCPlaceList.xib; sourceTree = "<group>"; };
+		C20CB1861B8A5D5E001D96F3 /* ArenaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArenaCell.h; sourceTree = "<group>"; };
+		C20CB1871B8A5D5E001D96F3 /* ArenaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArenaCell.m; sourceTree = "<group>"; };
+		C20CB1881B8A5D5E001D96F3 /* ArenaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArenaCell.xib; sourceTree = "<group>"; };
 		C2573C6D1B7102610079309C /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		C2573C6E1B7102610079309C /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		C2573C701B7102BF0079309C /* MatchBeginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchBeginCell.h; sourceTree = "<group>"; };
 		C2573C711B7102BF0079309C /* MatchBeginCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchBeginCell.m; sourceTree = "<group>"; };
 		C2573C721B7102BF0079309C /* MatchBeginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchBeginCell.xib; sourceTree = "<group>"; };
+		C26351171B8865C80061A93E /* MFMatchNoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFMatchNoticeCell.h; sourceTree = "<group>"; };
+		C26351181B8865C80061A93E /* MFMatchNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFMatchNoticeCell.m; sourceTree = "<group>"; };
+		C26351191B8865C80061A93E /* MFMatchNoticeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFMatchNoticeCell.xib; sourceTree = "<group>"; };
+		C263511C1B8897510061A93E /* MatchDataUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDataUser.h; sourceTree = "<group>"; };
+		C263511D1B8897510061A93E /* MatchDataUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDataUser.m; sourceTree = "<group>"; };
+		C26351291B88B4EB0061A93E /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		C263512A1B88B4EB0061A93E /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		C263512B1B88B4EB0061A93E /* UserInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfo.xib; sourceTree = "<group>"; };
 		C28DEE051B7792F2008FB14A /* MCPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPlace.h; sourceTree = "<group>"; };
 		C28DEE061B7792F2008FB14A /* MCPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPlace.m; sourceTree = "<group>"; };
 		C28DEE071B7792F2008FB14A /* MCPlace.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCPlace.xib; sourceTree = "<group>"; };
@@ -1299,6 +1327,9 @@
 		C2573C751B7102C80079309C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				C26351171B8865C80061A93E /* MFMatchNoticeCell.h */,
+				C26351181B8865C80061A93E /* MFMatchNoticeCell.m */,
+				C26351191B8865C80061A93E /* MFMatchNoticeCell.xib */,
 				C2B2A81A1B83F0AB00F0C122 /* BaseTableViewCell.h */,
 				C2B2A81B1B83F0AB00F0C122 /* BaseTableViewCell.m */,
 				C2573C701B7102BF0079309C /* MatchBeginCell.h */,
@@ -1376,6 +1407,9 @@
 				C293F3B61B863B70007C6FE7 /* TeamFormInfoCell.h */,
 				C293F3B71B863B70007C6FE7 /* TeamFormInfoCell.m */,
 				C293F3B81B863B70007C6FE7 /* TeamFormInfoCell.xib */,
+				C20CB1861B8A5D5E001D96F3 /* ArenaCell.h */,
+				C20CB1871B8A5D5E001D96F3 /* ArenaCell.m */,
+				C20CB1881B8A5D5E001D96F3 /* ArenaCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1401,6 +1435,8 @@
 				C291B9451B84C4CE00DA83F5 /* Team.m */,
 				C2A9DDED1B8564E5003642D2 /* Message.h */,
 				C2A9DDEE1B8564E5003642D2 /* Message.m */,
+				C263511C1B8897510061A93E /* MatchDataUser.h */,
+				C263511D1B8897510061A93E /* MatchDataUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1787,6 +1823,18 @@
 				C2D8565F1B70F59A00F645B1 /* MainController.h */,
 				C2D856601B70F59A00F645B1 /* MainController.m */,
 				C2D856611B70F59A00F645B1 /* MainController.xib */,
+				C28F07EC1B85A35600FC3FB7 /* ManaTIController.h */,
+				C28F07ED1B85A35600FC3FB7 /* ManaTIController.m */,
+				C28F07EE1B85A35600FC3FB7 /* ManaTIController.xib */,
+				C28F08051B85B6D700FC3FB7 /* ManaTIJoinController.h */,
+				C28F08061B85B6D700FC3FB7 /* ManaTIJoinController.m */,
+				C28F08071B85B6D700FC3FB7 /* ManaTIJoinController.xib */,
+				C28F080A1B85B77900FC3FB7 /* ManaTIJoinTop.h */,
+				C28F080B1B85B77900FC3FB7 /* ManaTIJoinTop.m */,
+				C28F080C1B85B77900FC3FB7 /* ManaTIJoinTop.xib */,
+				C28F07F61B85B2A700FC3FB7 /* ManaTITop.h */,
+				C28F07F71B85B2A700FC3FB7 /* ManaTITop.m */,
+				C28F07F81B85B2A700FC3FB7 /* ManaTITop.xib */,
 				C291F4C81B76F82A000A1999 /* MatchCreate.h */,
 				C291F4C91B76F82A000A1999 /* MatchCreate.m */,
 				C291F4CA1B76F82A000A1999 /* MatchCreate.xib */,
@@ -1802,9 +1850,15 @@
 				C28DEE051B7792F2008FB14A /* MCPlace.h */,
 				C28DEE061B7792F2008FB14A /* MCPlace.m */,
 				C28DEE071B7792F2008FB14A /* MCPlace.xib */,
+				C20CB1811B8A5B8B001D96F3 /* MCPlaceList.h */,
+				C20CB1821B8A5B8B001D96F3 /* MCPlaceList.m */,
+				C20CB1831B8A5B8C001D96F3 /* MCPlaceList.xib */,
 				C20885BF1B777BE00050B042 /* MCTeam.h */,
 				C20885C01B777BE00050B042 /* MCTeam.m */,
 				C20885C11B777BE00050B042 /* MCTeam.xib */,
+				C20CB17C1B8A2C10001D96F3 /* MCTeamList.h */,
+				C20CB17D1B8A2C10001D96F3 /* MCTeamList.m */,
+				C20CB17E1B8A2C10001D96F3 /* MCTeamList.xib */,
 				C28DEE461B77C281008FB14A /* MEController.h */,
 				C28DEE471B77C281008FB14A /* MEController.m */,
 				C28DEE481B77C281008FB14A /* MEController.xib */,
@@ -1853,36 +1907,27 @@
 				C2B2A8011B837DED00F0C122 /* RegTwo.h */,
 				C2B2A8021B837DED00F0C122 /* RegTwo.m */,
 				C2B2A8031B837DED00F0C122 /* RegTwo.xib */,
-				C28DEE281B77B33A008FB14A /* TIController.h */,
-				C28DEE291B77B33A008FB14A /* TIController.m */,
-				C28DEE2A1B77B33A008FB14A /* TIController.xib */,
-				C28DEE231B77B049008FB14A /* TITop.h */,
-				C28DEE241B77B049008FB14A /* TITop.m */,
-				C28DEE251B77B049008FB14A /* TITop.xib */,
-				C28F07EC1B85A35600FC3FB7 /* ManaTIController.h */,
-				C28F07ED1B85A35600FC3FB7 /* ManaTIController.m */,
-				C28F07EE1B85A35600FC3FB7 /* ManaTIController.xib */,
-				C28F07F61B85B2A700FC3FB7 /* ManaTITop.h */,
-				C28F07F71B85B2A700FC3FB7 /* ManaTITop.m */,
-				C28F07F81B85B2A700FC3FB7 /* ManaTITop.xib */,
-				C28F080A1B85B77900FC3FB7 /* ManaTIJoinTop.h */,
-				C28F080B1B85B77900FC3FB7 /* ManaTIJoinTop.m */,
-				C28F080C1B85B77900FC3FB7 /* ManaTIJoinTop.xib */,
-				C28F08051B85B6D700FC3FB7 /* ManaTIJoinController.h */,
-				C28F08061B85B6D700FC3FB7 /* ManaTIJoinController.m */,
-				C28F08071B85B6D700FC3FB7 /* ManaTIJoinController.xib */,
-				C28F080F1B85DACB00FC3FB7 /* TeamMemberInfo.h */,
-				C28F08101B85DACB00FC3FB7 /* TeamMemberInfo.m */,
-				C28F08111B85DACB00FC3FB7 /* TeamMemberInfo.xib */,
+				C293F3AC1B863955007C6FE7 /* TeamBaseInfo.h */,
+				C293F3AD1B863955007C6FE7 /* TeamBaseInfo.m */,
+				C293F3AE1B863955007C6FE7 /* TeamBaseInfo.xib */,
 				C293F39D1B860611007C6FE7 /* TeamMemberAdd.h */,
 				C293F39E1B860611007C6FE7 /* TeamMemberAdd.m */,
 				C293F39F1B860611007C6FE7 /* TeamMemberAdd.xib */,
 				C293F3A71B86063D007C6FE7 /* TeamMemberAdmin.h */,
 				C293F3A81B86063D007C6FE7 /* TeamMemberAdmin.m */,
 				C293F3A91B86063D007C6FE7 /* TeamMemberAdmin.xib */,
-				C293F3AC1B863955007C6FE7 /* TeamBaseInfo.h */,
-				C293F3AD1B863955007C6FE7 /* TeamBaseInfo.m */,
-				C293F3AE1B863955007C6FE7 /* TeamBaseInfo.xib */,
+				C28F080F1B85DACB00FC3FB7 /* TeamMemberInfo.h */,
+				C28F08101B85DACB00FC3FB7 /* TeamMemberInfo.m */,
+				C28F08111B85DACB00FC3FB7 /* TeamMemberInfo.xib */,
+				C28DEE281B77B33A008FB14A /* TIController.h */,
+				C28DEE291B77B33A008FB14A /* TIController.m */,
+				C28DEE2A1B77B33A008FB14A /* TIController.xib */,
+				C28DEE231B77B049008FB14A /* TITop.h */,
+				C28DEE241B77B049008FB14A /* TITop.m */,
+				C28DEE251B77B049008FB14A /* TITop.xib */,
+				C26351291B88B4EB0061A93E /* UserInfo.h */,
+				C263512A1B88B4EB0061A93E /* UserInfo.m */,
+				C263512B1B88B4EB0061A93E /* UserInfo.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2397,6 +2442,7 @@
 				C2D858A41B70F71C00F645B1 /* shared_input_bg@2x.png in Resources */,
 				C2B2A8211B83FB3200F0C122 /* Login.xib in Resources */,
 				C28F07F01B85A35600FC3FB7 /* ManaTIController.xib in Resources */,
+				C20CB1801B8A2C10001D96F3 /* MCTeamList.xib in Resources */,
 				C293F3BA1B863B70007C6FE7 /* TeamFormInfoCell.xib in Resources */,
 				C2D858031B70F71C00F645B1 /* nav_btn_cancel@3x.png in Resources */,
 				C2D858CB1B70F71C00F645B1 /* shared_switch_handle@2x.png in Resources */,
@@ -2445,6 +2491,7 @@
 				C293F3B01B863955007C6FE7 /* TeamBaseInfo.xib in Resources */,
 				C2D857CD1B70F71C00F645B1 /* activities_icon_like_active.png in Resources */,
 				C2D858821B70F71C00F645B1 /* shared_icon_arrow_right_small.png in Resources */,
+				C263512D1B88B4EB0061A93E /* UserInfo.xib in Resources */,
 				C291F4BB1B765210000A1999 /* MFMemberCell.xib in Resources */,
 				C2D857E71B70F71C00F645B1 /* custom_item_bg_selected@3x.png in Resources */,
 				C2D859091B70FA2A00F645B1 /* NotReady.xib in Resources */,
@@ -2484,6 +2531,7 @@
 				C28DEE091B7792F2008FB14A /* MCPlace.xib in Resources */,
 				C28DEE591B77D6BA008FB14A /* MatchWildCell.xib in Resources */,
 				C2D858431B70F71C00F645B1 /* profile_icon_award.png in Resources */,
+				C20CB1851B8A5B8C001D96F3 /* MCPlaceList.xib in Resources */,
 				C2D8589B1B70F71C00F645B1 /* shared_icon_notification@2x.png in Resources */,
 				C2D858E01B70F71C00F645B1 /* signup_level_3@2x.png in Resources */,
 				C2D858381B70F71C00F645B1 /* news_share_menu_weixin@2x.png in Resources */,
@@ -2528,11 +2576,13 @@
 				C291B9581B84D8C600DA83F5 /* Icon-72.png in Resources */,
 				C2D857DA1B70F71C00F645B1 /* comment_btn_add_photo@2x.png in Resources */,
 				C2D858621B70F71C00F645B1 /* shared_arrow_up@2x.png in Resources */,
+				C20CB18A1B8A5D5E001D96F3 /* ArenaCell.xib in Resources */,
 				C28F08091B85B6D700FC3FB7 /* ManaTIJoinController.xib in Resources */,
 				C2D858F61B70F71C00F645B1 /* tab_icon_news_active@3x.png in Resources */,
 				C2D858331B70F71C00F645B1 /* news_share_menu_qq@3x.png in Resources */,
 				C2D857F01B70F71C00F645B1 /* feed_team_unknown@3x.png in Resources */,
 				C2D858321B70F71C00F645B1 /* news_share_menu_qq@2x.png in Resources */,
+				C263511B1B8865C80061A93E /* MFMatchNoticeCell.xib in Resources */,
 				C2D858E81B70F71C00F645B1 /* tab_icon_activities_active.png in Resources */,
 				C2D857FB1B70F71C00F645B1 /* nav_btn_add.png in Resources */,
 				C2D857D41B70F71C00F645B1 /* activities_scrore_board_bg@2x.png in Resources */,
@@ -2759,6 +2809,7 @@
 				C296FBA41B82818000C99B44 /* MyButton.m in Sources */,
 				C2D856501B70F10B00F645B1 /* UIRefreshControl+AFNetworking.m in Sources */,
 				C2B2A7F31B8376AA00F0C122 /* IQNSArray+Sort.m in Sources */,
+				C20CB1841B8A5B8C001D96F3 /* MCPlaceList.m in Sources */,
 				C28DEE6C1B77DD4B008FB14A /* MITop.m in Sources */,
 				C2D8564F1B70F10B00F645B1 /* UIProgressView+AFNetworking.m in Sources */,
 				C2D8562B1B70F10B00F645B1 /* NSError+MTLModelException.m in Sources */,
@@ -2783,6 +2834,7 @@
 				C296FBA71B82829200C99B44 /* LoginUtil.m in Sources */,
 				C2D8561A1B70F10B00F645B1 /* AFURLConnectionOperation.m in Sources */,
 				C2D856421B70F10B00F645B1 /* UIImageView+WebCache.m in Sources */,
+				C20CB17F1B8A2C10001D96F3 /* MCTeamList.m in Sources */,
 				C291F4BF1B765220000A1999 /* MFMessageCell.m in Sources */,
 				C2D856331B70F10B00F645B1 /* NYSegmentLabel.m in Sources */,
 				C28F08081B85B6D700FC3FB7 /* ManaTIJoinController.m in Sources */,
@@ -2795,6 +2847,7 @@
 				C2D856491B70F10B00F645B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				C291F4A81B764260000A1999 /* MFController.m in Sources */,
 				C2D8565A1B70F15100F645B1 /* GlobalUtil.m in Sources */,
+				C263511A1B8865C80061A93E /* MFMatchNoticeCell.m in Sources */,
 				C2D856531B70F10B00F645B1 /* WebViewJavascriptBridge.m in Sources */,
 				C2D856471B70F10B00F645B1 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				C293F3A01B860611007C6FE7 /* TeamMemberAdd.m in Sources */,
@@ -2848,12 +2901,14 @@
 				C2B728141B84581A0010C9B9 /* MatchFight.m in Sources */,
 				C2B2A7FC1B8376AA00F0C122 /* IQBarButtonItem.m in Sources */,
 				C2B2A7F91B8376AA00F0C122 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				C263511E1B8897510061A93E /* MatchDataUser.m in Sources */,
 				C2D856441B70F10B00F645B1 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				C2B2A80E1B83935400F0C122 /* MyData.m in Sources */,
 				C2D3802E1B851B4500AA3DE4 /* MFWildController.m in Sources */,
 				C28DEE351B77B7E8008FB14A /* TIPositionCell.m in Sources */,
 				C2D859081B70FA2A00F645B1 /* NotReady.m in Sources */,
 				C2B2A7FB1B8376AA00F0C122 /* IQTextView.m in Sources */,
+				C20CB1891B8A5D5E001D96F3 /* ArenaCell.m in Sources */,
 				C2D856171B70F10B00F645B1 /* AFHTTPSessionManager.m in Sources */,
 				C28F07F91B85B2A700FC3FB7 /* ManaTITop.m in Sources */,
 				C2D856341B70F10B00F645B1 /* MKAnnotationView+WebCache.m in Sources */,
@@ -2875,6 +2930,7 @@
 				C2D856401B70F10B00F645B1 /* UIImage+WebP.m in Sources */,
 				C2D856221B70F10B00F645B1 /* MTLModel+NSCoding.m in Sources */,
 				C2B2A81C1B83F0AB00F0C122 /* BaseTableViewCell.m in Sources */,
+				C263512C1B88B4EB0061A93E /* UserInfo.m in Sources */,
 				C28DEE3F1B77B824008FB14A /* TIHonorCell.m in Sources */,
 				C28DEE491B77C281008FB14A /* MEController.m in Sources */,
 				C2D856281B70F10B00F645B1 /* NSDictionary+MTLJSONKeyPath.m in Sources */,

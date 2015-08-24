@@ -20,6 +20,7 @@
 #import "MyButton.h"
 #import "MFWildController.h"
 #import "MEController.h"
+#import "AppDelegate.h"
 
 @interface MatchTeam ()
 
@@ -81,6 +82,8 @@
  */
 -(void)addButton
 {
+   
+    
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     
     [btn setBackgroundImage:[UIImage imageNamed:@"fight_btn_add.png"] forState:UIControlStateNormal];
@@ -111,6 +114,9 @@
 
 -(void)btnClick
 {
+    
+    [[AppDelegate delegate] loginPage];
+    
     MatchCreate *matchCreate = [[MatchCreate alloc] initWithNibName:@"MatchCreate" bundle:nil];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:matchCreate];
@@ -152,6 +158,7 @@
     [refreshButton setImage:[UIImage imageNamed:@"teamIcon.png"] forState:UIControlStateNormal];
     [GlobalUtil setMaskImageQuick:refreshButton withMask:@"shared_avatar_mask_medium.png" point:CGPointMake(26, 30)];
     UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    
     self.navigationItem.leftBarButtonItem = refreshBarButton;
     [refreshButton addTarget:self action:@selector(leftPush) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -175,6 +182,10 @@
 
 -(void)leftPush
 {
+    
+    [[AppDelegate delegate] loginPage];
+    
+    
     Notice *c1 = [[Notice alloc] initWithNibName:@"Notice" bundle:nil];
     [self.navigationController pushViewController:c1 animated:YES];
 }
@@ -355,14 +366,20 @@
         [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openTeam1:) data:entity.host ];
         [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1:) data:entity.guest ];
         
-        
-        NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
-        NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
-        [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
-        
-        NSString *a2 = [@"" stringByAppendingString:[entity.guest objectForKey:@"avatar"]];
-        NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
-        [cell.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        if([entity.host objectForKey:@"avatar"])
+        {
+            NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
+            NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
+            [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
+
+        if([entity.guest objectForKey:@"avatar"])
+        {
+            NSString *a2 = [@"" stringByAppendingString:[entity.guest objectForKey:@"avatar"]];
+            NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
+            [cell.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
+
 
         
         cell.txtTeam1.text = [entity.host objectForKey:@"name"];
@@ -392,10 +409,13 @@
 //        [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1) data:[entity.guest objectForKey:@"id"]];
         //[GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1) data:10];
         
-        
-        NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
-        NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
-        [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        if([entity.host objectForKey:@"avatar"])
+        {
+            NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
+            NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
+            [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
+
         
 //        NSString *a2 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
 //        NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
@@ -428,13 +448,20 @@
     [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1:) data:entity.guest];
     
     
-    NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
-    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
-    [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
-    
-    NSString *a2 = [@"" stringByAppendingString:[entity.guest objectForKey:@"avatar"]];
-    NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
-    [cell.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+    if([entity.host objectForKey:@"avatar"])
+    {
+        NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
+        NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
+        [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+    }
+
+    if([entity.guest objectForKey:@"avatar"])
+    {
+        NSString *a2 = [@"" stringByAppendingString:[entity.guest objectForKey:@"avatar"]];
+        NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
+        [cell.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+    }
+
     
     
     cell.txtTeam1.text = [entity.host objectForKey:@"name"];

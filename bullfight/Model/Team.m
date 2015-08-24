@@ -30,7 +30,10 @@
              @"lose":@"lose",
              @"draw":@"draw",
              @"playCount":@"playCount",
-             @"createdDate":@"createdDate"
+             @"createdDate":@"createdDate",
+             @"goalPercent":@"goalPercent",
+             @"freeGoalPercent":@"freeGoalPercent",
+             @"threeGoalPercent":@"threeGoalPercent"
              };
 }
 

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TIController.h"
 
-@interface MIController : UITableViewController
+@interface MIController : TIController
 
 
--(void)switchView:(id)sender;
 
 @end

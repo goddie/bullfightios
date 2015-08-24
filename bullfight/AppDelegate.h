@@ -17,6 +17,8 @@
 
 -(void)changeRoot;
 
+-(void)loginPage;
+
 + (AppDelegate *)delegate;
 
 @end
