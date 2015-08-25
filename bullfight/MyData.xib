@@ -42,7 +42,7 @@
                 <constraint firstItem="lj6-Ni-isI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kXo-Nh-9Ko"/>
                 <constraint firstItem="lj6-Ni-isI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lDA-bv-s1u"/>
             </constraints>
-            <point key="canvasLocation" x="644" y="461"/>
+            <point key="canvasLocation" x="-109" y="177"/>
         </view>
     </objects>
 </document>
