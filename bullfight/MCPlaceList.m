@@ -8,6 +8,7 @@
 
 #import "MCPlaceList.h"
 #import "UIViewController+Custome.h"
+#import "UIImageView+WebCache.h"
 #import "ArenaCell.h"
 #import "MCPlace.h"
 
@@ -20,6 +21,7 @@
 {
     NSMutableArray *dataArr;
     NSInteger rowIndex;
+    NSNumber *curPage;
 }
 
 - (void)viewDidLoad {
@@ -27,11 +29,26 @@
     
     [self globalConfig];
     
+    self.title = @"选择场地";
+    
     dataArr = [NSMutableArray arrayWithCapacity:10];
     
     rowIndex = 0;
     
-    [self getData];
+    curPage = [NSNumber numberWithInt:1];
+    __weak MCPlaceList *wkSelf = self;
+    
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [wkSelf refresh];
+        
+    }];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [wkSelf loadMore];
+        
+    }];
+    
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,11 +57,12 @@
 }
 
 
--(void)getData
+-(void)loadData
 {
+    [self showHud];
     
     NSDictionary *parameters = @{
-                                 @"p":@"1"
+                                 @"p":curPage
                                  };
     [dataArr removeAllObjects];
     [self post:@"arena/json/list" params:parameters success:^(id responseObj) {
@@ -60,25 +78,60 @@
             }
         }
         [self.tableView reloadData];
+        [self stopAnimation];
     }];
     
 }
 
--(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+//-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    if (![viewController isKindOfClass:[MCPlace class]]) {
+//        return;
+//    }
+//    
+//    if (dataArr.count==0) {
+//        return;
+//    }
+//    
+//    MCPlace *c1 = (MCPlace*)viewController;
+//    c1.matchFight.arena = @{@"aid":[[dataArr objectAtIndex:rowIndex] objectForKey:@"id"]};
+//    
+//    c1.arenaid = [[dataArr objectAtIndex:rowIndex] objectForKey:@"id"];
+//    c1.arenaName = [[dataArr objectAtIndex:rowIndex] objectForKey:@"name"];
+//    
+//    [c1 bindArena];
+//}
+
+
+-(void)refresh
 {
-    if (![viewController isKindOfClass:[MCPlace class]]) {
-        return;
-    }
+    [dataArr removeAllObjects];
+    curPage = [NSNumber numberWithInt:1];
+    [self loadData];
+}
+
+-(void)loadMore
+{
+    curPage = [NSNumber numberWithInt: [curPage intValue] + 1];
     
-    if (dataArr.count==0) {
-        return;
-    }
+    [self loadData];
+}
+
+-(void)stopAnimation
+{
+    [self.tableView.pullToRefreshView stopAnimating];
+    [self.tableView.infiniteScrollingView stopAnimating];
+    [self hideHud];
+}
+
+
+-(void)selectPlace
+{
+    NSDictionary *arena = [dataArr objectAtIndex:rowIndex];
     
-    MCPlace *c1 = (MCPlace*)viewController;
-    c1.matchFight.arena = @{@"aid":[[dataArr objectAtIndex:rowIndex] objectForKey:@"id"]};
-    
-    c1.arenaid = [[dataArr objectAtIndex:rowIndex] objectForKey:@"id"];
-    c1.arenaName = [[dataArr objectAtIndex:rowIndex] objectForKey:@"name"];
+    NSDictionary *dict = @{@"aid":[arena objectForKey:@"id"],@"name":[arena objectForKey:@"name"]};
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter postNotificationName:@"selectPlace" object:dict];
 }
 
 #pragma mark - Table view data source
@@ -111,7 +164,11 @@
         cell = [nibArray objectAtIndex:0];
     }
     
-    cell.txt1.text = [dataArr objectAtIndex:indexPath.row];
+    if (dataArr.count==0) {
+        return  cell;
+    }
+    
+    cell.txt1.text = [[dataArr objectAtIndex:indexPath.row] objectForKey:@"name"];
     
     return cell;
 }
@@ -119,6 +176,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     rowIndex  = indexPath.row;
+    
+    [self selectPlace];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

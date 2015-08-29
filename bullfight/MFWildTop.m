@@ -10,6 +10,7 @@
 #import "UIViewController+Custome.h"
 #import "UIImageView+WebCache.h"
 #import "MCPay.h"
+#import "AppDelegate.h"
 
 @interface MFWildTop ()
 
@@ -41,6 +42,11 @@
     [self checkUser];
 }
 
+-(void)openTeam1
+{
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -53,7 +59,8 @@
 
 -(void)bindData
 {
-    NSString *a1 = [@"" stringByAppendingString:[self.matchFight.host objectForKey:@"avatar"]];
+    NSString *a1 = [GlobalUtil toString:[self.matchFight.host objectForKey:@"avatar"]];
+    
     NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
     [self.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
     
@@ -76,9 +83,11 @@
     
     NSString *uuid = [LoginUtil getLocalUUID];
     
-    if (uuid.length==0) {
+    if (!uuid) {
+        [[AppDelegate delegate] loginPage];
         return;
     }
+ 
     
     if (self.matchFight.uuid.length==0) {
         return;
@@ -151,6 +160,8 @@
 
 -(void)setButton
 {
+
+    
     if (isLeader) {
         [self.btn1 setTitle:@"应战" forState:UIControlStateNormal];
     }else

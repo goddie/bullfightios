@@ -10,6 +10,7 @@
 #import "RegTwo.h"
 #import "Login.h"
 #import "UIViewController+Custome.h"
+#import "AppDelegate.h"
 
 @interface RegOne ()
 
@@ -32,6 +33,31 @@
     
     NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"请输入收到的验证码" attributes:@{ NSForegroundColorAttributeName : [GlobalConst lightAppBgColor] }];
     self.txt2.attributedPlaceholder = str2;
+    
+    [self addLeftNavButton];
+    
+}
+
+
+
+-(void)addLeftNavButton
+{
+    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [refreshButton setFrame:CGRectMake(0,0,26,30)];
+    
+//    [refreshButton setTitle:@"" forState:UIControlStateNormal];
+//    [refreshButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+    refreshButton.userInteractionEnabled = YES;
+    [refreshButton setImage:[UIImage imageNamed:@"nav_btn_cancel.png"] forState:UIControlStateNormal];
+    
+    // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
+    
+    UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    
+    self.navigationItem.leftBarButtonItem = refreshBarButton;
+    [refreshButton addTarget:self action:@selector(leftPush) forControlEvents:UIControlEventTouchUpInside];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +65,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)leftPush
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 /*
 #pragma mark - Navigation
 

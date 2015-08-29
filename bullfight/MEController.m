@@ -17,7 +17,9 @@
 #import "UIImageView+WebCache.h"
 #import "MFMatchNoticeCell.h"
 #import "MFTeamInfoCell.h"
-
+#import "MyButton.h"
+#import "MIController.h"
+#import <math.h>
 
 @interface MEController ()
 
@@ -40,6 +42,8 @@
 //    cellIdentifier = [cellArr objectAtIndex:tabIndex];
 //    
 //    self.tableView.backgroundColor  = [GlobalConst lightAppBgColor];
+    
+    self.title = @"比赛信息";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -147,11 +151,11 @@
             return;
         }
         
-        NSDictionary *hdict = self.matchFight.host;
-        Team *host = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:hdict error:nil];
+//        NSDictionary *hdict = self.matchFight.host;
+        Team *host = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:self.matchFight.host error:nil];
         
-        NSDictionary *hdict2 = self.matchFight.host;
-        Team *guest = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:hdict2 error:nil];
+//        NSDictionary *hdict2 = self.matchFight.guest;
+        Team *guest = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:self.matchFight.guest error:nil];
         
         
         
@@ -183,7 +187,7 @@
         
         
         [dataArr3 removeAllObjects];
-        
+        [self showHud];
         [self post:@"matchdatauser/json/userdata" params:parameters success:^(id responseObj) {
             
             NSDictionary *dict = (NSDictionary *)responseObj;
@@ -211,14 +215,16 @@
                     }
                 }
                 
-                NSInteger size = 0;
+//                NSInteger size = 0;
                 
-                if (marr1.count>marr2.count) {
-                    size = marr2.count;
-                }else
-                {
-                    size = marr1.count;
-                }
+//                if (marr1.count>marr2.count) {
+//                    size = marr2.count;
+//                }else
+//                {
+//                    size = marr1.count;
+//                }
+                
+                int size =  fmin(marr1.count,marr2.count);
                 
                 for (int i=0; i<size; i++) {
                     
@@ -244,6 +250,8 @@
                 
             }
             [self.tableView reloadData];
+            
+            [self hideHud];
         }];
     
 
@@ -257,6 +265,15 @@
     }
 }
 
+-(void)openMember:(id)sender
+{
+    MyButton *btn = (MyButton*)sender;
+    User *data = (User*)btn.data;
+    
+    MIController *c1 = [[MIController alloc] initWithNibName:@"MIController" bundle:nil];
+    c1.user = data;
+    [self.navigationController pushViewController:c1 animated:YES];
+}
 
 #pragma mark - Table view data source
 
@@ -270,6 +287,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
     
+    /**
+     *  比赛信息
+     */
     if (tabIndex==0) {
         
         if (indexPath.row==4) {
@@ -305,6 +325,7 @@
         
         
     }
+    
     
     if (tabIndex==1) {
         
@@ -342,6 +363,9 @@
     }
     
     
+    /**
+     *  个人数据
+     */
     if (tabIndex==2) {
         
         MEMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -350,31 +374,70 @@
             cell = [nibArray objectAtIndex:0];
         }
         
+        
+        
         if ([[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:0]) {
             
             MatchDataUser *entity = (MatchDataUser*)[[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:0];
-            NSDictionary *dict = entity.user;
-            User *user= (User*)[MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:dict error:nil];
             
-            cell.txtName1.text = user.nickname;
             
-            if(user.avatar)
+            if ((NSNull*)entity!=[NSNull null]) {
+                NSDictionary *dict = entity.user;
+                User *user= (User*)[MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:dict error:nil];
+                
+                cell.txtName1.text = user.nickname;
+                
+                if(user.avatar)
+                {
+                    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
+                    [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                    
+                    [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openMember:) data:user];
+                }
+                
+                
+                cell.txt11.text = [GlobalUtil toString:entity.scoring];
+                cell.txt12.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.goal],[GlobalUtil toString:entity.shot]];
+                cell.txt21.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.threeGoal],[GlobalUtil toString:entity.threeShot]];
+                cell.txt22.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.freeGoal],[GlobalUtil toString:entity.free]];
+                cell.txt31.text = [GlobalUtil toString:entity.rebound];
+                cell.txt32.text = [GlobalUtil toString:entity.assist];
+                cell.txt41.text = [GlobalUtil toString:entity.block];
+                cell.txt42.text = [GlobalUtil toString:entity.steal];
+                cell.txt51.text = [GlobalUtil toString:entity.foul];
+                cell.txt52.text = [GlobalUtil toString:entity.turnover];
+            }else
             {
-                NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
-                [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                cell.txtName1.hidden = YES;
+                cell.img1.hidden = YES;
+                
+                
+                cell.txt11.hidden = YES;
+                cell.txt12.hidden = YES;
+                cell.txt21.hidden = YES;
+                cell.txt22.hidden = YES;
+                cell.txt31.hidden = YES;
+                cell.txt32.hidden = YES;
+                cell.txt41.hidden = YES;
+                cell.txt42.hidden = YES;
+                cell.txt51.hidden = YES;
+                cell.txt52.hidden = YES;
+                
+                cell.lab1.hidden = YES;
+                cell.lab2.hidden = YES;
+                cell.lab3.hidden = YES;
+                cell.lab4.hidden = YES;
+                cell.lab5.hidden = YES;
+                cell.lab6.hidden = YES;
+                cell.lab7.hidden = YES;
+                cell.lab8.hidden = YES;
+                cell.lab9.hidden = YES;
+                cell.lab10.hidden = YES;
+ 
+                
             }
             
- 
-            cell.txt11.text = [GlobalUtil toString:entity.scoring];
-            cell.txt12.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.goal],[GlobalUtil toString:entity.shot]];
-            cell.txt21.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.threeGoal],[GlobalUtil toString:entity.threeShot]];
-            cell.txt22.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.freeGoal],[GlobalUtil toString:entity.free]];
-            cell.txt31.text = [GlobalUtil toString:entity.rebound];
-            cell.txt32.text = [GlobalUtil toString:entity.assist];
-            cell.txt41.text = [GlobalUtil toString:entity.block];
-            cell.txt42.text = [GlobalUtil toString:entity.steal];
-            cell.txt51.text = [GlobalUtil toString:entity.foul];
-            cell.txt52.text = [GlobalUtil toString:entity.turnover];
+           
             
         }
         
@@ -382,27 +445,70 @@
             
             
             MatchDataUser *entity = (MatchDataUser*)[[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:1];
-            NSDictionary *dict = entity.user;
-            User *user= (User*)[MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:dict error:nil];
-            cell.txtName2.text = user.nickname;
             
-            if(user.avatar)
+            
+            if ((NSNull*)entity!=[NSNull null])
             {
-                NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
-                [cell.img2 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                NSDictionary *dict = entity.user;
+                User *user= (User*)[MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:dict error:nil];
+                cell.txtName2.text = user.nickname;
+                
+                if(user.avatar)
+                {
+                    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
+                    [cell.img2 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                    
+                    [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openMember:) data:user];
+                }
+                
+                
+                cell.txt13.text = [GlobalUtil toString:entity.scoring];
+                cell.txt14.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.goal],[GlobalUtil toString:entity.shot]];
+                cell.txt23.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.threeGoal],[GlobalUtil toString:entity.threeShot]];
+                cell.txt24.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.freeGoal],[GlobalUtil toString:entity.free]];
+                cell.txt33.text = [GlobalUtil toString:entity.rebound];
+                cell.txt34.text = [GlobalUtil toString:entity.assist];
+                cell.txt43.text = [GlobalUtil toString:entity.block];
+                cell.txt44.text = [GlobalUtil toString:entity.steal];
+                cell.txt53.text = [GlobalUtil toString:entity.foul];
+                cell.txt54.text = [GlobalUtil toString:entity.turnover];
+                
+                
+                
+
+            }else
+            {
+                cell.txtName2.hidden = YES;
+                cell.img2.hidden = YES;
+                
+                
+                cell.txt13.hidden = YES;
+                cell.txt14.hidden = YES;
+                cell.txt23.hidden = YES;
+                cell.txt24.hidden = YES;
+                cell.txt33.hidden = YES;
+                cell.txt34.hidden = YES;
+                cell.txt43.hidden = YES;
+                cell.txt44.hidden = YES;
+                cell.txt53.hidden = YES;
+                cell.txt54.hidden = YES;
+                
+                cell.lab11.hidden = YES;
+                cell.lab12.hidden = YES;
+                cell.lab13.hidden = YES;
+                cell.lab14.hidden = YES;
+                cell.lab15.hidden = YES;
+                cell.lab16.hidden = YES;
+                cell.lab17.hidden = YES;
+                cell.lab18.hidden = YES;
+                cell.lab19.hidden = YES;
+                cell.lab20.hidden = YES;
+                
             }
+
             
             
-            cell.txt13.text = [GlobalUtil toString:entity.scoring];
-            cell.txt14.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.goal],[GlobalUtil toString:entity.shot]];
-            cell.txt23.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.threeGoal],[GlobalUtil toString:entity.threeShot]];
-            cell.txt24.text = [NSString stringWithFormat:@"%@/%@",[GlobalUtil toString:entity.freeGoal],[GlobalUtil toString:entity.free]];
-            cell.txt33.text = [GlobalUtil toString:entity.rebound];
-            cell.txt34.text = [GlobalUtil toString:entity.assist];
-            cell.txt43.text = [GlobalUtil toString:entity.block];
-            cell.txt44.text = [GlobalUtil toString:entity.steal];
-            cell.txt53.text = [GlobalUtil toString:entity.foul];
-            cell.txt54.text = [GlobalUtil toString:entity.turnover];
+
  
         }
 

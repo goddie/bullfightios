@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *btnParent;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+ 
 
 
 

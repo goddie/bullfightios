@@ -30,7 +30,7 @@
  
 @property (nonatomic, strong) NSNumber *height;
 @property (nonatomic, strong) NSNumber *weight;
-@property (nonatomic, strong) NSString *birthday;
+@property (nonatomic, strong) NSNumber *birthday;
 @property (nonatomic, strong) NSString *position;
 @property (nonatomic, strong) NSNumber *scoring;
 @property (nonatomic, strong) NSNumber *scoringAvg;

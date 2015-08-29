@@ -46,5 +46,35 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *txtPos;
 
+@property (weak, nonatomic) IBOutlet UILabel *lab1;
+
+@property (weak, nonatomic) IBOutlet UILabel *lab2;
+@property (weak, nonatomic) IBOutlet UILabel *lab3;
+@property (weak, nonatomic) IBOutlet UILabel *lab4;
+@property (weak, nonatomic) IBOutlet UILabel *lab5;
+@property (weak, nonatomic) IBOutlet UILabel *lab6;
+@property (weak, nonatomic) IBOutlet UILabel *lab7;
+@property (weak, nonatomic) IBOutlet UILabel *lab8;
+@property (weak, nonatomic) IBOutlet UILabel *lab9;
+@property (weak, nonatomic) IBOutlet UILabel *lab10;
+
+@property (weak, nonatomic) IBOutlet UILabel *lab11;
+@property (weak, nonatomic) IBOutlet UILabel *lab12;
+@property (weak, nonatomic) IBOutlet UILabel *lab13;
+
+@property (weak, nonatomic) IBOutlet UILabel *lab14;
+@property (weak, nonatomic) IBOutlet UILabel *lab15;
+@property (weak, nonatomic) IBOutlet UILabel *lab16;
+@property (weak, nonatomic) IBOutlet UILabel *lab17;
+@property (weak, nonatomic) IBOutlet UILabel *lab18;
+@property (weak, nonatomic) IBOutlet UILabel *lab19;
+@property (weak, nonatomic) IBOutlet UILabel *lab20;
+
+
+
+
+
+
+
 
 @end

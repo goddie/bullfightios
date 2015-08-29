@@ -44,7 +44,7 @@
     
     self.tableView.backgroundColor  = [GlobalConst lightAppBgColor];
     
-    
+    self.title = @"比赛信息";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,8 +131,9 @@
                         [GlobalUtil toString:self.matchFight.dataRecord]];
         
         [dataArr1 addObject:@[@"shared_icon_location.png",[self.matchFight.arena objectForKey:@"name"]]];
-        [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil getDateFromUNIX:self.matchFight.start]]];
-        [dataArr1 addObject:@[@"shared_icon_weather.png",self.matchFight.weather]];
+        [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil toString:[GlobalUtil getDateFromUNIX:self.matchFight.start]]]];
+    
+        [dataArr1 addObject:@[@"shared_icon_weather.png",[GlobalUtil toString:self.matchFight.weather]]];
         [dataArr1 addObject:@[@"shared_icon_jurge.png",s1]];
         [dataArr1 addObject:@[@"shared_icon_money.png",[GlobalUtil toString:self.matchFight.fee]]];
         
@@ -202,6 +203,7 @@
                                      @"p":@"1"
                                      };
         [dataArr3 removeAllObjects];
+        [self showHud];
         [self post:@"teamuser/json/memberlistboth" params:parameters success:^(id responseObj) {
             NSDictionary *dict = (NSDictionary *)responseObj;
             if ([[dict objectForKey:@"code"] intValue]==1) {
@@ -218,6 +220,7 @@
                 }
             }
             [self.tableView reloadData];
+            [self hideHud];
         }];
 
 
@@ -257,6 +260,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
     
+    /**
+     *  比赛数据
+     */
     if (tabIndex==0) {
         
         MFMatchInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -273,6 +279,9 @@
         
     }
     
+    /**
+     *  球队数据
+     */
     if (tabIndex==1) {
 
         if(indexPath.row==0)
@@ -330,6 +339,9 @@
     }
     
     
+    /**
+     *  个人数据
+     */
     if (tabIndex==2) {
         
         MFMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -391,7 +403,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (tabIndex==2) {
+        User *user = [dataArr3 objectAtIndex:indexPath.row];
+        
+        MIController *c1 = [[MIController alloc] initWithNibName:@"MIController" bundle:nil];
+        
+        c1.user = user;
+        
+        [self.navigationController pushViewController:c1 animated:YES];
+    }
 }
 
 

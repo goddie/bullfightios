@@ -123,6 +123,8 @@
  */
 +(NSString*) getDateFromUNIX:(NSNumber*)date;
 
++(NSString*) getDateFromUNIX:(NSNumber*)date format:(NSString*)format;
+
 
 +(void) setMaskImageQuick:(UIView*)viewToMask withMask:(NSString*)maskImageName point:(CGPoint)size;
 

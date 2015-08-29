@@ -63,4 +63,25 @@
     }
 }
 
+-(void)setCornerTitle:(NSString*)title bgType:(NSInteger)bgType
+{
+
+    label.text = title;
+    
+    if (bgType==1) {
+        self.viewTop.image = [UIImage imageNamed:@"shared_icon_badge_active.png"];
+    }
+    
+    if (bgType==2) {
+        self.viewTop.image = [UIImage imageNamed:@"shared_icon_badge_inactive.png"];
+    }
+    
+    if (bgType==3) {
+        self.viewTop.image = [UIImage imageNamed:@"shared_icon_badge_unknow.png"];
+    }
+    
+    
+    
+}
+
 @end

@@ -23,13 +23,7 @@ MBProgressHUD *hud;
 - (void)globalConfig
 {
     self.view.backgroundColor = [GlobalConst appBgColor];
-    
-    
-    hud = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:hud];
-    hud.mode = MBProgressHUDModeText;
-    hud.delegate = self;
-    hud.labelText = @"Loading";
+
     
 //    [hud showWhileExecuting:@selector(myProgressTask) onTarget:self withObject:nil animated:YES];
 }
@@ -55,6 +49,32 @@ MBProgressHUD *hud;
 //    }];
 //
 //}
+
+-(void)showHud {
+    
+    if (hud == nil) {
+        
+        UIWindow *win = [UIApplication sharedApplication].keyWindow;
+        hud = [[MBProgressHUD alloc] initWithWindow:win];
+        
+        [win.rootViewController.view addSubview:hud];
+        
+        //        [self.view addSubview:hud];
+        //        [[UIApplication sharedApplication].keyWindow addSubview:hud];
+    }
+    
+    [hud setLabelText:@"Loading"];
+    [hud setMode:MBProgressHUDModeIndeterminate];
+    [hud setRemoveFromSuperViewOnHide:YES];
+    [hud show:YES];
+}
+
+-(void)hideHud {
+    
+    [hud hide:YES];
+    hud = nil;
+}
+
 
 - (void)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id responseObj))success
 {

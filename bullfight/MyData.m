@@ -11,7 +11,9 @@
 #import "MyDataCell.h"
 #import "MatchFinishCell.h"
 #import "UIViewController+Custome.h"
+#import "UIImageView+WebCache.h"
 #import "MatchFight.h"
+#import "UserDataMatch.h"
 
 @interface MyData ()
 
@@ -26,9 +28,10 @@
     NSArray *cellHeightArr;
     
     NSArray *titleArr;
-    
-    NSArray *dataArr1;
+ 
     NSMutableArray *dataArr2;
+    
+    NSNumber *curPage;
 }
 
 - (void)viewDidLoad {
@@ -40,6 +43,8 @@
     
     [self.topView addSubview:[self getTopView]];
     
+    self.title = @"我的数据";
+    curPage = [NSNumber numberWithInt:1];
 //    top = [[TITop alloc] initWithNibName:@"TITop" bundle:nil];
 //    [self addChildViewController:top];
 //    top.parent = self;
@@ -64,15 +69,61 @@
                   @[@"场均篮板",@"场均助攻"],
                   @[@"场均盖帽",@"场均抢断"]
                   ];
-    dataArr1 = @[];
+ 
     dataArr2 = [NSMutableArray arrayWithCapacity:10];
     
     tabIndex = 0;
     
     cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
     
-    [self getData];
+    __weak MyData *wkSelf = self;
+    
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [wkSelf refresh];
+        
+    }];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [wkSelf loadMore];
+        
+    }];
+    
+    [self loadData];
 }
+
+
+-(void)refresh
+{
+    [dataArr2 removeAllObjects];
+    curPage = [NSNumber numberWithInt:1];
+    
+    if (tabIndex==0) {
+        [self loadData];
+    }
+    if (tabIndex==1) {
+        [self getMatchFight];
+    }
+    
+}
+
+-(void)loadMore
+{
+    if (tabIndex==0) {
+        [self stopAnimation];
+        return;
+    }
+    curPage = [NSNumber numberWithInt: [curPage intValue] + 1];
+    
+    [self getMatchFight];
+}
+
+-(void)stopAnimation
+{
+    [self.tableView.pullToRefreshView stopAnimating];
+    [self.tableView.infiniteScrollingView stopAnimating];
+    [self hideHud];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -86,28 +137,23 @@
     tabIndex = control.selectedSegmentIndex;
     cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
     
-    
-    if (tabIndex==0) {
-        [self getData];
-    }
-    
-    if (tabIndex==1) {
-        [self getMatchFight];
-    }
+    [self refresh];
     
 }
 
--(void)getData
+-(void)loadData
 {
     NSString *uid = [LoginUtil getLocalUUID];
-    if (uid.length==0) {
+    if (!uid.length) {
         return;
     }
     
     NSDictionary *parameters = @{
                                  @"uid":uid
                                  };
+    [dataArr2 removeAllObjects];
     
+    [self showHud];
     
     [self post:@"user/json/getuser" params:parameters success:^(id responseObj) {
         
@@ -117,16 +163,16 @@
             NSDictionary *data = [dict objectForKey:@"data"];
             NSError *error = nil;
             User *model = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:data error:&error];
-            NSLog(@"%@",[error description]);
+            //NSLog(@"%@",[error description]);
             
             if (model!=nil) {
-                dataArr1 = @[
-                             @[model.playCount,model.scoring],
-                             @[model.scoringAvg,model.goalPercent],
-                             @[model.threeGoal,model.threeGoalPercent],
-                             @[model.rebound,model.assist],
-                             @[model.block,model.steal]
-                             ];
+                dataArr2 = [NSMutableArray arrayWithArray:@[
+                                                           @[model.playCount,model.scoring],
+                                                           @[model.scoringAvg,model.goalPercent],
+                                                           @[model.threeGoal,model.threeGoalPercent],
+                                                           @[model.rebound,model.assist],
+                                                           @[model.block,model.steal]
+                                                           ]];
                 
                 [self.tableView reloadData];
             }
@@ -136,6 +182,8 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[dict objectForKey:@"msg"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             [alert show];
         }
+        
+        [self stopAnimation];
         
         
         
@@ -157,10 +205,13 @@
     }
     
     NSDictionary *parameters = @{
-                                 @"uid":uid
+                                 @"uid":uid,
+                                 @"p":curPage
                                  };
     
-    [dataArr2 removeAllObjects];
+    //[dataArr2 removeAllObjects];
+    
+    [self showHud];
     
     [self post:@"matchdatauser/json/usermatch" params:parameters success:^(id responseObj) {
         
@@ -173,7 +224,7 @@
             for (NSDictionary *data in arr) {
                 MatchFight *model = [MTLJSONAdapter modelOfClass:[MatchFight class] fromJSONDictionary:data error:&error];
                 
-                NSLog(@"%@",[error description]);
+                //(@"%@",[error description]);
                 
                 if (model!=nil) {
                     
@@ -186,6 +237,8 @@
             
             
             [self.tableView reloadData];
+            
+            [self stopAnimation];
             
         }else
         {
@@ -252,14 +305,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (tabIndex==0) {
-        return dataArr1.count;
-    }
-    if (tabIndex==1) {
-        return dataArr2.count;
-    }
-
-    return 0;
+    return dataArr2.count;
 }
 
 
@@ -283,6 +329,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(cell==nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    if (dataArr2.count==0) {
+        return cell;
+    }
+    
+    
     if (tabIndex==0) {
         
         if(indexPath.row==0)
@@ -296,8 +352,8 @@
             
             cell.lab1.text = [GlobalUtil toString:[[titleArr objectAtIndex:indexPath.row ] objectAtIndex:0]];
             cell.lab2.text = [GlobalUtil toString:[[titleArr objectAtIndex:indexPath.row] objectAtIndex:1]];
-            cell.txt1.text = [GlobalUtil toString:[[dataArr1 objectAtIndex:indexPath.row] objectAtIndex:0]];
-            cell.txt2.text = [GlobalUtil toString:[[dataArr1 objectAtIndex:indexPath.row] objectAtIndex:1]];
+            cell.txt1.text = [GlobalUtil toString:[[dataArr2 objectAtIndex:indexPath.row] objectAtIndex:0]];
+            cell.txt2.text = [GlobalUtil toString:[[dataArr2 objectAtIndex:indexPath.row] objectAtIndex:1]];
             
             return cell;
         }
@@ -312,8 +368,8 @@
         
         cell.lab1.text = [GlobalUtil toString:[[titleArr objectAtIndex:indexPath.row] objectAtIndex:0]];
         cell.lab2.text = [GlobalUtil toString:[[titleArr objectAtIndex:indexPath.row] objectAtIndex:1]];
-        cell.txt1.text = [GlobalUtil toString:[[dataArr1 objectAtIndex:indexPath.row] objectAtIndex:0]];
-        cell.txt2.text = [GlobalUtil toString:[[dataArr1 objectAtIndex:indexPath.row] objectAtIndex:1]];
+        cell.txt1.text = [GlobalUtil toString:[[dataArr2 objectAtIndex:indexPath.row] objectAtIndex:0]];
+        cell.txt2.text = [GlobalUtil toString:[[dataArr2 objectAtIndex:indexPath.row] objectAtIndex:1]];
         
         
         return cell;
@@ -342,22 +398,44 @@
         
         cell.txtTeam1.text = [model.host objectForKey:@"name"];
         cell.txtTeam2.text = [model.guest objectForKey:@"name"];
+        
+        if([model.host objectForKey:@"avatar"])
+        {
+            NSString *a1 = [@"" stringByAppendingString:[model.host objectForKey:@"avatar"]];
+            NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
+            [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
+        
+        if([model.guest objectForKey:@"avatar"])
+        {
+            NSString *a2 = [@"" stringByAppendingString:[model.guest objectForKey:@"avatar"]];
+            NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
+            [cell.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
+
+        
+        
         return cell;
         
     }
     
  
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if(cell==nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+
     
     return  cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tabIndex==0) {
+        return;
+    }
+    
+    MatchFight *model  = [dataArr2 objectAtIndex:indexPath.row];
+    
+    UserDataMatch *userDataMatch = [[UserDataMatch alloc] initWithNibName:@"UserDataMatch" bundle:nil];
+    userDataMatch.matchFight = model;
+    [self.navigationController pushViewController:userDataMatch animated:YES];
     
     //    UITableViewCell *cell  = [tableView cellForRowAtIndexPath:indexPath];
     //    cell.selectionStyle  = UITableViewCellSelectionStyleNone;

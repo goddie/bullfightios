@@ -23,6 +23,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = self.team.name;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,11 +36,22 @@
 
 -(UIView*)getTop
 {
+    
+    if(sectionHeader)
+    {
+        return sectionHeader;
+    }
+    
     ManaTITop *top = [[ManaTITop alloc] initWithNibName:@"ManaTITop" bundle:nil];
+    top.topDelegate = self;
     top.team = self.team;
     [self addChildViewController:top];
-    return top.view;
+    sectionHeader = top.view;
+    
+    return sectionHeader;
+
 }
+
 
 
 @end

@@ -105,4 +105,6 @@
  */
 @property (nonatomic, strong) NSNumber *threeGoalPercent;
 
+@property (nonatomic, strong) NSNumber *foul;
+
 @end

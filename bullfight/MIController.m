@@ -122,6 +122,11 @@
 {
     //比赛信息
     if (tabIndex==0) {
+        if ([dataArr1 count]) {
+            [self.tableView reloadData];
+            return;
+        }
+        
         
         [dataArr1 addObject:self.user];
         
@@ -184,7 +189,7 @@
         }
         
         
-        cell.txtBirthday.text = self.user.birthday;
+        cell.txtBirthday.text = [GlobalUtil getDateFromUNIX:self.user.birthday format:@"yyyy-MM-dd"];
         cell.txtHeight.text = [GlobalUtil toString:self.user.height];
         cell.txtPos.text = self.user.position;
         cell.txtWeight.text = [GlobalUtil toString:self.user.weight];

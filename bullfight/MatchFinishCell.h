@@ -30,4 +30,6 @@
  */
 -(void)setCorner:(NSInteger)type;
 
+-(void)setCornerTitle:(NSString*)title bgType:(NSInteger)bgType;
+
 @end

@@ -15,6 +15,8 @@
 		C20CB1851B8A5B8C001D96F3 /* MCPlaceList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20CB1831B8A5B8C001D96F3 /* MCPlaceList.xib */; };
 		C20CB1891B8A5D5E001D96F3 /* ArenaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C20CB1871B8A5D5E001D96F3 /* ArenaCell.m */; };
 		C20CB18A1B8A5D5E001D96F3 /* ArenaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20CB1881B8A5D5E001D96F3 /* ArenaCell.xib */; };
+		C23DC7EF1B907F65008F7615 /* MatchWildTop.m in Sources */ = {isa = PBXBuildFile; fileRef = C23DC7ED1B907F65008F7615 /* MatchWildTop.m */; };
+		C23DC7F01B907F65008F7615 /* MatchWildTop.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23DC7EE1B907F65008F7615 /* MatchWildTop.xib */; };
 		C2573C731B7102BF0079309C /* MatchBeginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2573C711B7102BF0079309C /* MatchBeginCell.m */; };
 		C2573C741B7102BF0079309C /* MatchBeginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2573C721B7102BF0079309C /* MatchBeginCell.xib */; };
 		C263511A1B8865C80061A93E /* MFMatchNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C26351181B8865C80061A93E /* MFMatchNoticeCell.m */; };
@@ -22,6 +24,17 @@
 		C263511E1B8897510061A93E /* MatchDataUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C263511D1B8897510061A93E /* MatchDataUser.m */; };
 		C263512C1B88B4EB0061A93E /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C263512A1B88B4EB0061A93E /* UserInfo.m */; };
 		C263512D1B88B4EB0061A93E /* UserInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = C263512B1B88B4EB0061A93E /* UserInfo.xib */; };
+		C2639F211B8E1F3D00420775 /* UserDataMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C2639F1F1B8E1F3D00420775 /* UserDataMatch.m */; };
+		C2639F221B8E1F3D00420775 /* UserDataMatch.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2639F201B8E1F3D00420775 /* UserDataMatch.xib */; };
+		C2639F261B8E213900420775 /* UserInfoTop.m in Sources */ = {isa = PBXBuildFile; fileRef = C2639F241B8E213900420775 /* UserInfoTop.m */; };
+		C2639F271B8E213900420775 /* UserInfoTop.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2639F251B8E213900420775 /* UserInfoTop.xib */; };
+		C26887021B90B96D00990D8F /* MatchWild.m in Sources */ = {isa = PBXBuildFile; fileRef = C26887001B90B96D00990D8F /* MatchWild.m */; };
+		C26887031B90B96D00990D8F /* MatchWild.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26887011B90B96D00990D8F /* MatchWild.xib */; };
+		C268870C1B916A1300990D8F /* JoinList.m in Sources */ = {isa = PBXBuildFile; fileRef = C268870A1B916A1300990D8F /* JoinList.m */; };
+		C268870D1B916A1300990D8F /* JoinList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C268870B1B916A1300990D8F /* JoinList.xib */; };
+		C26887111B916C4C00990D8F /* JoinListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C268870F1B916C4C00990D8F /* JoinListCell.m */; };
+		C26887121B916C4C00990D8F /* JoinListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26887101B916C4C00990D8F /* JoinListCell.xib */; };
+		C26887141B91808400990D8F /* redbg.png in Resources */ = {isa = PBXBuildFile; fileRef = C26887131B91808400990D8F /* redbg.png */; };
 		C28DEE081B7792F2008FB14A /* MCPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = C28DEE061B7792F2008FB14A /* MCPlace.m */; };
 		C28DEE091B7792F2008FB14A /* MCPlace.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28DEE071B7792F2008FB14A /* MCPlace.xib */; };
 		C28DEE0D1B7797D3008FB14A /* MCJudge.m in Sources */ = {isa = PBXBuildFile; fileRef = C28DEE0B1B7797D3008FB14A /* MCJudge.m */; };
@@ -130,6 +143,10 @@
 		C296FBB11B82897B00C99B44 /* UIViewController+Custome.m in Sources */ = {isa = PBXBuildFile; fileRef = C296FBB01B82897B00C99B44 /* UIViewController+Custome.m */; };
 		C296FBB61B828DF300C99B44 /* HttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C296FBB51B828DF300C99B44 /* HttpUtil.m */; };
 		C296FBB81B829D3400C99B44 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C296FBB71B829D3400C99B44 /* MobileCoreServices.framework */; };
+		C29DFAC91B8F816E00CBF6B9 /* SysConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C29DFAC71B8F816E00CBF6B9 /* SysConfig.m */; };
+		C29DFACA1B8F816E00CBF6B9 /* SysConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29DFAC81B8F816E00CBF6B9 /* SysConfig.xib */; };
+		C2A846D31B900A7E00E19C7D /* TeamCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A846D11B900A7E00E19C7D /* TeamCreate.m */; };
+		C2A846D41B900A7E00E19C7D /* TeamCreate.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2A846D21B900A7E00E19C7D /* TeamCreate.xib */; };
 		C2A9DDE61B8563DB003642D2 /* MyTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A9DDE41B8563DB003642D2 /* MyTeamCell.m */; };
 		C2A9DDE71B8563DB003642D2 /* MyTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2A9DDE51B8563DB003642D2 /* MyTeamCell.xib */; };
 		C2A9DDEF1B8564E5003642D2 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A9DDEE1B8564E5003642D2 /* Message.m */; };
@@ -588,6 +605,9 @@
 		C20CB1861B8A5D5E001D96F3 /* ArenaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArenaCell.h; sourceTree = "<group>"; };
 		C20CB1871B8A5D5E001D96F3 /* ArenaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArenaCell.m; sourceTree = "<group>"; };
 		C20CB1881B8A5D5E001D96F3 /* ArenaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArenaCell.xib; sourceTree = "<group>"; };
+		C23DC7EC1B907F65008F7615 /* MatchWildTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchWildTop.h; sourceTree = "<group>"; };
+		C23DC7ED1B907F65008F7615 /* MatchWildTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchWildTop.m; sourceTree = "<group>"; };
+		C23DC7EE1B907F65008F7615 /* MatchWildTop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchWildTop.xib; sourceTree = "<group>"; };
 		C2573C6D1B7102610079309C /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		C2573C6E1B7102610079309C /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		C2573C701B7102BF0079309C /* MatchBeginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchBeginCell.h; sourceTree = "<group>"; };
@@ -601,6 +621,22 @@
 		C26351291B88B4EB0061A93E /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		C263512A1B88B4EB0061A93E /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		C263512B1B88B4EB0061A93E /* UserInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfo.xib; sourceTree = "<group>"; };
+		C2639F1E1B8E1F3D00420775 /* UserDataMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataMatch.h; sourceTree = "<group>"; };
+		C2639F1F1B8E1F3D00420775 /* UserDataMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataMatch.m; sourceTree = "<group>"; };
+		C2639F201B8E1F3D00420775 /* UserDataMatch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDataMatch.xib; sourceTree = "<group>"; };
+		C2639F231B8E213900420775 /* UserInfoTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTop.h; sourceTree = "<group>"; };
+		C2639F241B8E213900420775 /* UserInfoTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTop.m; sourceTree = "<group>"; };
+		C2639F251B8E213900420775 /* UserInfoTop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoTop.xib; sourceTree = "<group>"; };
+		C26886FF1B90B96D00990D8F /* MatchWild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchWild.h; sourceTree = "<group>"; };
+		C26887001B90B96D00990D8F /* MatchWild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchWild.m; sourceTree = "<group>"; };
+		C26887011B90B96D00990D8F /* MatchWild.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchWild.xib; sourceTree = "<group>"; };
+		C26887091B916A1300990D8F /* JoinList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinList.h; sourceTree = "<group>"; };
+		C268870A1B916A1300990D8F /* JoinList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinList.m; sourceTree = "<group>"; };
+		C268870B1B916A1300990D8F /* JoinList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinList.xib; sourceTree = "<group>"; };
+		C268870E1B916C4C00990D8F /* JoinListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinListCell.h; sourceTree = "<group>"; };
+		C268870F1B916C4C00990D8F /* JoinListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinListCell.m; sourceTree = "<group>"; };
+		C26887101B916C4C00990D8F /* JoinListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinListCell.xib; sourceTree = "<group>"; };
+		C26887131B91808400990D8F /* redbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbg.png; sourceTree = "<group>"; };
 		C28DEE051B7792F2008FB14A /* MCPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPlace.h; sourceTree = "<group>"; };
 		C28DEE061B7792F2008FB14A /* MCPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPlace.m; sourceTree = "<group>"; };
 		C28DEE071B7792F2008FB14A /* MCPlace.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCPlace.xib; sourceTree = "<group>"; };
@@ -761,6 +797,12 @@
 		C296FBB41B828DF300C99B44 /* HttpUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpUtil.h; sourceTree = "<group>"; };
 		C296FBB51B828DF300C99B44 /* HttpUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpUtil.m; sourceTree = "<group>"; };
 		C296FBB71B829D3400C99B44 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C29DFAC61B8F816E00CBF6B9 /* SysConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysConfig.h; sourceTree = "<group>"; };
+		C29DFAC71B8F816E00CBF6B9 /* SysConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysConfig.m; sourceTree = "<group>"; };
+		C29DFAC81B8F816E00CBF6B9 /* SysConfig.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysConfig.xib; sourceTree = "<group>"; };
+		C2A846D01B900A7E00E19C7D /* TeamCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCreate.h; sourceTree = "<group>"; };
+		C2A846D11B900A7E00E19C7D /* TeamCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCreate.m; sourceTree = "<group>"; };
+		C2A846D21B900A7E00E19C7D /* TeamCreate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCreate.xib; sourceTree = "<group>"; };
 		C2A9DDE31B8563DB003642D2 /* MyTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTeamCell.h; sourceTree = "<group>"; };
 		C2A9DDE41B8563DB003642D2 /* MyTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTeamCell.m; sourceTree = "<group>"; };
 		C2A9DDE51B8563DB003642D2 /* MyTeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTeamCell.xib; sourceTree = "<group>"; };
@@ -1410,6 +1452,9 @@
 				C20CB1861B8A5D5E001D96F3 /* ArenaCell.h */,
 				C20CB1871B8A5D5E001D96F3 /* ArenaCell.m */,
 				C20CB1881B8A5D5E001D96F3 /* ArenaCell.xib */,
+				C268870E1B916C4C00990D8F /* JoinListCell.h */,
+				C268870F1B916C4C00990D8F /* JoinListCell.m */,
+				C26887101B916C4C00990D8F /* JoinListCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1919,15 +1964,36 @@
 				C28F080F1B85DACB00FC3FB7 /* TeamMemberInfo.h */,
 				C28F08101B85DACB00FC3FB7 /* TeamMemberInfo.m */,
 				C28F08111B85DACB00FC3FB7 /* TeamMemberInfo.xib */,
+				C2A846D01B900A7E00E19C7D /* TeamCreate.h */,
+				C2A846D11B900A7E00E19C7D /* TeamCreate.m */,
+				C2A846D21B900A7E00E19C7D /* TeamCreate.xib */,
 				C28DEE281B77B33A008FB14A /* TIController.h */,
 				C28DEE291B77B33A008FB14A /* TIController.m */,
 				C28DEE2A1B77B33A008FB14A /* TIController.xib */,
 				C28DEE231B77B049008FB14A /* TITop.h */,
 				C28DEE241B77B049008FB14A /* TITop.m */,
 				C28DEE251B77B049008FB14A /* TITop.xib */,
+				C2639F1E1B8E1F3D00420775 /* UserDataMatch.h */,
+				C2639F1F1B8E1F3D00420775 /* UserDataMatch.m */,
+				C2639F201B8E1F3D00420775 /* UserDataMatch.xib */,
 				C26351291B88B4EB0061A93E /* UserInfo.h */,
 				C263512A1B88B4EB0061A93E /* UserInfo.m */,
 				C263512B1B88B4EB0061A93E /* UserInfo.xib */,
+				C2639F231B8E213900420775 /* UserInfoTop.h */,
+				C2639F241B8E213900420775 /* UserInfoTop.m */,
+				C2639F251B8E213900420775 /* UserInfoTop.xib */,
+				C29DFAC61B8F816E00CBF6B9 /* SysConfig.h */,
+				C29DFAC71B8F816E00CBF6B9 /* SysConfig.m */,
+				C29DFAC81B8F816E00CBF6B9 /* SysConfig.xib */,
+				C23DC7EC1B907F65008F7615 /* MatchWildTop.h */,
+				C23DC7ED1B907F65008F7615 /* MatchWildTop.m */,
+				C23DC7EE1B907F65008F7615 /* MatchWildTop.xib */,
+				C26886FF1B90B96D00990D8F /* MatchWild.h */,
+				C26887001B90B96D00990D8F /* MatchWild.m */,
+				C26887011B90B96D00990D8F /* MatchWild.xib */,
+				C26887091B916A1300990D8F /* JoinList.h */,
+				C268870A1B916A1300990D8F /* JoinList.m */,
+				C268870B1B916A1300990D8F /* JoinList.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1967,6 +2033,7 @@
 		C2D856681B70F71B00F645B1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C26887131B91808400990D8F /* redbg.png */,
 				C2A9DDF41B85717C003642D2 /* cellBottom.png */,
 				C2A9DDF51B85717C003642D2 /* cellBottom@2x.png */,
 				C2A9DDF61B85717C003642D2 /* cellBottom@3x.png */,
@@ -2401,6 +2468,7 @@
 				C291F4A91B764260000A1999 /* MFController.xib in Resources */,
 				C2D858361B70F71C00F645B1 /* news_share_menu_weibo@3x.png in Resources */,
 				C2A9DDFE1B857C22003642D2 /* MyTeamController.xib in Resources */,
+				C268870D1B916A1300990D8F /* JoinList.xib in Resources */,
 				C2D858251B70F71C00F645B1 /* new_match_team.png in Resources */,
 				C2D858781B70F71C00F645B1 /* shared_btn_small@3x.png in Resources */,
 				C291B9541B84D8C600DA83F5 /* Icon-57.png in Resources */,
@@ -2421,6 +2489,7 @@
 				C2D8585A1B70F71C00F645B1 /* profile_payment_icon_custom@3x.png in Resources */,
 				C2D8588C1B70F71C00F645B1 /* shared_icon_badge_unknow@2x.png in Resources */,
 				C2D858D81B70F71C00F645B1 /* signup_avatar_placeholder@3x.png in Resources */,
+				C26887141B91808400990D8F /* redbg.png in Resources */,
 				C2D857F41B70F71C00F645B1 /* james.png in Resources */,
 				C2D858801B70F71C00F645B1 /* shared_icon_arrow_right@2x.png in Resources */,
 				C2D858C71B70F71C00F645B1 /* shared_switch_bg_on.png in Resources */,
@@ -2429,6 +2498,7 @@
 				C2D858661B70F71C00F645B1 /* shared_avatar_mask_large@3x.png in Resources */,
 				C2D8587D1B70F71C00F645B1 /* shared_checkbox_unchecked@2x.png in Resources */,
 				C2D858EC1B70F71C00F645B1 /* tab_icon_match@2x.png in Resources */,
+				C2A846D41B900A7E00E19C7D /* TeamCreate.xib in Resources */,
 				C2D858071B70F71C00F645B1 /* nav_btn_settings.png in Resources */,
 				C2A9DDF91B85717C003642D2 /* cellBottom@3x.png in Resources */,
 				C2D857F61B70F71C00F645B1 /* match_notication_icon_misc@2x.png in Resources */,
@@ -2482,6 +2552,7 @@
 				C2D858BA1B70F71C00F645B1 /* shared_segmented_control_selected@3x.png in Resources */,
 				C2D8583C1B70F71C00F645B1 /* popup_window_bg@3x.png in Resources */,
 				C293F3B51B8639EA007C6FE7 /* TeamFormCell.xib in Resources */,
+				C23DC7F01B907F65008F7615 /* MatchWildTop.xib in Resources */,
 				C2D857E41B70F71C00F645B1 /* custom_item_bg@3x.png in Resources */,
 				C28DEE271B77B049008FB14A /* TITop.xib in Resources */,
 				C2D858F71B70F71C00F645B1 /* tab_icon_profile.png in Resources */,
@@ -2536,6 +2607,7 @@
 				C2D858E01B70F71C00F645B1 /* signup_level_3@2x.png in Resources */,
 				C2D858381B70F71C00F645B1 /* news_share_menu_weixin@2x.png in Resources */,
 				C28F08181B85DBCF00FC3FB7 /* TeamMemberInfoCell.xib in Resources */,
+				C2639F271B8E213900420775 /* UserInfoTop.xib in Resources */,
 				C2D858651B70F71C00F645B1 /* shared_avatar_mask_large@2x.png in Resources */,
 				C2D858F01B70F71C00F645B1 /* tab_icon_match_active@3x.png in Resources */,
 				C2D8581A1B70F71C00F645B1 /* new_match_free@2x.png in Resources */,
@@ -2546,6 +2618,7 @@
 				C2D858E91B70F71C00F645B1 /* tab_icon_activities_active@2x.png in Resources */,
 				C2D858911B70F71C00F645B1 /* shared_icon_jurge.png in Resources */,
 				C2D857C21B70F71C00F645B1 /* activities_btn_add_photo_from_photos@2x.png in Resources */,
+				C2639F221B8E1F3D00420775 /* UserDataMatch.xib in Resources */,
 				C2D858E61B70F71C00F645B1 /* tab_icon_activities@2x.png in Resources */,
 				C2D858181B70F71C00F645B1 /* new_match_divider@3x.png in Resources */,
 				C2D858BB1B70F71C00F645B1 /* shared_selector_active.png in Resources */,
@@ -2611,6 +2684,7 @@
 				C2D858B31B70F71C00F645B1 /* shared_search_icon@2x.png in Resources */,
 				C2D8588D1B70F71C00F645B1 /* shared_icon_badge_unknow@3x.png in Resources */,
 				C2D857EA1B70F71C00F645B1 /* feed_divider@3x.png in Resources */,
+				C26887121B916C4C00990D8F /* JoinListCell.xib in Resources */,
 				C2D857EC1B70F71C00F645B1 /* feed_free_match_bg@2x.png in Resources */,
 				C2D8584B1B70F71C00F645B1 /* profile_icon_following@3x.png in Resources */,
 				C2D8582C1B70F71C00F645B1 /* news_share_menu_btn@2x.png in Resources */,
@@ -2671,6 +2745,7 @@
 				C2D858EB1B70F71C00F645B1 /* tab_icon_match.png in Resources */,
 				C2D858281B70F71C00F645B1 /* news_share_menu_bg.png in Resources */,
 				C2D858FF1B70F71C00F645B1 /* tabBarBg@3x.png in Resources */,
+				C26887031B90B96D00990D8F /* MatchWild.xib in Resources */,
 				C28DEE181B779D31008FB14A /* MCPayCell.xib in Resources */,
 				C2D858461B70F71C00F645B1 /* profile_icon_follower.png in Resources */,
 				C2D3802F1B851B4500AA3DE4 /* MFWildController.xib in Resources */,
@@ -2687,6 +2762,7 @@
 				C2D857C41B70F71C00F645B1 /* activities_icon_comment.png in Resources */,
 				C2D858491B70F71C00F645B1 /* profile_icon_following.png in Resources */,
 				C2D858C31B70F71C00F645B1 /* shared_selector_inactive@3x.png in Resources */,
+				C29DFACA1B8F816E00CBF6B9 /* SysConfig.xib in Resources */,
 				C2D858D91B70F71C00F645B1 /* signup_level_1.png in Resources */,
 				C2D858E21B70F71C00F645B1 /* tab_center.png in Resources */,
 				C2D858E51B70F71C00F645B1 /* tab_icon_activities.png in Resources */,
@@ -2793,6 +2869,8 @@
 			files = (
 				C293F3B91B863B70007C6FE7 /* TeamFormInfoCell.m in Sources */,
 				C2B2A8201B83FB3200F0C122 /* Login.m in Sources */,
+				C2639F261B8E213900420775 /* UserInfoTop.m in Sources */,
+				C26887021B90B96D00990D8F /* MatchWild.m in Sources */,
 				C2D856591B70F15100F645B1 /* GlobalConst.m in Sources */,
 				C28DEE581B77D6BA008FB14A /* MatchWildCell.m in Sources */,
 				C2D856411B70F10B00F645B1 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -2821,6 +2899,7 @@
 				C2573C731B7102BF0079309C /* MatchBeginCell.m in Sources */,
 				C293F3B41B8639E9007C6FE7 /* TeamFormCell.m in Sources */,
 				C2B2A7FD1B8376AA00F0C122 /* IQTitleBarButtonItem.m in Sources */,
+				C2639F211B8E1F3D00420775 /* UserDataMatch.m in Sources */,
 				C2B2A8131B8393B500F0C122 /* MyDataCell.m in Sources */,
 				C291F49E1B763BA5000A1999 /* MFMatchInfoCell.m in Sources */,
 				C2B2A8041B837DED00F0C122 /* RegTwo.m in Sources */,
@@ -2829,6 +2908,7 @@
 				C2D856271B70F10B00F645B1 /* NSArray+MTLManipulationAdditions.m in Sources */,
 				C296FBA01B827AD700C99B44 /* RegThree.m in Sources */,
 				C2B2A8181B83E5DD00F0C122 /* MyDataTopCell.m in Sources */,
+				C268870C1B916A1300990D8F /* JoinList.m in Sources */,
 				C2D8564B1B70F10B00F645B1 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				C2D856261B70F10B00F645B1 /* MTLValueTransformer.m in Sources */,
 				C296FBA71B82829200C99B44 /* LoginUtil.m in Sources */,
@@ -2850,6 +2930,7 @@
 				C263511A1B8865C80061A93E /* MFMatchNoticeCell.m in Sources */,
 				C2D856531B70F10B00F645B1 /* WebViewJavascriptBridge.m in Sources */,
 				C2D856471B70F10B00F645B1 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				C26887111B916C4C00990D8F /* JoinListCell.m in Sources */,
 				C293F3A01B860611007C6FE7 /* TeamMemberAdd.m in Sources */,
 				C291F4AD1B76496B000A1999 /* MFTeamInfoCell.m in Sources */,
 				C2D8562E1B70F10B00F645B1 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */,
@@ -2920,8 +3001,10 @@
 				C2D856241B70F10B00F645B1 /* MTLReflection.m in Sources */,
 				C2D856161B70F10B00F645B1 /* AFHTTPRequestOperationManager.m in Sources */,
 				C2D856351B70F10B00F645B1 /* NSData+ImageContentType.m in Sources */,
+				C23DC7EF1B907F65008F7615 /* MatchWildTop.m in Sources */,
 				C28DEE671B77DD3A008FB14A /* MIController.m in Sources */,
 				C2D856181B70F10B00F645B1 /* AFNetworkReachabilityManager.m in Sources */,
+				C29DFAC91B8F816E00CBF6B9 /* SysConfig.m in Sources */,
 				C28F08171B85DBCF00FC3FB7 /* TeamMemberInfoCell.m in Sources */,
 				C28DEE621B77D942008FB14A /* Notice.m in Sources */,
 				C28DEE531B77D04F008FB14A /* MatchHalfCell.m in Sources */,
@@ -2942,6 +3025,7 @@
 				C2D856481B70F10B00F645B1 /* TPKeyboardAvoidingTableView.m in Sources */,
 				C2D8562F1B70F10B00F645B1 /* MBProgressHUD.m in Sources */,
 				C291F48C1B758C3A000A1999 /* MFTop.m in Sources */,
+				C2A846D31B900A7E00E19C7D /* TeamCreate.m in Sources */,
 				C2B2A8091B83863300F0C122 /* My.m in Sources */,
 				C2D856361B70F10B00F645B1 /* SDImageCache.m in Sources */,
 				C296FBB11B82897B00C99B44 /* UIViewController+Custome.m in Sources */,

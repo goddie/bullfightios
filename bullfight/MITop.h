@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "MIController.h"
 
+
 @interface MITop : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
 @property (weak, nonatomic) IBOutlet UIImageView *img3;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
 
+@property (weak, nonatomic) IBOutlet UIView *teamHolder;
 
 
 @property (weak, nonatomic) MatchFight *matchFight;
@@ -23,6 +25,6 @@
 
 @property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
 
-
+@property (weak, nonatomic) User *user;
 
 @end

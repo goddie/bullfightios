@@ -13,6 +13,7 @@
 #import "MyTeamCell.h"
 #import "ManaTIController.h"
 #import "ManaTIJoinController.h"
+#import "TeamCreate.h"
 @interface MyTeamController ()
 
 @end
@@ -24,6 +25,8 @@
  
     NSMutableArray *dataArr1;
     NSMutableArray *dataArr2;
+    
+ 
 }
 
 static NSString * const reuseIdentifier = @"MyTeamCell";
@@ -41,10 +44,11 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"MyTeamCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     self.tableView.backgroundColor = [GlobalConst appBgColor];
     
-    [self getData];
+    
     [self.topView addSubview:[self getTopView]];
     
     self.title = @"我的球队";
+    [self addRightNavButton];
     
 }
 
@@ -52,6 +56,45 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self getData];
+}
+
+
+-(void)addRightNavButton
+{
+    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [refreshButton setFrame:CGRectMake(0,0,30,30)];
+    
+    //    [refreshButton setTitle:@"退出" forState:UIControlStateNormal];
+    //    [refreshButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    refreshButton.userInteractionEnabled = YES;
+    [refreshButton setImage:[UIImage imageNamed:@"nav_btn_add.png"] forState:UIControlStateNormal];
+    
+    // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
+    
+    UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    
+    self.navigationItem.rightBarButtonItem = refreshBarButton;
+    [refreshButton addTarget:self action:@selector(rightPush) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+}
+
+
+/**
+ *  create team
+ */
+-(void)rightPush
+{
+    TeamCreate *c1 = [[TeamCreate alloc] initWithNibName:@"TeamCreate" bundle:nil];
+    [self.navigationController pushViewController:c1 animated:YES];
+    
+}
+
+
 
 -(void)getData
 {
@@ -187,6 +230,8 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
         
         ManaTIController *c1 = [[ManaTIController alloc] initWithNibName:@"ManaTIController" bundle:nil];
         c1.team = team;
+        c1.uuid = team.uuid;
+        
         [self.navigationController pushViewController:c1 animated:YES];
     }
     
@@ -196,6 +241,8 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
         
         ManaTIJoinController *c1 = [[ManaTIJoinController alloc] initWithNibName:@"ManaTIJoinController" bundle:nil];
         c1.team = team;
+        c1.uuid = team.uuid;
+
         [self.navigationController pushViewController:c1 animated:YES];
     }
     
@@ -218,10 +265,15 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
         entity =  (Team*)[dataArr2 objectAtIndex:indexPath.row];
     }
     
+    if (!entity.avatar) {
+        entity.avatar=@"";
+        
+        
+    }
     
-    NSString *a1 = [@"" stringByAppendingString:entity.avatar];
-    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
+    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:entity.avatar]];
     [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+
     
     return cell;
     

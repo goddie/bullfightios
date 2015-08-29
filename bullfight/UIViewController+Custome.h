@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "LoginUtil.h"
 #import "MBProgressHUD.h"
+#import "UIScrollView+SVPullToRefresh.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
 
 @interface UIViewController (Custome)
 
@@ -18,6 +20,7 @@
 
 - (void)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id responseObj))success;
 
-
+-(void)showHud;
+-(void)hideHud;
 
 @end

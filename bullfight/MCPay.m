@@ -30,6 +30,7 @@
     
     dataArr = @[@[@"3vs3比赛场地费用",@"¥20"],@[@"3vs3比赛裁判费用",@"¥10"],@[@"3vs3比赛数据员费用",@"¥30"],@[@"费用总计",@"¥300"]];
     
+    self.title = @"支付费用";
  
 }
 
@@ -109,6 +110,11 @@
     
     NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:[self.matchFight.end doubleValue]];
     NSString *end = [formatter stringFromDate:endDate];
+    
+    
+    
+ 
+    
     
     NSLog(@"%@",[self.matchFight description]);
     

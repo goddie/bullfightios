@@ -28,6 +28,7 @@
     NSMutableArray *dataArr3;
     Team *curTeam;
     Message *curMessage;
+    NSNumber *curPage;
 }
 
 - (void)viewDidLoad {
@@ -38,9 +39,25 @@
     dataArr =  [NSMutableArray arrayWithCapacity:10];
     dataArr2 =  [NSMutableArray arrayWithCapacity:10];
     dataArr3 =  [NSMutableArray arrayWithCapacity:10];
-    [self getData];
+ 
     
     self.title = @"消息";
+    
+    
+    curPage = [NSNumber numberWithInt:1];
+    __weak Notice *wkSelf = self;
+    
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [wkSelf refresh];
+        
+    }];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [wkSelf loadMore];
+        
+    }];
+    
+    [self loadData];
     
 }
 
@@ -50,7 +67,30 @@
 }
 
 
--(void)getData
+
+-(void)refresh
+{
+    [dataArr removeAllObjects];
+    curPage = [NSNumber numberWithInt:1];
+    [self loadData];
+}
+
+-(void)loadMore
+{
+    curPage = [NSNumber numberWithInt: [curPage intValue] + 1];
+    
+    [self loadData];
+}
+
+-(void)stopAnimation
+{
+    [self.tableView.pullToRefreshView stopAnimating];
+    [self.tableView.infiniteScrollingView stopAnimating];
+    [self hideHud];
+}
+
+
+-(void)loadData
 {
     NSString *uuid = [LoginUtil getLocalUUID];
     
@@ -61,9 +101,9 @@
     
     NSDictionary *parameters = @{
                                  @"uid":uuid,
-                                 @"p":@"1"
+                                 @"p":curPage
                                  };
-    
+    [self showHud];
     
     [self post:@"message/json/usermessage" params:parameters success:^(id responseObj) {
         
@@ -114,6 +154,8 @@
             }
 
             [self.tableView reloadData];
+            
+            [self stopAnimation];
         }
         
     }];
@@ -212,6 +254,33 @@
     }
 }
 
+/**
+ *  标记已读
+ *
+ *  @param message <#message description#>
+ */
+-(void)updateRead:(Message*)message
+{
+    
+    NSDictionary *parameters = @{
+                                 @"mid":message.uuid
+                                 };
+    
+    [self post:@"message/json/updateread" params:parameters success:^(id responseObj) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        
+//        if ([[dict objectForKey:@"code"] intValue]==1) {
+//            
+//            [self.tableView reloadData];
+//            
+//            
+//        }
+        
+    }];
+
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -242,10 +311,21 @@
         
     }
     
+    if (dataArr.count==0) {
+        return cell;
+    }
+    
     Message *entity = (Message*)[dataArr objectAtIndex:indexPath.row];
     
     cell.txtTime.text = [GlobalUtil getDateFromUNIX:entity.createdDate];
     cell.txtContent.text = entity.title;
+    
+    if ([entity.status intValue]==1) {
+        cell.imgreg.hidden=YES;
+    }else
+    {
+        cell.imgreg.hidden=NO;
+    }
     
     return  cell;
 }
@@ -254,6 +334,8 @@
 {
     
     Message *entity = (Message*)[dataArr objectAtIndex:indexPath.row];
+    
+    [self updateRead:entity];
     
     curMessage = entity;
     

@@ -21,5 +21,7 @@
 
 + (AppDelegate *)delegate;
 
+-(void)changeTab:(NSInteger)idx;
+
 @end
 

@@ -79,7 +79,9 @@
 //            [alert show];
             
             NSDictionary *data = [dict objectForKey:@"data"];
-            User *model = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:data error:nil];
+            NSError *error;
+            User *model = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:data error:&error];
+            //NSLog(@"%@",[error description]);
             [LoginUtil saveLocalUser:model];
             [LoginUtil saveLocalUUID:model];
             //[LoginUtil saveUserJSON:responseObj];

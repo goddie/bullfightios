@@ -6,10 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MITop">
             <connections>
-                <outlet property="img1" destination="mNg-xR-14D" id="t8L-mO-fI7"/>
-                <outlet property="img2" destination="e3u-7N-FzF" id="wsZ-hU-BZc"/>
-                <outlet property="img3" destination="jW7-CP-rln" id="8kn-No-L7I"/>
                 <outlet property="seg" destination="isV-4v-Fpo" id="UGl-JV-m3b"/>
+                <outlet property="teamHolder" destination="jWM-JY-taE" id="jWf-Yn-rFa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,27 +33,6 @@
                     <color key="textColor" red="0.46274509800000002" green="0.5450980392" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="mNg-xR-14D">
-                    <rect key="frame" x="389" y="109" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="VEG-DD-G59"/>
-                        <constraint firstAttribute="width" constant="40" id="X6Q-46-nae"/>
-                    </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="e3u-7N-FzF">
-                    <rect key="frame" x="389" y="161" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="9hq-5W-iJz"/>
-                        <constraint firstAttribute="width" constant="40" id="ORh-Ki-cW5"/>
-                    </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jW7-CP-rln">
-                    <rect key="frame" x="389" y="213" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="40" id="Hvb-yq-1vt"/>
-                        <constraint firstAttribute="height" constant="40" id="ZrT-04-Jgt"/>
-                    </constraints>
-                </imageView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="isV-4v-Fpo">
                     <rect key="frame" x="0.0" y="293" width="600" height="31"/>
                     <constraints>
@@ -67,21 +44,25 @@
                         <segment title="获得荣誉"/>
                     </segments>
                 </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWM-JY-taE">
+                    <rect key="frame" x="389" y="109" width="40" height="168"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="168" id="7ZB-tE-vR3"/>
+                        <constraint firstAttribute="width" constant="40" id="AtO-Do-uHB"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="e3u-7N-FzF" firstAttribute="top" secondItem="mNg-xR-14D" secondAttribute="bottom" constant="12" id="0gk-j4-DNW"/>
                 <constraint firstItem="oAv-Oj-nks" firstAttribute="leading" secondItem="bD2-hM-yM4" secondAttribute="trailing" constant="15" id="3DF-N7-PC9"/>
-                <constraint firstItem="e3u-7N-FzF" firstAttribute="centerX" secondItem="jW7-CP-rln" secondAttribute="centerX" id="499-Am-GNS"/>
-                <constraint firstItem="jW7-CP-rln" firstAttribute="top" secondItem="e3u-7N-FzF" secondAttribute="bottom" constant="12" id="J5L-Q8-kzQ"/>
+                <constraint firstItem="jWM-JY-taE" firstAttribute="top" secondItem="oAv-Oj-nks" secondAttribute="bottom" constant="8" id="IOW-Pb-JSG"/>
                 <constraint firstItem="bD2-hM-yM4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="17" id="QPL-X8-DZN"/>
                 <constraint firstItem="isV-4v-Fpo" firstAttribute="top" secondItem="bD2-hM-yM4" secondAttribute="bottom" constant="16" id="Qvc-X8-4ET"/>
                 <constraint firstItem="oAv-Oj-nks" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="SHw-K5-NfI"/>
-                <constraint firstItem="mNg-xR-14D" firstAttribute="top" secondItem="oAv-Oj-nks" secondAttribute="bottom" constant="8" id="XEd-yZ-Smy"/>
-                <constraint firstItem="e3u-7N-FzF" firstAttribute="centerX" secondItem="mNg-xR-14D" secondAttribute="centerX" id="YSz-md-uij"/>
                 <constraint firstItem="isV-4v-Fpo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cHf-wO-Ns8"/>
-                <constraint firstItem="mNg-xR-14D" firstAttribute="centerX" secondItem="oAv-Oj-nks" secondAttribute="centerX" id="emn-Ao-0Vq"/>
                 <constraint firstAttribute="centerX" secondItem="bD2-hM-yM4" secondAttribute="centerX" id="oKY-Ku-u0Z"/>
+                <constraint firstItem="jWM-JY-taE" firstAttribute="leading" secondItem="bD2-hM-yM4" secondAttribute="trailing" constant="27" id="qEr-JZ-XrI"/>
                 <constraint firstAttribute="trailing" secondItem="isV-4v-Fpo" secondAttribute="trailing" id="zO7-Y3-Bio"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -90,6 +71,5 @@
     </objects>
     <resources>
         <image name="profile_figure_placeholder.png" width="204" height="529"/>
-        <image name="teamIcon.png" width="147" height="147"/>
     </resources>
 </document>

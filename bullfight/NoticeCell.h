@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
 @property (weak, nonatomic) IBOutlet UILabel *txtContent;
 @property (weak, nonatomic) IBOutlet UILabel *txtTime;
+@property (weak, nonatomic) IBOutlet UIImageView *imgreg;
 
 @end

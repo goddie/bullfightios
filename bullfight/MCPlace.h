@@ -23,4 +23,7 @@
 @property (nonatomic, strong) MatchFight *matchFight;
 @property (nonatomic, strong) NSString *arenaid;
 @property (nonatomic, strong) NSString *arenaName;
+
+
+-(void)bindArena;
 @end

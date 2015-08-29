@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MCPlaceList : UITableViewController<UINavigationControllerDelegate>
+@interface MCPlaceList : UITableViewController 
 
 @end

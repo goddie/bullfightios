@@ -21,6 +21,7 @@
     [mgr setSecurityPolicy:policy];
     mgr.requestSerializer = [AFJSONRequestSerializer serializer];
     mgr.responseSerializer = [AFJSONResponseSerializer serializer];
+    
     [mgr GET:url parameters:params
      success:^(AFHTTPRequestOperation *operation, id responseObj) {
          if (success) {
@@ -39,6 +40,7 @@
     [policy setAllowInvalidCertificates:YES];
     // 1.获得请求管理者
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
     [mgr setSecurityPolicy:policy];
 //    mgr.requestSerializer = [AFJSONRequestSerializer serializer];
 //    mgr.responseSerializer = [AFJSONResponseSerializer serializer];

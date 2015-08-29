@@ -192,14 +192,21 @@
 //    NSDate *d = [NSDate dateWithTimeIntervalSince1970:[date doubleValue]];
 //    NSDateComponents *weekdayComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:d];
 //    int weekday = [weekdayComponents weekday];
+    NSString *d = [self getDateFromUNIX:date format:@"yyyy-MM-dd"];
+    
+    return d;
+    
+}
+
++(NSString*) getDateFromUNIX:(NSNumber*)date format:(NSString*)format
+{
     NSDate *d = [NSDate dateWithTimeIntervalSince1970:[date doubleValue]/1000];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:format];
     
     NSString *stringFromDate = [formatter stringFromDate:d];
     
     return stringFromDate;
-    
 }
 
 
@@ -275,9 +282,9 @@
         
         NSNumber *num = (NSNumber*)value;
         
-        NSInteger i = [num intValue];
+        int i = [num intValue];
         
-        return [NSString stringWithFormat:@"%ld",i];
+        return [NSString stringWithFormat:@"%d",i];
         
     }
     

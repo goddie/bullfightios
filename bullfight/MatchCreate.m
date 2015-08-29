@@ -24,6 +24,8 @@
  
     
     [self globalConfig];
+    
+    self.title = @"创建比赛";
 }
 
 - (void)didReceiveMemoryWarning {

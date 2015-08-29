@@ -43,6 +43,22 @@
 */
 
 - (IBAction)btnNextClick:(id)sender {
+    
+    if (self.matchFight.judge<=0 ) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请选择裁判人数" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        
+        return;
+    }
+    
+    if (self.matchFight.dataRecord<=0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请选择数据员人数" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        
+        return;
+    }
+    
+    
     MCPay *c1 = [[MCPay alloc] initWithNibName:@"MCPay" bundle:nil];
     c1.matchFight = self.matchFight;
     [self.navigationController pushViewController:c1 animated:YES];

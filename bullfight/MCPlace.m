@@ -20,9 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(selectPlace:) name:@"selectPlace" object:nil];
+    
     [self globalConfig];
     [GlobalUtil set9PathImage:self.btnNext imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     self.title = @"时间和场地";
+    [self initDate];
+    
     
     [GlobalUtil addButtonToView:self sender:self.txtArena action:@selector(arenaClick) data:nil];
     
@@ -40,16 +45,63 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)selectPlace:(NSNotification*)notice
+{
+    NSDictionary *dict = (NSDictionary*)notice.object;
+
+    self.matchFight.arena = dict;
+    self.arenaid = [dict objectForKey:@"aid"];
+    self.arenaName = [dict objectForKey:@"name"];
+
+    [self bindArena];
 }
-*/
 
+-(void)initDate
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    
+    NSDateComponents *components = [calendar components:unitFlags fromDate:[NSDate date]];
+    
+    NSInteger iCurYear = [components year];  //当前的年份
+    
+    NSInteger iCurMonth = [components month];  //当前的月份
+    
+    NSInteger iCurDay = [components day];  // 当前的号数
+    
+    
+    
+    NSString *minStr = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)iCurYear,(long)iCurMonth,(long)iCurDay];
+    
+    self.txtDate.text = minStr;
+//    NSString *maxStr = [NSString stringWithFormat:@"%ld-%ld-%d 00:00:00",(long)iCurYear+1,12,31];
+//    
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    
+//    
+//    NSDate *minDate = [dateFormatter dateFromString:minStr];
+//    NSDate *maxDate = [dateFormatter dateFromString:maxStr];
+//    
+//    //    NSDate* maxDate = [[NSDate alloc] initWithString:@"2099-01-01 00:00:00 -0500"];
+//    
+//    
+//    UIDatePicker *datePicker = [ [ UIDatePicker alloc] initWithFrame:CGRectMake(0.0,0.0,0.0,0.0)];
+//    [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+//    [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"zh_Hans_CN"]];
+//    datePicker.datePickerMode = UIDatePickerModeDate;
+//    
+//    
+//    datePicker.minimumDate = minDate;
+//    datePicker.maximumDate = maxDate;
+//    
+//    self.txtDate.inputView = datePicker;
+//    
+//    [self.txtDate becomeFirstResponder];
+
+}
 
 -(void)bindArena
 {
@@ -61,7 +113,7 @@
 -(void)arenaClick
 {
     MCPlaceList *c1 = [[MCPlaceList alloc] initWithNibName:@"MCPlaceList" bundle:nil];
-    self.navigationController.delegate = c1;
+    //self.navigationController.delegate = c1;
     
     [self.navigationController pushViewController:c1 animated:YES];
 }
@@ -233,7 +285,7 @@
     
     
     NSString *uuid = [LoginUtil getLocalUUID];
-    if (uuid.length==0) {
+    if (!uuid.length) {
         return;
     }
     
@@ -250,22 +302,27 @@
     NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:[self.matchFight.end doubleValue]];
     NSString *end = [formatter stringFromDate:endDate];
     
-    NSLog(@"%@",[self.matchFight description]);
+   
     
+    self.matchFight.judge = [NSNumber numberWithInt:1];
+    self.matchFight.dataRecord = [NSNumber numberWithInt:1];
+    self.matchFight.teamSize = [NSNumber numberWithInt:5];
+    
+     NSLog(@"%@",[self.matchFight description]);
     
     NSDictionary *parameters = @{
                                  @"uid":uuid,
-                                 @"tid":[self.matchFight.host objectForKey:@"hostid"],
+                                 @"tid":@"",
                                  @"aid":[self.matchFight.arena objectForKey:@"aid"],
                                  @"matchType":[NSString stringWithFormat:@"%@",self.matchFight.matchType],
-                                 @"status":@"0",
+                                 @"status":@"1",
                                  @"startStr":start,
                                  @"endStr":end,
                                  @"guestScore":@"0",
                                  @"hostScore":@"0",
-                                 @"teamSize":[NSString stringWithFormat:@"%@",self.matchFight.teamSize],
-                                 @"judge":[NSString stringWithFormat:@"%@",self.matchFight.judge],
-                                 @"dataRecord":[NSString stringWithFormat:@"%@",self.matchFight.dataRecord],
+                                 @"teamSize":@"5",
+                                 @"judge":@"0",
+                                 @"dataRecord":@"0",
                                  @"isPay":@"1",
                                  @"fee":@"800"
                                  };
@@ -280,6 +337,7 @@
         
         
         if ([[dict objectForKey:@"code"] intValue]==1) {
+            
             
             [self.navigationController popToRootViewControllerAnimated:YES];
             

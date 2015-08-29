@@ -17,6 +17,7 @@
 #import "MatchFight.h"
 #import "User.h"
 #import "TeamDataCell.h"
+#import "MIController.h"
 
 @interface TIController ()
 
@@ -29,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.team.name;
     
     [self globalConfig];
     
@@ -65,7 +67,7 @@
                 ];
     
     cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
-
+ 
     dataArr1 = [NSMutableArray arrayWithCapacity:10];
     dataArr2 = [NSMutableArray arrayWithCapacity:10];
     dataArr3 = [NSMutableArray arrayWithCapacity:10];
@@ -118,6 +120,7 @@
                                      };
         
         [dataArr1 removeAllObjects];
+        [self showHud];
         [self post:@"matchdatateam/json/teammatch" params:parameters success:^(id responseObj) {
             NSDictionary *dict = (NSDictionary *)responseObj;
             if ([[dict objectForKey:@"code"] intValue]==1) {
@@ -131,6 +134,7 @@
                     }
                 }
                 [self.tableView reloadData];
+                [self hideHud];
             }
         }];
     }
@@ -140,6 +144,7 @@
     if (tabIndex==1) {
         
         if (!self.team) {
+            
             return;
         }
         
@@ -148,6 +153,7 @@
                                      };
         
         [dataArr2 removeAllObjects];
+        [self showHud];
         
         [self post:@"teamuser/json/memberlist" params:parameters success:^(id responseObj) {
             
@@ -165,7 +171,7 @@
                     }
                 }
                 [self.tableView reloadData];
-                
+                [self hideHud];
             }
             
             
@@ -175,10 +181,37 @@
     //数据
     if (tabIndex==2) {
         
+        if (dataArr3.count>0) {
+            [self.tableView reloadData];
+            return;
+        }
+        
+        NSString *r1 =[NSString stringWithFormat:@"%d%%",[self.team.goalPercent intValue]];
+        NSString *r2 =[NSString stringWithFormat:@"%d%%",[self.team.freeGoalPercent intValue]];
+        
        
+        NSString *r3 =[NSString stringWithFormat:@"%d",[self.team.rebound intValue]];
+        NSString *r4 =[NSString stringWithFormat:@"%d",[self.team.assist intValue]];
         
-               
+        NSString *r5 =[NSString stringWithFormat:@"%d",[self.team.block intValue]];
+        NSString *r6 =[NSString stringWithFormat:@"%d",[self.team.steal intValue]];
         
+        NSString *r7 =[NSString stringWithFormat:@"%d",[self.team.turnover intValue]];
+        NSString *r8 =[NSString stringWithFormat:@"%d",[self.team.foul intValue]];
+        
+        
+        
+        dataArr3 = [NSMutableArray arrayWithArray: @[
+                     @[@"投篮命中率",r1,@"罚球命中率",r2],
+                     @[@"场均篮板",r3,@"场均助攻",r4],
+                     @[@"场均抢断",r5,@"场均盖帽",r6],
+                     @[@"场均失误",r7,@"场均犯规",r8]
+                     
+                     ]];
+        
+ 
+        
+         [self.tableView reloadData];
     }
     
     //荣誉
@@ -346,6 +379,8 @@
         
     }
     
+    //阵容
+    
     if (tabIndex==1) {
         
         User *entity = (User*)[dataArr2 objectAtIndex:indexPath.row];
@@ -384,7 +419,10 @@
         }
         
         //cell.txtPos.text = [[dataArr objectAtIndex:tabIndex] objectAtIndex:indexPath.row];
-        
+        cell.txt1.text = [[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:0];
+        cell.value1.text = [[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:1];
+        cell.txt2.text = [[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:2];
+        cell.value2.text =  [[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:3];
         
         return cell;
         
@@ -417,7 +455,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (tabIndex==1) {
+        User *user = [dataArr2 objectAtIndex:indexPath.row];
+        
+        MIController *c1 = [[MIController alloc] initWithNibName:@"MIController" bundle:nil];
+        
+        c1.user = user;
+        
+        [self.navigationController pushViewController:c1 animated:YES];
+    }
 }
 
 

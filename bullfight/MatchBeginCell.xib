@@ -172,7 +172,7 @@
                 <outlet property="txtWeather" destination="60d-69-9Gg" id="95J-ts-W9R"/>
                 <outlet property="viewTop" destination="14H-He-Oe6" id="4yE-vc-tcI"/>
             </connections>
-            <point key="canvasLocation" x="-117" y="1024"/>
+            <point key="canvasLocation" x="67" y="904"/>
         </tableViewCell>
     </objects>
     <resources>

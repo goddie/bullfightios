@@ -44,6 +44,14 @@
 
 - (IBAction)btnNextClick:(id)sender {
     
+    if (self.matchFight.teamSize<=0) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请选择比赛人数" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        
+        return;
+    }
+    
     MCPlace *c1 = [[MCPlace alloc] initWithNibName:@"MCPlace" bundle:nil];
     c1.matchFight = self.matchFight;
     [self.navigationController pushViewController:c1 animated:YES];

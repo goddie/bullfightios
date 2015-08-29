@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Team.h"
 
-@interface TeamBaseInfo : UITableViewController
+@interface TeamBaseInfo : UITableViewController<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) Team *team;
 @end

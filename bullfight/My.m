@@ -14,6 +14,7 @@
 #import "UserInfo.h"
 #import "RegOne.h"
 #import "AppDelegate.h"
+#import "SysConfig.h"
 
 
 @interface My ()
@@ -42,17 +43,22 @@
     
     self.title = @"我";
     
+    [self addLeftNavButton];
+    
+   
+    
     [self addRightNavButton];
+
 }
 
 
--(void)addRightNavButton
+-(void)addLeftNavButton
 {
     UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [refreshButton setFrame:CGRectMake(0,0,26,30)];
+    [refreshButton setFrame:CGRectMake(0,0,40,30)];
     
     [refreshButton setTitle:@"退出" forState:UIControlStateNormal];
-    [refreshButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+    [refreshButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     refreshButton.userInteractionEnabled = YES;
     //[refreshButton setImage:[UIImage imageNamed:@"nav_filter.png"] forState:UIControlStateNormal];
     
@@ -60,43 +66,57 @@
     
     UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
     
-    self.navigationItem.rightBarButtonItem = refreshBarButton;
-    [refreshButton addTarget:self action:@selector(rightPush) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = refreshBarButton;
+    [refreshButton addTarget:self action:@selector(leftPush) forControlEvents:UIControlEventTouchUpInside];
 
 
 }
 
 
+-(void)addRightNavButton
+{
+    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [refreshButton setFrame:CGRectMake(0,0,30,30)];
+    
+//    [refreshButton setTitle:@"退出" forState:UIControlStateNormal];
+//    [refreshButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    refreshButton.userInteractionEnabled = YES;
+    [refreshButton setImage:[UIImage imageNamed:@"nav_btn_settings.png"] forState:UIControlStateNormal];
+    
+    // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
+    
+    UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    
+    self.navigationItem.rightBarButtonItem = refreshBarButton;
+    [refreshButton addTarget:self action:@selector(rightPush) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+}
 
 -(void)rightPush
 {
+    SysConfig *c1 = [[SysConfig alloc] initWithNibName:@"SysConfig" bundle:nil];
+    [self.navigationController pushViewController:c1 animated:YES];
+}
+
+
+-(void)leftPush
+{
     [LoginUtil clearLocal];
-    
     [[AppDelegate delegate] loginPage];
 }
 
--(void)viewWillAppear:(BOOL)animated
+
+-(void)viewDidAppear:(BOOL)animated
 {
     NSString *uuid = [LoginUtil getLocalUUID];
-    
     if (!uuid) {
-        
-        RegOne *c1 = [[RegOne alloc] initWithNibName:@"RegOne" bundle:nil];
-        
-        UINavigationController *nav  = [[UINavigationController alloc] initWithRootViewController:c1];
-        
-        [self presentViewController:nav animated:YES completion:^{
-            
-        }];
-        
-        
-        
+        [[AppDelegate delegate] loginPage];
     }
-    
-    
-    
     [self getData];
 }
+
+ 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -105,13 +125,13 @@
 
 -(void)getData
 {
-//    NSString *uid = [LoginUtil getLocalUUID];
-    if (self.userId.length==0) {
+    NSString *uid = [LoginUtil getLocalUUID];
+    if (!uid) {
         return;
     }
     
     NSDictionary *parameters = @{
-                                 @"uid":self.userId
+                                 @"uid":uid
                                  };
     
     

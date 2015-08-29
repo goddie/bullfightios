@@ -136,6 +136,8 @@ static AppDelegate *appDelegate = nil;
 {
     NSString *uuid = [LoginUtil getLocalUUID];
     
+    [self changeTab:0];
+    
     if (!uuid) {
         
         RegOne *c1 = [[RegOne alloc] initWithNibName:@"RegOne" bundle:nil];
@@ -148,6 +150,11 @@ static AppDelegate *appDelegate = nil;
         
     }
 
+}
+
+-(void)changeTab:(NSInteger)idx
+{
+    mainController.selectedIndex = idx;
 }
 
 @end

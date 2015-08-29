@@ -48,6 +48,8 @@
 //    self.tableView.backgroundColor  = [GlobalConst lightAppBgColor];
 //
 //    [self bindData];
+    
+    self.title = @"比赛信息";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -142,7 +144,7 @@
         
         [dataArr1 addObject:@[@"shared_icon_location.png",[self.matchFight.arena objectForKey:@"name"]]];
         [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil getDateFromUNIX:self.matchFight.start]]];
-        [dataArr1 addObject:@[@"shared_icon_weather.png",self.matchFight.weather]];
+        [dataArr1 addObject:@[@"shared_icon_weather.png",[GlobalUtil toString:self.matchFight.weather]]];
         [dataArr1 addObject:@[@"shared_icon_jurge.png",s1]];
         [dataArr1 addObject:@[@"shared_icon_notification.png",@"接受系统赛前通知提醒"]];
         
@@ -160,11 +162,11 @@
             return;
         }
         
-        NSDictionary *hdict = self.matchFight.host;
-        Team *host = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:hdict error:nil];
+//        NSDictionary *hdict = self.matchFight.host;
+        Team *host = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:self.matchFight.host error:nil];
         
-        NSDictionary *hdict2 = self.matchFight.host;
-        Team *guest = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:hdict2 error:nil];
+//        NSDictionary *hdict2 = self.matchFight.guest;
+        Team *guest = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:self.matchFight.guest error:nil];
         
         
         
@@ -196,7 +198,7 @@
                                      @"p":@"1"
                                      };
         [dataArr3 removeAllObjects];
-        
+        [self showHud];
         [self post:@"teamuser/json/memberlistboth" params:parameters success:^(id responseObj) {
             NSDictionary *dict = (NSDictionary *)responseObj;
             if ([[dict objectForKey:@"code"] intValue]==1) {
@@ -248,6 +250,8 @@
                 
             }
             [self.tableView reloadData];
+            
+            [self hideHud];
         }];
         
         
@@ -265,6 +269,8 @@
     MyButton *btn = (MyButton*)sender;
     
     MIController *c1 = [[MIController alloc] initWithNibName:@"MIController" bundle:nil];
+    
+    c1.user = (User*)btn.data;
     
     [self.navigationController pushViewController:c1 animated:YES];
 }
@@ -363,21 +369,37 @@
             NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
             cell = [nibArray objectAtIndex:0];
         }
+    
         
         if ([[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:0]) {
             
             
-            User *user= (User*)[[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:1];
             
-            cell.txtName1.text = user.nickname;
             
-            if(user.avatar)
+            User *user= (User*)[[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:0];
+            
+            
+            if ((NSNull *)user != [NSNull null]) {
+                cell.txtName1.text = user.nickname;
+                
+                if(user.avatar)
+                {
+                    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
+                    [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                }
+                
+                [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openMember:) data:user];
+                
+            }else
             {
-                NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
-                [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                cell.txtName1.hidden=YES;
+                cell.img1.hidden = YES;
             }
             
-            [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openMember:) data:user.uuid];
+            
+
+            
+            
         }
         
         if ([[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:1]) {
@@ -385,15 +407,27 @@
             
             User *user= (User*)[[dataArr3 objectAtIndex:indexPath.row] objectAtIndex:1];
             
-            cell.txtName2.text = user.nickname;
-            
-            if(user.avatar)
+            if ((NSNull *)user != [NSNull null]) {
+                cell.txtName2.text = user.nickname;
+                
+                if(user.avatar)
+                {
+                    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
+                    [cell.img2 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                }
+                
+                [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openMember:) data:user];
+            }else
             {
-                NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
-                [cell.img2 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                cell.txtName2.hidden=YES;
+                cell.img2.hidden = YES;
             }
             
-            [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openMember) data:user.uuid];
+            
+            
+
+            
+            
         }
         
         //cell.txtPos.text = [[dataArr objectAtIndex:tabIndex] objectAtIndex:indexPath.row];

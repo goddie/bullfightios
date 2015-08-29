@@ -33,7 +33,8 @@
              @"createdDate":@"createdDate",
              @"goalPercent":@"goalPercent",
              @"freeGoalPercent":@"freeGoalPercent",
-             @"threeGoalPercent":@"threeGoalPercent"
+             @"threeGoalPercent":@"threeGoalPercent",
+             @"foul":@"foul"
              };
 }
 

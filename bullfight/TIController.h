@@ -37,6 +37,7 @@
     NSMutableArray *dataArr3;
     NSMutableArray *dataArr4;
     UIView *sectionHeader;
+    NSArray *titleArr;
 }
 
 @property (nonatomic, strong) NSString *uuid;
