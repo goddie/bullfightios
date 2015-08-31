@@ -35,6 +35,16 @@
 		C26887111B916C4C00990D8F /* JoinListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C268870F1B916C4C00990D8F /* JoinListCell.m */; };
 		C26887121B916C4C00990D8F /* JoinListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26887101B916C4C00990D8F /* JoinListCell.xib */; };
 		C26887141B91808400990D8F /* redbg.png in Resources */ = {isa = PBXBuildFile; fileRef = C26887131B91808400990D8F /* redbg.png */; };
+		C26C3C521B92CC8E00CCB4F1 /* divider_style1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C3C4C1B92CC8E00CCB4F1 /* divider_style1@2x.png */; };
+		C26C3C531B92CC8E00CCB4F1 /* divider_style1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C3C4D1B92CC8E00CCB4F1 /* divider_style1@3x.png */; };
+		C26C3C541B92CC8E00CCB4F1 /* divider_style2.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C3C4E1B92CC8E00CCB4F1 /* divider_style2.png */; };
+		C26C3C551B92CC8E00CCB4F1 /* divider_style2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C3C4F1B92CC8E00CCB4F1 /* divider_style2@2x.png */; };
+		C26C3C561B92CC8E00CCB4F1 /* divider_style2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C3C501B92CC8E00CCB4F1 /* divider_style2@3x.png */; };
+		C26C3C571B92CC8E00CCB4F1 /* divider_style1.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C3C511B92CC8E00CCB4F1 /* divider_style1.png */; };
+		C26C3C5B1B93713200CCB4F1 /* MatchAccept.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C3C591B93713200CCB4F1 /* MatchAccept.m */; };
+		C26C3C5C1B93713200CCB4F1 /* MatchAccept.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26C3C5A1B93713200CCB4F1 /* MatchAccept.xib */; };
+		C26C3C601B93804A00CCB4F1 /* MatchAcceptTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C3C5E1B93804A00CCB4F1 /* MatchAcceptTeam.m */; };
+		C26C3C611B93804A00CCB4F1 /* MatchAcceptTeam.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26C3C5F1B93804A00CCB4F1 /* MatchAcceptTeam.xib */; };
 		C28DEE081B7792F2008FB14A /* MCPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = C28DEE061B7792F2008FB14A /* MCPlace.m */; };
 		C28DEE091B7792F2008FB14A /* MCPlace.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28DEE071B7792F2008FB14A /* MCPlace.xib */; };
 		C28DEE0D1B7797D3008FB14A /* MCJudge.m in Sources */ = {isa = PBXBuildFile; fileRef = C28DEE0B1B7797D3008FB14A /* MCJudge.m */; };
@@ -637,6 +647,18 @@
 		C268870F1B916C4C00990D8F /* JoinListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinListCell.m; sourceTree = "<group>"; };
 		C26887101B916C4C00990D8F /* JoinListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinListCell.xib; sourceTree = "<group>"; };
 		C26887131B91808400990D8F /* redbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbg.png; sourceTree = "<group>"; };
+		C26C3C4C1B92CC8E00CCB4F1 /* divider_style1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider_style1@2x.png"; sourceTree = "<group>"; };
+		C26C3C4D1B92CC8E00CCB4F1 /* divider_style1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider_style1@3x.png"; sourceTree = "<group>"; };
+		C26C3C4E1B92CC8E00CCB4F1 /* divider_style2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divider_style2.png; sourceTree = "<group>"; };
+		C26C3C4F1B92CC8E00CCB4F1 /* divider_style2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider_style2@2x.png"; sourceTree = "<group>"; };
+		C26C3C501B92CC8E00CCB4F1 /* divider_style2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider_style2@3x.png"; sourceTree = "<group>"; };
+		C26C3C511B92CC8E00CCB4F1 /* divider_style1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divider_style1.png; sourceTree = "<group>"; };
+		C26C3C581B93713200CCB4F1 /* MatchAccept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchAccept.h; sourceTree = "<group>"; };
+		C26C3C591B93713200CCB4F1 /* MatchAccept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchAccept.m; sourceTree = "<group>"; };
+		C26C3C5A1B93713200CCB4F1 /* MatchAccept.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchAccept.xib; sourceTree = "<group>"; };
+		C26C3C5D1B93804A00CCB4F1 /* MatchAcceptTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchAcceptTeam.h; sourceTree = "<group>"; };
+		C26C3C5E1B93804A00CCB4F1 /* MatchAcceptTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchAcceptTeam.m; sourceTree = "<group>"; };
+		C26C3C5F1B93804A00CCB4F1 /* MatchAcceptTeam.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchAcceptTeam.xib; sourceTree = "<group>"; };
 		C28DEE051B7792F2008FB14A /* MCPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPlace.h; sourceTree = "<group>"; };
 		C28DEE061B7792F2008FB14A /* MCPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPlace.m; sourceTree = "<group>"; };
 		C28DEE071B7792F2008FB14A /* MCPlace.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCPlace.xib; sourceTree = "<group>"; };
@@ -1862,6 +1884,9 @@
 		C2D8565D1B70F4F500F645B1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C26887091B916A1300990D8F /* JoinList.h */,
+				C268870A1B916A1300990D8F /* JoinList.m */,
+				C268870B1B916A1300990D8F /* JoinList.xib */,
 				C2B2A81D1B83FB3200F0C122 /* Login.h */,
 				C2B2A81E1B83FB3200F0C122 /* Login.m */,
 				C2B2A81F1B83FB3200F0C122 /* Login.xib */,
@@ -1880,12 +1905,24 @@
 				C28F07F61B85B2A700FC3FB7 /* ManaTITop.h */,
 				C28F07F71B85B2A700FC3FB7 /* ManaTITop.m */,
 				C28F07F81B85B2A700FC3FB7 /* ManaTITop.xib */,
+				C26C3C581B93713200CCB4F1 /* MatchAccept.h */,
+				C26C3C591B93713200CCB4F1 /* MatchAccept.m */,
+				C26C3C5A1B93713200CCB4F1 /* MatchAccept.xib */,
+				C26C3C5D1B93804A00CCB4F1 /* MatchAcceptTeam.h */,
+				C26C3C5E1B93804A00CCB4F1 /* MatchAcceptTeam.m */,
+				C26C3C5F1B93804A00CCB4F1 /* MatchAcceptTeam.xib */,
 				C291F4C81B76F82A000A1999 /* MatchCreate.h */,
 				C291F4C91B76F82A000A1999 /* MatchCreate.m */,
 				C291F4CA1B76F82A000A1999 /* MatchCreate.xib */,
 				C291F4C31B76F464000A1999 /* MatchTeam.h */,
 				C291F4C41B76F464000A1999 /* MatchTeam.m */,
 				C291F4C51B76F464000A1999 /* MatchTeam.xib */,
+				C26886FF1B90B96D00990D8F /* MatchWild.h */,
+				C26887001B90B96D00990D8F /* MatchWild.m */,
+				C26887011B90B96D00990D8F /* MatchWild.xib */,
+				C23DC7EC1B907F65008F7615 /* MatchWildTop.h */,
+				C23DC7ED1B907F65008F7615 /* MatchWildTop.m */,
+				C23DC7EE1B907F65008F7615 /* MatchWildTop.xib */,
 				C28DEE0A1B7797D3008FB14A /* MCJudge.h */,
 				C28DEE0B1B7797D3008FB14A /* MCJudge.m */,
 				C28DEE0C1B7797D3008FB14A /* MCJudge.xib */,
@@ -1952,9 +1989,15 @@
 				C2B2A8011B837DED00F0C122 /* RegTwo.h */,
 				C2B2A8021B837DED00F0C122 /* RegTwo.m */,
 				C2B2A8031B837DED00F0C122 /* RegTwo.xib */,
+				C29DFAC61B8F816E00CBF6B9 /* SysConfig.h */,
+				C29DFAC71B8F816E00CBF6B9 /* SysConfig.m */,
+				C29DFAC81B8F816E00CBF6B9 /* SysConfig.xib */,
 				C293F3AC1B863955007C6FE7 /* TeamBaseInfo.h */,
 				C293F3AD1B863955007C6FE7 /* TeamBaseInfo.m */,
 				C293F3AE1B863955007C6FE7 /* TeamBaseInfo.xib */,
+				C2A846D01B900A7E00E19C7D /* TeamCreate.h */,
+				C2A846D11B900A7E00E19C7D /* TeamCreate.m */,
+				C2A846D21B900A7E00E19C7D /* TeamCreate.xib */,
 				C293F39D1B860611007C6FE7 /* TeamMemberAdd.h */,
 				C293F39E1B860611007C6FE7 /* TeamMemberAdd.m */,
 				C293F39F1B860611007C6FE7 /* TeamMemberAdd.xib */,
@@ -1964,9 +2007,6 @@
 				C28F080F1B85DACB00FC3FB7 /* TeamMemberInfo.h */,
 				C28F08101B85DACB00FC3FB7 /* TeamMemberInfo.m */,
 				C28F08111B85DACB00FC3FB7 /* TeamMemberInfo.xib */,
-				C2A846D01B900A7E00E19C7D /* TeamCreate.h */,
-				C2A846D11B900A7E00E19C7D /* TeamCreate.m */,
-				C2A846D21B900A7E00E19C7D /* TeamCreate.xib */,
 				C28DEE281B77B33A008FB14A /* TIController.h */,
 				C28DEE291B77B33A008FB14A /* TIController.m */,
 				C28DEE2A1B77B33A008FB14A /* TIController.xib */,
@@ -1982,18 +2022,6 @@
 				C2639F231B8E213900420775 /* UserInfoTop.h */,
 				C2639F241B8E213900420775 /* UserInfoTop.m */,
 				C2639F251B8E213900420775 /* UserInfoTop.xib */,
-				C29DFAC61B8F816E00CBF6B9 /* SysConfig.h */,
-				C29DFAC71B8F816E00CBF6B9 /* SysConfig.m */,
-				C29DFAC81B8F816E00CBF6B9 /* SysConfig.xib */,
-				C23DC7EC1B907F65008F7615 /* MatchWildTop.h */,
-				C23DC7ED1B907F65008F7615 /* MatchWildTop.m */,
-				C23DC7EE1B907F65008F7615 /* MatchWildTop.xib */,
-				C26886FF1B90B96D00990D8F /* MatchWild.h */,
-				C26887001B90B96D00990D8F /* MatchWild.m */,
-				C26887011B90B96D00990D8F /* MatchWild.xib */,
-				C26887091B916A1300990D8F /* JoinList.h */,
-				C268870A1B916A1300990D8F /* JoinList.m */,
-				C268870B1B916A1300990D8F /* JoinList.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2033,6 +2061,12 @@
 		C2D856681B70F71B00F645B1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C26C3C4C1B92CC8E00CCB4F1 /* divider_style1@2x.png */,
+				C26C3C4D1B92CC8E00CCB4F1 /* divider_style1@3x.png */,
+				C26C3C4E1B92CC8E00CCB4F1 /* divider_style2.png */,
+				C26C3C4F1B92CC8E00CCB4F1 /* divider_style2@2x.png */,
+				C26C3C501B92CC8E00CCB4F1 /* divider_style2@3x.png */,
+				C26C3C511B92CC8E00CCB4F1 /* divider_style1.png */,
 				C26887131B91808400990D8F /* redbg.png */,
 				C2A9DDF41B85717C003642D2 /* cellBottom.png */,
 				C2A9DDF51B85717C003642D2 /* cellBottom@2x.png */,
@@ -2488,6 +2522,7 @@
 				C2D858201B70F71C00F645B1 /* new_match_select_field@2x.png in Resources */,
 				C2D8585A1B70F71C00F645B1 /* profile_payment_icon_custom@3x.png in Resources */,
 				C2D8588C1B70F71C00F645B1 /* shared_icon_badge_unknow@2x.png in Resources */,
+				C26C3C571B92CC8E00CCB4F1 /* divider_style1.png in Resources */,
 				C2D858D81B70F71C00F645B1 /* signup_avatar_placeholder@3x.png in Resources */,
 				C26887141B91808400990D8F /* redbg.png in Resources */,
 				C2D857F41B70F71C00F645B1 /* james.png in Resources */,
@@ -2501,6 +2536,7 @@
 				C2A846D41B900A7E00E19C7D /* TeamCreate.xib in Resources */,
 				C2D858071B70F71C00F645B1 /* nav_btn_settings.png in Resources */,
 				C2A9DDF91B85717C003642D2 /* cellBottom@3x.png in Resources */,
+				C26C3C521B92CC8E00CCB4F1 /* divider_style1@2x.png in Resources */,
 				C2D857F61B70F71C00F645B1 /* match_notication_icon_misc@2x.png in Resources */,
 				C2D858A61B70F71C00F645B1 /* shared_notification_dot.png in Resources */,
 				C2D857D91B70F71C00F645B1 /* comment_btn_add_photo.png in Resources */,
@@ -2555,6 +2591,7 @@
 				C23DC7F01B907F65008F7615 /* MatchWildTop.xib in Resources */,
 				C2D857E41B70F71C00F645B1 /* custom_item_bg@3x.png in Resources */,
 				C28DEE271B77B049008FB14A /* TITop.xib in Resources */,
+				C26C3C611B93804A00CCB4F1 /* MatchAcceptTeam.xib in Resources */,
 				C2D858F71B70F71C00F645B1 /* tab_icon_profile.png in Resources */,
 				C291F4B61B764E83000A1999 /* MFTeamInfoTopCell.xib in Resources */,
 				C2D858DB1B70F71C00F645B1 /* signup_level_1@3x.png in Resources */,
@@ -2563,6 +2600,7 @@
 				C2D857CD1B70F71C00F645B1 /* activities_icon_like_active.png in Resources */,
 				C2D858821B70F71C00F645B1 /* shared_icon_arrow_right_small.png in Resources */,
 				C263512D1B88B4EB0061A93E /* UserInfo.xib in Resources */,
+				C26C3C531B92CC8E00CCB4F1 /* divider_style1@3x.png in Resources */,
 				C291F4BB1B765210000A1999 /* MFMemberCell.xib in Resources */,
 				C2D857E71B70F71C00F645B1 /* custom_item_bg_selected@3x.png in Resources */,
 				C2D859091B70FA2A00F645B1 /* NotReady.xib in Resources */,
@@ -2593,6 +2631,7 @@
 				C2D858351B70F71C00F645B1 /* news_share_menu_weibo@2x.png in Resources */,
 				C2D858161B70F71C00F645B1 /* new_match_divider.png in Resources */,
 				C2D8583B1B70F71C00F645B1 /* popup_window_bg@2x.png in Resources */,
+				C26C3C541B92CC8E00CCB4F1 /* divider_style2.png in Resources */,
 				C2D858FE1B70F71C00F645B1 /* tabBarBg@2x.png in Resources */,
 				C2D857FF1B70F71C00F645B1 /* nav_btn_back@2x.png in Resources */,
 				C2D858D21B70F71C00F645B1 /* shared_tab_left@3x.png in Resources */,
@@ -2650,6 +2689,7 @@
 				C2D857DA1B70F71C00F645B1 /* comment_btn_add_photo@2x.png in Resources */,
 				C2D858621B70F71C00F645B1 /* shared_arrow_up@2x.png in Resources */,
 				C20CB18A1B8A5D5E001D96F3 /* ArenaCell.xib in Resources */,
+				C26C3C561B92CC8E00CCB4F1 /* divider_style2@3x.png in Resources */,
 				C28F08091B85B6D700FC3FB7 /* ManaTIJoinController.xib in Resources */,
 				C2D858F61B70F71C00F645B1 /* tab_icon_news_active@3x.png in Resources */,
 				C2D858331B70F71C00F645B1 /* news_share_menu_qq@3x.png in Resources */,
@@ -2669,6 +2709,7 @@
 				C2D8580B1B70F71C00F645B1 /* nav_btn_share@2x.png in Resources */,
 				C2D857F81B70F71C00F645B1 /* match_notification_icon_activity.png in Resources */,
 				C2D857E61B70F71C00F645B1 /* custom_item_bg_selected@2x.png in Resources */,
+				C26C3C551B92CC8E00CCB4F1 /* divider_style2@2x.png in Resources */,
 				C28F07FA1B85B2A700FC3FB7 /* ManaTITop.xib in Resources */,
 				C2D858CE1B70F71C00F645B1 /* shared_tab_bg@2x.png in Resources */,
 				C2D857E11B70F71C00F645B1 /* custom_btn_tip@3x.png in Resources */,
@@ -2802,6 +2843,7 @@
 				C2D858E11B70F71C00F645B1 /* signup_level_3@3x.png in Resources */,
 				C2D858891B70F71C00F645B1 /* shared_icon_badge_inactive@2x.png in Resources */,
 				C2D858D71B70F71C00F645B1 /* signup_avatar_placeholder@2x.png in Resources */,
+				C26C3C5C1B93713200CCB4F1 /* MatchAccept.xib in Resources */,
 				C28F08131B85DACB00FC3FB7 /* TeamMemberInfo.xib in Resources */,
 				C2D858681B70F71C00F645B1 /* shared_avatar_mask_medium@2x.png in Resources */,
 				C291B9591B84D8C600DA83F5 /* Icon-72@2x.png in Resources */,
@@ -2871,6 +2913,7 @@
 				C2B2A8201B83FB3200F0C122 /* Login.m in Sources */,
 				C2639F261B8E213900420775 /* UserInfoTop.m in Sources */,
 				C26887021B90B96D00990D8F /* MatchWild.m in Sources */,
+				C26C3C601B93804A00CCB4F1 /* MatchAcceptTeam.m in Sources */,
 				C2D856591B70F15100F645B1 /* GlobalConst.m in Sources */,
 				C28DEE581B77D6BA008FB14A /* MatchWildCell.m in Sources */,
 				C2D856411B70F10B00F645B1 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -3026,6 +3069,7 @@
 				C2D8562F1B70F10B00F645B1 /* MBProgressHUD.m in Sources */,
 				C291F48C1B758C3A000A1999 /* MFTop.m in Sources */,
 				C2A846D31B900A7E00E19C7D /* TeamCreate.m in Sources */,
+				C26C3C5B1B93713200CCB4F1 /* MatchAccept.m in Sources */,
 				C2B2A8091B83863300F0C122 /* My.m in Sources */,
 				C2D856361B70F10B00F645B1 /* SDImageCache.m in Sources */,
 				C296FBB11B82897B00C99B44 /* UIViewController+Custome.m in Sources */,

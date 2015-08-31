@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 santao. All rights reserved.
 //
 
-#import "MCTeamList.h"
+#import "MatchAcceptTeam.h"
 #import "UIViewController+Custome.h"
 #import "UIImageView+WebCache.h"
 #import "Team.h"
@@ -14,12 +14,13 @@
 #import "ManaTIController.h"
 #import "ManaTIJoinController.h"
 #import "MCTeam.h"
+#import "MatchAccept.h"
 
-@interface MCTeamList ()
+@interface MatchAcceptTeam ()
 
 @end
 
-@implementation MCTeamList
+@implementation MatchAcceptTeam
 {
     NSString *cellIdentifier;
  
@@ -109,11 +110,16 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
 
 -(void)selectTeam
 {
+    MatchAccept *c1 = [[MatchAccept alloc] initWithNibName:@"MatchAccept" bundle:nil];
+    c1.matchFight = self.matchFight;
+    c1.team = curTeam;
+    [self.navigationController pushViewController:c1 animated:YES];
+    
 //    NSDictionary *team = [dataArr1 objectAtIndex:rowIndex];
 //    
 //    NSDictionary *dict = @{@"tid":[arena objectForKey:@"id"],@"name":[arena objectForKey:@"name"]};
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-    [notificationCenter postNotificationName:@"selectTeam" object:curTeam];
+//    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+//    [notificationCenter postNotificationName:@"selectTeam" object:curTeam];
 }
 
 
@@ -139,7 +145,7 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
 //    MCTeam *mcTeam = (MCTeam*)[self.navigationController.viewControllers objectAtIndex:0];
 
     [self selectTeam];
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

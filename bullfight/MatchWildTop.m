@@ -95,7 +95,7 @@
         }
         
         [self hideHud];
-
+        [self loadData];
     }];
 }
 
@@ -103,7 +103,7 @@
 -(void)loadData
 {
     [self showHud];
-    
+    [dataArr removeAllObjects];
     NSDictionary *parameters = @{
                                  @"mfid":self.matchFight.uuid,
                                  @"count":@"6"

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MCTeamList : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UINavigationControllerDelegate>
+@interface MCTeamList : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
  
 @property (weak, nonatomic) IBOutlet UICollectionView *tableView;
 

@@ -15,11 +15,11 @@
 
 - (void)awakeFromNib {
     self.backgroundColor = [UIColor clearColor];
-    
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55.0f, 55.0f)];
-    iv.image = [UIImage imageNamed:@"shared_icon_badge_inactive.png"];
+//    
+//    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55.0f, 55.0f)];
+//    iv.image = [UIImage imageNamed:@"shared_icon_badge_inactive.png"];
     self.viewTop.backgroundColor = [UIColor clearColor];
-    [self.viewTop addSubview:iv];
+//    [self.viewTop addSubview:iv];
     
     [GlobalUtil set9PathImage:self.imgBot imageName:@"cellBottom.png" top:2.0f right:5.0f];
     

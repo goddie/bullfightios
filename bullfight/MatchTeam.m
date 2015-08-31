@@ -50,6 +50,7 @@
     UIImageView  *noticeIcon;
     
     UIButton *refreshButton;
+    UIButton *numButton;
 }
 
 - (void)viewDidLoad {
@@ -149,15 +150,24 @@
             
 //            UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 10, 10)];
             
-            
-            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 0, 14, 14)];
-            [btn setBackgroundImage:[UIImage imageNamed:@"redbg.png"] forState:UIControlStateNormal];
-//            [btn setTitle:@"99" forState:UIControlStateNormal];
-            [btn setTitle:[NSString stringWithFormat:@"%d",[count intValue]] forState:UIControlStateNormal];
-            [btn.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
-//            btn.titleLabel.tintColor = [UIColor whiteColor];
  
-            [refreshButton addSubview:btn];
+            
+            
+            if ([count intValue]>0) {
+                
+                [numButton setBackgroundImage:[UIImage imageNamed:@"redbg.png"] forState:UIControlStateNormal];
+                //            [btn setTitle:@"99" forState:UIControlStateNormal];
+                [numButton setTitle:[NSString stringWithFormat:@"%d",[count intValue]] forState:UIControlStateNormal];
+                [numButton.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
+                //            btn.titleLabel.tintColor = [UIColor whiteColor];
+                
+                
+            }else
+            {
+                numButton.hidden=YES;
+            }
+            
+
         }
     }];
     
@@ -337,6 +347,11 @@
     UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
     self.navigationItem.leftBarButtonItem = refreshBarButton;
     [refreshButton addTarget:self action:@selector(leftPush) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    numButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 0, 14, 14)];
+    [refreshButton addSubview:numButton];
 }
 
 -(void)addRightNavButton

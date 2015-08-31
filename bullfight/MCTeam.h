@@ -10,7 +10,7 @@
 #import "MatchFight.h"
 #import "Team.h"
 
-@interface MCTeam : UIViewController
+@interface MCTeam : UIViewController<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
 @property (weak, nonatomic) IBOutlet UIButton *btn1;
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
@@ -26,6 +26,8 @@
 - (IBAction)sizeClick:(id)sender;
 @property (nonatomic, strong) MatchFight *matchFight;
 @property (nonatomic, strong) Team *team;
+
+ 
 
 /**
  *  设置队伍头像

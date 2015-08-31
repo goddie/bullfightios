@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIViewController+Custome.h"
 #import "MCTeamList.h"
+#import "TeamCreate.h"
 
 @interface MCTeam ()
 
@@ -21,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(selectTeam:) name:@"selectTeam" object:nil];
+    
     [GlobalUtil setMaskImageQuick:self.img1 withMask:@"round_mask.png" point:CGPointMake(100.0f, 100.0f)];
     [GlobalUtil set9PathImage:self.btnNext imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     
@@ -38,8 +41,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+ 
 
 
+-(void)selectTeam:(NSNotification*)notice
+{
+    self.team = (Team*)notice.object;
+    self.matchFight.host = @{@"hostid": self.team.uuid};
+    [self bindTeam];
+}
 
 
 - (IBAction)btnNextClick:(id)sender {
@@ -64,7 +74,7 @@
 {
     MCTeamList *c1 = [[MCTeamList alloc] initWithNibName:@"MCTeamList" bundle:nil];
     
-    self.navigationController.delegate = c1;
+//    self.navigationController.delegate = c1;
     
     [self.navigationController pushViewController:c1 animated:YES];
     
@@ -94,6 +104,26 @@
     {
         NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:self.team.avatar]];
         [self.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+    }
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 200) {
+        
+        if (buttonIndex==0) {
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }
+        
+        if (buttonIndex==1) {
+            
+            TeamCreate *c1 = [[TeamCreate alloc] initWithNibName:@"TeamCreate" bundle:nil];
+            [self.navigationController pushViewController:c1 animated:YES];
+            
+        }
+        
     }
 }
 
@@ -131,10 +161,15 @@
                     
                 }
 
+            }else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"没有球队" message:@"您没有自己的球队，是否创建球队?" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"创建球队", nil];
+                alert.tag = 200;
+                [alert show];
             }
             
  
-        }
+        } 
     }];
     
 }

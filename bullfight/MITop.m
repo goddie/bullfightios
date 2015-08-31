@@ -47,7 +47,7 @@
 
 -(void)loadData
 {
-    NSString *uuid = [LoginUtil getLocalUUID];
+    NSString *uuid = self.user.uuid;
     if (!uuid) {
         return;
     }

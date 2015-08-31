@@ -76,6 +76,10 @@
     NSString *minStr = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)iCurYear,(long)iCurMonth,(long)iCurDay];
     
     self.txtDate.text = minStr;
+    
+    
+    
+    
 //    NSString *maxStr = [NSString stringWithFormat:@"%ld-%ld-%d 00:00:00",(long)iCurYear+1,12,31];
 //    
 //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -218,6 +222,12 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm"];
     self.txtStart.text = [formatter stringFromDate:date_one];
+    
+    
+    NSDate * anHourAfter = [date_one dateByAddingTimeInterval:60*60];
+    
+    
+    self.txtEnd.text = [formatter stringFromDate:anHourAfter];
  
 }
 
@@ -255,6 +265,20 @@
     NSString *end =[ NSString stringWithFormat:@"%@ %@:00",self.txtDate.text,self.txtEnd.text];
     NSDate *endDate = [formatter_minDate dateFromString:end];
     
+    
+    NSTimeInterval int1 = [startDate timeIntervalSince1970] * 1;
+    NSTimeInterval int2 = [endDate timeIntervalSince1970] * 1;
+    
+    
+    double delta = (int2 - int1)/(60*60);
+    
+    if (delta<1) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误" message:@"结束时间与开始时间必须大于1小时。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
+        return;
+    }
     
     self.matchFight.start = [NSNumber numberWithLongLong:(long long) [startDate timeIntervalSince1970]] ;
     self.matchFight.end = [NSNumber numberWithLongLong:(long long) [endDate timeIntervalSince1970]] ;

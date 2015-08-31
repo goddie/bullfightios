@@ -52,7 +52,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="QTY-j0-qg3">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed_team_unknown.png" translatesAutoresizingMaskIntoConstraints="NO" id="QTY-j0-qg3">
                     <rect key="frame" x="250" y="121" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="Oen-ed-Uu5"/>
@@ -198,7 +198,7 @@
         </view>
     </objects>
     <resources>
+        <image name="feed_team_unknown.png" width="64" height="64"/>
         <image name="shared_picker_unselected@3x.png" width="41" height="49"/>
-        <image name="teamIcon.png" width="147" height="147"/>
     </resources>
 </document>

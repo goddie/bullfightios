@@ -18,6 +18,8 @@
 #import "User.h"
 #import "TeamDataCell.h"
 #import "MIController.h"
+#import "MyButton.h"
+#import "MEController.h"
 
 @interface TIController ()
 
@@ -263,6 +265,19 @@
 //    top.txtInfo.text = entity.info;
 //}
 
+
+-(void)openTeam1:(MyButton*)sender;
+{
+    TIController *c1 = [[TIController alloc] initWithNibName:@"TIController" bundle:nil];
+ 
+    NSDictionary* dict =(NSDictionary*)sender.data;
+    Team *t = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:dict error:nil];
+    c1.team = t;
+    c1.uuid = t.uuid;
+    [self.navigationController pushViewController:c1 animated:YES];
+}
+
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -308,9 +323,10 @@
 
     cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
     
+    //球队战绩
     if (tabIndex==0) {
         
-        
+        //总战绩
         if(indexPath.row==0)
         {
             cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:1];
@@ -366,14 +382,22 @@
         }
 
 
-        if (entity.hostScore>entity.guestScore) {
-            [cell setCorner:1];
-        }else
-        {
-            [cell setCorner:2];
+        if ([entity.hostScore intValue]>[entity.guestScore intValue]) {
+            [cell setCornerTitle:@"战胜" bgType:1];
         }
         
-
+        if ([entity.hostScore intValue]==[entity.guestScore intValue]) {
+            [cell setCornerTitle:@"平局" bgType:3];
+        }
+        
+        if ([entity.hostScore intValue]<[entity.guestScore intValue]) {
+            [cell setCornerTitle:@"失败" bgType:2];
+        }
+        
+        
+        
+        [GlobalUtil addButtonToView:self sender:cell.img1 action:@selector(openTeam1:) data:entity.host];
+        [GlobalUtil addButtonToView:self sender:cell.img2 action:@selector(openTeam1:) data:entity.guest];
         
         return cell;
         
@@ -393,7 +417,18 @@
         
        // cell.txtName.text = [[dataArr objectAtIndex:tabIndex] objectAtIndex:indexPath.row];
         
-        cell.txtName.text = entity.nickname;
+        NSString *admin  = [GlobalUtil toString:[self.team.admin objectForKey:@"id"]];
+        if ([admin isEqualToString:entity.uuid]) {
+            cell.txtName.text = [NSString stringWithFormat:@"%@ (队长)",entity.nickname];
+            cell.txtName.textColor = [UIColor redColor];
+        }
+        else
+        {
+            cell.txtName.text = entity.nickname;
+        }
+        
+        
+        
         cell.txtPos.text = entity.position;
         cell.txtWeight.text = [NSString stringWithFormat:@"身高:%@cm",[GlobalUtil toString:entity.weight]];
         cell.txtHeight.text = [NSString stringWithFormat:@"体重:%@kg",[GlobalUtil toString:entity.height]];
@@ -455,6 +490,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    MatchFight *entity = (MatchFight*)[dataArr1 objectAtIndex:indexPath.row];
+    
+    //战绩点击
+    if (tabIndex==0) {
+        MEController *c1 = [[MEController alloc] initWithNibName:@"MEController" bundle:nil];
+        c1.matchFight = entity;
+        c1.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:c1 animated:YES];
+    }
+    
+    
     if (tabIndex==1) {
         User *user = [dataArr2 objectAtIndex:indexPath.row];
         
@@ -464,6 +511,8 @@
         
         [self.navigationController pushViewController:c1 animated:YES];
     }
+    
+
 }
 
 

@@ -131,9 +131,13 @@
                         [GlobalUtil toString:self.matchFight.judge],
                         [GlobalUtil toString:self.matchFight.dataRecord]];
         
-        [dataArr1 addObject:@[@"shared_icon_location.png",[self.matchFight.arena objectForKey:@"name"]]];
+        NSString *arena  = [GlobalUtil toString:[self.matchFight.arena objectForKey:@"name"]];
+        NSString *weather = [GlobalUtil toString:self.matchFight.weather];
+        
+        
+        [dataArr1 addObject:@[@"shared_icon_location.png",arena]];
         [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil getDateFromUNIX:self.matchFight.start]]];
-        [dataArr1 addObject:@[@"shared_icon_weather.png",self.matchFight.weather]];
+        [dataArr1 addObject:@[@"shared_icon_weather.png",weather]];
         [dataArr1 addObject:@[@"shared_icon_jurge.png",s1]];
         [dataArr1 addObject:@[@"shared_icon_notification.png",@"接受系统赛前通知提醒"]];
         

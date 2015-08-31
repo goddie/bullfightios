@@ -50,12 +50,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2O-Oc-Rlv">
-                        <rect key="frame" x="0.0" y="162" width="320" height="27"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="27" id="Bxw-3W-0Tn"/>
-                        </constraints>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shared_icon_badge_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="14H-He-Oe6">
                         <rect key="frame" x="259" y="8" width="53" height="53"/>
                         <constraints>
@@ -73,29 +67,43 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_style1.png" translatesAutoresizingMaskIntoConstraints="NO" id="nQe-92-wNr">
+                        <rect key="frame" x="0.0" y="162" width="320" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="Ih6-NP-YAg"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_style2.png" translatesAutoresizingMaskIntoConstraints="NO" id="NRG-fX-u4Q">
+                        <rect key="frame" x="134" y="162" width="52" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="Hrm-xp-WW4"/>
+                            <constraint firstAttribute="width" constant="52" id="pHx-5S-rmK"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ABZ-PB-hJV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="70" id="1AH-xz-GQh"/>
                     <constraint firstItem="60d-69-9Gg" firstAttribute="top" secondItem="uM5-6D-4fo" secondAttribute="bottom" constant="1" id="2C8-64-w4a"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="T2O-Oc-Rlv" secondAttribute="bottom" constant="-8" id="KK1-5x-bWt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nQe-92-wNr" secondAttribute="bottom" constant="-8" id="98t-aG-7cU"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NRG-fX-u4Q" secondAttribute="bottom" constant="-8" id="KZ2-Jm-Jhe"/>
                     <constraint firstItem="kor-vv-di4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Rr9-Vr-HQi"/>
                     <constraint firstAttribute="centerX" secondItem="uM5-6D-4fo" secondAttribute="centerX" id="Svi-fV-Wwu"/>
                     <constraint firstAttribute="centerX" secondItem="EON-1U-Mcw" secondAttribute="centerX" id="axK-PD-eta"/>
                     <constraint firstAttribute="centerX" secondItem="ABZ-PB-hJV" secondAttribute="centerX" id="b4H-kA-mOe"/>
                     <constraint firstAttribute="centerX" secondItem="60d-69-9Gg" secondAttribute="centerX" id="d0J-jm-o5l"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="nQe-92-wNr" secondAttribute="trailing" constant="-8" id="dIN-br-EtK"/>
                     <constraint firstItem="14H-He-Oe6" firstAttribute="top" secondItem="kor-vv-di4" secondAttribute="top" id="j2Z-cu-c6v"/>
                     <constraint firstItem="uM5-6D-4fo" firstAttribute="top" secondItem="ABZ-PB-hJV" secondAttribute="bottom" constant="3" id="m6B-VW-gP0"/>
+                    <constraint firstAttribute="centerX" secondItem="NRG-fX-u4Q" secondAttribute="centerX" id="nKF-fX-Be9"/>
                     <constraint firstItem="kor-vv-di4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oRc-ih-dHp"/>
                     <constraint firstItem="EON-1U-Mcw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="29" id="phP-G4-nzu"/>
                     <constraint firstItem="kor-vv-di4" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="toT-Jl-AwC"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="T2O-Oc-Rlv" secondAttribute="trailing" constant="-8" id="ur7-bP-DWV"/>
-                    <constraint firstItem="T2O-Oc-Rlv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="wK1-q8-3Ss"/>
+                    <constraint firstItem="nQe-92-wNr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="tqr-WE-h7G"/>
                     <constraint firstItem="14H-He-Oe6" firstAttribute="trailing" secondItem="kor-vv-di4" secondAttribute="trailing" id="zc8-U9-xlt"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="imgBot" destination="T2O-Oc-Rlv" id="MkS-EP-f7Q"/>
                 <outlet property="txtDate" destination="uM5-6D-4fo" id="kUt-vJ-NGq"/>
                 <outlet property="txtPlace" destination="ABZ-PB-hJV" id="vkC-nD-isY"/>
                 <outlet property="txtWeather" destination="60d-69-9Gg" id="AcD-Eb-zKI"/>
@@ -105,6 +113,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="divider_style1.png" width="52" height="25"/>
+        <image name="divider_style2.png" width="52" height="25"/>
         <image name="feed_free_match_bg.png" width="233" height="108"/>
         <image name="shared_icon_badge_active.png" width="53" height="53"/>
     </resources>

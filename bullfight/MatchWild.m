@@ -98,7 +98,7 @@
         }
 
         
-        [dataArr1 addObject:@[@"shared_icon_location.png",[self.matchFight.arena objectForKey:@"name"]]];
+        [dataArr1 addObject:@[@"shared_icon_location.png",[GlobalUtil toString:[self.matchFight.arena objectForKey:@"name"]]]];
         [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil toString:[GlobalUtil getDateFromUNIX:self.matchFight.start]]]];
         
         [dataArr1 addObject:@[@"shared_icon_weather.png",[GlobalUtil toString:self.matchFight.weather]]];

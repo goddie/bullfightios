@@ -24,7 +24,7 @@
 @implementation Notice
 {
     NSMutableArray *dataArr;
-    NSMutableArray *dataArr2;
+    //NSMutableArray *dataArr2;
     NSMutableArray *dataArr3;
     Team *curTeam;
     Message *curMessage;
@@ -37,7 +37,7 @@
     [self globalConfig];
     
     dataArr =  [NSMutableArray arrayWithCapacity:10];
-    dataArr2 =  [NSMutableArray arrayWithCapacity:10];
+    //dataArr2 =  [NSMutableArray arrayWithCapacity:10];
     dataArr3 =  [NSMutableArray arrayWithCapacity:10];
  
     
@@ -131,7 +131,7 @@
                     MatchFight *model2 = [MTLJSONAdapter modelOfClass:[MatchFight class] fromJSONDictionary:dc error:&error];
                     if (model2!=nil) {
                         
-                        [dataArr2 addObject:model2];
+                        [dataArr3 addObject:model2];
                         
                     }
 
@@ -141,7 +141,7 @@
                     
                     
                     NSDictionary *dc = [data objectForKey:@"team"];
-                    Team *model2 = [MTLJSONAdapter modelOfClass:[MatchFight class] fromJSONDictionary:dc error:&error];
+                    Team *model2 = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:dc error:&error];
                     if (model2!=nil) {
                         
                         [dataArr3 addObject:model2];
@@ -268,7 +268,7 @@
     
     [self post:@"message/json/updateread" params:parameters success:^(id responseObj) {
         
-        NSDictionary *dict = (NSDictionary *)responseObj;
+//        NSDictionary *dict = (NSDictionary *)responseObj;
         
 //        if ([[dict objectForKey:@"code"] intValue]==1) {
 //            
@@ -337,11 +337,15 @@
     
     [self updateRead:entity];
     
+    
+    NoticeCell *cell = (NoticeCell*)[tableView cellForRowAtIndexPath:indexPath];
+    cell.imgreg.hidden = YES;
+    
     curMessage = entity;
     
     if ([entity.type intValue]==1) {
         
-        MatchFight *mf = [dataArr2 objectAtIndex:indexPath.row];
+        MatchFight *mf = [dataArr3 objectAtIndex:indexPath.row];
         int s = [mf.status intValue];
         if (s==0) {
             

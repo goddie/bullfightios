@@ -98,7 +98,7 @@
     top.team = self.team;
     top.matchFight = self.matchFight;
     top.topDelegate =self;
-    
+    top.user = self.user;
     sectionHeader = top.view;
     
     return sectionHeader;

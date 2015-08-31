@@ -11,5 +11,6 @@
 
 @interface ArenaCell : BaseTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *txt1;
+@property (weak, nonatomic) IBOutlet UILabel *txt2;
 
 @end

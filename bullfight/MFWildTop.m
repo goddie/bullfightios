@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "MCPay.h"
 #import "AppDelegate.h"
+#import "MatchAcceptTeam.h"
 
 @interface MFWildTop ()
 
@@ -75,7 +76,18 @@
     self.txtNo1.text = [GlobalUtil toString:self.matchFight.teamSize];
     self.txtNo2.text = [GlobalUtil toString:self.matchFight.teamSize];
     
-
+    
+    NSString *uuid = [LoginUtil getLocalUUID];
+    
+    
+    NSDictionary *dict = [self.matchFight.host objectForKey:@"admin"];
+    
+    NSString *hostAdmin = [GlobalUtil toString:[dict objectForKey:@"id"]];
+    
+    if ([uuid isEqualToString:hostAdmin]) {
+        self.btn1.hidden=YES;
+    }
+    
 }
 
 
@@ -101,7 +113,7 @@
 //                                     @"mfid":self.matchFight.uuid
 //                                     };
         
-        MCPay *c1 = [[MCPay alloc] initWithNibName:@"MCPay" bundle:nil];
+        MatchAcceptTeam *c1 = [[MatchAcceptTeam alloc] initWithNibName:@"MatchAcceptTeam" bundle:nil];
         c1.matchFight = self.matchFight;
         [self.navigationController pushViewController:c1 animated:YES];
         
