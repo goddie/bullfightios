@@ -15,6 +15,7 @@
 		C20CB1851B8A5B8C001D96F3 /* MCPlaceList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20CB1831B8A5B8C001D96F3 /* MCPlaceList.xib */; };
 		C20CB1891B8A5D5E001D96F3 /* ArenaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C20CB1871B8A5D5E001D96F3 /* ArenaCell.m */; };
 		C20CB18A1B8A5D5E001D96F3 /* ArenaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20CB1881B8A5D5E001D96F3 /* ArenaCell.xib */; };
+		C22348231B98064600A2FB89 /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C22348221B98064600A2FB89 /* TabBar.m */; };
 		C23DC7EF1B907F65008F7615 /* MatchWildTop.m in Sources */ = {isa = PBXBuildFile; fileRef = C23DC7ED1B907F65008F7615 /* MatchWildTop.m */; };
 		C23DC7F01B907F65008F7615 /* MatchWildTop.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23DC7EE1B907F65008F7615 /* MatchWildTop.xib */; };
 		C2573C731B7102BF0079309C /* MatchBeginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2573C711B7102BF0079309C /* MatchBeginCell.m */; };
@@ -627,6 +628,8 @@
 		C20CB1861B8A5D5E001D96F3 /* ArenaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArenaCell.h; sourceTree = "<group>"; };
 		C20CB1871B8A5D5E001D96F3 /* ArenaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArenaCell.m; sourceTree = "<group>"; };
 		C20CB1881B8A5D5E001D96F3 /* ArenaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArenaCell.xib; sourceTree = "<group>"; };
+		C22348211B98064600A2FB89 /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
+		C22348221B98064600A2FB89 /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
 		C23DC7EC1B907F65008F7615 /* MatchWildTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchWildTop.h; sourceTree = "<group>"; };
 		C23DC7ED1B907F65008F7615 /* MatchWildTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchWildTop.m; sourceTree = "<group>"; };
 		C23DC7EE1B907F65008F7615 /* MatchWildTop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchWildTop.xib; sourceTree = "<group>"; };
@@ -2102,6 +2105,8 @@
 				C2D859031B70F7DE00F645B1 /* UISegmentedControlOne.m */,
 				C2573C6D1B7102610079309C /* BaseTableViewCell.h */,
 				C2573C6E1B7102610079309C /* BaseTableViewCell.m */,
+				C22348211B98064600A2FB89 /* TabBar.h */,
+				C22348221B98064600A2FB89 /* TabBar.m */,
 			);
 			name = UIView;
 			sourceTree = "<group>";
@@ -3062,6 +3067,7 @@
 				C2B2A7FA1B8376AA00F0C122 /* IQSegmentedNextPrevious.m in Sources */,
 				C28DEE2B1B77B33A008FB14A /* TIController.m in Sources */,
 				C296FB9B1B82780F00C99B44 /* RegOne.m in Sources */,
+				C22348231B98064600A2FB89 /* TabBar.m in Sources */,
 				C2D8561D1B70F10B00F645B1 /* AFURLSessionManager.m in Sources */,
 				C2D856301B70F10B00F645B1 /* NYSegment.m in Sources */,
 				C2D856211B70F10B00F645B1 /* MTLJSONAdapter.m in Sources */,
