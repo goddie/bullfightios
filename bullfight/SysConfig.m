@@ -11,6 +11,10 @@
 #import "UIViewController+Custome.h"
 #import "ArenaCell.h"
 #import "AppDelegate.h"
+#import "ConfigCell.h"
+#import "AccountConfig.h"
+#import "Feedback.h"
+#import "About.h"
 
 @interface SysConfig ()
 
@@ -29,10 +33,13 @@
     [self globalConfig];
     
     dataArr = @[
-                @[@"账户设置",@"帐号连接"],
+                
+                //@[@"账户设置",@"帐号连接"],
+                @[@"账户设置"],
+                @[@"关于来斗牛",@"意见反馈",@"微信公众号"],
 //                 @[@"银行卡",@"支付密码"],
-                 @[@"通知设置",@"帮助"],
-                 @[@"清空缓存"],
+//                 @[@"通知设置",@"帮助"],
+//                 @[@"清空缓存"],
                  @[@"退出登录"],
                 ];
     
@@ -42,6 +49,24 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)logout
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    [LoginUtil clearLocal];
+    [[AppDelegate delegate] loginPage];
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+//    NSLog(@"clickButtonAtIndex:%d",buttonIndex);
+    if (alertView.tag == 100) {
+        if (buttonIndex == 1) {
+            [self logout];
+        }
+    }
 }
 
 #pragma mark - Table view data source
@@ -66,16 +91,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  
-    static NSString *cellIdentifier = @"ArenaCell";
+    static NSString *cellIdentifier = @"ConfigCell";
     
-    ArenaCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ConfigCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
     }
     
     
-    cell.txt1.text = [[dataArr objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.txt.text = [[dataArr objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     return  cell;
 
@@ -83,11 +108,61 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==3) {
+    
+    if (indexPath.section==0) {
+        //账户设置
+        if (indexPath.row == 0) {
+            
+            AccountConfig *c1 = [[AccountConfig alloc] initWithNibName:@"AccountConfig" bundle:nil];
+            c1.user = self.user;
+            [self.navigationController pushViewController:c1 animated:YES];
+            
+        }
         
-        [self.navigationController popToRootViewControllerAnimated:NO];
-        [LoginUtil clearLocal];
-        [[AppDelegate delegate] loginPage];
+        //账号连接
+        if (indexPath.row == 1) {
+            
+            
+            
+        }
+        
+    }
+    
+    
+    if (indexPath.section==1) {
+        
+        //关于来斗牛
+        if (indexPath.row == 0) {
+            
+            About *c1 = [[About alloc] initWithNibName:@"About" bundle:nil];
+            [self.navigationController pushViewController:c1 animated:YES];
+            
+        }
+        
+        //意见反馈
+        if (indexPath.row == 1) {
+            
+            Feedback *c1 = [[Feedback alloc] initWithNibName:@"Feedback" bundle:nil];
+            [self.navigationController pushViewController:c1 animated:YES];
+            
+        }
+
+        
+
+
+    }
+    
+    
+    if (indexPath.section==2) {
+        
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认退出吗" message:@"退出后不会删除任何历史数据，下次登录仍然可以使用本账号。" delegate:self cancelButtonTitle:@"取消操作" otherButtonTitles:@"确认退出", nil];
+        
+        alert.tag = 100;
+        
+        [alert show];
+        
+
     }
 
 }

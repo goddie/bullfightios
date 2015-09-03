@@ -49,4 +49,5 @@
 @property (nonatomic, strong) NSNumber *block;
 @property (nonatomic, strong) NSNumber *steal;
 @property (nonatomic, strong) NSNumber *age;
+@property (nonatomic, strong) NSString *phone;
 @end

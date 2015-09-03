@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MCPlaceList : UITableViewController 
+@interface MCPlaceList : UITableViewController
+
+@property BOOL isFree;
 
 @end

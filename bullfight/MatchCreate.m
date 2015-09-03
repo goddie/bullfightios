@@ -54,6 +54,7 @@
     
     MCPlace *c1 = [[MCPlace alloc] initWithNibName:@"MCPlace" bundle:nil];
     c1.matchFight = matchFight;
+    c1.isFree = YES;
     [self.navigationController pushViewController:c1 animated:YES];
     
 //    MCTeam *c1 = [[MCTeam alloc] initWithNibName:@"MCTeam" bundle:nil];

@@ -30,6 +30,8 @@
 
     [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
     
+    self.btn1.hidden=YES;
+    
     [self bindData];
     
 }

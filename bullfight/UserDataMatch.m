@@ -218,11 +218,18 @@
         
         MatchDataUser *entity = (MatchDataUser*)[[dataArr1 objectAtIndex:indexPath.row] objectAtIndex:0];
         
+        NSString *userId = [LoginUtil getLocalUUID];
+        
         if ((NSNull*)entity!=[NSNull null]) {
             NSDictionary *dict = entity.user;
             User *user= (User*)[MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:dict error:nil];
             
             cell.txtName1.text = user.nickname;
+            
+            if ([userId isEqualToString:user.uuid]) {
+                cell.txtName1.textColor = [UIColor redColor];
+            }
+            
             
             if(user.avatar)
             {
@@ -282,10 +289,16 @@
         
         MatchDataUser *entity = (MatchDataUser*)[[dataArr1 objectAtIndex:indexPath.row] objectAtIndex:1];
         
+        NSString *userId = [LoginUtil getLocalUUID];
+        
         if ((NSNull*)entity!=[NSNull null]) {
             NSDictionary *dict = entity.user;
             User *user= (User*)[MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:dict error:nil];
             cell.txtName2.text = user.nickname;
+            
+            if ([userId isEqualToString:user.uuid]) {
+                cell.txtName2.textColor = [UIColor redColor];
+            }
             
             if(user.avatar)
             {

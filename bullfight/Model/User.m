@@ -41,7 +41,8 @@
              @"block":@"block",
              @"steal":@"steal",
              @"avatar":@"avatar",
-             @"age":@"age"
+             @"age":@"age",
+             @"phone":@"phone"
              };
 }
 

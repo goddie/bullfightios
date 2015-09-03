@@ -77,8 +77,9 @@
                 }
             }
         }
-        [self.tableView reloadData];
         [self stopAnimation];
+        [self.tableView reloadData];
+        
     }];
     
 }
@@ -170,9 +171,14 @@
     
     cell.txt1.text = [[dataArr objectAtIndex:indexPath.row] objectForKey:@"name"];
     
-    NSString *price = [GlobalUtil toString:[[dataArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
+    if (!self.isFree) {
+        
+        NSString *price = [GlobalUtil toString:[[dataArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
+        
+        cell.txt2.text = [NSString stringWithFormat:@"%@元",price];
+    }
     
-    cell.txt2.text = [NSString stringWithFormat:@"%@元",price];
+
     
     return cell;
 }

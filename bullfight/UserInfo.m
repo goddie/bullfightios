@@ -35,7 +35,7 @@
     
     titleArr = @[
                 @"昵称",
-                @"出身日期",
+                @"出生日期",
                 @"所在地区",
                 @"球龄",
                 @"身高(cm)",
@@ -183,6 +183,8 @@
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[dict objectForKey:@"msg"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                     [alert show];
                 }
+                
+                [self.view endEditing:YES];
                 
             }
             

@@ -340,7 +340,7 @@
             cell.txt1.text = [GlobalUtil toString:self.team.playCount];
             cell.txt2.text = [GlobalUtil toString:self.team.win];
             cell.txt3.text = [GlobalUtil toString:self.team.lose];
-            cell.txt4.text = [GlobalUtil toString:self.team.draw];
+//            cell.txt4.text = [GlobalUtil toString:self.team.draw];
             
             
             return cell;
@@ -383,7 +383,15 @@
 
 
         if ([entity.hostScore intValue]>[entity.guestScore intValue]) {
-            [cell setCornerTitle:@"战胜" bgType:1];
+            
+            if ([[entity.host objectForKey:@"id"] isEqualToString:self.team.uuid]) {
+                [cell setCornerTitle:@"战胜" bgType:1];
+            }else
+            {
+                [cell setCornerTitle:@"失败" bgType:2];
+            }
+            
+            
         }
         
         if ([entity.hostScore intValue]==[entity.guestScore intValue]) {
@@ -391,7 +399,15 @@
         }
         
         if ([entity.hostScore intValue]<[entity.guestScore intValue]) {
-            [cell setCornerTitle:@"失败" bgType:2];
+            
+            
+            if ([[entity.host objectForKey:@"id"] isEqualToString:self.team.uuid]) {
+                [cell setCornerTitle:@"失败" bgType:2];
+            }else
+            {
+ 
+                [cell setCornerTitle:@"战胜" bgType:1];
+            }
         }
         
         
@@ -491,10 +507,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    MatchFight *entity = (MatchFight*)[dataArr1 objectAtIndex:indexPath.row];
+    
     
     //战绩点击
     if (tabIndex==0) {
+        
+        MatchFight *entity = (MatchFight*)[dataArr1 objectAtIndex:indexPath.row];
+        
         MEController *c1 = [[MEController alloc] initWithNibName:@"MEController" bundle:nil];
         c1.matchFight = entity;
         c1.hidesBottomBarWhenPushed = YES;

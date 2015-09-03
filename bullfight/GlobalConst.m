@@ -10,7 +10,7 @@
 
 @implementation GlobalConst
 
-NSString *const baseURL = @"http://101.200.235.199:8080/bullfight/"; //localhost:8080/ 101.200.235.199:8080/
+NSString *const baseURL = @"http://localhost:8080/bullfight/"; //localhost:8080/ 101.200.235.199:8080/
 NSString *const baseURL2 = @"http://101.200.235.199:8080";
 
 +(UIColor *)appBgColor

@@ -179,6 +179,13 @@
         return;
     }
     
+    
+    //清理原报名人员
+    for (UIView *sub in self.holder.subviews) {
+        [sub removeFromSuperview];
+    }
+    
+    
     int w = 30;
     int s = 8;
     
@@ -186,9 +193,13 @@
     
     int totalw = 0;
     
+    
+    
     [self.btnTotal setTitle: [NSString stringWithFormat:@"%d人报名>",dataArr.count] forState:UIControlStateNormal];
     
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 40)];
+    
+    
     
     for (int i=0; i<dataArr.count; i++) {
         

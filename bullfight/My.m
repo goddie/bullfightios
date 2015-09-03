@@ -41,11 +41,7 @@
     
     
     
-    self.title = @"我";
-    
-    [self addLeftNavButton];
-    
-   
+    //self.title = entity.nickname;
     
     [self addRightNavButton];
 
@@ -95,7 +91,12 @@
 
 -(void)rightPush
 {
+//    if (!entity) {
+//        [LoginUtil clearLocal];
+//        [[AppDelegate delegate] loginPage];
+//    }
     SysConfig *c1 = [[SysConfig alloc] initWithNibName:@"SysConfig" bundle:nil];
+    c1.user = entity;
     [self.navigationController pushViewController:c1 animated:YES];
 }
 
@@ -166,6 +167,9 @@
 
 -(void)bindData
 {
+    
+    self.navigationItem.title = entity.nickname;
+    
     self.txt1.text = [GlobalUtil toString:entity.follows];
     self.txt2.text = [GlobalUtil toString:entity.fans];
     self.txt3.text = @"99";

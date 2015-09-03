@@ -117,6 +117,8 @@
 -(void)arenaClick
 {
     MCPlaceList *c1 = [[MCPlaceList alloc] initWithNibName:@"MCPlaceList" bundle:nil];
+    
+    c1.isFree = self.isFree;
     //self.navigationController.delegate = c1;
     
     [self.navigationController pushViewController:c1 animated:YES];
@@ -387,6 +389,8 @@
                                  };
  
     __weak MCPlace *wkSelf = self;
+    
+    [self showHud];
     [self post:@"arena/json/list" params:parameters success:^(id responseObj) {
         NSDictionary *dict = (NSDictionary *)responseObj;
         if ([[dict objectForKey:@"code"] intValue]==1) {
@@ -402,7 +406,10 @@
                 [wkSelf bindArena];
             }
             
+            
         }
+        
+        [self hideHud];
 
     }];
     

@@ -106,6 +106,7 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
     NSDictionary *parameters = @{
                                  @"uid":uuid
                                  };
+    [self showHud];
     
     if (tabIndex==0) {
         [dataArr1 removeAllObjects];
@@ -122,6 +123,8 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
                 }
                 [self.tableView reloadData];
             }
+            
+            [self hideHud];
         }];
     }
     
@@ -140,6 +143,8 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
                 }
                 [self.tableView reloadData];
             }
+            
+            [self hideHud];
         }];
     }
     
