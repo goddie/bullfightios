@@ -54,7 +54,7 @@
 -(void)setCorner:(NSInteger)type
 {
     if (type==1) {
-        label.text = @"未开始";
+        label.text = @"未结束";
         self.viewTop.image = [UIImage imageNamed:@"shared_icon_badge_active.png"];
     }
     

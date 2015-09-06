@@ -13,6 +13,7 @@
 #import "JoinList.h"
 #import "MyButton.h"
 #import "MIController.h"
+#import "TabBarBlue.h"
  
 
 @interface MatchWildTop ()
@@ -22,6 +23,7 @@
 @implementation MatchWildTop
 {
     NSMutableArray *dataArr;
+    TabBarBlue *seg;
 }
 
 - (void)viewDidLoad {
@@ -34,6 +36,12 @@
     self.title = @"野球比赛";
     [GlobalUtil set9PathImage:self.btnApp imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     
+    seg = [[TabBarBlue alloc] initWithFrame:CGRectMake(0, 0, 0,0)];
+    [seg setTitles:@[@"比赛信息",@"用户评论"]];
+    [seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    [self.topHolder addSubview:seg];
+    
+    
     if ([self.matchFight.status intValue]==2) {
         [self.btnApp setTitle:@"已结束" forState:UIControlStateNormal];
         [self.btnApp setUserInteractionEnabled:NO];
@@ -45,6 +53,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)switchView:(id)sender{
+    [self.topDelegate changeTab:seg.selectedSegmentIndex];
 }
 
 /*

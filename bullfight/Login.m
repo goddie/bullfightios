@@ -10,6 +10,7 @@
 #import "RegThree.h"
 #import "UIViewController+Custome.h"
 #import "AppDelegate.h"
+#import "FindPwd.h"
 
 @interface Login ()
 
@@ -26,7 +27,7 @@
     [GlobalUtil set9PathImage:self.btn2 imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     
     
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"请输入用户名" attributes:@{ NSForegroundColorAttributeName : [GlobalConst lightAppBgColor] }];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"请输入用户名/手机号" attributes:@{ NSForegroundColorAttributeName : [GlobalConst lightAppBgColor] }];
     self.txt1.attributedPlaceholder = str;
     
     
@@ -100,5 +101,11 @@
     
     
 
+}
+- (IBAction)btn3Click:(id)sender {
+    
+    FindPwd *c1 = [[FindPwd alloc] initWithNibName:@"FindPwd" bundle:nil];
+    [self.navigationController pushViewController:c1 animated:YES];
+    
 }
 @end

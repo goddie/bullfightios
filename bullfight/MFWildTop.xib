@@ -16,7 +16,7 @@
                 <outlet property="btn1" destination="tnF-Ws-eJd" id="GVq-eW-GXf"/>
                 <outlet property="img1" destination="Kxd-Us-Tse" id="D8r-pg-VJN"/>
                 <outlet property="img2" destination="w09-mO-MER" id="Xg7-Vv-rsi"/>
-                <outlet property="seg" destination="exS-Ss-qBw" id="26B-mL-mx8"/>
+                <outlet property="topHolder" destination="Qmg-eM-8Jb" id="PNn-kj-Zth"/>
                 <outlet property="txtNo1" destination="pbp-lo-aPv" id="kP4-ri-C76"/>
                 <outlet property="txtNo2" destination="1Ut-62-vvo" id="YQo-z9-MGd"/>
                 <outlet property="txtTeam1" destination="IBT-dc-F6R" id="MPM-sv-Y4R"/>
@@ -92,19 +92,7 @@
                         <constraint firstAttribute="width" constant="55" id="sP3-rk-8aO"/>
                     </constraints>
                 </imageView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="exS-Ss-qBw">
-                    <rect key="frame" x="0.0" y="210" width="600" height="31"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Fhf-8D-r8P"/>
-                    </constraints>
-                    <segments>
-                        <segment title="比赛信息"/>
-                        <segment title="球队数据"/>
-                        <segment title="个人数据"/>
-                        <segment title="赛前动员"/>
-                    </segments>
-                </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnF-Ws-eJd">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnF-Ws-eJd">
                     <rect key="frame" x="240" y="154" width="120" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="cC1-mz-BpD"/>
@@ -118,21 +106,27 @@
                         <action selector="btn1Click:" destination="-1" eventType="touchUpInside" id="pvG-LI-PjP"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmg-eM-8Jb">
+                    <rect key="frame" x="0.0" y="208" width="600" height="32"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="dZ0-ww-lG2"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.086274509799999996" green="0.1647058824" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="exS-Ss-qBw" secondAttribute="trailing" id="34v-pe-AJL"/>
                 <constraint firstItem="IBT-dc-F6R" firstAttribute="top" secondItem="Kxd-Us-Tse" secondAttribute="bottom" constant="6" id="8NA-is-l2Q"/>
-                <constraint firstItem="exS-Ss-qBw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9gl-Fk-MsQ"/>
                 <constraint firstItem="V1h-BG-vFC" firstAttribute="top" secondItem="GMD-Nv-Iby" secondAttribute="bottom" constant="18" id="9u7-Ww-F7L"/>
-                <constraint firstItem="exS-Ss-qBw" firstAttribute="top" secondItem="tnF-Ws-eJd" secondAttribute="bottom" constant="26" id="DeU-33-aah"/>
+                <constraint firstAttribute="bottom" secondItem="Qmg-eM-8Jb" secondAttribute="bottom" id="BdC-1h-rOb"/>
                 <constraint firstItem="1Ut-62-vvo" firstAttribute="leading" secondItem="V1h-BG-vFC" secondAttribute="trailing" constant="-1" id="FZr-LK-4x3"/>
                 <constraint firstAttribute="centerX" secondItem="V1h-BG-vFC" secondAttribute="centerX" id="Hja-j6-kDX"/>
                 <constraint firstItem="V1h-BG-vFC" firstAttribute="top" secondItem="1Ut-62-vvo" secondAttribute="bottom" constant="-23" id="Kv3-1Z-9gr"/>
                 <constraint firstItem="V1h-BG-vFC" firstAttribute="leading" secondItem="pbp-lo-aPv" secondAttribute="trailing" constant="-1" id="O0P-Up-ZNq"/>
-                <constraint firstAttribute="bottom" secondItem="exS-Ss-qBw" secondAttribute="bottom" id="RLp-Hu-Adm"/>
                 <constraint firstItem="Kxd-Us-Tse" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="Rj2-de-KPh"/>
+                <constraint firstAttribute="trailing" secondItem="Qmg-eM-8Jb" secondAttribute="trailing" id="SfS-uo-BAt"/>
                 <constraint firstItem="w09-mO-MER" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="UEv-P4-B3j"/>
+                <constraint firstItem="Qmg-eM-8Jb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZAd-lz-lVz"/>
                 <constraint firstAttribute="centerX" secondItem="w09-mO-MER" secondAttribute="centerX" constant="-89" id="aGf-Gv-v9N"/>
                 <constraint firstItem="Kxd-Us-Tse" firstAttribute="centerX" secondItem="IBT-dc-F6R" secondAttribute="centerX" id="agc-sf-748"/>
                 <constraint firstAttribute="centerX" secondItem="Kxd-Us-Tse" secondAttribute="centerX" constant="89" id="cKN-Sf-XAU"/>

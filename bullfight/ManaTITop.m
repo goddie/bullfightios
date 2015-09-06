@@ -10,12 +10,16 @@
 #import "UIViewController+Custome.h"
 #import "TeamBaseInfo.h"
 #import "TeamMemberInfo.h"
+#import "TabBarBlue.h"
 
 @interface ManaTITop ()
 
 @end
 
 @implementation ManaTITop
+{
+    TabBarBlue *seg;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +34,13 @@
     
     //    [GlobalUtil addButtonToView:self sender:self.btn1  action:@selector(reminder) data:nil];
     
-    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+ 
+    seg = [[TabBarBlue alloc] initWithFrame:CGRectMake(0, 0, 0,0)];
+    [seg setTitles:@[@"球队战绩",@"球队阵容",@"球队数据",@"获得荣誉"]];
+    [seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    [self.topHolder addSubview:seg];
+    
+    //[self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
     
     [self bindData];
     
@@ -69,7 +79,7 @@
 
 
 -(void)switchView:(id)sender{
-    [self.topDelegate changeTab:self.seg.selectedSegmentIndex];
+    [self.topDelegate changeTab:seg.selectedSegmentIndex];
 }
 
 -(void)bindData

@@ -9,6 +9,7 @@
                 <outlet property="btnApp" destination="6k0-zu-3aQ" id="pEk-4S-a8s"/>
                 <outlet property="btnTotal" destination="LJy-2x-ixq" id="aQu-60-qmL"/>
                 <outlet property="holder" destination="crR-d9-N2q" id="zHR-dd-cLx"/>
+                <outlet property="topHolder" destination="1SN-7l-e3P" id="WWC-cx-NaS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,17 +28,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="anc-LX-T5W">
-                    <rect key="frame" x="239" y="198" width="123" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="0lt-GZ-KSn"/>
-                        <constraint firstAttribute="width" constant="123" id="P9z-KD-8qg"/>
-                    </constraints>
-                    <segments>
-                        <segment title="比赛信息"/>
-                        <segment title="用户评论"/>
-                    </segments>
-                </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJy-2x-ixq">
                     <rect key="frame" x="252" y="49" width="97" height="30"/>
                     <constraints>
@@ -75,23 +65,31 @@
                         <constraint firstAttribute="height" constant="40" id="qXA-DC-k4s"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1SN-7l-e3P">
+                    <rect key="frame" x="0.0" y="194" width="600" height="32"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="RyN-zg-7Tc"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="MYg-Ps-Ce0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="8Sb-a3-kTp"/>
+                <constraint firstAttribute="bottom" secondItem="1SN-7l-e3P" secondAttribute="bottom" id="9cm-qd-0kA"/>
                 <constraint firstItem="crR-d9-N2q" firstAttribute="top" secondItem="LJy-2x-ixq" secondAttribute="bottom" constant="8" id="EiO-Gm-irK"/>
                 <constraint firstAttribute="centerX" secondItem="6k0-zu-3aQ" secondAttribute="centerX" id="G3j-8m-rXA"/>
                 <constraint firstAttribute="trailing" secondItem="crR-d9-N2q" secondAttribute="trailing" constant="30" id="Js1-FF-9mA"/>
                 <constraint firstAttribute="centerX" secondItem="MYg-Ps-Ce0" secondAttribute="centerX" id="XIY-g1-EdB"/>
-                <constraint firstAttribute="bottom" secondItem="anc-LX-T5W" secondAttribute="bottom" id="he0-Iu-a0t"/>
+                <constraint firstAttribute="trailing" secondItem="1SN-7l-e3P" secondAttribute="trailing" id="gPk-QG-bfY"/>
                 <constraint firstItem="6k0-zu-3aQ" firstAttribute="top" secondItem="crR-d9-N2q" secondAttribute="bottom" constant="16" id="iMp-z6-Bbx"/>
-                <constraint firstAttribute="centerX" secondItem="anc-LX-T5W" secondAttribute="centerX" id="jk9-YF-tVi"/>
                 <constraint firstItem="crR-d9-N2q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="mAn-ex-tnB"/>
                 <constraint firstAttribute="centerX" secondItem="LJy-2x-ixq" secondAttribute="centerX" id="u3x-82-yYo"/>
                 <constraint firstItem="LJy-2x-ixq" firstAttribute="top" secondItem="MYg-Ps-Ce0" secondAttribute="bottom" constant="8" id="zZe-gQ-nq5"/>
+                <constraint firstItem="1SN-7l-e3P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zxc-DD-ben"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="544" y="348"/>
+            <point key="canvasLocation" x="273" y="183"/>
         </view>
     </objects>
 </document>

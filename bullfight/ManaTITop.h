@@ -11,6 +11,7 @@
 #import "Team.h"
 
 @interface ManaTITop : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *topHolder;
 
 @property (weak, nonatomic) IBOutlet UIImageView *img;
 @property (weak, nonatomic) IBOutlet UILabel *txtName;
@@ -25,7 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
+//@property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
 
 @property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
 

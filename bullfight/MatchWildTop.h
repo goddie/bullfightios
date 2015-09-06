@@ -17,6 +17,7 @@
 - (IBAction)btnAppClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *holder;
 
+@property (weak, nonatomic) IBOutlet UIView *topHolder;
 
 @property (weak, nonatomic) MatchFight *matchFight;
 @property (nonatomic, strong) id<TeamTopDelegate> topDelegate;

@@ -21,10 +21,10 @@
 
 - (IBAction)btn1Click:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
 
 @property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
 
 @property (nonatomic, strong) Team *team;
 
+@property (weak, nonatomic) IBOutlet UIView *topHolder;
 @end

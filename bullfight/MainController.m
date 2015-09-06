@@ -23,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [NSThread sleepForTimeInterval:1.0f];
+
+    
 //    TopTabController *c1= [[TopTabController alloc] initWithNibName:@"TopTabController" bundle:nil];
 //    
 //    TeamFightController *teamFightController = [[TeamFightController alloc] initWithNibName:@"TeamFightController" bundle:nil];

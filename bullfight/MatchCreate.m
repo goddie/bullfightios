@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    
+    self.hidesBottomBarWhenPushed=YES;
     [self globalConfig];
     
     self.title = @"创建比赛";
@@ -75,10 +75,11 @@
 }
 
 - (IBAction)btnCloseClick:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+
+    [self.navigationController popViewControllerAnimated:YES];
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
     
 }
 

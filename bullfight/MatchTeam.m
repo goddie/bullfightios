@@ -295,20 +295,24 @@
     
 }
 
-
+/**
+ *  创建比赛
+ */
 -(void)btnClick
 {
     
     [[AppDelegate delegate] loginPage];
     
     MatchCreate *matchCreate = [[MatchCreate alloc] initWithNibName:@"MatchCreate" bundle:nil];
+    matchCreate.hidesBottomBarWhenPushed =YES;
+    [self.navigationController pushViewController:matchCreate animated:YES];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:matchCreate];
-    
-    
-    [self presentViewController:nav animated:YES completion:^{
-        
-    }];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:matchCreate];
+//    
+//    
+//    [self presentViewController:nav animated:YES completion:^{
+//        
+//    }];
     
     
 }
@@ -383,15 +387,30 @@
 
 -(void)rightPush
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:@"选择比赛"
-                                  delegate:self
-                                  cancelButtonTitle:@"关闭"
-                                  destructiveButtonTitle:@"全部比赛"
-                                  otherButtonTitles:@"待应战",@"未开始",@"已结束",nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    actionSheet.tag = 100;
-    [actionSheet showInView:self.view];
+    
+    if (tabIndex==0) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:@"选择比赛"
+                                      delegate:self
+                                      cancelButtonTitle:@"关闭"
+                                      destructiveButtonTitle:@"全部比赛"
+                                      otherButtonTitles:@"待应战",@"未开始",@"已结束",nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        actionSheet.tag = 100;
+        [actionSheet showInView:self.view];
+    }
+    
+    if (tabIndex==1) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:@"选择比赛"
+                                      delegate:self
+                                      cancelButtonTitle:@"关闭"
+                                      destructiveButtonTitle:@"全部比赛"
+                                      otherButtonTitles:@"未结束",@"已结束",nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        actionSheet.tag = 200;
+        [actionSheet showInView:self.view];
+    }
 
 }
 
@@ -400,27 +419,51 @@
 {
 //    NSLog(@"%ld",buttonIndex);
     
-    if (buttonIndex==0) {
-        status = [NSNumber numberWithInt:-1];
+    if (actionSheet.tag==100) {
+        if (buttonIndex==0) {
+            status = [NSNumber numberWithInteger:-1];
+        }
+        
+        if (buttonIndex==1) {
+            status = [NSNumber numberWithInteger:0];
+        }
+        
+        if (buttonIndex==2) {
+            status = [NSNumber numberWithInteger:1];
+        }
+        
+        if (buttonIndex==3) {
+            status = [NSNumber numberWithInteger:2];
+        }
+        
+        [dataArr2 removeAllObjects];
+        
+        curPage = [NSNumber numberWithInt:1];
+        
+        [self loadData];
     }
     
-    if (buttonIndex==1) {
-        status = [NSNumber numberWithInt:0];
+    
+    if (actionSheet.tag==200) {
+        if (buttonIndex==0) {
+            status = [NSNumber numberWithInteger:-1];
+        }
+        
+        if (buttonIndex==1) {
+            status = [NSNumber numberWithInteger:1];
+        }
+        
+        if (buttonIndex==2) {
+            status = [NSNumber numberWithInteger:2];
+        }
+        
+        
+        [dataArr2 removeAllObjects];
+        
+        curPage = [NSNumber numberWithInt:1];
+        
+        [self loadData];
     }
-    
-    if (buttonIndex==2) {
-        status = [NSNumber numberWithInt:1];
-    }
-    
-    if (buttonIndex==3) {
-        status = [NSNumber numberWithInt:2];
-    }
-    
-    [dataArr2 removeAllObjects];
-    
-    curPage = [NSNumber numberWithInt:1];
-    
-    [self loadData];
     
 }
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet{
@@ -675,6 +718,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (dataArr2.count==0) {
+        return;
+    }
+    
     MatchFight *entity = (MatchFight*)[dataArr2 objectAtIndex:indexPath.row];
     
     if (tabIndex==0) {
@@ -715,6 +762,7 @@
     if (tabIndex==1) {
         MatchWild *c1 = [[MatchWild alloc] initWithNibName:@"MatchWild" bundle:nil];
         c1.matchFight = entity;
+        c1.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:c1 animated:YES];
     }
     

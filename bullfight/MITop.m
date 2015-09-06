@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIViewController+Custome.h"
 #import "MyButton.h"
+#import "TabBarBlue.h"
 
 @interface MITop ()
 
@@ -18,10 +19,13 @@
 @implementation MITop
 {
     NSMutableArray *dataArr;
+    TabBarBlue *seg;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self globalConfig];
     
     dataArr = [NSMutableArray arrayWithCapacity:10];
     
@@ -29,7 +33,12 @@
     [GlobalUtil setMaskImageQuick:self.img2 withMask:@"round_mask.png" point:CGPointMake(40.0f, 40.0f)];
     [GlobalUtil setMaskImageQuick:self.img3 withMask:@"round_mask.png" point:CGPointMake(40.0f, 40.0f)];
     
-    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+//    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    
+    seg = [[TabBarBlue alloc] initWithFrame:CGRectMake(0, 0, 0,0)];
+    [seg setTitles:@[@"基本信息",@"个人数据",@"获得荣誉"]];
+    [seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    [self.topHolder addSubview:seg];
     
     [self loadData];
 }
@@ -41,7 +50,7 @@
 
 
 -(void)switchView:(id)sender{
-    [self.topDelegate changeTab:self.seg.selectedSegmentIndex];
+    [self.topDelegate changeTab:seg.selectedSegmentIndex];
 }
 
 

@@ -12,6 +12,8 @@
 #import "MCPay.h"
 #import "AppDelegate.h"
 #import "MatchAcceptTeam.h"
+#import "TabBarBlue.h"
+#import "MyButton.h"
 
 @interface MFWildTop ()
 
@@ -20,6 +22,7 @@
 @implementation MFWildTop
 {
     BOOL isLeader;
+    TabBarBlue *seg;
 }
 
 - (void)viewDidLoad {
@@ -30,9 +33,14 @@
     [GlobalUtil setMaskImageQuick:self.img1 withMask:@"round_mask.png" point:CGPointMake(55.0f, 55.0f)];
     [GlobalUtil setMaskImageQuick:self.img2 withMask:@"round_mask.png" point:CGPointMake(55.0f, 55.0f)];
     
-    [GlobalUtil addButtonToView:self sender:self.img1  action:@selector(openTeam1) data:nil];
+    
 //    [GlobalUtil addButtonToView:self sender:self.img2  action:@selector(openTeam1) data:nil];
-    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+//    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    
+    seg = [[TabBarBlue alloc] initWithFrame:CGRectMake(0, 0, 0,0)];
+    [seg setTitles:@[@"比赛信息",@"球队数据",@"个人数据",@"赛前动员"]];
+    [seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    [self.topHolder addSubview:seg];
     
     [GlobalUtil set9PathImage:self.btn1 imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     
@@ -43,9 +51,15 @@
     [self checkUser];
 }
 
--(void)openTeam1
+-(void)openTeam1:(MyButton*)sender
 {
     
+    TIController *c1 = [[TIController alloc] initWithNibName:@"TIController" bundle:nil];
+    NSDictionary* dict =(NSDictionary*)sender.data;
+    Team *t = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:dict error:nil];
+    c1.team = t;
+    c1.uuid = t.uuid;
+    [self.navigationController pushViewController:c1 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,21 +68,24 @@
 }
 
 -(void)switchView:(id)sender{
-    [self.topDelegate changeTab:self.seg.selectedSegmentIndex];
+    [self.topDelegate changeTab:seg.selectedSegmentIndex];
 }
 
 
 -(void)bindData
 {
-    NSString *a1 = [GlobalUtil toString:[self.matchFight.host objectForKey:@"avatar"]];
+
+    if([self.matchFight.host objectForKey:@"avatar"])
+    {
+        NSString *a1 = [@"" stringByAppendingString:[self.matchFight.host objectForKey:@"avatar"]];
+        NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
+        [self.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+    }
     
-    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
-    [self.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+
     
-    
-//    NSString *a2 = [@"" stringByAppendingString:[self.matchFight.guest objectForKey:@"avatar"]];
-//    NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
-//    [self.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+    [GlobalUtil addButtonToView:self sender:self.img1  action:@selector(openTeam1:) data:self.matchFight.host];
+ 
     
     self.txtTeam1.text = [self.matchFight.host objectForKey:@"name"];
     //self.txtTeam2.text = [self.matchFight.guest objectForKey:@"name"];

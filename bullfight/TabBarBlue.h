@@ -1,5 +1,5 @@
 //
-//  TabBar.h
+//  TabBarBlue.h
 //  bullfight
 //
 //  Created by goddie on 15/9/3.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabBar : UIView
+@interface TabBarBlue : UIControl
+
+@property(nonatomic) NSInteger selectedSegmentIndex;
+
+-(void)setTitles:(NSArray*)titleArr;
 
 @end

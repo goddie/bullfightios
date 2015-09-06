@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="btn1" destination="dN4-Rj-oGi" id="Rwn-3v-Pn4"/>
                 <outlet property="img" destination="zMM-q0-oU7" id="Ky4-U1-Zg9"/>
-                <outlet property="seg" destination="wsZ-so-YCz" id="Lhe-VC-Er0"/>
+                <outlet property="topHolder" destination="cev-DS-xAP" id="Ohu-zA-uFC"/>
                 <outlet property="txtFound" destination="bSF-IS-bez" id="DOA-0Z-3ER"/>
                 <outlet property="txtInfo" destination="ljg-oA-m98" id="Lz8-OS-7sQ"/>
                 <outlet property="txtName" destination="U4m-IM-pBT" id="Hfr-Bh-qqM"/>
@@ -71,35 +71,29 @@
                         <action selector="btn1Click:" destination="-1" eventType="touchUpInside" id="yWt-UJ-If6"/>
                     </connections>
                 </button>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wsZ-so-YCz">
-                    <rect key="frame" x="0.0" y="305" width="600" height="31"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cev-DS-xAP">
+                    <rect key="frame" x="0.0" y="303" width="600" height="32"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="z0T-mX-6R9"/>
+                        <constraint firstAttribute="height" constant="32" id="gAB-9E-tz1"/>
                     </constraints>
-                    <segments>
-                        <segment title="球队战绩"/>
-                        <segment title="球队阵容"/>
-                        <segment title="球队数据"/>
-                        <segment title="获得荣誉"/>
-                    </segments>
-                    <color key="tintColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                </segmentedControl>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="dN4-Rj-oGi" secondAttribute="centerX" id="9ys-aC-qrY"/>
-                <constraint firstAttribute="trailing" secondItem="wsZ-so-YCz" secondAttribute="trailing" id="C1P-Gs-Rct"/>
                 <constraint firstItem="ljg-oA-m98" firstAttribute="top" secondItem="bSF-IS-bez" secondAttribute="bottom" constant="8" id="N2Q-5s-1Tw"/>
                 <constraint firstItem="bSF-IS-bez" firstAttribute="top" secondItem="U4m-IM-pBT" secondAttribute="bottom" constant="4" id="Oro-Gh-RLb"/>
                 <constraint firstItem="dN4-Rj-oGi" firstAttribute="top" secondItem="ljg-oA-m98" secondAttribute="bottom" constant="8" id="PYE-jm-3dc"/>
+                <constraint firstAttribute="bottom" secondItem="cev-DS-xAP" secondAttribute="bottom" id="SVc-uu-Ag2"/>
                 <constraint firstAttribute="trailing" secondItem="ljg-oA-m98" secondAttribute="trailing" constant="8" id="WPw-hT-vxY"/>
-                <constraint firstItem="wsZ-so-YCz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WZy-ob-94I"/>
+                <constraint firstAttribute="trailing" secondItem="cev-DS-xAP" secondAttribute="trailing" id="Xld-b1-Tb9"/>
                 <constraint firstAttribute="centerX" secondItem="U4m-IM-pBT" secondAttribute="centerX" id="ZG4-1N-2Hf"/>
                 <constraint firstAttribute="centerX" secondItem="zMM-q0-oU7" secondAttribute="centerX" id="c9w-be-3sh"/>
                 <constraint firstItem="zMM-q0-oU7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="hyU-f4-aWX"/>
-                <constraint firstAttribute="bottom" secondItem="wsZ-so-YCz" secondAttribute="bottom" id="l2H-Xd-16m"/>
                 <constraint firstAttribute="centerX" secondItem="bSF-IS-bez" secondAttribute="centerX" id="mIR-Ui-88l"/>
                 <constraint firstItem="U4m-IM-pBT" firstAttribute="top" secondItem="zMM-q0-oU7" secondAttribute="bottom" constant="14" id="ot7-ho-lnI"/>
+                <constraint firstItem="cev-DS-xAP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="twH-K1-BlY"/>
                 <constraint firstItem="ljg-oA-m98" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="zaP-Fc-cky"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -57,6 +57,7 @@ MBProgressHUD *hud;
         UIWindow *win = [UIApplication sharedApplication].keyWindow;
         hud = [[MBProgressHUD alloc] initWithWindow:win];
         
+        
         [win.rootViewController.view addSubview:hud];
         
         //        [self.view addSubview:hud];

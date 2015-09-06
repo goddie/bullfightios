@@ -132,4 +132,13 @@
 
 +(NSString*)toString:(id)value;
 
+/**
+ *  计算label高度
+ *
+ *  @param width <#width description#>
+ *
+ *  @return <#return value description#>
+ */
++(CGSize)labelHeight:(NSString*)content width:(CGFloat)width fontSize:(CGFloat)fontSize;
+
 @end

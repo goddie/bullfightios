@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TIController.h"
 
-@interface MatchWild : TIController
+@interface MatchWild : TIController<UIActionSheetDelegate>
 
 
 

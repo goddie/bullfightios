@@ -8,12 +8,16 @@
 
 #import "UserInfoTop.h"
 #import "UIImageView+WebCache.h"
+#import "TabBarBlue.h"
 
 @interface UserInfoTop ()
 
 @end
 
 @implementation UserInfoTop
+{
+    TabBarBlue *seg;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +29,13 @@
     
     [GlobalUtil addButtonToView:self sender:self.img1  action:@selector(openTeam1) data:nil];
     [GlobalUtil addButtonToView:self sender:self.img2  action:@selector(openTeam1) data:nil];
-    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+//    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    
+    
+    seg = [[TabBarBlue alloc] initWithFrame:CGRectMake(0, 0, 0,0)];
+    [seg setTitles:@[@"个人数据"]];
+    [seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    [self.topHolder addSubview:seg];
     
     [self bindData];
 }

@@ -6,8 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MITop">
             <connections>
-                <outlet property="seg" destination="isV-4v-Fpo" id="UGl-JV-m3b"/>
                 <outlet property="teamHolder" destination="jWM-JY-taE" id="jWf-Yn-rFa"/>
+                <outlet property="topHolder" destination="M0H-0G-g8e" id="8HU-f3-cYL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,17 +33,6 @@
                     <color key="textColor" red="0.46274509800000002" green="0.5450980392" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="isV-4v-Fpo">
-                    <rect key="frame" x="0.0" y="293" width="600" height="31"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="MI5-Du-aEg"/>
-                    </constraints>
-                    <segments>
-                        <segment title="基本信息"/>
-                        <segment title="个人数据"/>
-                        <segment title="获得荣誉"/>
-                    </segments>
-                </segmentedControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWM-JY-taE">
                     <rect key="frame" x="389" y="109" width="40" height="168"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -52,21 +41,28 @@
                         <constraint firstAttribute="width" constant="40" id="AtO-Do-uHB"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0H-0G-g8e">
+                    <rect key="frame" x="0.0" y="291" width="600" height="32"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="ROb-Vg-SHu"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="M0H-0G-g8e" secondAttribute="bottom" id="15N-BZ-fWd"/>
                 <constraint firstItem="oAv-Oj-nks" firstAttribute="leading" secondItem="bD2-hM-yM4" secondAttribute="trailing" constant="15" id="3DF-N7-PC9"/>
                 <constraint firstItem="jWM-JY-taE" firstAttribute="top" secondItem="oAv-Oj-nks" secondAttribute="bottom" constant="8" id="IOW-Pb-JSG"/>
                 <constraint firstItem="bD2-hM-yM4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="17" id="QPL-X8-DZN"/>
-                <constraint firstItem="isV-4v-Fpo" firstAttribute="top" secondItem="bD2-hM-yM4" secondAttribute="bottom" constant="16" id="Qvc-X8-4ET"/>
                 <constraint firstItem="oAv-Oj-nks" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="SHw-K5-NfI"/>
-                <constraint firstItem="isV-4v-Fpo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cHf-wO-Ns8"/>
+                <constraint firstItem="M0H-0G-g8e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="enF-U3-Spg"/>
                 <constraint firstAttribute="centerX" secondItem="bD2-hM-yM4" secondAttribute="centerX" id="oKY-Ku-u0Z"/>
                 <constraint firstItem="jWM-JY-taE" firstAttribute="leading" secondItem="bD2-hM-yM4" secondAttribute="trailing" constant="27" id="qEr-JZ-XrI"/>
-                <constraint firstAttribute="trailing" secondItem="isV-4v-Fpo" secondAttribute="trailing" id="zO7-Y3-Bio"/>
+                <constraint firstAttribute="trailing" secondItem="M0H-0G-g8e" secondAttribute="trailing" id="wNy-ja-dZL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="250" y="301.5"/>
+            <point key="canvasLocation" x="-108" y="118.5"/>
         </view>
     </objects>
     <resources>

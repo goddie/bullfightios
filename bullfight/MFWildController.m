@@ -20,6 +20,8 @@
 #import "MTLJSONAdapter.h"
 #import "MFTeamInfoTopCell.h"
 #import "MFTeamInfoCell.h"
+#import "AddMessage.h"
+#import "Commet.h"
 
 
 @interface MFWildController ()
@@ -27,12 +29,17 @@
 @end
 
 @implementation MFWildController
+{
+    NSNumber *curPage;
+    UIButton *commetBtn;
+        User *reply;
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+//    self.hidesBottomBarWhenPushed = YES;
     
     
     
@@ -45,6 +52,21 @@
     self.tableView.backgroundColor  = [GlobalConst lightAppBgColor];
     
     self.title = @"比赛信息";
+    self.tableView.estimatedRowHeight = 44.0f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    [self addRightNavButton];
+    curPage = [NSNumber numberWithInt:1];
+    __weak MFWildController *wkSelf = self;
+    
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [wkSelf refresh];
+        
+    }];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [wkSelf loadMore];
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +74,97 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self refresh];
+}
+
+-(void)showReply
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"关闭"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"回复", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
+}
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        AddMessage *c1 = [[AddMessage alloc] initWithNibName:@"AddMessage" bundle:nil];
+        c1.mfid = self.matchFight.uuid;
+        c1.reply = reply;
+        [self.navigationController pushViewController:c1 animated:YES];
+    }
+}
+
+
+
+-(void)addRightNavButton
+{
+    commetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [commetBtn setFrame:CGRectMake(0,0,40,30)];
+    
+    [commetBtn setTitle:@"写评论" forState:UIControlStateNormal];
+    [commetBtn.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+    commetBtn.userInteractionEnabled = YES;
+    //    [commetBtn setImage:[UIImage imageNamed:@"activities_icon_comment@3x.png"] forState:UIControlStateNormal];
+    
+    // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
+    
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:commetBtn];
+    
+    self.navigationItem.rightBarButtonItem = barBtn;
+    [commetBtn addTarget:self action:@selector(rightPush) forControlEvents:UIControlEventTouchUpInside];
+    
+    //    commetBtn.backgroundColor = [UIColor whiteColor];
+    commetBtn.hidden = YES;
+}
+
+-(void)rightPush
+{
+    AddMessage *c1 = [[AddMessage alloc] initWithNibName:@"AddMessage" bundle:nil];
+    c1.mfid = self.matchFight.uuid;
+    [self.navigationController pushViewController:c1 animated:YES];
+}
+
+-(void)changeTab:(NSInteger)idx
+{
+    
+    [super changeTab:idx];
+    
+    if (tabIndex==3) {
+        commetBtn.hidden = NO;
+    }else
+    {   commetBtn.hidden = YES;
+    }
+}
+
+-(void)refresh
+{
+    [dataArr4 removeAllObjects];
+    curPage = [NSNumber numberWithInt:1];
+    [self getData];
+}
+
+-(void)loadMore
+{
+    curPage = [NSNumber numberWithInt: [curPage intValue] + 1];
+    
+    [self getData];
+}
+
+-(void)stopAnimation
+{
+    [self.tableView.pullToRefreshView stopAnimating];
+    [self.tableView.infiniteScrollingView stopAnimating];
+    [self hideHud];
+}
 
 
 
@@ -102,17 +215,17 @@
 
 
 
--(void)changeTab:(NSInteger)idx
-{
-    if(tabIndex==idx)
-    {
-        return;
-    }
-    
-    tabIndex = idx;
-    
-    [self getData];
-}
+//-(void)changeTab:(NSInteger)idx
+//{
+//    if(tabIndex==idx)
+//    {
+//        return;
+//    }
+//    
+//    tabIndex = idx;
+//    
+//    [self getData];
+//}
 
 -(void)getData
 {
@@ -231,7 +344,37 @@
     
     //赛前动员
     if (tabIndex==3) {
+        NSDictionary *parameters = @{
+                                     @"mfid":self.matchFight.uuid,
+                                     @"p":curPage
+                                     };
+        [self showHud];
         
+        
+        
+        [self post:@"commet/json/list" params:parameters success:^(id responseObj) {
+            NSDictionary *dict = (NSDictionary *)responseObj;
+            if ([[dict objectForKey:@"code"] intValue]==1) {
+                NSArray *arr = [dict objectForKey:@"data"];
+                
+                if (arr.count>0) {
+                    [dataArr4 removeAllObjects];
+                }
+                NSError *error = nil;
+                for (NSDictionary *data in arr) {
+                    Commet *model = [MTLJSONAdapter modelOfClass:[Commet class] fromJSONDictionary:data error:&error];
+                    if (model!=nil) {
+                        [dataArr4 addObject:model];
+                    }
+                }
+                
+                
+                [self.tableView reloadData];
+                
+                [self stopAnimation];
+            }
+            
+        }];
     }
     
     
@@ -253,6 +396,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tabIndex==3) {
+        return UITableViewAutomaticDimension;
+    }
     int h  =[[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:0] intValue];
     return h;
 }
@@ -385,9 +531,31 @@
             cell = [nibArray objectAtIndex:0];
         }
         
-        cell.txtContent.text = [[dataArr objectAtIndex:tabIndex] objectAtIndex:indexPath.row];
         
+        Commet *commet = (Commet*)[dataArr4 objectAtIndex:indexPath.row];
+        User *user = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:commet.from error:nil];
+        //cell.img1.image = [UIImage imageNamed:[[dataArr1 objectAtIndex:indexPath.row] objectAtIndex:0]];
+        if(user.avatar)
+        {
+            NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
+            [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
         
+        cell.txtName.text = user.nickname;
+        cell.txtTime.text = [GlobalUtil getDateFromUNIX:commet.createdDate format:@"yyyy-MM-dd"];
+        
+        if (commet.reply) {
+            
+            User *reuser = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:commet.reply error:nil];
+            cell.txtContent.text = [NSString stringWithFormat:@"回复 %@ : %@",reuser.nickname,commet.content];
+        }else
+        {
+            cell.txtContent.text = commet.content;
+        }
+        
+//        cell.txtContent.text = commet.content;
+        //        cell.backgroundColor = [UIColor redColor];
+        //        cell.txtContent.backgroundColor = [UIColor yellowColor];
         return cell;
         
     }
@@ -411,6 +579,13 @@
         c1.user = user;
         
         [self.navigationController pushViewController:c1 animated:YES];
+    }
+    
+    
+    if (tabIndex==3) {
+        Commet *commet = (Commet*)[dataArr4 objectAtIndex:indexPath.row];
+        reply = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:commet.from error:nil];
+        [self showReply];
     }
 }
 

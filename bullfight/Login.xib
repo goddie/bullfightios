@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Login">
             <connections>
                 <outlet property="btn2" destination="XFq-YA-39t" id="lDM-iw-Fcu"/>
+                <outlet property="btn3" destination="0xg-EM-EDF" id="F7D-Yr-VJo"/>
                 <outlet property="txt1" destination="7MY-aJ-alc" id="zEU-nE-K58"/>
                 <outlet property="txt2" destination="UMA-T6-xxy" id="e8U-Ft-HoE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -70,7 +71,7 @@
                             </constraints>
                             <color key="textColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                            <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.0039215686269999999" green="0.08235294118" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,7 +91,7 @@
                         <constraint firstAttribute="height" constant="1" id="kNc-dq-lpx"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFq-YA-39t">
@@ -108,22 +109,40 @@
                         <action selector="btn2Click:" destination="-1" eventType="touchUpInside" id="lnV-Ac-9kC"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xg-EM-EDF">
+                    <rect key="frame" x="210" y="301" width="180" height="36"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="ALY-CU-gWe"/>
+                        <constraint firstAttribute="width" constant="180" id="ldd-Df-wsJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="忘记密码">
+                        <color key="titleColor" red="0.47450980390000003" green="0.52156862749999999" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btn3Click:" destination="-1" eventType="touchUpInside" id="I7E-NI-34L"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="XFq-YA-39t" firstAttribute="top" secondItem="YNj-b2-TsE" secondAttribute="bottom" constant="69" id="5mh-nu-Yya"/>
+                <constraint firstItem="0xg-EM-EDF" firstAttribute="top" secondItem="XFq-YA-39t" secondAttribute="bottom" constant="8" id="Bem-tl-gk4"/>
                 <constraint firstItem="pu2-NE-QlZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="N3X-8L-0oG"/>
                 <constraint firstAttribute="trailing" secondItem="YNj-b2-TsE" secondAttribute="trailing" id="NrZ-8h-jH5"/>
                 <constraint firstAttribute="trailing" secondItem="m6i-Zj-nFb" secondAttribute="trailing" id="Qa0-SF-eT7"/>
                 <constraint firstItem="m6i-Zj-nFb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="Uie-YA-dbX"/>
                 <constraint firstAttribute="centerX" secondItem="XFq-YA-39t" secondAttribute="centerX" id="aPZ-q3-qOr"/>
+                <constraint firstAttribute="centerX" secondItem="0xg-EM-EDF" secondAttribute="centerX" id="afq-fq-yxr"/>
                 <constraint firstItem="YNj-b2-TsE" firstAttribute="top" secondItem="pu2-NE-QlZ" secondAttribute="bottom" id="axe-Dc-kFa"/>
                 <constraint firstItem="pu2-NE-QlZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dW5-C7-guV"/>
                 <constraint firstItem="m6i-Zj-nFb" firstAttribute="top" secondItem="pu2-NE-QlZ" secondAttribute="bottom" constant="1" id="e9W-12-Vj8"/>
                 <constraint firstItem="YNj-b2-TsE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xwf-Nr-IKW"/>
                 <constraint firstAttribute="trailing" secondItem="pu2-NE-QlZ" secondAttribute="trailing" id="xxx-46-qMZ"/>
             </constraints>
-            <point key="canvasLocation" x="451" y="378"/>
+            <point key="canvasLocation" x="238" y="387"/>
         </view>
     </objects>
 </document>

@@ -10,7 +10,7 @@
 #import "MatchFight.h"
 #import "TIController.h"
 
-@interface MFController : TIController
+@interface MFController : TIController<UIActionSheetDelegate>
 
 
 

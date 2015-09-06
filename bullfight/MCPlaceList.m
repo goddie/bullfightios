@@ -13,12 +13,14 @@
 #import "MCPlace.h"
 
 
+
 @interface MCPlaceList ()
 
 @end
 
 @implementation MCPlaceList
 {
+    UIView *headerView;
     NSMutableArray *dataArr;
     NSInteger rowIndex;
     NSNumber *curPage;
@@ -30,6 +32,11 @@
     [self globalConfig];
     
     self.title = @"选择场地";
+    [self addRightNavButton];
+    
+
+    
+
     
     dataArr = [NSMutableArray arrayWithCapacity:10];
     
@@ -48,7 +55,12 @@
         
     }];
     
+    
     [self loadData];
+    
+    UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.tableView setTableFooterView:v];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +69,77 @@
 }
 
 
+-(void)addRightNavButton
+{
+    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [refreshButton setFrame:CGRectMake(0,0,30,30)];
+    
+    //    [refreshButton setTitle:@"退出" forState:UIControlStateNormal];
+    //    [refreshButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    refreshButton.userInteractionEnabled = YES;
+    [refreshButton setImage:[UIImage imageNamed:@"btn_search.png"] forState:UIControlStateNormal];
+    
+    // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
+    
+    UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    
+    self.navigationItem.rightBarButtonItem = refreshBarButton;
+    [refreshButton addTarget:self action:@selector(rightPush) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+}
+
+
+-(void)rightPush
+{
+    self.tableView.tableHeaderView = [self getTop];
+}
+
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    
+    NSString *searchTerm = searchBar.text;
+    
+    if(!searchTerm)
+    {
+        return;
+    }
+    
+    
+    [self.view endEditing:YES];
+    
+    NSDictionary *parameters = @{
+                                 @"key":searchTerm
+                                 };
+    [dataArr removeAllObjects];
+    [self showHud ];
+    [self post:@"arena/json/search" params:parameters success:^(id responseObj) {
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            NSArray *arr = [dict objectForKey:@"data"];
+//            NSError *error = nil;
+            
+            for (NSDictionary *data in arr) {
+                //Arean *model = [MTLJSONAdapter modelOfClass:[Arean class] fromJSONDictionary:data error:&error];
+//                if (model!=nil) {
+//                    [dataArr addObject:model];
+//                }
+                [dataArr addObject:data];
+            }
+            
+            [self.tableView reloadData];
+        }else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[dict objectForKey:@"msg"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            [alert show];
+        }
+        
+        [self hideHud];
+    }];
+    
+}
+
 -(void)loadData
 {
     [self showHud];
@@ -64,7 +147,7 @@
     NSDictionary *parameters = @{
                                  @"p":curPage
                                  };
-    [dataArr removeAllObjects];
+//    [dataArr removeAllObjects];
     [self post:@"arena/json/list" params:parameters success:^(id responseObj) {
         NSDictionary *dict = (NSDictionary *)responseObj;
         if ([[dict objectForKey:@"code"] intValue]==1) {
@@ -77,12 +160,14 @@
                 }
             }
         }
-        [self stopAnimation];
-        [self.tableView reloadData];
         
+        [self.tableView reloadData];
+        [self stopAnimation];
     }];
     
 }
+
+
 
 //-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 //{
@@ -125,6 +210,39 @@
     [self hideHud];
 }
 
+-(UIView*)getTop
+{
+    if (headerView!=nil) {
+        return headerView;
+    }
+    
+    float w = [UIScreen mainScreen].bounds.size.width;
+    headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 60)];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, 15, w-40, 30)];
+    
+    searchBar.delegate = self;
+    //searchBar.barStyle = UIBarStyleBlackTranslucent;
+    searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    searchBar.placeholder = @"输入球场";
+    searchBar.keyboardType =  UIKeyboardTypeDefault;
+    
+    [searchBar setBackgroundColor:[GlobalConst appBgColor]];
+    [searchBar setBarTintColor:[GlobalConst appBgColor]];
+    searchBar.clipsToBounds = YES;
+    
+    //UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, w - 20, 30)];
+    //[GlobalUtil set9PathImage:bgImage imageName:@"shared_big_btn.png" top:2 right:10];
+    
+    //    [segment addSubview: bgImage];
+    
+    headerView.backgroundColor = [GlobalConst appBgColor];
+    [headerView addSubview:searchBar];
+    //    [parent addSubview:bgImage];
+    
+    return headerView;
+
+}
 
 -(void)selectPlace
 {
@@ -136,6 +254,15 @@
 }
 
 #pragma mark - Table view data source
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 60;
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    return [self getTop];
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     

@@ -107,7 +107,7 @@
                         <constraint firstAttribute="height" constant="1" id="kNc-dq-lpx"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFq-YA-39t">
@@ -160,7 +160,7 @@
                 <constraint firstItem="YNj-b2-TsE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xwf-Nr-IKW"/>
                 <constraint firstAttribute="trailing" secondItem="pu2-NE-QlZ" secondAttribute="trailing" id="xxx-46-qMZ"/>
             </constraints>
-            <point key="canvasLocation" x="-2" y="168"/>
+            <point key="canvasLocation" x="141" y="164"/>
         </view>
     </objects>
 </document>

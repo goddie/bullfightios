@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
 @property (weak, nonatomic) IBOutlet UIImageView *img3;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
+ 
 
 @property (weak, nonatomic) IBOutlet UIView *teamHolder;
 
@@ -27,4 +27,5 @@
 
 @property (weak, nonatomic) User *user;
 
+@property (weak, nonatomic) IBOutlet UIView *topHolder;
 @end

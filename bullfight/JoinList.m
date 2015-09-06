@@ -31,6 +31,10 @@
     curPage = [NSNumber numberWithInt:1];
     dataArr = [NSMutableArray arrayWithCapacity:10];
     self.title = @"报名成员";
+    
+    UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.tableView setTableFooterView:v];
  
     __weak JoinList *wkSelf = self;
     
@@ -88,7 +92,7 @@
     
     [self showHud];
     
-    [self post:@"matchfightuser/json/listuser" params:parameters success:^(id responseObj) {
+    [self post:@"matchfightuser/json/list" params:parameters success:^(id responseObj) {
         
         NSDictionary *dict = (NSDictionary *)responseObj;
         
@@ -98,7 +102,10 @@
             NSError *error = nil;
             
             for (NSDictionary *data in arr) {
-                User *model = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:data error:&error];
+                
+                NSDictionary *dc = [data objectForKey:@"user"];
+                
+                User *model = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:dc error:&error];
                 //                NSLog(@"%@",[error description]);
                 if (model!=nil) {
                     [dataArr addObject:model];

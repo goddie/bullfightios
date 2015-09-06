@@ -301,6 +301,19 @@
 }
 
 
++(CGSize)labelHeight:(NSString*)content width:(CGFloat)width fontSize:(CGFloat)fontSize
+{
+    // 用何種字體進行顯示
+    UIFont *font = [UIFont systemFontOfSize:fontSize];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle.copy};
+    
+    CGSize size = [content boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    
+    return size;
+}
+
 
 
 @end

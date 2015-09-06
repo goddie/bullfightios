@@ -9,13 +9,16 @@
 #import "TITop.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+Custome.h"
+#import "TabBarBlue.h"
 
 @interface TITop ()
 
 @end
 
 @implementation TITop
-
+{
+    TabBarBlue *seg;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -28,7 +31,12 @@
     
 //    [GlobalUtil addButtonToView:self sender:self.btn1  action:@selector(reminder) data:nil];
 
-    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+//    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    
+    seg = [[TabBarBlue alloc] initWithFrame:CGRectMake(0, 0, 0,0)];
+    [seg setTitles:@[@"球队战绩",@"球队阵容",@"球队数据",@"获得荣誉"]];
+    [seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
+    [self.topHolder addSubview:seg];
     
     self.btn1.hidden=YES;
     
@@ -49,7 +57,7 @@
 
 
 -(void)switchView:(id)sender{
-    [self.topDelegate changeTab:self.seg.selectedSegmentIndex];
+    [self.topDelegate changeTab:seg.selectedSegmentIndex];
 }
 
 -(void)bindData

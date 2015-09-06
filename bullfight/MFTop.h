@@ -16,12 +16,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *txtTeam2;
 @property (weak, nonatomic) IBOutlet UILabel *txtNo1;
 @property (weak, nonatomic) IBOutlet UILabel *txtNo2;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
+ 
 
 @property (weak, nonatomic) MatchFight *matchFight;
 
 @property (nonatomic, strong) Team *team;
 
 @property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
+@property (weak, nonatomic) IBOutlet UIView *topHolder;
 
 @end
