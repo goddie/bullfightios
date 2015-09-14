@@ -20,6 +20,7 @@
 #import "MIController.h"
 #import "MyButton.h"
 #import "MEController.h"
+#import "BlankCell.h"
 
 @interface TIController ()
 
@@ -57,14 +58,14 @@
                       @[@190,@44],
                       @[@70],
                       @[@62],
-                      @[@190]
+                      @[@44]
                       ];
     topHeight =335;
     cellArr = @[
                 @[@"MatchFinishCell",@"TeamDataCell"],
                 @[@"TIPositionCell"],
                 @[@"TITeamDataCell"],
-                @[@"MatchFinishCell"]
+                @[@"BlankCell"]
                 
                 ];
     
@@ -122,6 +123,7 @@
                                      };
         
         [dataArr1 removeAllObjects];
+        [dataArr1 addObject:@"总战绩"];
         [self showHud];
         [self post:@"matchdatateam/json/teammatch" params:parameters success:^(id responseObj) {
             NSDictionary *dict = (NSDictionary *)responseObj;
@@ -155,6 +157,7 @@
                                      };
         
         [dataArr2 removeAllObjects];
+
         [self showHud];
         
         [self post:@"teamuser/json/memberlist" params:parameters success:^(id responseObj) {
@@ -188,8 +191,8 @@
             return;
         }
         
-        NSString *r1 =[NSString stringWithFormat:@"%d%%",[self.team.goalPercent intValue]];
-        NSString *r2 =[NSString stringWithFormat:@"%d%%",[self.team.freeGoalPercent intValue]];
+        NSString *r1 =[NSString stringWithFormat:@"%.f%%",[self.team.goalPercent floatValue]*100];
+        NSString *r2 =[NSString stringWithFormat:@"%.f%%",[self.team.freeGoalPercent floatValue]*100];
         
        
         NSString *r3 =[NSString stringWithFormat:@"%d",[self.team.rebound intValue]];
@@ -218,7 +221,13 @@
     
     //荣誉
     if (tabIndex==3) {
+        if (dataArr4.count>0) {
+            [self.tableView reloadData];
+            return;
+        }
         
+        [dataArr4 addObject:@""];
+        [self.tableView reloadData];
     }
 }
 
@@ -482,7 +491,7 @@
     
     if (tabIndex==3) {
         
-        MatchFinishCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        BlankCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
             NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
             cell = [nibArray objectAtIndex:0];

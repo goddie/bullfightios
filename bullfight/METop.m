@@ -87,6 +87,7 @@
     self.txtNo1.text = [GlobalUtil toString:self.matchFight.teamSize];
     self.txtNo2.text = [GlobalUtil toString:self.matchFight.teamSize];
     
+    self.txtScore.text = [NSString stringWithFormat:@"%@:%@",[GlobalUtil toString:self.matchFight.hostScore],[GlobalUtil toString:self.matchFight.guestScore]];
 }
 
 

@@ -117,7 +117,7 @@
 -(void)arenaClick
 {
     MCPlaceList *c1 = [[MCPlaceList alloc] initWithNibName:@"MCPlaceList" bundle:nil];
-    
+    c1.matchType = self.matchFight.matchType;
     c1.isFree = self.isFree;
     //self.navigationController.delegate = c1;
     
@@ -284,8 +284,13 @@
     
     self.matchFight.start = [NSNumber numberWithLongLong:(long long) [startDate timeIntervalSince1970]] ;
     self.matchFight.end = [NSNumber numberWithLongLong:(long long) [endDate timeIntervalSince1970]] ;
+    
+    if (!self.arenaid) {
+        return;
+    }
     self.matchFight.arena = @{@"aid":self.arenaid};
     
+
     
     if ([self.matchFight.matchType intValue]==2) {
         
@@ -385,7 +390,9 @@
 {
     
     NSDictionary *parameters = @{
-                                 @"p":@"1"
+                                 @"p":@"1",
+                                 @"matchType":self.matchFight.matchType
+                                 
                                  };
  
     __weak MCPlace *wkSelf = self;

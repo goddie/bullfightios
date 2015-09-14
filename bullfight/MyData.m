@@ -65,7 +65,7 @@
     titleArr = @[
                   @[@"参赛场数",@"得分总数"],
                   @[@"场均得分",@"命中率"],
-                  @[@"场均三分",@"命中率"],
+                  @[@"罚球命中率",@"三分命中率"],
                   @[@"场均篮板",@"场均助攻"],
                   @[@"场均盖帽",@"场均抢断"]
                   ];
@@ -165,13 +165,38 @@
             User *model = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:data error:&error];
             //NSLog(@"%@",[error description]);
             
+            NSString *s1 = @"";
+            if (model.goalPercent==nil) {
+                s1 = @"0";
+            }else
+            {
+                s1 = [NSString stringWithFormat:@"%.f%%",[model.goalPercent floatValue]*100];
+            }
+            
+            NSString *s2 = @"";
+            if (model.freeGoalPercent==nil) {
+                s2 = @"0";
+            }else
+            {
+                s2 = [NSString stringWithFormat:@"%.f%%",[model.freeGoalPercent floatValue]*100];
+            }
+            
+            NSString *s3 = @"";
+            if (model.threeGoalPercent==nil) {
+                s3 = @"0";
+            }else
+            {
+                s3 = [NSString stringWithFormat:@"%.f%%",[model.threeGoalPercent floatValue]*100];
+            }
+            
+            
             if (model!=nil) {
                 dataArr2 = [NSMutableArray arrayWithArray:@[
-                                                           @[model.playCount,model.scoring],
-                                                           @[model.scoringAvg,model.goalPercent],
-                                                           @[model.threeGoal,model.threeGoalPercent],
-                                                           @[model.rebound,model.assist],
-                                                           @[model.block,model.steal]
+                                                           @[[GlobalUtil toString:model.playCount],[GlobalUtil toString:model.scoring]],
+                                                           @[[GlobalUtil toString:model.scoringAvg],s1],
+                                                           @[s2,s3],
+                                                           @[[GlobalUtil toString:model.rebound],[GlobalUtil toString:model.assist]],
+                                                           @[[GlobalUtil toString:model.block],[GlobalUtil toString:model.steal]]
                                                            ]];
                 
                 [self.tableView reloadData];

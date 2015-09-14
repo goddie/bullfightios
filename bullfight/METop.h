@@ -22,5 +22,6 @@
 @property (nonatomic, strong) id<TeamTopDelegate> topDelegate;
 
 @property (weak, nonatomic) IBOutlet UIView *topHolder;
+@property (weak, nonatomic) IBOutlet UILabel *txtScore;
 
 @end

@@ -37,6 +37,7 @@
 @property (nonatomic, strong) NSNumber *goalPercent;
 @property (nonatomic, strong) NSNumber *threeGoal;
 @property (nonatomic, strong) NSNumber *threeGoalPercent;
+@property (nonatomic, strong) NSNumber *freeGoalPercent;
 @property (nonatomic, strong) NSNumber *rebound;
 @property (nonatomic, strong) NSNumber *assist;
 @property (nonatomic, strong) NSNumber *win;
@@ -50,4 +51,6 @@
 @property (nonatomic, strong) NSNumber *steal;
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSNumber *foul;
+@property (nonatomic, strong) NSNumber *turnover;
 @end

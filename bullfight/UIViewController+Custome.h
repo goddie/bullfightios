@@ -23,4 +23,9 @@
 -(void)showHud;
 -(void)hideHud;
 
+/**
+ *  是否登录，没登录去登录
+ */
+-(NSString*)checkLogin;
+
 @end

@@ -235,6 +235,7 @@
         if([dataArr1 count])
         {
             [self.tableView reloadData];
+            [self stopAnimation];
             return;
         }
         
@@ -262,6 +263,7 @@
         if([dataArr2 count])
         {
             [self.tableView reloadData];
+            [self stopAnimation];
             return;
         }
         
@@ -333,7 +335,7 @@
                 }
             }
             [self.tableView reloadData];
-            [self hideHud];
+            [self stopAnimation];
         }];
 
 
@@ -371,8 +373,10 @@
                 
                 [self.tableView reloadData];
                 
-                [self stopAnimation];
+ 
             }
+            
+            [self stopAnimation];
             
         }];
     }

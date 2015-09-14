@@ -11,6 +11,9 @@
 #import "LoginUtil.h"
 #import "RegOne.h"
 #import "IQKeyboardManager.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
+#import "HttpUtil.h"
 
 static AppDelegate *appDelegate = nil;
 
@@ -21,7 +24,7 @@ static AppDelegate *appDelegate = nil;
 @implementation AppDelegate
 {
     MainController *mainController;
-    
+ 
 }
 
 
@@ -85,6 +88,11 @@ static AppDelegate *appDelegate = nil;
 //        }
 //        
 //    }
+    
+    [WXApi registerApp:@"wxd930ea5d5a258f4f"];
+    
+    [self messageTimer];
+    
     return YES;
     
 }
@@ -109,6 +117,72 @@ static AppDelegate *appDelegate = nil;
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //如果极简开发包不可用,会跳转支付宝钱包进行支付,需要将支付宝钱包的支付结果回传给开 发包
+    if ([url.host isEqualToString:@"safepay"]) {
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url
+                                                  standbyCallback:^(NSDictionary *resultDic) {
+                                                      //NSLog(@"result = %@",resultDic);
+                                                      
+                                                      //                                                      if ([[resultDic objectForKey:@"resultStatus"] intValue]==9000) {
+                                                      //                                                          [self paySuccess:[resultDic objectForKey:@"result"]];
+                                                      //                                                      }
+                                                      
+                                                      
+                                                  }]; }
+    if ([url.host isEqualToString:@"platformapi"]){//支付宝钱包快登授权返回 authCode
+        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
+            //【由于在跳转支付宝客户端支付的过程中,商户 app 在后台很可能被系统 kill 了, 所以 pay 接口的 callback 就会失效,请商户对 standbyCallback 返回的回调结果进行处理,就 是在这个方法里面处理跟 callback 一样的逻辑】
+            //NSLog(@"result = %@",resultDic);
+            //
+            //            if ([[resultDic objectForKey:@"resultStatus"] intValue]==9000) {
+            //                [self paySuccess:[resultDic objectForKey:@"result"]];
+            //            }
+            
+        }];
+    }
+    
+    
+    return YES;
+}
+
+
+/**
+ *  新消息倒计时刷新
+ */
+-(void)messageTimer
+{
+    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(messagePull) userInfo:nil repeats:YES];
+}
+
+
+-(void)messagePull{
+//    NSLog(@"messagePull");
+    //未读消息
+    NSString *uid = [LoginUtil getLocalUUID];
+    if(!uid)
+    {
+        return;
+    }
+    
+    NSDictionary *parameters = @{
+                                 @"uid":uid
+                                 };
+    
+    [HttpTool post:[baseURL stringByAppendingString:@"message/json/countnew"] params:parameters success:^(id json) {
+        NSDictionary *dict = (NSDictionary *)json;
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            NSNumber *count = (NSNumber*)[dict objectForKey:@"data"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"countnew" object:count];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+ 
 }
 
 

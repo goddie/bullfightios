@@ -110,7 +110,8 @@
     [self.view endEditing:YES];
     
     NSDictionary *parameters = @{
-                                 @"key":searchTerm
+                                 @"key":searchTerm,
+                                 @"matchType":self.matchType
                                  };
     [dataArr removeAllObjects];
     [self showHud ];
@@ -145,7 +146,8 @@
     [self showHud];
     
     NSDictionary *parameters = @{
-                                 @"p":curPage
+                                 @"p":curPage,
+                                 @"matchType":self.matchType
                                  };
 //    [dataArr removeAllObjects];
     [self post:@"arena/json/list" params:parameters success:^(id responseObj) {

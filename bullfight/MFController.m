@@ -238,6 +238,7 @@
         if([dataArr1 count])
         {
             [self.tableView reloadData];
+            [self stopAnimation];
             return;
         }
         
@@ -260,9 +261,11 @@
     //球队数据
     if (tabIndex==1) {
         
+        
         if([dataArr2 count])
         {
             [self.tableView reloadData];
+            [self stopAnimation];
             return;
         }
         
@@ -283,7 +286,6 @@
         [dataArr2 addObject:@[@"场均盖帽",[GlobalUtil toString:host.block],[GlobalUtil toString:guest.block]]];
 
         
-        
         [self.tableView reloadData];
         
         
@@ -301,11 +303,14 @@
                                      @"guestid":guestid,
                                      @"p":@"1"
                                      };
-        [dataArr3 removeAllObjects];
+        
         [self showHud];
         [self post:@"teamuser/json/memberlistboth" params:parameters success:^(id responseObj) {
             NSDictionary *dict = (NSDictionary *)responseObj;
             if ([[dict objectForKey:@"code"] intValue]==1) {
+                
+                [dataArr3 removeAllObjects];
+                
                 NSArray *arrBig = [dict objectForKey:@"data"];
                 NSError *error = nil;
                 
@@ -353,9 +358,10 @@
                 
                 
             }
+            
             [self.tableView reloadData];
             
-            [self hideHud];
+            [self stopAnimation];
         }];
         
         
@@ -388,9 +394,10 @@
                 
                 
                 [self.tableView reloadData];
-                
-                [self stopAnimation];
+
             }
+            
+            [self stopAnimation];
             
         }];
 

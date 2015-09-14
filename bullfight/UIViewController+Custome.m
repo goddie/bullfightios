@@ -14,6 +14,7 @@
 #import "User.h"
 #import "LoginUtil.h"
 #import "HttpUtil.h"
+#import "AppDelegate.h"
 
 
 @implementation UIViewController (Custome)
@@ -106,6 +107,16 @@ MBProgressHUD *hud;
 {
     NSString *postURL = [GlobalUtil requestURL:url];
     [HttpTool post:postURL params:params success:success failure:failure];
+}
+
+-(NSString*)checkLogin
+{
+    NSString *uid = [LoginUtil getLocalUUID];
+    if (!uid) {
+        [[AppDelegate delegate] loginPage];
+    }
+    
+    return uid;
 }
 
 @end

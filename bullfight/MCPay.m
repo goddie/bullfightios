@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 santao. All rights reserved.
 //
 
+#import <AlipaySDK/AlipaySDK.h>
 #import "MCPay.h"
 #import "MCPayCell.h"
 #import "MCPayTotalCell.h"
@@ -14,6 +15,9 @@
 #import "UIImageView+WebCache.h"
 #import "UIViewController+Custome.h"
 #import <math.h>
+#import "Order.h"
+#import "DataSigner.h"
+#import "WXApi.h"
 
 @interface MCPay ()
 
@@ -30,26 +34,132 @@
     UIButton *btnPayWeiXin;
     UIButton *btnPayAlipay;
     
+    NSNumber *payType;
+    
+    NSDictionary *orderDict;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self globalConfig];
-    
-    
-    
     [self countFee];
-    
-    
     self.title = @"支付费用";
- 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+/**
+ *  创建订单
+ *
+ *  @param type 1 支付宝 2微信
+ */
+-(void)newOrder:(NSInteger)type
+{
+    NSString *uid = [self checkLogin];
+    NSString *total = [NSString stringWithFormat:@"%.f",totalPay];
+    if (total.length==0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入购买金额" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        return;
+    }
+    NSString *name = [self.matchFight.arena objectForKey:@"name"];
+    NSDictionary *parameters = @{
+                                 @"mfid":self.matchFight.uuid,
+                                 @"uid":uid,
+                                 @"name":name,
+                                 @"total":total,
+                                 @"payType":payType
+                                 };
+    [self showHud];
+    [self post:@"order/json/add" params:parameters success:^(id responseObj) {
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            orderDict = [[dict objectForKey:@"data"] mutableCopy];
+            if (type==1) {
+                [self addOrder];
+            }
+            if (type==2) {
+                [self addOrderWX];
+            }
+            
+        }
+        [self hideHud];
+    }];
+}
+
+
+
+-(void)addOrderWX
+{
+    PayReq *request = [[PayReq alloc] init];
+    request.partnerId = @"wx230f8507faa698a0";
+    request.prepayId= @"1101000000140415649af9fc314aa427";
+    request.package = @"Sign=WXPay";
+    request.nonceStr= @"a462b76e7436e98e0ed6e13c64b4fd1c";
+    request.timeStamp= @"1397527777";
+    request.sign= @"582282D72DD2B03AD892830965F428CB16E7A256";
+    [WXApi sendReq:request];
+}
+
+
+
+-(void)addOrder
+{
+    
+    
+    NSString *partner = @"2088911907194201";
+    NSString *seller = @"2088911907194201";
+    NSString *privateKey = @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBALz/UeE0KA7eCZXqWxIfJV+V+zif/4qvUCGvw6XibyZvpVQpEUMclaKGKX2ih7kkqjNZv5yt/Txoyi37BVgTq3kUl9zBLplSElrWp8u631S9UZUtnRD2Mc4dpbdvOWVWi3Kn4GooxMnT9C4g1ILZcRtIpKpx2iH4cbepIjigxAoXAgMBAAECgYEAu/NU5BbQN2jMM5AqHS1oJ1SpzrgekzahA78dXByA2MJyse1dQ1Zr4IJ3RH+bZZ12vTZlfVTx319+oJdfyyVUgY+rXdYu0MLdVRzqPBVVEjWTTwScwyTSjehlIMT5Gprf08PzfzeADwBwP3+oihOKsCP42HK23z/UhsZKj2/uwYECQQDwRx7geCVA/sByTXnCdPgFvxeHOccukoVRUuJYr4xZXlRemOxUwyIInsig44hehrbJs+a9xpI848QTpTone81hAkEAyV0z/i96QibntW+hGr/B7gwA4gnbkC8xkIU7MNEiNr4WpLF+jglwTFyZv+to3u8PafgfsJdQEtWYSZJO4n7SdwJAOvu6gK/9tS7UXzrVoP7Fw+NdCz0LwEsHnycRmWO+uFGHtJElsskUGbmg1p4EY+/9/xXCluOgEoJ3J7tvwzGJAQJAO6QKaUgAqyVAzeFxUy3mr64IeOq4iH0h7g84F95phtNIe6FCvakYBNYMh+ae2iDubNGb+T7n7ZwsDeZyzO0JQwJBAJJLWKFqNP+j1hXdpY+o4HOh5oTGqa8li5CTszDjE/dSepyYn1QbSOBdtCN6tvNsLahntw/SZfT20ffVzey4434=";
+    
+    
+    Order *order = [[Order alloc] init];
+    order.partner = partner;
+    order.seller = seller;
+    order.tradeNO = [orderDict objectForKey:@"tradeNo"]; //订单ID(由商家□自□行制定)
+    order.productName = [orderDict objectForKey:@"name"]; //商品标题
+    order.productDescription = [orderDict objectForKey:@"info"]; //商品描述
+    order.amount = [NSString stringWithFormat:@"%.2f",0.01f]; //商 品价格
+    order.notifyURL = [baseURL stringByAppendingString:@"order/notice/alipay"]; //回调URL
+    order.service = @"mobile.securitypay.pay";
+    order.paymentType = @"1";
+    order.inputCharset = @"utf-8";
+    order.itBPay = @"30m";
+    
+    //应用注册scheme,在AlixPayDemo-Info.plist定义URL types
+    NSString *appScheme = @"bullfight";
+    //将商品信息拼接成字符串
+    NSString *orderSpec = [order description]; NSLog(@"orderSpec = %@",orderSpec);
+    //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循 RSA 签名规范, 并将签名字符串 base64 编码和 UrlEncode
+    
+    id<DataSigner> signer = CreateRSADataSigner(privateKey);
+    NSString *signedString = [signer signString:orderSpec];
+    //将签名成功字符串格式化为订单字符串,请严格按照该格式
+    NSString *orderString = nil;
+    if (signedString != nil) {
+        orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
+                       orderSpec, signedString, @"RSA"];
+        [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+            //【callback 处理支付结果】
+            NSLog(@"reslut = %@",resultDic);
+            
+            
+            if ([[resultDic objectForKey:@"resultStatus"] integerValue]==9000) {
+                
+                [self payHost];
+                
+            }
+            
+        }];
+    }
+}
+
+
 
 /**
  *  计算费用
@@ -153,7 +263,7 @@
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 200)];
     
     btnPayWeiXin = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, 20.0f, 120.0f, 30.0f)];
-    [btnPayWeiXin setTitle:@"微信支付" forState:UIControlStateNormal];
+    [btnPayWeiXin setTitle:@"支付宝支付" forState:UIControlStateNormal];
     [btnPayWeiXin.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [GlobalUtil set9PathImage:btnPayWeiXin imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     [parent addSubview:btnPayWeiXin];
@@ -161,28 +271,35 @@
     [btnPayWeiXin addTarget:self  action:@selector(btn1Click) forControlEvents:UIControlEventTouchUpInside];
     
     btnPayAlipay = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, btnPayWeiXin.frame.origin.y+btnPayWeiXin.frame.size.height+20, 120.0f, 30.0f)];
-    [btnPayAlipay setTitle:@"支付宝支付" forState:UIControlStateNormal];
+    [btnPayAlipay setTitle:@"微信支付" forState:UIControlStateNormal];
     [btnPayAlipay.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [GlobalUtil set9PathImage:btnPayAlipay imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     [parent addSubview:btnPayAlipay];
     [btnPayAlipay addTarget:self  action:@selector(btn2Click) forControlEvents:UIControlEventTouchUpInside];
     
+    btnPayAlipay.hidden = YES;
     return parent;
 }
 
 -(void)btn1Click
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付确认" message:@"您将使用支付宝支付费用" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"确认", nil];
-    alert.tag = 100;
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付确认" message:@"您将使用支付宝支付费用" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"确认", nil];
+//    alert.tag = 100;
+//    [alert show];
+    payType = [NSNumber numberWithInteger:2];
+    [self newOrder:1];
+
 }
 
 
 -(void)btn2Click
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付确认" message:@"您将使用微信支付费用" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"确认", nil];
-    alert.tag=200;
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付确认" message:@"您将使用微信支付费用" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"确认", nil];
+//    alert.tag=200;
+//    [alert show];
+    
+    payType = [NSNumber numberWithInteger:1];
+    [self newOrder:2];
 }
 
 

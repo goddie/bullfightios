@@ -19,6 +19,7 @@
                 <outlet property="topHolder" destination="Jcr-Ac-nEr" id="Iq7-D9-Weh"/>
                 <outlet property="txtNo1" destination="pbp-lo-aPv" id="kP4-ri-C76"/>
                 <outlet property="txtNo2" destination="1Ut-62-vvo" id="YQo-z9-MGd"/>
+                <outlet property="txtScore" destination="GMD-Nv-Iby" id="ewr-23-lAK"/>
                 <outlet property="txtTeam1" destination="IBT-dc-F6R" id="MPM-sv-Y4R"/>
                 <outlet property="txtTeam2" destination="yjt-Ps-q8v" id="WCQ-Op-gSI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -134,7 +135,7 @@
                 <constraint firstItem="GMD-Nv-Iby" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="xlm-OR-Him"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="434" y="226"/>
+            <point key="canvasLocation" x="32" y="232"/>
         </view>
     </objects>
     <resources>

@@ -9,6 +9,7 @@
 #import "UserInfoTop.h"
 #import "UIImageView+WebCache.h"
 #import "TabBarBlue.h"
+#import "MyButton.h"
 
 @interface UserInfoTop ()
 
@@ -27,8 +28,8 @@
     [GlobalUtil setMaskImageQuick:self.img1 withMask:@"round_mask.png" point:CGPointMake(55.0f, 55.0f)];
     [GlobalUtil setMaskImageQuick:self.img2 withMask:@"round_mask.png" point:CGPointMake(55.0f, 55.0f)];
     
-    [GlobalUtil addButtonToView:self sender:self.img1  action:@selector(openTeam1) data:nil];
-    [GlobalUtil addButtonToView:self sender:self.img2  action:@selector(openTeam1) data:nil];
+    [GlobalUtil addButtonToView:self sender:self.img1  action:@selector(openTeam1:) data:self.matchFight.host];
+    [GlobalUtil addButtonToView:self sender:self.img2  action:@selector(openTeam1:) data:self.matchFight.guest];
 //    [self.seg addTarget:self action:@selector(switchView:) forControlEvents:UIControlEventValueChanged];
     
     
@@ -45,9 +46,14 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)openTeam1
+-(void)openTeam1:(MyButton*)sender
 {
-    
+    TIController *c1 = [[TIController alloc] initWithNibName:@"TIController" bundle:nil];
+    NSDictionary* dict =(NSDictionary*)sender.data;
+    Team *t = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:dict error:nil];
+    c1.team = t;
+    c1.uuid = t.uuid;
+    [self.navigationController pushViewController:c1 animated:YES];
 }
 
 
@@ -79,6 +85,8 @@
     
     self.txtNo1.text = [GlobalUtil toString:self.matchFight.teamSize];
     self.txtNo2.text = [GlobalUtil toString:self.matchFight.teamSize];
+    
+    self.txtScore.text = [NSString stringWithFormat:@"%@:%@",[GlobalUtil toString:self.matchFight.hostScore],[GlobalUtil toString:self.matchFight.guestScore]];
     
 }
 

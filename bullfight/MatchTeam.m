@@ -55,6 +55,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(countnew:) name:@"countnew" object:nil];
 
     [self globalConfig];
     
@@ -100,6 +101,30 @@
     
 }
 
+/**
+ *  新消息事件
+ *
+ *  @param notice <#notice description#>
+ */
+-(void)countnew:(NSNotification*)notice
+{
+    
+    int count = [(NSNumber *)notice.object intValue];
+    
+    if (count>0) {
+        [numButton setBackgroundImage:[UIImage imageNamed:@"redbg.png"] forState:UIControlStateNormal];
+        [numButton setTitle:[NSString stringWithFormat:@"%d",count] forState:UIControlStateNormal];
+        [numButton.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
+        numButton.hidden = NO;
+    }else
+    {
+        numButton.hidden=YES;
+    }
+ 
+    
+
+}
+
 
 
 
@@ -140,36 +165,36 @@
     }];
     
     
-    //未读消息
-    [self post:@"message/json/countnew" params:parameters success:^(id responseObj) {
-        
-        NSDictionary *dict = (NSDictionary *)responseObj;
-        
-        if ([[dict objectForKey:@"code"] intValue]==1) {
-            NSNumber *count = (NSNumber*)[dict objectForKey:@"data"];
-            
-//            UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 10, 10)];
-            
- 
-            
-            
-            if ([count intValue]>0) {
-                
-                [numButton setBackgroundImage:[UIImage imageNamed:@"redbg.png"] forState:UIControlStateNormal];
-                //            [btn setTitle:@"99" forState:UIControlStateNormal];
-                [numButton setTitle:[NSString stringWithFormat:@"%d",[count intValue]] forState:UIControlStateNormal];
-                [numButton.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
-                //            btn.titleLabel.tintColor = [UIColor whiteColor];
-                
-                
-            }else
-            {
-                numButton.hidden=YES;
-            }
-            
-
-        }
-    }];
+//    //未读消息
+//    [self post:@"message/json/countnew" params:parameters success:^(id responseObj) {
+//        
+//        NSDictionary *dict = (NSDictionary *)responseObj;
+//        
+//        if ([[dict objectForKey:@"code"] intValue]==1) {
+//            NSNumber *count = (NSNumber*)[dict objectForKey:@"data"];
+//            
+////            UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 10, 10)];
+//            
+// 
+//            
+//            
+//            if ([count intValue]>0) {
+//                
+//                [numButton setBackgroundImage:[UIImage imageNamed:@"redbg.png"] forState:UIControlStateNormal];
+//                //            [btn setTitle:@"99" forState:UIControlStateNormal];
+//                [numButton setTitle:[NSString stringWithFormat:@"%d",[count intValue]] forState:UIControlStateNormal];
+//                [numButton.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
+//                //            btn.titleLabel.tintColor = [UIColor whiteColor];
+//                
+//                
+//            }else
+//            {
+//                numButton.hidden=YES;
+//            }
+//            
+//
+//        }
+//    }];
     
     
 }

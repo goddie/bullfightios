@@ -22,6 +22,7 @@
 #import <math.h>
 #import "Commet.h"
 #import "AddMessage.h"
+#import "MatchDataTeam.h"
 
 @interface MEController ()
 
@@ -152,6 +153,11 @@
 
 -(void)loadMore
 {
+    if (tabIndex==1) {
+        [self stopAnimation];
+        return;
+    }
+    
     curPage = [NSNumber numberWithInt: [curPage intValue] + 1];
     
     [self getData];
@@ -235,6 +241,7 @@
         if([dataArr1 count])
         {
             [self.tableView reloadData];
+            [self stopAnimation];
             return;
         }
         
@@ -258,34 +265,62 @@
     }
     
     
-    //阵容
+    //球队数据
     if (tabIndex==1) {
         
-        if([dataArr2 count])
-        {
-            [self.tableView reloadData];
-            return;
-        }
         
-//        NSDictionary *hdict = self.matchFight.host;
+        //        NSDictionary *hdict = self.matchFight.host;
         Team *host = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:self.matchFight.host error:nil];
         
-//        NSDictionary *hdict2 = self.matchFight.guest;
+        //        NSDictionary *hdict2 = self.matchFight.guest;
         Team *guest = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:self.matchFight.guest error:nil];
         
         
         
         
-        [dataArr2 addObject:@[@"历史战绩",[GlobalUtil toString:host.playCount],[GlobalUtil toString:host.win],[GlobalUtil toString:guest.playCount],[GlobalUtil toString:guest.win]]];
-        [dataArr2 addObject:@[@"场均得分",[GlobalUtil toString:host.scoring],[GlobalUtil toString:guest.scoring]]];
-        [dataArr2 addObject:@[@"场均篮板",[GlobalUtil toString:host.rebound],[GlobalUtil toString:guest.rebound]]];
-        [dataArr2 addObject:@[@"场均助攻",[GlobalUtil toString:host.assist],[GlobalUtil toString:guest.assist]]];
-        [dataArr2 addObject:@[@"场均失误",[GlobalUtil toString:host.turnover],[GlobalUtil toString:guest.turnover]]];
-        [dataArr2 addObject:@[@"场均盖帽",[GlobalUtil toString:host.block],[GlobalUtil toString:guest.block]]];
+
+        
+ 
+        
+        NSDictionary *parameters = @{
+                                     @"mfid":self.matchFight.uuid,
+                                     };
+        [self showHud];
+ 
+        [self post:@"matchdatateam/json/teamdata" params:parameters success:^(id responseObj) {
+            NSDictionary *dict = (NSDictionary *)responseObj;
+            if ([[dict objectForKey:@"code"] intValue]==1) {
+                [dataArr2 removeAllObjects];
+                NSArray *arr = [dict objectForKey:@"data"];
+                
+                MatchDataTeam *dataHost =  [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:[arr objectAtIndex:0] error:nil];
+                MatchDataTeam *dataGuest =  [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:[arr objectAtIndex:1] error:nil];
+                
+                [dataArr2 addObject:@[@"历史战绩",[GlobalUtil toString:host.playCount],[GlobalUtil toString:host.win],[GlobalUtil toString:guest.playCount],[GlobalUtil toString:guest.win]]];
+                [dataArr2 addObject:@[@"投篮命中率",[NSString stringWithFormat:@"%.0f%%",([dataHost.goalPercent floatValue] * 100)],[NSString stringWithFormat:@"%.0f%%",([dataGuest.goalPercent floatValue] * 100)]]];
+                [dataArr2 addObject:@[@"罚球命中率",[NSString stringWithFormat:@"%.0f%%",([dataHost.freeGoalPercent floatValue] * 100)],[NSString stringWithFormat:@"%.0f%%",([dataGuest.freeGoalPercent floatValue] * 100)]]];
+                [dataArr2 addObject:@[@"三分命中率",[NSString stringWithFormat:@"%.0f%%",([dataHost.threeGoalPercent floatValue] * 100)],[NSString stringWithFormat:@"%.0f%%",([dataGuest.threeGoalPercent floatValue] * 100)]]];
+                [dataArr2 addObject:@[@"篮板",[NSString stringWithFormat:@"%.0f",[dataHost.rebound floatValue]],[NSString stringWithFormat:@"%.0f",[dataGuest.rebound floatValue]]]];
+                [dataArr2 addObject:@[@"助攻",[NSString stringWithFormat:@"%.0f",[dataHost.assist floatValue]],[NSString stringWithFormat:@"%.0f",[dataGuest.assist floatValue]]]];
+                [dataArr2 addObject:@[@"抢断",[NSString stringWithFormat:@"%.0f",[dataHost.steal floatValue]],[NSString stringWithFormat:@"%.0f",[dataGuest.steal floatValue]]]];
+                
+
+            }
+            
+            [self.tableView reloadData];
+            [self stopAnimation];
+ 
+        }];
         
         
         
-        [self.tableView reloadData];
+
+//        [dataArr2 addObject:@[@"场均得分",[GlobalUtil toString:host.scoring],[GlobalUtil toString:guest.scoring]]];
+//        [dataArr2 addObject:@[@"场均篮板",[GlobalUtil toString:host.rebound],[GlobalUtil toString:guest.rebound]]];
+//        [dataArr2 addObject:@[@"场均助攻",[GlobalUtil toString:host.assist],[GlobalUtil toString:guest.assist]]];
+//        [dataArr2 addObject:@[@"场均失误",[GlobalUtil toString:host.turnover],[GlobalUtil toString:guest.turnover]]];
+//        [dataArr2 addObject:@[@"场均盖帽",[GlobalUtil toString:host.block],[GlobalUtil toString:guest.block]]];
+ 
     }
     
     //个人数据
@@ -366,8 +401,8 @@
                 
             }
             [self.tableView reloadData];
-            
-            [self hideHud];
+            [self stopAnimation];
+ 
         }];
     
 
@@ -404,9 +439,10 @@
                 
                 [self.tableView reloadData];
                 
-                [self stopAnimation];
+ 
             }
             
+            [self stopAnimation];
         }];
     }
 }

@@ -11,5 +11,5 @@
 @interface MCPlaceList : UITableViewController<UISearchBarDelegate>
 
 @property BOOL isFree;
-
+@property NSNumber *matchType;
 @end

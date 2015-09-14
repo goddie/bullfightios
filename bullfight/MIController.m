@@ -12,6 +12,7 @@
 #import "TITeamDataCell.h"
 #import "MyDataCell.h"
 #import "UIImageView+WebCache.h"
+#import "BlankCell.h"
 
 @interface MIController ()
 
@@ -66,13 +67,13 @@
     cellHeightArr = @[
                       @[@210],
                       @[@62],
-                      @[@210]
+                      @[@44]
                       ];
     topHeight =323;
     cellArr = @[
                 @[@"MIMemberCell"],
                 @[@"MyDataCell"],
-                @[@"MFMessageCell"]
+                @[@"BlankCell"]
                 
                 ];
     
@@ -143,11 +144,34 @@
             return;
         }
         
+        NSString *s1 = [NSString stringWithFormat:@"%.f%%",[self.user.goalPercent floatValue] * 100];
         
-        [dataArr2 addObject:@[@[@"场均得分",[GlobalUtil toString:self.user.scoring]],@[@"投篮命中率",[GlobalUtil toString:self.user.goalPercent]]]];
-        [dataArr2 addObject:@[@[@"三分球命中率",[GlobalUtil toString:self.user.threeGoalPercent]],@[@"场均犯规",[GlobalUtil toString:self.user.goalPercent]]]];
-        [dataArr2 addObject:@[@[@"场均篮板",[GlobalUtil toString:self.user.goalPercent]],@[@"场均助攻",[GlobalUtil toString:self.user.goalPercent]]]];
-        [dataArr2 addObject:@[@[@"场均失误",[GlobalUtil toString:self.user.goalPercent]],@[@"场均抢断",[GlobalUtil toString:self.user.goalPercent]]]];
+        NSString *s2 = [NSString stringWithFormat:@"%.f%%",[self.user.threeGoalPercent floatValue] * 100];
+        
+        [dataArr2 addObject:@[
+                              @[@"场均得分",[GlobalUtil toString:self.user.scoring]],
+                              @[@"投篮命中率",s1]
+                              ]
+         ];
+        
+
+        [dataArr2 addObject:@[
+                              @[@"三分球命中率",s2],
+                              @[@"场均犯规",[GlobalUtil toString:self.user.foul]]
+                              ]
+         ];
+        
+        [dataArr2 addObject:@[
+                              @[@"场均篮板",[GlobalUtil toString:self.user.rebound]],
+                              @[@"场均助攻",[GlobalUtil toString:self.user.assist]]
+                              ]
+         ];
+        
+        [dataArr2 addObject:@[
+                              @[@"场均失误",[GlobalUtil toString:self.user.turnover]],
+                              @[@"场均抢断",[GlobalUtil toString:self.user.steal]]
+                              ]
+         ];
         
         [self.tableView reloadData];
         
@@ -155,9 +179,14 @@
     
     //阵容
     if (tabIndex==2) {
+        if([dataArr2 count])
+        {
+            [self.tableView reloadData];
+            return;
+        }
         
-        
-        
+        [dataArr3 addObject:@""];
+        [self.tableView reloadData];
     }
     
     //荣誉
@@ -227,7 +256,7 @@
     
     if (tabIndex==2) {
         
-        MIMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        BlankCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
             NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
             cell = [nibArray objectAtIndex:0];

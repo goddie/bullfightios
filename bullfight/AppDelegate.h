@@ -23,5 +23,10 @@
 
 -(void)changeTab:(NSInteger)idx;
 
+/**
+ *  刷新消息
+ */
+-(void)messagePull;
+
 @end
 

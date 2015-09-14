@@ -91,7 +91,7 @@
     [self addChildViewController:top];
     top.topDelegate = self;
     top.matchFight = self.matchFight;
-    top.topDelegate = self;
+ 
     
     sectionHeader = top.view;
     

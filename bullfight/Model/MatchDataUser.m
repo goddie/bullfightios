@@ -12,7 +12,6 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
-             @"uuid":@"id",
              @"uuid":@"uuid",
              @"matchFight":@"matchFight",
              @"user":@"user",

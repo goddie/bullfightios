@@ -29,6 +29,7 @@
              @"goalPercent":@"goalPercent",
              @"threeGoal":@"threeGoal",
              @"threeGoalPercent":@"threeGoalPercent",
+             @"freeGoalPercent":@"freeGoalPercent",
              @"rebound":@"rebound",
              @"assist":@"assist",
              @"win":@"win",
@@ -42,7 +43,9 @@
              @"steal":@"steal",
              @"avatar":@"avatar",
              @"age":@"age",
-             @"phone":@"phone"
+             @"phone":@"phone",
+             @"foul":@"foul",
+             @"turnover":@"turnover"
              };
 }
 

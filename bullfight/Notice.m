@@ -15,6 +15,7 @@
 #import "MEController.h"
 #import "MFController.h"
 #import "Team.h"
+#import "AppDelegate.h"
 
 
 @interface Notice ()
@@ -265,18 +266,29 @@
     NSDictionary *parameters = @{
                                  @"mid":message.uuid
                                  };
+    [[AppDelegate delegate] messagePull];
+    
     
     [self post:@"message/json/updateread" params:parameters success:^(id responseObj) {
         
-//        NSDictionary *dict = (NSDictionary *)responseObj;
         
-//        if ([[dict objectForKey:@"code"] intValue]==1) {
-//            
-//            [self.tableView reloadData];
-//            
-//            
-//        }
         
+    }];
+
+}
+
+-(void)deleteMessage:(NSString*)mid
+{
+    NSDictionary *parameters = @{
+                                 @"mid":mid
+                                 };
+    [self showHud];
+    [self post:@"message/json/delmessage" params:parameters success:^(id responseObj) {
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            
+        }
+        [self hideHud];
     }];
 
 }
@@ -382,6 +394,33 @@
     }
     
     
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        Message *message = (Message*)[dataArr objectAtIndex:indexPath.row];
+        [self deleteMessage:message.uuid];
+        
+        [dataArr removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source.
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"删除";
 }
 
 
