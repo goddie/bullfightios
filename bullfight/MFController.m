@@ -276,14 +276,14 @@
         Team *guest = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:self.matchFight.guest error:nil];
         
         
-        
+ 
         
         [dataArr2 addObject:@[@"历史战绩",[GlobalUtil toString:host.playCount],[GlobalUtil toString:host.win],[GlobalUtil toString:guest.playCount],[GlobalUtil toString:guest.win]]];
-        [dataArr2 addObject:@[@"场均得分",[GlobalUtil toString:host.scoring],[GlobalUtil toString:guest.scoring]]];
-        [dataArr2 addObject:@[@"场均篮板",[GlobalUtil toString:host.rebound],[GlobalUtil toString:guest.rebound]]];
-        [dataArr2 addObject:@[@"场均助攻",[GlobalUtil toString:host.assist],[GlobalUtil toString:guest.assist]]];
-        [dataArr2 addObject:@[@"场均失误",[GlobalUtil toString:host.turnover],[GlobalUtil toString:guest.turnover]]];
-        [dataArr2 addObject:@[@"场均盖帽",[GlobalUtil toString:host.block],[GlobalUtil toString:guest.block]]];
+        [dataArr2 addObject:@[@"场均得分",[GlobalUtil toFloatString:host.scoring],[GlobalUtil toFloatString:guest.scoring]]];
+        [dataArr2 addObject:@[@"场均篮板",[GlobalUtil toFloatString:host.rebound],[GlobalUtil toFloatString:guest.rebound]]];
+        [dataArr2 addObject:@[@"场均助攻",[GlobalUtil toFloatString:host.assist],[GlobalUtil toFloatString:guest.assist]]];
+        [dataArr2 addObject:@[@"场均失误",[GlobalUtil toFloatString:host.turnover],[GlobalUtil toFloatString:guest.turnover]]];
+        [dataArr2 addObject:@[@"场均盖帽",[GlobalUtil toFloatString:host.block],[GlobalUtil toFloatString:guest.block]]];
 
         
         [self.tableView reloadData];

@@ -141,4 +141,21 @@
  */
 +(CGSize)labelHeight:(NSString*)content width:(CGFloat)width fontSize:(CGFloat)fontSize;
 
+/**
+ *   小数返回
+ *
+ *  @param value <#value description#>
+ *
+ *  @return <#return value description#>
+ */
++(NSString*)toFloatString:(id)value;
+
+/**
+ *  百分比返回
+ *
+ *  @param value <#value description#>
+ *
+ *  @return <#return value description#>
+ */
++(NSString*)toPercentString:(id)value;
 @end

@@ -277,11 +277,11 @@
         
         
         [dataArr2 addObject:@[@"历史战绩",[GlobalUtil toString:host.playCount],[GlobalUtil toString:host.win]]];
-        [dataArr2 addObject:@[@"场均得分",[GlobalUtil toString:host.scoring]]];
-        [dataArr2 addObject:@[@"场均篮板",[GlobalUtil toString:host.rebound]]];
-        [dataArr2 addObject:@[@"场均助攻",[GlobalUtil toString:host.assist]]];
-        [dataArr2 addObject:@[@"场均失误",[GlobalUtil toString:host.turnover]]];
-        [dataArr2 addObject:@[@"场均盖帽",[GlobalUtil toString:host.block]]];
+        [dataArr2 addObject:@[@"场均得分",[GlobalUtil toFloatString:host.scoring]]];
+        [dataArr2 addObject:@[@"场均篮板",[GlobalUtil toFloatString:host.rebound]]];
+        [dataArr2 addObject:@[@"场均助攻",[GlobalUtil toFloatString:host.assist]]];
+        [dataArr2 addObject:@[@"场均失误",[GlobalUtil toFloatString:host.turnover]]];
+        [dataArr2 addObject:@[@"场均盖帽",[GlobalUtil toFloatString:host.block]]];
         
         
         
@@ -498,6 +498,9 @@
         if (cell == nil) {
             NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
             cell = [nibArray objectAtIndex:0];
+        }
+        if (dataArr3.count==0) {
+            return cell;
         }
         
         if ([dataArr3 objectAtIndex:indexPath.row]) {

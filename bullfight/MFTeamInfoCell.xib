@@ -30,9 +30,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75Z-HZ-fU4">
-                        <rect key="frame" x="224" y="4" width="52" height="35"/>
+                        <rect key="frame" x="210" y="4" width="80" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="52" id="2tE-Xd-bpd"/>
+                            <constraint firstAttribute="width" constant="80" id="2tE-Xd-bpd"/>
                             <constraint firstAttribute="height" constant="35" id="6yl-OG-O1e"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ZurichBT-LightExtraCondensed" family="Zurich" pointSize="30"/>
@@ -40,10 +40,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1I-59-gEA">
-                        <rect key="frame" x="44" y="4" width="52" height="35"/>
+                        <rect key="frame" x="30" y="4" width="80" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="Fkl-gI-TUN"/>
-                            <constraint firstAttribute="width" constant="52" id="qne-sr-9zT"/>
+                            <constraint firstAttribute="width" constant="80" id="qne-sr-9zT"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ZurichBT-LightExtraCondensed" family="Zurich" pointSize="30"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

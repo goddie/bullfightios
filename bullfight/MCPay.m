@@ -278,6 +278,17 @@
     [btnPayAlipay addTarget:self  action:@selector(btn2Click) forControlEvents:UIControlEventTouchUpInside];
     
     btnPayAlipay.hidden = YES;
+    
+    
+    NSString *msg= @"1、支付完成后，来斗牛将会打电话确认。\n2、如最后没有球队应战，来斗牛将会在48小时内退回款项。\n3、如对赛事有什么特殊需求，请拨打来斗牛客服电话xxxxxxxx。";
+    UILabel *labMsg =  [[UILabel alloc] initWithFrame:CGRectMake((w-300.0f)*0.5f, btnPayAlipay.frame.origin.y+btnPayAlipay.frame.size.height+20, 300, 120)];
+    labMsg.text = msg;
+    labMsg.numberOfLines = 10;
+    labMsg.textColor = [UIColor whiteColor];
+    labMsg.font = [UIFont systemFontOfSize:14.0f];
+    
+    [parent addSubview:labMsg];
+    
     return parent;
 }
 

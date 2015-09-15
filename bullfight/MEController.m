@@ -297,12 +297,12 @@
                 MatchDataTeam *dataGuest =  [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:[arr objectAtIndex:1] error:nil];
                 
                 [dataArr2 addObject:@[@"历史战绩",[GlobalUtil toString:host.playCount],[GlobalUtil toString:host.win],[GlobalUtil toString:guest.playCount],[GlobalUtil toString:guest.win]]];
-                [dataArr2 addObject:@[@"投篮命中率",[NSString stringWithFormat:@"%.0f%%",([dataHost.goalPercent floatValue] * 100)],[NSString stringWithFormat:@"%.0f%%",([dataGuest.goalPercent floatValue] * 100)]]];
-                [dataArr2 addObject:@[@"罚球命中率",[NSString stringWithFormat:@"%.0f%%",([dataHost.freeGoalPercent floatValue] * 100)],[NSString stringWithFormat:@"%.0f%%",([dataGuest.freeGoalPercent floatValue] * 100)]]];
-                [dataArr2 addObject:@[@"三分命中率",[NSString stringWithFormat:@"%.0f%%",([dataHost.threeGoalPercent floatValue] * 100)],[NSString stringWithFormat:@"%.0f%%",([dataGuest.threeGoalPercent floatValue] * 100)]]];
-                [dataArr2 addObject:@[@"篮板",[NSString stringWithFormat:@"%.0f",[dataHost.rebound floatValue]],[NSString stringWithFormat:@"%.0f",[dataGuest.rebound floatValue]]]];
-                [dataArr2 addObject:@[@"助攻",[NSString stringWithFormat:@"%.0f",[dataHost.assist floatValue]],[NSString stringWithFormat:@"%.0f",[dataGuest.assist floatValue]]]];
-                [dataArr2 addObject:@[@"抢断",[NSString stringWithFormat:@"%.0f",[dataHost.steal floatValue]],[NSString stringWithFormat:@"%.0f",[dataGuest.steal floatValue]]]];
+                [dataArr2 addObject:@[@"投篮命中率",[GlobalUtil toPercentString:dataHost.goalPercent],[GlobalUtil toPercentString:dataGuest.goalPercent]]];
+                [dataArr2 addObject:@[@"罚球命中率",[GlobalUtil toPercentString:dataHost.freeGoalPercent],[GlobalUtil toPercentString:dataGuest.freeGoalPercent]]];
+                [dataArr2 addObject:@[@"三分命中率",[GlobalUtil toPercentString:dataHost.threeGoalPercent],[GlobalUtil toPercentString:dataGuest.threeGoalPercent]]];
+                [dataArr2 addObject:@[@"篮板",[GlobalUtil toString:dataHost.rebound],[GlobalUtil toString:dataGuest.rebound]]];
+                [dataArr2 addObject:@[@"助攻",[GlobalUtil toString:dataHost.assist],[GlobalUtil toString:dataGuest.assist]]];
+                [dataArr2 addObject:@[@"抢断",[GlobalUtil toString:dataHost.steal],[GlobalUtil toString:dataGuest.steal]]];
                 
 
             }

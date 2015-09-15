@@ -144,32 +144,32 @@
             return;
         }
         
-        NSString *s1 = [NSString stringWithFormat:@"%.f%%",[self.user.goalPercent floatValue] * 100];
-        
-        NSString *s2 = [NSString stringWithFormat:@"%.f%%",[self.user.threeGoalPercent floatValue] * 100];
+//        NSString *s1 = [NSString stringWithFormat:@"%.f%%",[self.user.goalPercent floatValue] * 100];
+//        
+//        NSString *s2 = [NSString stringWithFormat:@"%.f%%",[self.user.threeGoalPercent floatValue] * 100];
         
         [dataArr2 addObject:@[
-                              @[@"场均得分",[GlobalUtil toString:self.user.scoring]],
-                              @[@"投篮命中率",s1]
+                              @[@"三分球命中率",[GlobalUtil toPercentString:self.user.threeGoalPercent]],
+                              @[@"投篮命中率",[GlobalUtil toPercentString:self.user.goalPercent]]
                               ]
          ];
         
 
         [dataArr2 addObject:@[
-                              @[@"三分球命中率",s2],
-                              @[@"场均犯规",[GlobalUtil toString:self.user.foul]]
+                              @[@"场均得分",[GlobalUtil toFloatString:self.user.scoring]],
+                              @[@"场均犯规",[GlobalUtil toFloatString:self.user.foul]]
                               ]
          ];
         
         [dataArr2 addObject:@[
-                              @[@"场均篮板",[GlobalUtil toString:self.user.rebound]],
-                              @[@"场均助攻",[GlobalUtil toString:self.user.assist]]
+                              @[@"场均篮板",[GlobalUtil toFloatString:self.user.rebound]],
+                              @[@"场均助攻",[GlobalUtil toFloatString:self.user.assist]]
                               ]
          ];
         
         [dataArr2 addObject:@[
-                              @[@"场均失误",[GlobalUtil toString:self.user.turnover]],
-                              @[@"场均抢断",[GlobalUtil toString:self.user.steal]]
+                              @[@"场均失误",[GlobalUtil toFloatString:self.user.turnover]],
+                              @[@"场均抢断",[GlobalUtil toFloatString:self.user.steal]]
                               ]
          ];
         

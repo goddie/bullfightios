@@ -191,18 +191,18 @@
             return;
         }
         
-        NSString *r1 =[NSString stringWithFormat:@"%.f%%",[self.team.goalPercent floatValue]*100];
-        NSString *r2 =[NSString stringWithFormat:@"%.f%%",[self.team.freeGoalPercent floatValue]*100];
+        NSString *r1 =[GlobalUtil toPercentString:self.team.goalPercent];
+        NSString *r2 =[GlobalUtil toPercentString:self.team.freeGoalPercent];
         
        
-        NSString *r3 =[NSString stringWithFormat:@"%d",[self.team.rebound intValue]];
-        NSString *r4 =[NSString stringWithFormat:@"%d",[self.team.assist intValue]];
+        NSString *r3 =[GlobalUtil toFloatString:self.team.rebound];
+        NSString *r4 =[GlobalUtil toFloatString:self.team.assist];
         
-        NSString *r5 =[NSString stringWithFormat:@"%d",[self.team.block intValue]];
-        NSString *r6 =[NSString stringWithFormat:@"%d",[self.team.steal intValue]];
+        NSString *r5 =[GlobalUtil toFloatString:self.team.block];
+        NSString *r6 =[GlobalUtil toFloatString:self.team.steal];
         
-        NSString *r7 =[NSString stringWithFormat:@"%d",[self.team.turnover intValue]];
-        NSString *r8 =[NSString stringWithFormat:@"%d",[self.team.foul intValue]];
+        NSString *r7 =[GlobalUtil toFloatString:self.team.turnover];
+        NSString *r8 =[GlobalUtil toFloatString:self.team.foul];
         
         
         
@@ -411,7 +411,7 @@
             
             
             if ([[entity.host objectForKey:@"id"] isEqualToString:self.team.uuid]) {
-                [cell setCornerTitle:@"失败" bgType:2];
+                [cell setCornerTitle:@"战败" bgType:2];
             }else
             {
  

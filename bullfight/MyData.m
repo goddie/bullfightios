@@ -165,38 +165,38 @@
             User *model = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:data error:&error];
             //NSLog(@"%@",[error description]);
             
-            NSString *s1 = @"";
-            if (model.goalPercent==nil) {
-                s1 = @"0";
-            }else
-            {
-                s1 = [NSString stringWithFormat:@"%.f%%",[model.goalPercent floatValue]*100];
-            }
-            
-            NSString *s2 = @"";
-            if (model.freeGoalPercent==nil) {
-                s2 = @"0";
-            }else
-            {
-                s2 = [NSString stringWithFormat:@"%.f%%",[model.freeGoalPercent floatValue]*100];
-            }
-            
-            NSString *s3 = @"";
-            if (model.threeGoalPercent==nil) {
-                s3 = @"0";
-            }else
-            {
-                s3 = [NSString stringWithFormat:@"%.f%%",[model.threeGoalPercent floatValue]*100];
-            }
-            
+//            NSString *s1 = @"";
+//            if (model.goalPercent==nil) {
+//                s1 = @"0";
+//            }else
+//            {
+//                s1 = [NSString stringWithFormat:@"%.f%%",[model.goalPercent floatValue]*100];
+//            }
+//            
+//            NSString *s2 = @"";
+//            if (model.freeGoalPercent==nil) {
+//                s2 = @"0";
+//            }else
+//            {
+//                s2 = [NSString stringWithFormat:@"%.f%%",[model.freeGoalPercent floatValue]*100];
+//            }
+//            
+//            NSString *s3 = @"";
+//            if (model.threeGoalPercent==nil) {
+//                s3 = @"0";
+//            }else
+//            {
+//                s3 = [NSString stringWithFormat:@"%.f%%",[model.threeGoalPercent floatValue]*100];
+//            }
+//            
             
             if (model!=nil) {
                 dataArr2 = [NSMutableArray arrayWithArray:@[
                                                            @[[GlobalUtil toString:model.playCount],[GlobalUtil toString:model.scoring]],
-                                                           @[[GlobalUtil toString:model.scoringAvg],s1],
-                                                           @[s2,s3],
-                                                           @[[GlobalUtil toString:model.rebound],[GlobalUtil toString:model.assist]],
-                                                           @[[GlobalUtil toString:model.block],[GlobalUtil toString:model.steal]]
+                                                           @[[GlobalUtil toFloatString:model.scoringAvg],[GlobalUtil toPercentString:model.goalPercent]],
+                                                           @[[GlobalUtil toPercentString:model.freeGoalPercent],[GlobalUtil toPercentString:model.threeGoalPercent]],
+                                                           @[[GlobalUtil toFloatString:model.rebound],[GlobalUtil toFloatString:model.assist]],
+                                                           @[[GlobalUtil toFloatString:model.block],[GlobalUtil toFloatString:model.steal]]
                                                            ]];
                 
                 [self.tableView reloadData];

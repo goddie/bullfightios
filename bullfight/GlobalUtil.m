@@ -314,6 +314,61 @@
     return size;
 }
 
++(NSString*)toFloatString:(id)value
+{
+    if ([value isKindOfClass:[NSNumber class]]) {
+        
+        if (value==nil) {
+            return @"";
+        }
+        
+        NSNumber *num = (NSNumber*)value;
+        
+        
+        
+        return [NSString stringWithFormat:@"%.1f",[num floatValue]];
+        
+    }
+    
+    if ([value isKindOfClass:[NSString class]]) {
+        
+        if (value==nil) {
+            return @"";
+        }
+        
+        return (NSString*)value;
+        
+    }
+    return @"";
+}
 
++(NSString*)toPercentString:(id)value
+{
+    if ([value isKindOfClass:[NSNumber class]]) {
+        
+        if (value==nil) {
+            return @"";
+        }
+        
+        NSNumber *num = (NSNumber*)value;
+        
+        float f = [num floatValue] * 100;
+        
+        return [NSString stringWithFormat:@"%.f%%",f];
+        
+    }
+    
+    if ([value isKindOfClass:[NSString class]]) {
+        
+        if (value==nil) {
+            return @"";
+        }
+        
+        return (NSString*)value;
+        
+    }
+    return @"";
+    
+}
 
 @end
