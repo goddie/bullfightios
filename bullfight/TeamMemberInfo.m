@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self globalConfig];
-    
+    [self setExtraCellLineHidden:self.tableView];
     self.title = @"队员管理";
     
     dataArr =[NSMutableArray arrayWithCapacity:10];

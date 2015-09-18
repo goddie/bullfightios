@@ -28,4 +28,10 @@
  */
 -(NSString*)checkLogin;
 
+/**
+ *  隐藏多余分割线
+ *
+ *  @param tableView <#tableView description#>
+ */
+-(void)setExtraCellLineHidden: (UITableView *)tableView;
 @end

@@ -11,6 +11,8 @@
 #import "MatchTeam.h"
 #import "My.h"
 #import "LoginUtil.h"
+#import "NewsList.h"
+#import "PlayerList.h"
 
 
 @interface MainController ()
@@ -41,7 +43,10 @@
     
     
 //    GateController *c2=[[GateController alloc] initWithNibName:@"GateController" bundle:nil];
-    NotReady *c2 = [[NotReady alloc] initWithNibName:@"NotReady" bundle:nil];
+    NewsList *c2 = [[NewsList alloc] initWithNibName:@"NewsList" bundle:nil];
+    
+    
+    //NotReady *c2 = [[NotReady alloc] initWithNibName:@"NotReady" bundle:nil];
     UINavigationController* nav2 = [[UINavigationController alloc] initWithRootViewController:c2];
     nav2.tabBarItem.title=@"新闻";
     nav2.tabBarItem.image=[UIImage imageNamed:@"tab_icon_news_active.png"];
@@ -49,7 +54,7 @@
 //    RegSMSController *c3=[[RegSMSController alloc] initWithNibName:@"RegSMSController" bundle:nil];
     //QRootElement *root = [RegController create];
     //RegController *c3 = (RegController *) [[RegController alloc] initWithRoot:root];
-    NotReady *c3 = [[NotReady alloc] initWithNibName:@"NotReady" bundle:nil];
+    PlayerList *c3 = [[PlayerList alloc] initWithNibName:@"PlayerList" bundle:nil];
     UINavigationController* nav3 = [[UINavigationController alloc] initWithRootViewController:c3];
     nav3.tabBarItem.title=@"牛丸圈";
     nav3.tabBarItem.image=[UIImage imageNamed:@"tab_icon_activities_active.png"];

@@ -26,6 +26,8 @@
     [super viewDidLoad];
     
     [self globalConfig];
+    [self setExtraCellLineHidden:self.tableView];
+    self.title = @"添加球员";
     
     self.tableView.backgroundColor = [GlobalConst appBgColor];
     

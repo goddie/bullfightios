@@ -44,6 +44,7 @@
     
     self.title = @"消息";
     
+    [self setExtraCellLineHidden:self.tableView];
     
     curPage = [NSNumber numberWithInt:1];
     __weak Notice *wkSelf = self;

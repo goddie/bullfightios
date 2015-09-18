@@ -75,7 +75,7 @@
                     <constraint firstItem="8EF-11-Tli" firstAttribute="leading" secondItem="vca-dm-Qqr" secondAttribute="trailing" constant="8" id="tQ3-vT-iVp"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="img1" destination="vca-dm-Qqr" id="jai-3f-1YN"/>
                 <outlet property="txtHeight" destination="q0g-kf-UYR" id="YLn-84-M9l"/>

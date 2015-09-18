@@ -45,9 +45,12 @@
                  @"ConfigValueCell",
                  @"ConfigCell"
                  ];
+    
+    NSString *username = [GlobalUtil toString:self.user.username];
+    NSString *phone = [GlobalUtil toString:self.user.phone];
     dataArr = @[
-                self.user.username,
-                self.user.phone
+                username,
+                phone
                 ];
     
     self.title = @"账户设置";

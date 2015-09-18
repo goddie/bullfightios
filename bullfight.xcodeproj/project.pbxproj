@@ -177,6 +177,8 @@
 		C291F4C71B76F464000A1999 /* MatchTeam.xib in Resources */ = {isa = PBXBuildFile; fileRef = C291F4C51B76F464000A1999 /* MatchTeam.xib */; };
 		C291F4CB1B76F82A000A1999 /* MatchCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = C291F4C91B76F82A000A1999 /* MatchCreate.m */; };
 		C291F4CC1B76F82A000A1999 /* MatchCreate.xib in Resources */ = {isa = PBXBuildFile; fileRef = C291F4CA1B76F82A000A1999 /* MatchCreate.xib */; };
+		C293CB6F1BA9A81900FC623A /* PlayerList.m in Sources */ = {isa = PBXBuildFile; fileRef = C293CB6D1BA9A81900FC623A /* PlayerList.m */; };
+		C293CB701BA9A81900FC623A /* PlayerList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C293CB6E1BA9A81900FC623A /* PlayerList.xib */; };
 		C293F3A01B860611007C6FE7 /* TeamMemberAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C293F39E1B860611007C6FE7 /* TeamMemberAdd.m */; };
 		C293F3A11B860611007C6FE7 /* TeamMemberAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = C293F39F1B860611007C6FE7 /* TeamMemberAdd.xib */; };
 		C293F3AA1B86063D007C6FE7 /* TeamMemberAdmin.m in Sources */ = {isa = PBXBuildFile; fileRef = C293F3A81B86063D007C6FE7 /* TeamMemberAdmin.m */; };
@@ -248,6 +250,12 @@
 		C2B2A8201B83FB3200F0C122 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B2A81E1B83FB3200F0C122 /* Login.m */; };
 		C2B2A8211B83FB3200F0C122 /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B2A81F1B83FB3200F0C122 /* Login.xib */; };
 		C2B728141B84581A0010C9B9 /* MatchFight.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B728131B84581A0010C9B9 /* MatchFight.m */; };
+		C2B850CE1BA863A5006C668C /* NewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B850CC1BA863A5006C668C /* NewsListCell.m */; };
+		C2B850CF1BA863A5006C668C /* NewsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B850CD1BA863A5006C668C /* NewsListCell.xib */; };
+		C2B850D31BA8650A006C668C /* NewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B850D11BA8650A006C668C /* NewsList.m */; };
+		C2B850D41BA8650A006C668C /* NewsList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B850D21BA8650A006C668C /* NewsList.xib */; };
+		C2B850D81BA86BE8006C668C /* NewsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B850D61BA86BE8006C668C /* NewsDetail.m */; };
+		C2B850D91BA86BE8006C668C /* NewsDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B850D71BA86BE8006C668C /* NewsDetail.xib */; };
 		C2D380291B85196400AA3DE4 /* MFWildTop.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D380271B85196400AA3DE4 /* MFWildTop.m */; };
 		C2D3802A1B85196400AA3DE4 /* MFWildTop.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D380281B85196400AA3DE4 /* MFWildTop.xib */; };
 		C2D3802E1B851B4500AA3DE4 /* MFWildController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D3802C1B851B4500AA3DE4 /* MFWildController.m */; };
@@ -980,6 +988,9 @@
 		C291F4C81B76F82A000A1999 /* MatchCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCreate.h; sourceTree = "<group>"; };
 		C291F4C91B76F82A000A1999 /* MatchCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCreate.m; sourceTree = "<group>"; };
 		C291F4CA1B76F82A000A1999 /* MatchCreate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchCreate.xib; sourceTree = "<group>"; };
+		C293CB6C1BA9A81900FC623A /* PlayerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerList.h; sourceTree = "<group>"; };
+		C293CB6D1BA9A81900FC623A /* PlayerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerList.m; sourceTree = "<group>"; };
+		C293CB6E1BA9A81900FC623A /* PlayerList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerList.xib; sourceTree = "<group>"; };
 		C293F39D1B860611007C6FE7 /* TeamMemberAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamMemberAdd.h; sourceTree = "<group>"; };
 		C293F39E1B860611007C6FE7 /* TeamMemberAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamMemberAdd.m; sourceTree = "<group>"; };
 		C293F39F1B860611007C6FE7 /* TeamMemberAdd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamMemberAdd.xib; sourceTree = "<group>"; };
@@ -1098,6 +1109,15 @@
 		C2B2A81F1B83FB3200F0C122 /* Login.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Login.xib; sourceTree = "<group>"; };
 		C2B728121B84581A0010C9B9 /* MatchFight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchFight.h; sourceTree = "<group>"; };
 		C2B728131B84581A0010C9B9 /* MatchFight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchFight.m; sourceTree = "<group>"; };
+		C2B850CB1BA863A5006C668C /* NewsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListCell.h; sourceTree = "<group>"; };
+		C2B850CC1BA863A5006C668C /* NewsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListCell.m; sourceTree = "<group>"; };
+		C2B850CD1BA863A5006C668C /* NewsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsListCell.xib; sourceTree = "<group>"; };
+		C2B850D01BA8650A006C668C /* NewsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsList.h; sourceTree = "<group>"; };
+		C2B850D11BA8650A006C668C /* NewsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsList.m; sourceTree = "<group>"; };
+		C2B850D21BA8650A006C668C /* NewsList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsList.xib; sourceTree = "<group>"; };
+		C2B850D51BA86BE8006C668C /* NewsDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetail.h; sourceTree = "<group>"; };
+		C2B850D61BA86BE8006C668C /* NewsDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetail.m; sourceTree = "<group>"; };
+		C2B850D71BA86BE8006C668C /* NewsDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetail.xib; sourceTree = "<group>"; };
 		C2D380261B85196400AA3DE4 /* MFWildTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFWildTop.h; sourceTree = "<group>"; };
 		C2D380271B85196400AA3DE4 /* MFWildTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFWildTop.m; sourceTree = "<group>"; };
 		C2D380281B85196400AA3DE4 /* MFWildTop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFWildTop.xib; sourceTree = "<group>"; };
@@ -1710,6 +1730,9 @@
 				C28C5AF21BA5D01B00577E88 /* BlankCell.h */,
 				C28C5AF31BA5D01B00577E88 /* BlankCell.m */,
 				C28C5AF41BA5D01B00577E88 /* BlankCell.xib */,
+				C2B850CB1BA863A5006C668C /* NewsListCell.h */,
+				C2B850CC1BA863A5006C668C /* NewsListCell.m */,
+				C2B850CD1BA863A5006C668C /* NewsListCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -2423,6 +2446,15 @@
 				C2AA01AC1B95F2DF00D3246D /* UserPassword.h */,
 				C2AA01AD1B95F2DF00D3246D /* UserPassword.m */,
 				C2AA01AE1B95F2DF00D3246D /* UserPassword.xib */,
+				C2B850D01BA8650A006C668C /* NewsList.h */,
+				C2B850D11BA8650A006C668C /* NewsList.m */,
+				C2B850D21BA8650A006C668C /* NewsList.xib */,
+				C2B850D51BA86BE8006C668C /* NewsDetail.h */,
+				C2B850D61BA86BE8006C668C /* NewsDetail.m */,
+				C2B850D71BA86BE8006C668C /* NewsDetail.xib */,
+				C293CB6C1BA9A81900FC623A /* PlayerList.h */,
+				C293CB6D1BA9A81900FC623A /* PlayerList.m */,
+				C293CB6E1BA9A81900FC623A /* PlayerList.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3063,11 +3095,13 @@
 				C28DEE591B77D6BA008FB14A /* MatchWildCell.xib in Resources */,
 				C2D858431B70F71C00F645B1 /* profile_icon_award.png in Resources */,
 				C20CB1851B8A5B8C001D96F3 /* MCPlaceList.xib in Resources */,
+				C293CB701BA9A81900FC623A /* PlayerList.xib in Resources */,
 				C2AA01BA1B95F47300D3246D /* Feedback.xib in Resources */,
 				C2D8589B1B70F71C00F645B1 /* shared_icon_notification@2x.png in Resources */,
 				C2D858E01B70F71C00F645B1 /* signup_level_3@2x.png in Resources */,
 				C2D858381B70F71C00F645B1 /* news_share_menu_weixin@2x.png in Resources */,
 				C28F08181B85DBCF00FC3FB7 /* TeamMemberInfoCell.xib in Resources */,
+				C2B850CF1BA863A5006C668C /* NewsListCell.xib in Resources */,
 				C2639F271B8E213900420775 /* UserInfoTop.xib in Resources */,
 				C2D858651B70F71C00F645B1 /* shared_avatar_mask_large@2x.png in Resources */,
 				C2D858F01B70F71C00F645B1 /* tab_icon_match_active@3x.png in Resources */,
@@ -3084,6 +3118,7 @@
 				C2D858181B70F71C00F645B1 /* new_match_divider@3x.png in Resources */,
 				C2D858BB1B70F71C00F645B1 /* shared_selector_active.png in Resources */,
 				C28DEE221B779F75008FB14A /* MCPayCouponCell.xib in Resources */,
+				C2B850D91BA86BE8006C668C /* NewsDetail.xib in Resources */,
 				C2D858BE1B70F71C00F645B1 /* shared_selector_disable.png in Resources */,
 				C28DEE4F1B77C347008FB14A /* MEMemberCell.xib in Resources */,
 				C2D858AF1B70F71C00F645B1 /* shared_picker_unselected.png in Resources */,
@@ -3184,6 +3219,7 @@
 				C28C5AF61BA5D01B00577E88 /* BlankCell.xib in Resources */,
 				C2D858B81B70F71C00F645B1 /* shared_segmented_control_selected.png in Resources */,
 				C2D858441B70F71C00F645B1 /* profile_icon_award@2x.png in Resources */,
+				C2B850D41BA8650A006C668C /* NewsList.xib in Resources */,
 				C2D857B81B70F71C00F645B1 /* activities_btn_active.png in Resources */,
 				C2D8589E1B70F71C00F645B1 /* shared_icon_time@2x.png in Resources */,
 				C2D858151B70F71C00F645B1 /* new_match_arrow@3x.png in Resources */,
@@ -3348,6 +3384,7 @@
 				C2D856591B70F15100F645B1 /* GlobalConst.m in Sources */,
 				C28DEE581B77D6BA008FB14A /* MatchWildCell.m in Sources */,
 				C2D856411B70F10B00F645B1 /* UIImageView+HighlightedWebCache.m in Sources */,
+				C2B850D81BA86BE8006C668C /* NewsDetail.m in Sources */,
 				C291F4C61B76F464000A1999 /* MatchTeam.m in Sources */,
 				C2D856461B70F10B00F645B1 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				C291F4B51B764E83000A1999 /* MFTeamInfoTopCell.m in Sources */,
@@ -3389,6 +3426,7 @@
 				C268870C1B916A1300990D8F /* JoinList.m in Sources */,
 				C2D8564B1B70F10B00F645B1 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				C2D856261B70F10B00F645B1 /* MTLValueTransformer.m in Sources */,
+				C2B850D31BA8650A006C668C /* NewsList.m in Sources */,
 				C296FBA71B82829200C99B44 /* LoginUtil.m in Sources */,
 				C2D8561A1B70F10B00F645B1 /* AFURLConnectionOperation.m in Sources */,
 				C2D856421B70F10B00F645B1 /* UIImageView+WebCache.m in Sources */,
@@ -3406,6 +3444,7 @@
 				C2D859041B70F7DE00F645B1 /* UISegmentedControlOne.m in Sources */,
 				C2D856491B70F10B00F645B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				C291F4A81B764260000A1999 /* MFController.m in Sources */,
+				C2B850CE1BA863A5006C668C /* NewsListCell.m in Sources */,
 				C2D8565A1B70F15100F645B1 /* GlobalUtil.m in Sources */,
 				C263511A1B8865C80061A93E /* MFMatchNoticeCell.m in Sources */,
 				C2D856531B70F10B00F645B1 /* WebViewJavascriptBridge.m in Sources */,
@@ -3510,6 +3549,7 @@
 				C28DEE3F1B77B824008FB14A /* TIHonorCell.m in Sources */,
 				C28DEE491B77C281008FB14A /* MEController.m in Sources */,
 				C28C5AC11BA48E8700577E88 /* openssl_wrapper.m in Sources */,
+				C293CB6F1BA9A81900FC623A /* PlayerList.m in Sources */,
 				C2D856281B70F10B00F645B1 /* NSDictionary+MTLJSONKeyPath.m in Sources */,
 				C296FBAB1B8282FB00C99B44 /* User.m in Sources */,
 				C2D8561E1B70F10B00F645B1 /* EXTRuntimeExtensions.m in Sources */,

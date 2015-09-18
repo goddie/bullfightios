@@ -154,9 +154,10 @@
                               ]
          ];
         
+ 
 
         [dataArr2 addObject:@[
-                              @[@"场均得分",[GlobalUtil toFloatString:self.user.scoring]],
+                              @[@"场均得分",[GlobalUtil toFloatString:self.user.scoringAvg]],
                               @[@"场均犯规",[GlobalUtil toFloatString:self.user.foul]]
                               ]
          ];
