@@ -5239,11 +5239,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/NewsDetail.m"
-            timestampString = "464031392.670687"
+            timestampString = "464537572.267636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-loadPage"
             landmarkType = "5">
          </BreakpointContent>
@@ -5255,11 +5255,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/NewsDetail.m"
-            timestampString = "464031429.583141"
+            timestampString = "464537572.267636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "-loadPage"
             landmarkType = "5">
          </BreakpointContent>
@@ -5271,11 +5271,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/NewsList.m"
-            timestampString = "464106618.917224"
+            timestampString = "464536891.228518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>

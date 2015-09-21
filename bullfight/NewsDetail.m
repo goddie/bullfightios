@@ -16,6 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.webview.backgroundColor = [UIColor clearColor];
+    self.webview.opaque = NO;
+    [self.webview setBackgroundColor:[GlobalConst appBgColor]];
+    //[self.webview setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabBarBg.png"]]];
+ 
+ 
+   
     // Do any additional setup after loading the view from its nib.
         [self loadPage];
 }

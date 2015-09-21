@@ -280,7 +280,7 @@
     btnPayAlipay.hidden = YES;
     
     
-    NSString *msg= @"1、支付完成后，来斗牛将会打电话确认。\n2、如最后没有球队应战，来斗牛将会在48小时内退回款项。\n3、如对赛事有什么特殊需求，请拨打来斗牛客服电话xxxxxxxx。";
+    NSString *msg= @"1、支付完成后，来斗牛将会打电话确认。\n2、如最后没有球队应战，来斗牛将会在48小时内退回款项。\n3、如对赛事有什么特殊需求，请拨打来斗牛客服电话010-82566150。";
     UILabel *labMsg =  [[UILabel alloc] initWithFrame:CGRectMake((w-300.0f)*0.5f, btnPayAlipay.frame.origin.y+btnPayAlipay.frame.size.height+20, 300, 120)];
     labMsg.text = msg;
     labMsg.numberOfLines = 10;

@@ -211,6 +211,8 @@
     
     if (avatr) {
  
+        
+        
         NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:avatr]];
         [cell.img1 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
     }
