@@ -11,6 +11,7 @@
 @implementation TIPositionCell
 
 - (void)awakeFromNib {
+     self.backgroundColor = [UIColor clearColor];
    [GlobalUtil setMaskImageQuick:self.img1 withMask:@"shared_avatar_mask_small.png" point:CGPointMake(36.0f, 43.0f)];
 }
 

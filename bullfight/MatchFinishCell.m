@@ -14,8 +14,8 @@
 }
 
 - (void)awakeFromNib {
-    self.backgroundColor = [UIColor clearColor];
-//    
+ self.backgroundColor = [UIColor clearColor];
+//
 //    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55.0f, 55.0f)];
 //    iv.image = [UIImage imageNamed:@"shared_icon_badge_inactive.png"];
     self.viewTop.backgroundColor = [UIColor clearColor];
@@ -41,6 +41,7 @@
     [GlobalUtil setMaskImageQuick:self.img1 withMask:@"round_mask.png" point:CGPointMake(55.0f, 55.0f)];
     [GlobalUtil setMaskImageQuick:self.img2 withMask:@"round_mask.png" point:CGPointMake(55.0f, 55.0f)];
 
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    self.backgroundColor = [GlobalConst appBgColor];
+ self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

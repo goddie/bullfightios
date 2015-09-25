@@ -10,6 +10,23 @@
 
 @implementation BaseTableViewCell
 
+
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super initWithCoder:aDecoder];
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    self.backgroundColor = [UIColor clearColor];
+ 
+    
+    NSLog(@"awakeFromNib");
+    
+    return self;
+}
+
+
 - (void)awakeFromNib {
     // Initialization code
     
@@ -22,10 +39,8 @@
         }
     }
     
-    
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    self.backgroundColor = [GlobalConst appBgColor];
+
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -10,4 +10,6 @@
 
 @interface BaseTableViewCell : UITableViewCell
 
+    
+
 @end

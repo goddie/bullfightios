@@ -12,11 +12,12 @@
 
 - (void)awakeFromNib {
     // Initialization code
+     self.backgroundColor = [UIColor clearColor];
     
     self.txtContent.numberOfLines = 0;
     [self.txtContent sizeToFit];
     
-    self.backgroundColor = [GlobalConst appBgColor];
+ 
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

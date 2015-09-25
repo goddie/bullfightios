@@ -11,6 +11,7 @@
 @implementation MIMemberCell
 
 - (void)awakeFromNib {
+     self.backgroundColor = [UIColor clearColor];
     [GlobalUtil setMaskImageQuick:self.img1 withMask:@"shared_avatar_mask_medium.png" point:CGPointMake(70.0f, 70.0f)];
 }
 

@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>8780A2B8-5FA8-4FEF-9FA7-C48FA17CCFA1</string>
 	<key>IDESourceControlProjectName</key>
-	<string>bullfight</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F3FE40D8FEE53D4185C16F0925F74D6AB53F84A0</key>
 		<string>https://github.com/goddie/bullfightios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>bullfight.xcodeproj</string>
+	<string>bullfight.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F3FE40D8FEE53D4185C16F0925F74D6AB53F84A0</key>

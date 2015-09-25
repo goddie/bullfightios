@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    
+     self.backgroundColor = [UIColor clearColor];
     [GlobalUtil setMaskImageQuick:self.img1 withMask:@"shared_avatar_mask_large.png" point:CGPointMake(65.0f, 65.0f)];
     [GlobalUtil setMaskImageQuick:self.img2 withMask:@"shared_avatar_mask_large.png" point:CGPointMake(65.0f, 65.0f)];
     

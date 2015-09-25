@@ -14,7 +14,7 @@
 }
 
 - (void)awakeFromNib {
-   
+    self.backgroundColor = [UIColor clearColor];
     
 //    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 53.0f, 53.0f)];
 //    iv.image = [UIImage imageNamed:@"shared_icon_badge_inactive.png"];

@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+     self.backgroundColor = [UIColor clearColor];
     [GlobalUtil setMaskImageQuick:self.img1 withMask:@"round_mask.png" point:CGPointMake(75.0f, 75.0f)];
 }
 

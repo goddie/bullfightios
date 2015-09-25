@@ -1180,6 +1180,15 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             symbolName = "*0x107abbe58">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  usesParentBreakpointCondition = "Yes"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3769,11 +3778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchFinishCell.m"
-            timestampString = "462607413.983583"
+            timestampString = "464803124.740133"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "-setCornerTitle:bgType:"
             landmarkType = "5">
          </BreakpointContent>
@@ -5373,6 +5382,22 @@
             startingLineNumber = "221"
             endingLineNumber = "221"
             landmarkName = "-searchBarSearchButtonClicked:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bullfight/SysConfig.m"
+            timestampString = "464803176.99055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-numberOfSectionsInTableView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
