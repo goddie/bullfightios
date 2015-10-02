@@ -25,12 +25,15 @@
     [GlobalUtil set9PathImage:self.btn2 imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
     
     
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"请输入用户名" attributes:@{ NSForegroundColorAttributeName : [GlobalConst lightAppBgColor] }];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"请输入登录帐号" attributes:@{ NSForegroundColorAttributeName : [GlobalConst lightAppBgColor] }];
     self.txt1.attributedPlaceholder = str;
     
     
     NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"请输入密码" attributes:@{ NSForegroundColorAttributeName : [GlobalConst lightAppBgColor] }];
     self.txt2.attributedPlaceholder = str2;
+    
+    NSAttributedString *str3 = [[NSAttributedString alloc] initWithString:@"请输入昵称" attributes:@{ NSForegroundColorAttributeName : [GlobalConst lightAppBgColor] }];
+    self.txt3.attributedPlaceholder = str3;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,11 +57,22 @@
     
     if([self.txt1.text length]==0)
     {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入帐号" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
         return;
     }
     
     if([self.txt2.text length]==0)
     {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入密码" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        return;
+    }
+    
+    if([self.txt3.text length]==0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入用户名" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
         return;
     }
     
@@ -72,6 +86,7 @@
     NSDictionary *parameters = @{
                                  @"username":self.txt1.text,
                                  @"password":self.txt2.text,
+                                 @"nickname":self.txt3.text,
                                  @"uid":uid
                                  };
 

@@ -172,7 +172,7 @@
     
     self.txt1.text = [GlobalUtil toString:entity.follows];
     self.txt2.text = [GlobalUtil toString:entity.fans];
-    self.txt3.text = @"99";
+    self.txt3.text = @"0";
     
     self.txtCity.text = [GlobalUtil toString:entity.city];
     

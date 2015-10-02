@@ -108,6 +108,8 @@
 }
 
 
+//应战或发给队长
+
 - (IBAction)btn1Click:(id)sender {
     
     NSString *uuid = [LoginUtil getLocalUUID];

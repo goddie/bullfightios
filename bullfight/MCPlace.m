@@ -288,7 +288,7 @@
     if (!self.arenaid) {
         return;
     }
-    self.matchFight.arena = @{@"aid":self.arenaid};
+    self.matchFight.arena = @{@"aid":self.arenaid,@"name":self.arenaName};
     
 
     
@@ -334,6 +334,8 @@
     NSString *end = [formatter stringFromDate:endDate];
     
    
+    //NSString *tid = [self.matchFight.host objectForKey:@"hostid"];
+    NSString *tid = @"";
     
     self.matchFight.judge = [NSNumber numberWithInt:1];
     self.matchFight.dataRecord = [NSNumber numberWithInt:1];
@@ -343,7 +345,7 @@
     
     NSDictionary *parameters = @{
                                  @"uid":uuid,
-                                 @"tid":@"",
+                                 @"tid":tid,
                                  @"aid":[self.matchFight.arena objectForKey:@"aid"],
                                  @"matchType":[NSString stringWithFormat:@"%@",self.matchFight.matchType],
                                  @"status":@"1",

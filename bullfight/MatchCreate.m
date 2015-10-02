@@ -12,6 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIViewController+Custome.h"
 #import "MCPlace.h"
+#import "MCTeamWild.h"
 
 @interface MatchCreate ()
 
@@ -45,7 +46,7 @@
 
 
 
-
+//野球娱乐
 - (IBAction)btnFreeClick:(id)sender {
     
     MatchFight *matchFight = [MatchFight new];
@@ -58,10 +59,13 @@
     [self.navigationController pushViewController:c1 animated:YES];
     
 //    MCTeam *c1 = [[MCTeam alloc] initWithNibName:@"MCTeam" bundle:nil];
+//    c1.matchFight = matchFight;
+////    c1.isFree = YES;
 //    [self.navigationController pushViewController:c1 animated:YES];
     
 }
 
+//团队
 - (IBAction)btnTeamClick:(id)sender {
     
     MatchFight *matchFight = [MatchFight new];

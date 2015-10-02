@@ -282,8 +282,8 @@
     
     
     cell.txtPos.text = [GlobalUtil toString:entity.position];
-    cell.txtWeight.text = [NSString stringWithFormat:@"身高:%@cm",[GlobalUtil toString:entity.weight]];
-    cell.txtHeight.text = [NSString stringWithFormat:@"体重:%@kg",[GlobalUtil toString:entity.height]];
+    cell.txtWeight.text = [NSString stringWithFormat:@"身高:%@cm",[GlobalUtil toString:entity.height]];
+    cell.txtHeight.text = [NSString stringWithFormat:@"体重:%@kg",[GlobalUtil toString:entity.weight]];
     
     if(entity.avatar)
     {

@@ -6,18 +6,18 @@
 //  Copyright (c) 2015年 santao. All rights reserved.
 //
 
-#import "MCTeam.h"
+#import "MCTeamWild.h"
 #import "MCPlace.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+Custome.h"
 #import "MCTeamList.h"
 #import "TeamCreate.h"
 
-@interface MCTeam ()
+@interface MCTeamWild ()
 
 @end
 
-@implementation MCTeam
+@implementation MCTeamWild
 
 
 - (void)viewDidLoad {
@@ -53,18 +53,23 @@
 
 
 - (IBAction)btnNextClick:(id)sender {
-    
-    if (self.matchFight.teamSize<=0) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请选择比赛人数" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-        [alert show];
-        
-        return;
-    }
-    
+//    
+//    if (self.matchFight.teamSize<=0) {
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请选择比赛人数" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+//        [alert show];
+//        
+//        return;
+//    }
+//
     MCPlace *c1 = [[MCPlace alloc] initWithNibName:@"MCPlace" bundle:nil];
     c1.matchFight = self.matchFight;
+    c1.isFree = self.isFree;
     [self.navigationController pushViewController:c1 animated:YES];
+    
+//    MCPlace *c1 = [[MCPlace alloc] initWithNibName:@"MCPlace" bundle:nil];
+//    c1.matchFight = self.matchFight;
+//    [self.navigationController pushViewController:c1 animated:YES];
     
 }
 
@@ -139,9 +144,8 @@
                                  @"uid":uuid
                                  };
     
-    __weak MCTeam * wself = self;
+    __weak MCTeamWild * wself = self;
     
-    [self showHud];
     [self post:@"teamuser/json/mymanateam" params:parameters success:^(id responseObj) {
         NSDictionary *dict = (NSDictionary *)responseObj;
         if ([[dict objectForKey:@"code"] intValue]==1) {
@@ -169,7 +173,7 @@
                 [alert show];
             }
             
-            [self hideHud];
+ 
         } 
     }];
     

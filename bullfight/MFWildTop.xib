@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ZURCHLXC.TTF">
@@ -92,11 +93,11 @@
                         <constraint firstAttribute="width" constant="55" id="sP3-rk-8aO"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnF-Ws-eJd">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnF-Ws-eJd">
                     <rect key="frame" x="240" y="154" width="120" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="cC1-mz-BpD"/>
-                        <constraint firstAttribute="width" constant="120" id="zJb-E5-M3d"/>
+                        <constraint firstAttribute="height" constant="30" id="Vvs-2h-efz"/>
+                        <constraint firstAttribute="width" constant="120" id="vYd-5M-e7I"/>
                     </constraints>
                     <state key="normal" title="应战">
                         <color key="titleColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -121,6 +122,8 @@
                 <constraint firstAttribute="bottom" secondItem="Qmg-eM-8Jb" secondAttribute="bottom" id="BdC-1h-rOb"/>
                 <constraint firstItem="1Ut-62-vvo" firstAttribute="leading" secondItem="V1h-BG-vFC" secondAttribute="trailing" constant="-1" id="FZr-LK-4x3"/>
                 <constraint firstAttribute="centerX" secondItem="V1h-BG-vFC" secondAttribute="centerX" id="Hja-j6-kDX"/>
+                <constraint firstItem="tnF-Ws-eJd" firstAttribute="top" secondItem="V1h-BG-vFC" secondAttribute="bottom" constant="44" id="Ihz-mV-bwi"/>
+                <constraint firstItem="tnF-Ws-eJd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kay-jW-6uq"/>
                 <constraint firstItem="V1h-BG-vFC" firstAttribute="top" secondItem="1Ut-62-vvo" secondAttribute="bottom" constant="-23" id="Kv3-1Z-9gr"/>
                 <constraint firstItem="V1h-BG-vFC" firstAttribute="leading" secondItem="pbp-lo-aPv" secondAttribute="trailing" constant="-1" id="O0P-Up-ZNq"/>
                 <constraint firstItem="Kxd-Us-Tse" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="Rj2-de-KPh"/>
@@ -132,7 +135,6 @@
                 <constraint firstAttribute="centerX" secondItem="Kxd-Us-Tse" secondAttribute="centerX" constant="89" id="cKN-Sf-XAU"/>
                 <constraint firstItem="V1h-BG-vFC" firstAttribute="top" secondItem="pbp-lo-aPv" secondAttribute="bottom" constant="-22" id="eJr-14-e7O"/>
                 <constraint firstAttribute="centerX" secondItem="GMD-Nv-Iby" secondAttribute="centerX" id="h2O-Kg-EDe"/>
-                <constraint firstAttribute="centerX" secondItem="tnF-Ws-eJd" secondAttribute="centerX" id="lQw-ZA-qHY"/>
                 <constraint firstItem="GMD-Nv-Iby" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="53" id="xlm-OR-Him"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

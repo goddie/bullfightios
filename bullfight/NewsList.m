@@ -194,6 +194,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  
+
     
     static NSString *cellIdentifier = @"NewsListCell";
     
@@ -204,6 +205,12 @@
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
     }
+    
+    if(dataArr.count==0)
+    {
+        return cell;
+    }
+    
     
     NSDictionary *dict = [dataArr objectAtIndex:indexPath.row];
     

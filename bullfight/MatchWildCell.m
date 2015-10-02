@@ -58,6 +58,11 @@
         self.viewTop.image = [UIImage imageNamed:@"shared_icon_badge_active.png"];
     }
     
+    if (type==0) {
+        label.text = @"未结束";
+        self.viewTop.image = [UIImage imageNamed:@"shared_icon_badge_active.png"];
+    }
+    
     if (type==2){
         label.text = @"已结束";
         self.viewTop.image = [UIImage imageNamed:@"shared_icon_badge_inactive.png"];

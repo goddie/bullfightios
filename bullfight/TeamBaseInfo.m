@@ -215,11 +215,8 @@
     [actionSheet showInView:self.view];
 }
 
-
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    
     if (actionSheet.tag == 200)
     {
         //NSLog(@"buttonIndex = [%d]",buttonIndex);
@@ -252,11 +249,49 @@
         
         
     }
-    
-    
-    
-    
+
 }
+
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    
+//    if (actionSheet.tag == 200)
+//    {
+//        //NSLog(@"buttonIndex = [%d]",buttonIndex);
+//        switch (buttonIndex) {
+//            case 0://照相机
+//            {
+//                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+//                imagePicker.delegate = self;
+//                imagePicker.allowsEditing = YES;
+//                imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//                //			[self presentModalViewController:imagePicker animated:YES];
+//                [self presentViewController:imagePicker animated:YES completion:nil];
+//            }
+//                break;
+//                
+//            case 1://本地相簿
+//            {
+//                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+//                imagePicker.delegate = self;
+//                imagePicker.allowsEditing = YES;
+//                imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//                //			[self presentModalViewController:imagePicker animated:YES];
+//                [self presentViewController:imagePicker animated:YES completion:nil];
+//            }
+//                break;
+//                
+//            default:
+//                break;
+//        }
+//        
+//        
+//    }
+//    
+//    
+//    
+//    
+//}
 
 
 #pragma UIImagePickerController Delegate
