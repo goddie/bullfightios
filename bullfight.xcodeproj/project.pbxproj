@@ -257,6 +257,7 @@
 		C2B850D41BA8650A006C668C /* NewsList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B850D21BA8650A006C668C /* NewsList.xib */; };
 		C2B850D81BA86BE8006C668C /* NewsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B850D61BA86BE8006C668C /* NewsDetail.m */; };
 		C2B850D91BA86BE8006C668C /* NewsDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B850D71BA86BE8006C668C /* NewsDetail.xib */; };
+		C2CD1CF71BC1487A00F2988C /* CheckUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CD1CF61BC1487A00F2988C /* CheckUtil.m */; settings = {ASSET_TAGS = (); }; };
 		C2D380291B85196400AA3DE4 /* MFWildTop.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D380271B85196400AA3DE4 /* MFWildTop.m */; };
 		C2D3802A1B85196400AA3DE4 /* MFWildTop.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D380281B85196400AA3DE4 /* MFWildTop.xib */; };
 		C2D3802E1B851B4500AA3DE4 /* MFWildController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D3802C1B851B4500AA3DE4 /* MFWildController.m */; };
@@ -1120,6 +1121,8 @@
 		C2B850D51BA86BE8006C668C /* NewsDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetail.h; sourceTree = "<group>"; };
 		C2B850D61BA86BE8006C668C /* NewsDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetail.m; sourceTree = "<group>"; };
 		C2B850D71BA86BE8006C668C /* NewsDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetail.xib; sourceTree = "<group>"; };
+		C2CD1CF51BC1487A00F2988C /* CheckUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckUtil.h; sourceTree = "<group>"; };
+		C2CD1CF61BC1487A00F2988C /* CheckUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckUtil.m; sourceTree = "<group>"; };
 		C2D380261B85196400AA3DE4 /* MFWildTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFWildTop.h; sourceTree = "<group>"; };
 		C2D380271B85196400AA3DE4 /* MFWildTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFWildTop.m; sourceTree = "<group>"; };
 		C2D380281B85196400AA3DE4 /* MFWildTop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFWildTop.xib; sourceTree = "<group>"; };
@@ -2480,6 +2483,8 @@
 				C2D856581B70F15100F645B1 /* GlobalUtil.m */,
 				C296FBB41B828DF300C99B44 /* HttpUtil.h */,
 				C296FBB51B828DF300C99B44 /* HttpUtil.m */,
+				C2CD1CF51BC1487A00F2988C /* CheckUtil.h */,
+				C2CD1CF61BC1487A00F2988C /* CheckUtil.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -3474,6 +3479,7 @@
 				C2D8563A1B70F10B00F645B1 /* SDWebImageDownloaderOperation.m in Sources */,
 				C2D856381B70F10B00F645B1 /* SDWebImageDecoder.m in Sources */,
 				C2D8563B1B70F10B00F645B1 /* SDWebImageManager.m in Sources */,
+				C2CD1CF71BC1487A00F2988C /* CheckUtil.m in Sources */,
 				C2D8562C1B70F10B00F645B1 /* NSObject+MTLComparisonAdditions.m in Sources */,
 				C296FBAE1B82831700C99B44 /* BaseModel.m in Sources */,
 				C2D856451B70F10B00F645B1 /* UIScrollView+SVPullToRefresh.m in Sources */,

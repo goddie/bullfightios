@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainController : UITabBarController
+@interface MainController : UITabBarController<UIAlertViewDelegate>
 
 @end

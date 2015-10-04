@@ -14,6 +14,7 @@
 #import "MCPlace.h"
 #import "MCTeamWild.h"
 
+
 @interface MatchCreate ()
 
 @end
@@ -49,6 +50,14 @@
 //野球娱乐
 - (IBAction)btnFreeClick:(id)sender {
     
+    NSString *uuid =  [LoginUtil getLocalUUID];
+    
+    if(uuid.length==0)
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        return;
+    }
+    
     MatchFight *matchFight = [MatchFight new];
     matchFight.matchType = [NSNumber numberWithInt:2];
     
@@ -67,6 +76,14 @@
 
 //团队
 - (IBAction)btnTeamClick:(id)sender {
+    
+    NSString *uuid =  [LoginUtil getLocalUUID];
+    
+    if(uuid.length==0)
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        return;
+    }
     
     MatchFight *matchFight = [MatchFight new];
     matchFight.matchType = [NSNumber numberWithInt:1];

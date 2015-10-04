@@ -13,6 +13,7 @@
 #import "LoginUtil.h"
 #import "NewsList.h"
 #import "PlayerList.h"
+#import "CheckUtil.h"
 
 
 @interface MainController ()
@@ -20,6 +21,9 @@
 @end
 
 @implementation MainController
+{
+     NSString *trackViewUrl;
+}
 
 
 - (void)viewDidLoad {
@@ -94,6 +98,8 @@
     navigationBar.titleTextAttributes = dict;
     
     
+    [self checkUpdate];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,5 +116,63 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        // 弹出AppStore更新界面
+        
+        //NSString *url = [NSString stringWithFormat:@"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=%@&mt=8",appID];
+        NSString *url =[ NSString stringWithFormat:@"itms-services://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@",appID ];
+        //NSString *url = [NSString stringWithFormat:@"%@page/appstore.jsp",baseURL];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    }
+}
+
+
+// =============================================================
+-(void) checkUpdate {
+    
+    NSError *error;
+    NSString* url = [@"http://itunes.apple.com/cn/lookup?id=" stringByAppendingString:appID];
+    //加载一个NSURL对象
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    //将请求的url数据放到NSData对象中
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    
+    if (dict) {
+        NSArray* results = [dict objectForKey:@"results"];
+        if (results && results.count != 0) {
+            NSDictionary* resultsDict = [results objectAtIndex:0];
+            if (resultsDict) {
+                NSString* appstoreVer = [resultsDict objectForKey:@"version"];
+                trackViewUrl = [resultsDict objectForKey:@"trackViewUrl"];
+                
+                if(appstoreVer)
+                {
+                    float app = [appstoreVer floatValue];
+                    float local = [[self getLocalVer] floatValue];
+                    
+                    if (app == local) {
+                        
+                        UIAlertView* view = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测到新版本,是否更新" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+                        
+                        [view show];
+                        
+                    }
+                }
+                
+            }
+        }
+    }
+    
+}
+
+-(NSString*) getLocalVer {
+    NSDictionary* dict = [[NSBundle mainBundle] infoDictionary];
+    return [dict objectForKey:@"CFBundleVersion"];
+}
+
 
 @end

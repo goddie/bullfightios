@@ -25,6 +25,6 @@
 
 extern NSString *const baseURL;
 extern NSString *const baseURL2;
-
+extern NSString *const appID;
 
 @end

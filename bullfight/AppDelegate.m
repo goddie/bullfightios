@@ -15,6 +15,8 @@
 #import "WXApi.h"
 #import "HttpUtil.h"
 
+ 
+
 static AppDelegate *appDelegate = nil;
 
 @interface AppDelegate ()
@@ -92,6 +94,8 @@ static AppDelegate *appDelegate = nil;
     [WXApi registerApp:@"wxd930ea5d5a258f4f"];
     
     [self messageTimer];
+    
+//    [CheckUtil check];
     
     return YES;
     
