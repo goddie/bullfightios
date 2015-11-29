@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9052" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,6 +17,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="CJI-NN-LW6">
                         <rect key="frame" x="43" y="38" width="65" height="65"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="7jp-Gq-Nc8"/>
                             <constraint firstAttribute="width" constant="65" id="Oum-CZ-ask"/>
@@ -24,6 +25,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-Ur-Okl">
                         <rect key="frame" x="160" y="22" width="1" height="115"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.46274509800000002" green="0.54901960780000003" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="115" id="dAE-5S-dMQ"/>
@@ -35,6 +37,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三丰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUq-cv-uWE">
                         <rect key="frame" x="35" y="114" width="81" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="81" id="M40-5f-sVu"/>
                             <constraint firstAttribute="height" constant="21" id="vwa-Kv-AhX"/>
@@ -45,6 +48,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="gle-FX-YOE">
                         <rect key="frame" x="213" y="38" width="65" height="65"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="64e-TK-r5m"/>
                             <constraint firstAttribute="width" constant="65" id="O6u-Yj-qf0"/>
@@ -52,6 +56,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三丰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pM2-a4-Uae">
                         <rect key="frame" x="205" y="114" width="81" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="81" id="Dfp-gH-UUl"/>
                             <constraint firstAttribute="height" constant="21" id="UBt-kw-9pU"/>
@@ -61,6 +66,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="gle-FX-YOE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="30" id="00X-2u-6K0"/>
                     <constraint firstAttribute="centerX" secondItem="jFf-Ur-Okl" secondAttribute="centerX" id="5Ww-Oq-jKF"/>
@@ -74,6 +80,7 @@
                     <constraint firstItem="BUq-cv-uWE" firstAttribute="top" secondItem="CJI-NN-LW6" secondAttribute="bottom" constant="11" id="vES-TY-rcw"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="img1" destination="CJI-NN-LW6" id="p9H-y9-ozP"/>

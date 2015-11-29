@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9052" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,6 +24,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU4-Pv-rN3">
                         <rect key="frame" x="0.0" y="104" width="320" height="1"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.46274509800000002" green="0.5450980392" blue="0.61176470589999998" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="pQr-mR-T5L"/>
@@ -34,6 +35,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDR-5S-4b4">
                         <rect key="frame" x="160" y="0.0" width="1" height="209"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.46274509800000002" green="0.5450980392" blue="0.61176470589999998" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="8zX-oD-cdn"/>
@@ -44,6 +46,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身高" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX4-YE-sWD">
                         <rect key="frame" x="59" y="30" width="42" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="ClE-wx-0IR"/>
                             <constraint firstAttribute="width" constant="42" id="ZDf-zb-Stn"/>
@@ -54,6 +57,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180cm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvg-6B-pUT">
                         <rect key="frame" x="54" y="53" width="53" height="31"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="31" id="xQr-bC-5fQ"/>
                             <constraint firstAttribute="width" constant="53" id="y6m-Ds-NrA"/>
@@ -64,6 +68,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体重" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6B-nV-OLD">
                         <rect key="frame" x="219" y="30" width="42" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Ax2-ZS-Cd6"/>
                             <constraint firstAttribute="width" constant="42" id="yMY-sN-NPd"/>
@@ -74,6 +79,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="64kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeX-FO-k6S">
                         <rect key="frame" x="213" y="53" width="54" height="31"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="b8c-j6-KUn"/>
                             <constraint firstAttribute="height" constant="31" id="nME-6b-8Xa"/>
@@ -84,6 +90,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuf-B3-oEV">
                         <rect key="frame" x="59" y="133" width="42" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="1ll-vJ-9uC"/>
                             <constraint firstAttribute="width" constant="42" id="whI-iz-Obm"/>
@@ -94,6 +101,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1987.10.12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIQ-6A-56B">
                         <rect key="frame" x="34" y="156" width="92" height="31"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="31" id="TBa-69-PzF"/>
                             <constraint firstAttribute="width" constant="92" id="Uhd-pE-X7T"/>
@@ -104,6 +112,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsx-N9-FPc">
                         <rect key="frame" x="219" y="133" width="42" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="JjM-xA-t97"/>
                             <constraint firstAttribute="width" constant="42" id="WXy-Fi-uu2"/>
@@ -114,6 +123,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="控球后卫" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44s-s7-GDg">
                         <rect key="frame" x="208" y="156" width="65" height="31"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="65" id="Bzo-PB-JSP"/>
                             <constraint firstAttribute="height" constant="31" id="wHe-6B-LS1"/>
@@ -124,12 +134,14 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="H5M-dN-74C">
                         <rect key="frame" x="125" y="70" width="70" height="70"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="eva-aZ-3lC"/>
                             <constraint firstAttribute="width" constant="70" id="xTH-hE-2XX"/>
                         </constraints>
                     </imageView>
                 </subviews>
+                <animations/>
                 <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="GeX-FO-k6S" firstAttribute="centerX" secondItem="r6B-nV-OLD" secondAttribute="centerX" id="5pb-0s-boi"/>
@@ -158,6 +170,7 @@
                     <constraint firstItem="yIQ-6A-56B" firstAttribute="top" secondItem="tuf-B3-oEV" secondAttribute="bottom" constant="2" id="yR3-Q8-oDw"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="img1" destination="H5M-dN-74C" id="kUQ-ky-5OD"/>
                 <outlet property="txtBirthday" destination="yIQ-6A-56B" id="s9t-0y-9Mc"/>

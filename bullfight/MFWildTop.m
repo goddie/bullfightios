@@ -77,7 +77,7 @@
 
     if([self.matchFight.host objectForKey:@"avatar"])
     {
-        NSString *a1 = [@"" stringByAppendingString:[self.matchFight.host objectForKey:@"avatar"]];
+        NSString *a1 = [GlobalUtil toString:[self.matchFight.host objectForKey:@"avatar"]];
         NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
         [self.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
     }

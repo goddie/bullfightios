@@ -65,7 +65,7 @@
 {
     if([self.matchFight.host objectForKey:@"avatar"])
     {
-        NSString *a1 = [@"" stringByAppendingString:[self.matchFight.host objectForKey:@"avatar"]];
+        NSString *a1 = [GlobalUtil toString:[self.matchFight.host objectForKey:@"avatar"]];
         NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
         [self.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
     }
@@ -73,7 +73,7 @@
     
     if([self.matchFight.guest objectForKey:@"avatar"])
     {
-        NSString *a2 = [@"" stringByAppendingString:[self.matchFight.guest objectForKey:@"avatar"]];
+        NSString *a2 = [GlobalUtil toString:[self.matchFight.guest objectForKey:@"avatar"]];
         NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
         [self.img2 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
     }

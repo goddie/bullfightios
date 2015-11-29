@@ -289,7 +289,7 @@
         return;
     }
     self.matchFight.arena = @{@"aid":self.arenaid,@"name":self.arenaName};
-    
+    self.matchFight.content  = self.txtContent.text;
 
     
     if ([self.matchFight.matchType intValue]==2) {
@@ -337,6 +337,8 @@
     //NSString *tid = [self.matchFight.host objectForKey:@"hostid"];
     NSString *tid = @"";
     
+    NSString *content = [@"" stringByAppendingString:self.txtContent.text];
+    
     self.matchFight.judge = [NSNumber numberWithInt:1];
     self.matchFight.dataRecord = [NSNumber numberWithInt:1];
     self.matchFight.teamSize = [NSNumber numberWithInt:5];
@@ -357,7 +359,8 @@
                                  @"judge":@"0",
                                  @"dataRecord":@"0",
                                  @"isPay":@"1",
-                                 @"fee":@"800"
+                                 @"fee":@"800",
+                                 @"content":content
                                  };
     
     //    MCPay *c1 = [[MCPay alloc] initWithNibName:@"MCPay" bundle:nil];

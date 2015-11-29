@@ -9,7 +9,9 @@
 #import "RegThree.h"
 #import "AppDelegate.h"
 #import "UIViewController+Custome.h"
+#import "UIImageView+WebCache.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "AFNetworking.h"
 
 @interface RegThree ()
 
@@ -229,7 +231,64 @@
     
     UIImage *selfPhoto = [UIImage imageWithContentsOfFile:imageFilePath];//读取图片文件
     //	[userPhotoButton setImage:selfPhoto forState:UIControlStateNormal];
-    self.img1.image = selfPhoto;
+    //self.img1.image = selfPhoto;
+    
+    
+
+
+    
+    //上传头像
+    
+    NSString *uid = [LoginUtil getLocalUUID];
+    if(uid.length==0)
+    {
+        return;
+    }
+    
+    
+//    if(!self.user.uuid)
+//    {
+//        return;
+//    }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{
+                                 @"uid": uid
+                                 };
+    
+    [manager POST:[baseURL stringByAppendingString:@"user/json/upavatar"] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:UIImagePNGRepresentation(selfPhoto)
+                                    name:@"file"
+                                fileName:@"avatar.jpg"
+                                mimeType:@"image/jpg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = (NSDictionary *)responseObject;
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            NSDictionary *data = [dict objectForKey:@"data"];
+            User *model = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:data error:nil];
+            if (model) {
+                
+                self.user = model;
+                if (self.user.avatar) {
+                    NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:self.user.avatar]];
+                    [self.img1 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+                }
+                
+                
+                //                if ([dict objectForKey:@"msg"]) {
+                //                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[dict objectForKey:@"msg"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                //                    [alert show];
+                //                }
+                
+            }
+            
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 

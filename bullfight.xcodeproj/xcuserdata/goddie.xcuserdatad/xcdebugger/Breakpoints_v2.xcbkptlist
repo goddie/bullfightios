@@ -585,8 +585,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "306"
             endingLineNumber = "306"
-            landmarkName = "-tableView:numberOfRowsInSection:"
-            landmarkType = "5">
+            landmarkName = "@implementation Notice"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -601,7 +601,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "316"
             endingLineNumber = "316"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -905,7 +905,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "215"
             endingLineNumber = "215"
-            landmarkName = "-delete:"
+            landmarkName = "-accept"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1470,11 +1470,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/Login.m"
-            timestampString = "462993050.128984"
+            timestampString = "470502287.784327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-btn2Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1486,11 +1486,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/Login.m"
-            timestampString = "462993050.128984"
+            timestampString = "470502287.784327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-btn2Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2670,11 +2670,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/Login.m"
-            timestampString = "462993050.128984"
+            timestampString = "470502287.784327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-btn2Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -4032,11 +4032,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/Login.m"
-            timestampString = "462993050.128984"
+            timestampString = "470502287.784327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "-btn2Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -4048,11 +4048,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/Login.m"
-            timestampString = "462993050.128984"
+            timestampString = "470502287.784327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-btn2Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -5040,12 +5040,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/AppDelegate.m"
-            timestampString = "465652967.684673"
+            timestampString = "470500491.932087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-messagePull"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "-application:openURL:sourceApplication:annotation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5487,8 +5487,8 @@
                   symbolName = "-[NewsList loadData]"
                   moduleName = "bullfight"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/goddie/Documents/BullFight/ios/bullfight/bullfight/NewsList.m"
-                  timestampString = "465453784.283293"
+                  urlString = "file:///Users/goddie/Documents/work/BullFight/ios/bullfight/bullfight/NewsList.m"
+                  timestampString = "470504553.442796"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "156"
@@ -5502,8 +5502,8 @@
                   symbolName = "__20-[NewsList loadData]_block_invoke"
                   moduleName = "bullfight"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/goddie/Documents/BullFight/ios/bullfight/bullfight/NewsList.m"
-                  timestampString = "465453784.283479"
+                  urlString = "file:///Users/goddie/Documents/work/BullFight/ios/bullfight/bullfight/NewsList.m"
+                  timestampString = "470504553.443136"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "156"
@@ -6198,6 +6198,22 @@
             startingLineNumber = "148"
             endingLineNumber = "148"
             landmarkName = "-checkUpdate"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bullfight/AppDelegate.m"
+            timestampString = "470500844.782315"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-application:didReceiveRemoteNotification:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

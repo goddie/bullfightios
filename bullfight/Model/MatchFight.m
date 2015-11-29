@@ -32,7 +32,8 @@
              @"winner":@"winner",
              @"loser":@"loser",
              @"isPay":@"isPay",
-             @"fee":@"fee"
+             @"fee":@"fee",
+             @"content":@"content"
              };
 }
 

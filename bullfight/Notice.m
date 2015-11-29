@@ -16,6 +16,7 @@
 #import "MFController.h"
 #import "Team.h"
 #import "AppDelegate.h"
+#import "NoDataCell.h"
 
 
 @interface Notice ()
@@ -30,6 +31,8 @@
     Team *curTeam;
     Message *curMessage;
     NSNumber *curPage;
+    
+    NSArray *nodata;
 }
 
 - (void)viewDidLoad {
@@ -152,6 +155,12 @@
                     
                 }
                 
+                
+            }
+            
+            if (dataArr.count==0) {
+                
+                nodata = [NSMutableArray arrayWithObject:@"暂无数据"];
                 
             }
 
@@ -303,6 +312,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
+    if(dataArr.count==0)
+    {
+        return 1;
+    }
     return dataArr.count;
 }
 
@@ -325,6 +338,19 @@
     }
     
     if (dataArr.count==0) {
+        
+        static NSString *CellIdentifier = @"NoDataCell";
+        NoDataCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if(cell==nil){
+            
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+            
+            
+            cell = [nib objectAtIndex:0];
+            
+        }
+        
+        
         return cell;
     }
     
@@ -406,8 +432,12 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
+       
+        
         Message *message = (Message*)[dataArr objectAtIndex:indexPath.row];
         [self deleteMessage:message.uuid];
+        
+
         
         [dataArr removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source.

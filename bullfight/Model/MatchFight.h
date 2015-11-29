@@ -84,5 +84,9 @@
  */
 @property (nonatomic, strong) NSNumber *fee;
 
+/**
+ *  约战说明
+ */
+@property (nonatomic, strong) NSString *content;
 
 @end

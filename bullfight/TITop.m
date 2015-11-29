@@ -66,8 +66,12 @@
         return;
     }
     
-    NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:self.team.avatar]];
-    [self.img sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+    if (self.team.avatar) {
+        NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:self.team.avatar]];
+        [self.img sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+    }
+    
+
     
     
     self.txtFound.text = [GlobalUtil getDateFromUNIX:self.team.createdDate];

@@ -75,6 +75,9 @@
     dataArr2 = [NSMutableArray arrayWithCapacity:10];
     dataArr3 = [NSMutableArray arrayWithCapacity:10];
     dataArr4 = [NSMutableArray arrayWithCapacity:10];
+    
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 
@@ -317,16 +320,16 @@
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (tabIndex==0 && indexPath.row==0)
-    {
-        return [[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:1] intValue];
-    }
-    
-    int h  =[[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:0] intValue];
-    return h;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (tabIndex==0 && indexPath.row==0)
+//    {
+//        return [[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:1] intValue];
+//    }
+//    
+//    int h  =[[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:0] intValue];
+//    return h;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
@@ -374,6 +377,7 @@
         
         cell.txtPlace.text = [entity.arena objectForKey:@"name"];
         cell.txtScore.text = [NSString stringWithFormat:@"%@:%@",[GlobalUtil toString:entity.hostScore],[GlobalUtil toString:entity.guestScore]];
+        cell.txtDate.text = [GlobalUtil getDateFromUNIX:entity.start];
         
         if([entity.host objectForKey:@"avatar"])
         {

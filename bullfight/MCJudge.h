@@ -35,6 +35,8 @@
 
 - (IBAction)btn23Click:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnFree;
+- (IBAction)btnFreeClick:(id)sender;
 
 
 

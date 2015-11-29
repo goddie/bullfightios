@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9052" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,12 +17,14 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed_free_match_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="kor-vv-di4">
                         <rect key="frame" x="8" y="8" width="304" height="146"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="146" id="MJ7-E9-03C"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="东丹体育中心18号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABZ-PB-hJV">
                         <rect key="frame" x="98" y="78" width="125" height="14"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="Ef5-Rr-MLU"/>
                             <constraint firstAttribute="width" constant="125" id="RLK-G8-p1Q"/>
@@ -33,6 +35,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12月18日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uM5-6D-4fo">
                         <rect key="frame" x="111" y="95" width="98" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="98" id="0sv-yo-Hwm"/>
                             <constraint firstAttribute="height" constant="18" id="gwj-Th-pm7"/>
@@ -43,6 +46,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晴转多云" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60d-69-9Gg">
                         <rect key="frame" x="114" y="114" width="92" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="KXE-Ks-o4I"/>
                             <constraint firstAttribute="width" constant="92" id="UcT-de-KgU"/>
@@ -53,6 +57,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shared_icon_badge_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="14H-He-Oe6">
                         <rect key="frame" x="259" y="8" width="53" height="53"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="53" id="IEJ-1o-wgd"/>
                             <constraint firstAttribute="height" constant="53" id="IOi-h6-9x7"/>
@@ -60,6 +65,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="野球娱乐场" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EON-1U-Mcw">
                         <rect key="frame" x="81" y="37" width="158" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="C7c-ij-IFP"/>
                             <constraint firstAttribute="width" constant="158" id="W1J-au-pcT"/>
@@ -70,18 +76,21 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_style1.png" translatesAutoresizingMaskIntoConstraints="NO" id="nQe-92-wNr">
                         <rect key="frame" x="0.0" y="162" width="320" height="27"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="Ih6-NP-YAg"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_style2.png" translatesAutoresizingMaskIntoConstraints="NO" id="NRG-fX-u4Q">
                         <rect key="frame" x="134" y="162" width="52" height="27"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="Hrm-xp-WW4"/>
                             <constraint firstAttribute="width" constant="52" id="pHx-5S-rmK"/>
                         </constraints>
                     </imageView>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="ABZ-PB-hJV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="70" id="1AH-xz-GQh"/>
                     <constraint firstItem="60d-69-9Gg" firstAttribute="top" secondItem="uM5-6D-4fo" secondAttribute="bottom" constant="1" id="2C8-64-w4a"/>
@@ -103,6 +112,7 @@
                     <constraint firstItem="14H-He-Oe6" firstAttribute="trailing" secondItem="kor-vv-di4" secondAttribute="trailing" id="zc8-U9-xlt"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="txtDate" destination="uM5-6D-4fo" id="kUt-vJ-NGq"/>
                 <outlet property="txtPlace" destination="ABZ-PB-hJV" id="vkC-nD-isY"/>

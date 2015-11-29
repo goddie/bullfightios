@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -41,6 +41,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-Ur-Okl">
                         <rect key="frame" x="160" y="16" width="1" height="173"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.46274509800000002" green="0.54901960780000003" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="4sH-GC-Hff"/>
@@ -50,15 +51,17 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="qZa-9w-uxk">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holder.png" translatesAutoresizingMaskIntoConstraints="NO" id="qZa-9w-uxk">
                         <rect key="frame" x="65" y="12" width="29" height="29"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="OQQ-rg-Wbr"/>
                             <constraint firstAttribute="height" constant="29" id="m2d-Sf-znb"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三丰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJx-nn-5xA">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJx-nn-5xA">
                         <rect key="frame" x="15" y="47" width="129" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="zmM-gv-oqd"/>
                             <constraint firstAttribute="width" constant="129" id="zyf-cX-2k6"/>
@@ -69,6 +72,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="得分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7JL-oO-vhY">
                         <rect key="frame" x="8" y="73" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Gel-dZ-Cvc"/>
                             <constraint firstAttribute="width" constant="28" id="pV2-1g-KBU"/>
@@ -79,6 +83,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="13" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xt-BZ-2Nh">
                         <rect key="frame" x="8" y="98" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="MvY-do-raU"/>
                             <constraint firstAttribute="width" constant="28" id="nD8-KI-EKN"/>
@@ -89,6 +94,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="15" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="篮板" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEI-vd-HHR">
                         <rect key="frame" x="8" y="123" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="bCg-4a-i76"/>
                             <constraint firstAttribute="height" constant="15" id="tiF-yY-sfr"/>
@@ -99,6 +105,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="17" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="盖帽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRj-xx-3TB">
                         <rect key="frame" x="8" y="148" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Qqe-El-2W3"/>
                             <constraint firstAttribute="width" constant="28" id="nTD-uI-pKD"/>
@@ -109,6 +116,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgb-fb-2Kz">
                         <rect key="frame" x="39" y="71" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="Z40-96-oGq"/>
                             <constraint firstAttribute="height" constant="18" id="ZSm-Ng-cf6"/>
@@ -119,6 +127,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4j-s5-Q5Q">
                         <rect key="frame" x="39" y="97" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="IVw-D2-lrV"/>
                             <constraint firstAttribute="width" constant="27" id="jCE-68-Duk"/>
@@ -129,6 +138,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-N1-3lh">
                         <rect key="frame" x="39" y="122" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="4Hk-hG-pda"/>
                             <constraint firstAttribute="width" constant="27" id="cpQ-bt-1R7"/>
@@ -139,6 +149,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtM-7y-AMf">
                         <rect key="frame" x="39" y="147" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="GKr-el-Yc4"/>
                             <constraint firstAttribute="width" constant="27" id="syL-bB-F9O"/>
@@ -149,6 +160,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="命中" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlT-iN-DWK">
                         <rect key="frame" x="79" y="74" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="oBf-4q-Jz9"/>
                             <constraint firstAttribute="height" constant="15" id="suw-UJ-iIP"/>
@@ -159,6 +171,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="14" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="罚球" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3s-o5-Bqj">
                         <rect key="frame" x="79" y="99" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="Icq-k0-Pym"/>
                             <constraint firstAttribute="height" constant="15" id="XVw-h4-tjG"/>
@@ -169,6 +182,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="16" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="助攻" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcM-h4-Nmk">
                         <rect key="frame" x="79" y="124" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="Giw-OZ-AAv"/>
                             <constraint firstAttribute="height" constant="15" id="kbg-jn-gJH"/>
@@ -179,6 +193,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="18" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抢断" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMs-AN-R7Q">
                         <rect key="frame" x="79" y="149" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="GmY-gF-66l"/>
                             <constraint firstAttribute="height" constant="15" id="Wjd-oh-ncg"/>
@@ -189,6 +204,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgT-Vk-lEF">
                         <rect key="frame" x="110" y="72" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="iAW-VV-AeI"/>
                             <constraint firstAttribute="width" constant="27" id="zKy-ff-esd"/>
@@ -199,6 +215,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aj7-HK-SPe">
                         <rect key="frame" x="110" y="98" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="ev4-iV-KAV"/>
                             <constraint firstAttribute="height" constant="18" id="rZP-Xh-2AZ"/>
@@ -209,6 +226,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLZ-Ie-4ak">
                         <rect key="frame" x="110" y="123" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="tWi-At-TfJ"/>
                             <constraint firstAttribute="height" constant="18" id="yoP-H7-FDt"/>
@@ -219,6 +237,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9g-NW-c6u">
                         <rect key="frame" x="110" y="148" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="i3w-bU-Pxv"/>
                             <constraint firstAttribute="height" constant="18" id="k40-7Z-Lh2"/>
@@ -229,6 +248,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="19" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="犯规" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApM-mi-zDm">
                         <rect key="frame" x="8" y="170" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Ffy-q5-E0Y"/>
                             <constraint firstAttribute="width" constant="28" id="sSX-lv-2QM"/>
@@ -239,6 +259,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wu-vT-19x">
                         <rect key="frame" x="39" y="169" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="Re0-xo-TOJ"/>
                             <constraint firstAttribute="height" constant="18" id="vDl-hq-lyK"/>
@@ -249,6 +270,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="失误" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeb-Yw-3Re">
                         <rect key="frame" x="79" y="171" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="13n-5y-K53"/>
                             <constraint firstAttribute="height" constant="15" id="cmI-6L-1Sv"/>
@@ -259,6 +281,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-9F-cnX">
                         <rect key="frame" x="110" y="170" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="0mc-1K-cDC"/>
                             <constraint firstAttribute="width" constant="27" id="os9-hv-JGC"/>
@@ -267,8 +290,9 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="1L9-eY-emk">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holder.png" translatesAutoresizingMaskIntoConstraints="NO" id="1L9-eY-emk">
                         <rect key="frame" x="225" y="13" width="29" height="29"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="BGj-S0-S8X"/>
                             <constraint firstAttribute="height" constant="29" id="wkB-N7-B3j"/>
@@ -276,6 +300,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="31" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="得分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahj-fC-urA">
                         <rect key="frame" x="183" y="74" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="j73-fD-xGb"/>
                             <constraint firstAttribute="width" constant="28" id="xpY-b0-GjH"/>
@@ -286,6 +311,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="33" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0f-uq-4an">
                         <rect key="frame" x="183" y="99" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="pLK-FG-x3C"/>
                             <constraint firstAttribute="width" constant="28" id="qFJ-GM-KAH"/>
@@ -296,6 +322,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="35" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="篮板" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwy-YU-acm">
                         <rect key="frame" x="183" y="124" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="qZE-5o-FRP"/>
                             <constraint firstAttribute="width" constant="28" id="qcM-da-6oT"/>
@@ -306,6 +333,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="37" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="盖帽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca7-0d-Mk7">
                         <rect key="frame" x="183" y="149" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="SmH-uQ-OH9"/>
                             <constraint firstAttribute="height" constant="15" id="WJV-kA-ahn"/>
@@ -316,6 +344,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87u-J1-G3r">
                         <rect key="frame" x="214" y="72" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="bEi-Z8-xU0"/>
                             <constraint firstAttribute="width" constant="27" id="tFs-Ee-a5r"/>
@@ -326,6 +355,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvK-Sw-VVW">
                         <rect key="frame" x="214" y="98" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="AtZ-Rr-9wk"/>
                             <constraint firstAttribute="width" constant="27" id="Ilq-Tj-8fh"/>
@@ -336,6 +366,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgy-Xm-nle">
                         <rect key="frame" x="214" y="123" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="1RK-vy-avk"/>
                             <constraint firstAttribute="height" constant="18" id="CYj-qM-g4K"/>
@@ -346,6 +377,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6Z-xt-OcB">
                         <rect key="frame" x="214" y="148" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="Gwt-Dy-luL"/>
                             <constraint firstAttribute="width" constant="27" id="SEO-ji-1Md"/>
@@ -356,6 +388,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="32" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="命中" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpa-wk-hoo">
                         <rect key="frame" x="254" y="75" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="AMM-qA-KG2"/>
                             <constraint firstAttribute="width" constant="28" id="txa-mM-ysn"/>
@@ -366,6 +399,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="34" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="罚球" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJU-gL-omQ">
                         <rect key="frame" x="254" y="100" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="dVR-yP-n6A"/>
                             <constraint firstAttribute="width" constant="28" id="fgM-gi-dVq"/>
@@ -376,6 +410,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="38" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抢断" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5p-eu-0qL">
                         <rect key="frame" x="254" y="150" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="0pl-z8-Tr6"/>
                             <constraint firstAttribute="width" constant="28" id="8hw-8t-naG"/>
@@ -386,6 +421,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCw-XG-72A">
                         <rect key="frame" x="285" y="73" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="6K8-v1-EbQ"/>
                             <constraint firstAttribute="width" constant="27" id="izL-Ba-THF"/>
@@ -396,6 +432,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlj-3S-KVW">
                         <rect key="frame" x="285" y="99" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="4xC-KF-rjK"/>
                             <constraint firstAttribute="width" constant="27" id="kL0-Mg-Buo"/>
@@ -406,6 +443,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTm-Zb-hHn">
                         <rect key="frame" x="285" y="124" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="W7r-z9-FAh"/>
                             <constraint firstAttribute="height" constant="18" id="t8b-oo-ZtT"/>
@@ -416,6 +454,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOp-cF-fKA">
                         <rect key="frame" x="285" y="149" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="TUF-b0-i4Z"/>
                             <constraint firstAttribute="width" constant="27" id="mKx-fM-csT"/>
@@ -426,6 +465,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="39" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="犯规" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQm-bb-8tq">
                         <rect key="frame" x="183" y="171" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="6x5-TJ-FQL"/>
                             <constraint firstAttribute="width" constant="28" id="bDf-3r-7jd"/>
@@ -436,6 +476,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-zO-H3c">
                         <rect key="frame" x="214" y="170" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="rcq-Ph-kgY"/>
                             <constraint firstAttribute="height" constant="18" id="vDT-OB-Ny6"/>
@@ -446,6 +487,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="40" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="失误" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nt-hJ-V0m">
                         <rect key="frame" x="254" y="172" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="90g-xp-2eL"/>
                             <constraint firstAttribute="height" constant="15" id="iEB-Km-DPh"/>
@@ -456,6 +498,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99/99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh7-cf-8XP">
                         <rect key="frame" x="285" y="171" width="27" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="2cc-Z7-VsT"/>
                             <constraint firstAttribute="height" constant="18" id="7y3-4y-Yqs"/>
@@ -464,8 +507,9 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三丰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwO-PU-NrH">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwO-PU-NrH">
                         <rect key="frame" x="177" y="49" width="124" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="124" id="I1C-RJ-Afm"/>
                             <constraint firstAttribute="height" constant="15" id="laL-B0-8hR"/>
@@ -476,6 +520,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="36" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="助攻" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COd-KH-h8l">
                         <rect key="frame" x="254" y="125" width="28" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="c5u-io-uHM"/>
                             <constraint firstAttribute="width" constant="28" id="fUv-Yo-Nb2"/>
@@ -485,6 +530,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="YaS-zO-H3c" firstAttribute="top" secondItem="e6Z-xt-OcB" secondAttribute="bottom" constant="4" id="0SJ-81-SQq"/>
                     <constraint firstItem="e6Z-xt-OcB" firstAttribute="top" secondItem="Dgy-Xm-nle" secondAttribute="bottom" constant="7" id="15J-45-YTI"/>
@@ -578,6 +624,7 @@
                     <constraint firstItem="ca7-0d-Mk7" firstAttribute="top" secondItem="hwy-YU-acm" secondAttribute="bottom" constant="10" id="zNP-U7-ciH"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="img1" destination="qZa-9w-uxk" id="YRo-b5-mdn"/>
@@ -629,6 +676,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="teamIcon.png" width="147" height="147"/>
+        <image name="holder.png" width="511" height="511"/>
     </resources>
 </document>

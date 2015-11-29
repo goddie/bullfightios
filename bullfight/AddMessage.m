@@ -64,9 +64,11 @@
         return;
     }
     
-    if (self.mfid.length==0) {
+    if (self.mfid.length==0&&self.aid==0) {
         return;
     }
+    
+
  
     if (self.txt1.text.length==0) {
         return;
@@ -79,9 +81,18 @@
     }
     
     [self showHud];
+    
+    if (self.mfid == NULL) {
+        self.mfid = @"";
+    }
+    
+    if (self.aid == NULL) {
+        self.aid = @"";
+    }
  
     NSDictionary *parameters = @{
                                  @"mfid":self.mfid,
+                                 @"aid":self.aid,
                                  @"uid":uid,
                                  @"ruid":reply,
                                  @"content":self.txt1.text

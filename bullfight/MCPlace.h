@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSString *arenaid;
 @property (nonatomic, strong) NSString *arenaName;
 @property BOOL isFree;
+@property (weak, nonatomic) IBOutlet UITextView *txtContent;
 
 -(void)bindArena;
 @end

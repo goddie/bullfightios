@@ -11,6 +11,7 @@
 #import "UIViewController+Custome.h"
 #import "AppDelegate.h"
 #import "FindPwd.h"
+#import "APService.h"
 
 @interface Login ()
 
@@ -87,6 +88,10 @@
             [LoginUtil saveLocalUUID:model];
             //[LoginUtil saveUserJSON:responseObj];
             
+            NSSet *set = [[NSSet alloc] initWithObjects:model.username,model.city,model.position, nil];
+            
+            [APService setTags:set alias:model.uuid callbackSelector:nil object:nil];
+            
             [[AppDelegate delegate] changeRoot];
 
         }else
@@ -102,6 +107,12 @@
     
 
 }
+
+-(void)setTag
+{
+    NSLog(@"setTag");
+}
+
 - (IBAction)btn3Click:(id)sender {
     
     FindPwd *c1 = [[FindPwd alloc] initWithNibName:@"FindPwd" bundle:nil];

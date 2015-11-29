@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface RegThree : UIViewController<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *lab1;
@@ -17,5 +18,7 @@
 - (IBAction)btn1Click:(id)sender;
 - (IBAction)btn2Click:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
+
+@property (nonatomic, strong) User *user;
 
 @end

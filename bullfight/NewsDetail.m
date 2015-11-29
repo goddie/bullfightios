@@ -7,6 +7,7 @@
 //
 
 #import "NewsDetail.h"
+#import "NewsCommet.h"
 
 @interface NewsDetail ()
 
@@ -27,18 +28,44 @@
     self.webview.opaque = NO;
     [self.webview setBackgroundColor:[GlobalConst appBgColor]];
     //[self.webview setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabBarBg.png"]]];
- 
- 
-   
+    
+    [self addRightNavButton];
+    
     // Do any additional setup after loading the view from its nib.
-        [self loadPage];
+    [self loadPage];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
+    
+}
 
+
+-(void)addRightNavButton
+{
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setFrame:CGRectMake(0,0,40,30)];
+    rightBtn.userInteractionEnabled = YES;
+    [rightBtn setTitle:@"评论" forState:UIControlStateNormal];
+    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    //[rightBtn setImage:[UIImage imageNamed:@"nav_filter.png"] forState:UIControlStateNormal];
+    
+    // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
+    
+    UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    
+    self.navigationItem.rightBarButtonItem = refreshBarButton;
+    [rightBtn addTarget:self action:@selector(rightPush) forControlEvents:UIControlEventTouchUpInside];
+}
+
+
+-(void)rightPush
+{
+    NewsCommet *c1 = [[NewsCommet alloc] initWithNibName:@"NewsCommet" bundle:nil];
+    c1.aid = self.uuid;
+    [self.navigationController pushViewController:c1 animated:YES];
 }
 
 
@@ -47,6 +74,7 @@
 {
     [self.webview stringByEvaluatingJavaScriptFromString:kTouchJavaScriptString];
 }
+
 
 
 
@@ -98,7 +126,7 @@
                     
                     
                     //把图片后缀去掉，保存原图
-//                    NSString *ext =  _imgURL substringToIndex:[_imgURL inde]
+                    //                    NSString *ext =  _imgURL substringToIndex:[_imgURL inde]
                     
                     
                 }
@@ -177,13 +205,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

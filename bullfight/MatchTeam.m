@@ -639,7 +639,7 @@
             
             if([entity.host objectForKey:@"avatar"])
             {
-                NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
+                NSString *a1 = [GlobalUtil toString:[entity.host objectForKey:@"avatar"]];
                 NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
                 [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
             }

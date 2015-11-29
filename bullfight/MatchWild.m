@@ -220,9 +220,13 @@
             return;
         }
 
+        NSString *arena = [NSString stringWithFormat:@"%@\r\n%@" ,[self.matchFight.arena objectForKey:@"name"], [self.matchFight.arena objectForKey:@"address"]];
         
-        [dataArr1 addObject:@[@"shared_icon_location.png",[GlobalUtil toString:[self.matchFight.arena objectForKey:@"name"]]]];
-        [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil toString:[GlobalUtil getDateFromUNIX:self.matchFight.start]]]];
+        [dataArr1 addObject:@[@"shared_icon_location.png",arena]];
+        
+        
+ 
+        [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil toString:[GlobalUtil getDateFromUNIX:self.matchFight.start format:@"yyyy-MM-dd HH:mm"]]]];
         
         
         NSString *w = [GlobalUtil toString:self.matchFight.weather];
@@ -230,7 +234,9 @@
             [dataArr1 addObject:@[@"shared_icon_weather.png",[GlobalUtil toString:self.matchFight.weather]]];
         }
         
-        
+        if (self.matchFight.content.length>0) {
+            [dataArr1 addObject:@[@"activities_icon_comment_active.png",[GlobalUtil toString:self.matchFight.content]]];
+        }
         
         
         [self.tableView reloadData];
@@ -319,11 +325,9 @@
     
     int h = 0;
     
-    if (tabIndex==0) {
-        h  =[[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:0] intValue];
-    }
+ 
     
-    if (tabIndex==1) {
+    if (tabIndex==0 || tabIndex==1) {
         
 //        Commet *commet = (Commet*)[dataArr2 objectAtIndex:indexPath.row];
 //        float w = [UIScreen mainScreen].bounds.size.width;

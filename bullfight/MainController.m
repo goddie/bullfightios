@@ -121,8 +121,8 @@
     if (buttonIndex == 1) {
         // 弹出AppStore更新界面
         
-        //NSString *url = [NSString stringWithFormat:@"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=%@&mt=8",appID];
-        NSString *url =[ NSString stringWithFormat:@"itms-services://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@",appID ];
+        NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/us/app/lai-dou-niu/id1015790236?l=zh&ls=1&mt=8"];
+        //NSString *url =[ NSString stringWithFormat:@"itms-services://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@",appID ];
         //NSString *url = [NSString stringWithFormat:@"%@page/appstore.jsp",baseURL];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     }
@@ -154,7 +154,7 @@
                     float app = [appstoreVer floatValue];
                     float local = [[self getLocalVer] floatValue];
                     
-                    if (app == local) {
+                    if (app > local) {
                         
                         UIAlertView* view = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测到新版本,是否更新" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
                         

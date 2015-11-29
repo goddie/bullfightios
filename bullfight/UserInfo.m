@@ -158,8 +158,8 @@
                                  @"birthday": [self getCellValue:1],
                                  @"city":[self getCellValue:2],
                                  @"age":[self getCellValue:3],
-                                 @"weight":[self getCellValue:4],
-                                 @"height":[self getCellValue:5],
+                                 @"height":[self getCellValue:4],
+                                 @"weight":[self getCellValue:5],
                                  @"position":[self getCellValue:6]
                                  };
     

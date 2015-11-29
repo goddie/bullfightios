@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MITop">
@@ -18,6 +19,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_figure_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="bD2-hM-yM4">
                     <rect key="frame" x="238" y="17" width="124" height="260"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="124" id="Ahi-vl-yjP"/>
                         <constraint firstAttribute="height" constant="260" id="HfV-1D-9Vk"/>
@@ -25,6 +27,7 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="效力球队" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAv-Oj-nks">
                     <rect key="frame" x="377" y="80" width="65" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="TIF-8r-cmO"/>
                         <constraint firstAttribute="height" constant="21" id="vEe-EF-4g4"/>
@@ -35,6 +38,7 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWM-JY-taE">
                     <rect key="frame" x="389" y="109" width="40" height="168"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="168" id="7ZB-tE-vR3"/>
@@ -43,12 +47,14 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0H-0G-g8e">
                     <rect key="frame" x="0.0" y="291" width="600" height="32"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="ROb-Vg-SHu"/>
                     </constraints>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="M0H-0G-g8e" secondAttribute="bottom" id="15N-BZ-fWd"/>

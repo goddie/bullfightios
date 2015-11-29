@@ -88,7 +88,7 @@
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 40.0f)];
 //    parent.backgroundColor = [UIColor yellowColor];
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"牛Games",@"牛Style",@"牛Issue"]];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"牛Games",@"牛Teachings",@"牛Issue"]];
     segmentedControl.layer.borderColor = [[GlobalConst tabTintColor] CGColor];
     segmentedControl.layer.borderWidth = 2.0f;
     

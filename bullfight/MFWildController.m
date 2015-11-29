@@ -22,6 +22,7 @@
 #import "MFTeamInfoCell.h"
 #import "AddMessage.h"
 #import "Commet.h"
+#import "MFMatchInfoBigCell.h"
 
 
 @interface MFWildController ()
@@ -171,14 +172,14 @@
 -(void)initData
 {
     cellHeightArr = @[
-                      @[@50],
+                      @[@50,@50,@50,@50,@50,@100],
                       @[@80],
                       @[@160],
                       @[@160]
                       ];
     topHeight = 240;
     cellArr = @[
-                @[@"MFMatchInfoCell"],
+                @[@"MFMatchInfoCell",@"MFMatchInfoBigCell"],
                 @[@"MFTeamInfoCell",@"MFTeamInfoTopCell"],
                 @[@"MFMemberCell"],
                 @[@"MFMessageCell"]
@@ -244,12 +245,34 @@
                         [GlobalUtil toString:self.matchFight.judge],
                         [GlobalUtil toString:self.matchFight.dataRecord]];
         
-        [dataArr1 addObject:@[@"shared_icon_location.png",[self.matchFight.arena objectForKey:@"name"]]];
-        [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil toString:[GlobalUtil getDateFromUNIX:self.matchFight.start]]]];
+        NSString *arena = [NSString stringWithFormat:@"%@\r\n%@" ,[self.matchFight.arena objectForKey:@"name"], [self.matchFight.arena objectForKey:@"address"]];
+        
+        [dataArr1 addObject:@[@"shared_icon_location.png",arena]];
+        
+        [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil toString:[GlobalUtil getDateFromUNIX:self.matchFight.start format:@"yyyy-MM-dd HH:mm"]]]];
     
-        [dataArr1 addObject:@[@"shared_icon_weather.png",[GlobalUtil toString:self.matchFight.weather]]];
-        [dataArr1 addObject:@[@"shared_icon_jurge.png",s1]];
-        [dataArr1 addObject:@[@"shared_icon_money.png",[GlobalUtil toString:self.matchFight.fee]]];
+        if([[GlobalUtil toString:self.matchFight.weather] length]>0)
+        {
+            [dataArr1 addObject:@[@"shared_icon_weather.png",[GlobalUtil toString:self.matchFight.weather]]];
+        }
+        
+        if([self.matchFight.judge integerValue]>0||[self.matchFight.dataRecord integerValue]>0)
+        {
+            [dataArr1 addObject:@[@"shared_icon_jurge.png",s1]];
+        }
+        
+        
+        
+        if([self.matchFight.fee integerValue]>0)
+        {
+            [dataArr1 addObject:@[@"shared_icon_money.png",[GlobalUtil toString:self.matchFight.fee]]];
+        }
+        
+        if (self.matchFight.content.length>0) {
+            [dataArr1 addObject:@[@"activities_icon_comment_active.png",[GlobalUtil toString:self.matchFight.content]]];
+        }
+       
+        
         
         [self.tableView reloadData];
         
@@ -400,9 +423,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tabIndex==3) {
+
+    
+    if (tabIndex == 0  || tabIndex==3) {
         return UITableViewAutomaticDimension;
     }
+    
     int h  =[[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:0] intValue];
     return h;
 }
@@ -414,6 +440,7 @@
      *  比赛数据
      */
     if (tabIndex==0) {
+        
         
         MFMatchInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
@@ -599,10 +626,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (tabIndex==3)
-    {
-        return 44.0f;
-    }
+//    if (tabIndex==3)
+//    {
+//        return 44.0f;
+//    }
+//    
+//    
+//    if (tabIndex==3) {
+//        return UITableViewAutomaticDimension;
+//    }
+//    
+//    int h  =[[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:0] intValue];
+//    return h;
+
     
     return 0;
 }

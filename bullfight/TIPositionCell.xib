@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -15,8 +15,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="vca-dm-Qqr">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holder.png" translatesAutoresizingMaskIntoConstraints="NO" id="vca-dm-Qqr">
                         <rect key="frame" x="8" y="13" width="43" height="43"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="43" id="Pcu-Is-jtL"/>
                             <constraint firstAttribute="width" constant="43" id="pVS-qL-hUH"/>
@@ -24,6 +25,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EF-11-Tli">
                         <rect key="frame" x="59" y="13" width="125" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="6FD-eV-N5o"/>
                             <constraint firstAttribute="width" constant="125" id="gSy-4p-wdJ"/>
@@ -34,6 +36,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="position" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3D-ev-JA1">
                         <rect key="frame" x="59" y="35" width="125" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="cRd-es-VKf"/>
                             <constraint firstAttribute="width" constant="125" id="t8f-0z-ILI"/>
@@ -44,6 +47,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="height" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-kf-UYR">
                         <rect key="frame" x="217" y="13" width="95" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="FYa-Me-jTr"/>
                             <constraint firstAttribute="width" constant="95" id="tUD-Ts-xWL"/>
@@ -54,6 +58,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="weight" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0h-kE-CLo">
                         <rect key="frame" x="217" y="35" width="95" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="95" id="GIp-hr-SbX"/>
                             <constraint firstAttribute="height" constant="21" id="Mh0-AI-Ujo"/>
@@ -63,6 +68,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="q0g-kf-UYR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="2rS-qS-aaL"/>
                     <constraint firstItem="d3D-ev-JA1" firstAttribute="top" secondItem="8EF-11-Tli" secondAttribute="bottom" constant="1" id="3GZ-X0-hnC"/>
@@ -76,6 +82,7 @@
                     <constraint firstItem="8EF-11-Tli" firstAttribute="leading" secondItem="vca-dm-Qqr" secondAttribute="trailing" constant="8" id="tQ3-vT-iVp"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="img1" destination="vca-dm-Qqr" id="jai-3f-1YN"/>
                 <outlet property="txtHeight" destination="q0g-kf-UYR" id="YLn-84-M9l"/>
@@ -87,6 +94,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="teamIcon.png" width="147" height="147"/>
+        <image name="holder.png" width="511" height="511"/>
     </resources>
 </document>

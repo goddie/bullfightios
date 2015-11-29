@@ -15,6 +15,11 @@
 - (IBAction)btn1Click:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *txt1;
 
+//比赛id
 @property (nonatomic, strong) NSString *mfid;
+
+//文章id
+@property (nonatomic, strong) NSString *aid;
+
 @property (nonatomic, strong) User *reply;
 @end

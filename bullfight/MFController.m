@@ -175,7 +175,7 @@
 -(void)initData
 {
     cellHeightArr = @[
-                      @[@44],
+                      @[@50,@50,@50,@50,@50,@100],
                       @[@80],
                       @[@160],
                       @[@160]
@@ -241,20 +241,40 @@
             [self stopAnimation];
             return;
         }
+
         
         
         NSString *s1 = [NSString stringWithFormat:@"裁判员%@名，数据员%@名",
                         [GlobalUtil toString:self.matchFight.judge],
                         [GlobalUtil toString:self.matchFight.dataRecord]];
         
-        [dataArr1 addObject:@[@"shared_icon_location.png",[self.matchFight.arena objectForKey:@"name"]]];
-        [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil getDateFromUNIX:self.matchFight.start]]];
-        [dataArr1 addObject:@[@"shared_icon_weather.png",[GlobalUtil toString:self.matchFight.weather]]];
-        [dataArr1 addObject:@[@"shared_icon_jurge.png",s1]];
+        NSString *arena = [NSString stringWithFormat:@"%@\r\n%@" ,[self.matchFight.arena objectForKey:@"name"], [self.matchFight.arena objectForKey:@"address"]];
+        
+        [dataArr1 addObject:@[@"shared_icon_location.png",arena]];
+        
+        [dataArr1 addObject:@[@"shared_icon_time.png",[GlobalUtil toString:[GlobalUtil getDateFromUNIX:self.matchFight.start format:@"yyyy-MM-dd HH:mm"]]]];
+        
+        if([[GlobalUtil toString:self.matchFight.weather] length]>0)
+        {
+            [dataArr1 addObject:@[@"shared_icon_weather.png",[GlobalUtil toString:self.matchFight.weather]]];
+        }
+        
+        if([self.matchFight.judge integerValue]>0||[self.matchFight.dataRecord integerValue]>0)
+        {
+            [dataArr1 addObject:@[@"shared_icon_jurge.png",s1]];
+        }
+        
+        
+        
         [dataArr1 addObject:@[@"shared_icon_notification.png",@"接受系统赛前通知提醒"]];
         
+        if (self.matchFight.content.length>0) {
+            [dataArr1 addObject:@[@"activities_icon_comment_active.png",[GlobalUtil toString:self.matchFight.content]]];
+        }
+        
+        
         [self.tableView reloadData];
-
+ 
     }
     
     
@@ -422,7 +442,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (tabIndex==3) {
+    if (tabIndex==0||tabIndex==3) {
         return UITableViewAutomaticDimension;
     }
     
@@ -436,7 +456,7 @@
 
     if (tabIndex==0) {
         
-        if (indexPath.row==4) {
+        if ([[[dataArr1 objectAtIndex:indexPath.row] objectAtIndex:1] hasPrefix:@"接受"]) {
             
             cellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:1];
             

@@ -254,8 +254,8 @@
     order.tradeNO = [orderDict objectForKey:@"tradeNo"]; //订单ID(由商家□自□行制定)
     order.productName = [orderDict objectForKey:@"name"]; //商品标题
     order.productDescription = [orderDict objectForKey:@"info"]; //商品描述
-    //order.amount = [NSString stringWithFormat:@"%.2f",totalPay]; //商 品价格
-    order.amount = @"0.01";
+    order.amount = [NSString stringWithFormat:@"%.2f",totalPay]; //商 品价格
+    //order.amount = @"0.01";
     order.notifyURL = [baseURL stringByAppendingString:@"order/notice/alipayguest"]; //回调URL
     order.service = @"mobile.securitypay.pay";
     order.paymentType = @"1";

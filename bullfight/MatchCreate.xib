@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchCreate">
@@ -20,6 +20,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABV-dV-gkr">
                     <rect key="frame" x="157" y="98" width="286" height="88"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="286" id="J8n-Xo-Var"/>
                         <constraint firstAttribute="height" constant="88" id="zEE-ej-rnQ"/>
@@ -33,6 +34,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcB-pM-G9C">
                     <rect key="frame" x="185" y="314" width="231" height="88"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="231" id="A9K-eB-giy"/>
                         <constraint firstAttribute="height" constant="88" id="oCX-au-qnT"/>
@@ -46,12 +48,14 @@
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_match_divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="fZc-j4-miX">
                     <rect key="frame" x="0.0" y="206" width="600" height="88"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="88" id="Qvl-4n-lPJ"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OV-yr-jo0">
                     <rect key="frame" x="269" y="509" width="63" height="56"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="8td-7m-bfA"/>
                         <constraint firstAttribute="width" constant="63" id="xyI-NB-ZLt"/>
@@ -64,6 +68,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="fZc-j4-miX" secondAttribute="centerY" constant="50" id="3Ru-fG-4WK"/>

@@ -124,8 +124,8 @@
     order.tradeNO = [orderDict objectForKey:@"tradeNo"]; //订单ID(由商家□自□行制定)
     order.productName = [orderDict objectForKey:@"name"]; //商品标题
     order.productDescription = [orderDict objectForKey:@"info"]; //商品描述
-    //order.amount = [NSString stringWithFormat:@"%.2f",totalPay]; //商 品价格
-    order.amount = @"0.01";
+    order.amount = [NSString stringWithFormat:@"%.2f",totalPay]; //商 品价格
+    //order.amount = @"0.01";
     order.notifyURL = [baseURL stringByAppendingString:@"order/notice/alipay"]; //回调URL
     order.service = @"mobile.securitypay.pay";
     order.paymentType = @"1";
@@ -231,37 +231,56 @@
     
     double count = ceilf(( t2 - t1 ) / (60.0f*60.0f));
     
-    int t = (count * arenaPay)*0.5f;
-    NSString *v1 = [NSString stringWithFormat:@"%d",t];
+    float t = (count * arenaPay)*0.5f;
+    NSString *v1 = [NSString stringWithFormat:@"%.2f",t];
     
     
-    int j = judgePay * [self.matchFight.judge intValue] *0.5f;
+    float j = judgePay * [self.matchFight.judge floatValue] *0.5f;
     
     NSString *s2  = [NSString stringWithFormat:@"%@vs%@比赛裁判费用",teamSize,teamSize];
-    NSString *v2 = [NSString stringWithFormat:@"%d",j];
+    NSString *v2 = [NSString stringWithFormat:@"%.2f",j];
     
-    int d = dataRecordPay * [self.matchFight.dataRecord intValue] *0.5f;
+    float d = dataRecordPay * [self.matchFight.dataRecord floatValue] *0.5f;
     
     NSString *s3  = [NSString stringWithFormat:@"%@vs%@比赛数据员费用",teamSize,teamSize];
-    NSString *v3 = [NSString stringWithFormat:@"%d",d];
+    NSString *v3 = [NSString stringWithFormat:@"%.2f",d];
     
     totalPay = t+j+d;
     
     NSString *s4  = [NSString stringWithFormat:@"费用总计"];
-    NSString *v4 = [NSString stringWithFormat:@"%d",(int)(totalPay)];
+    NSString *v4 = [NSString stringWithFormat:@"%.2f",(float)(totalPay)];
     
     dataArr = @[@[s1,v1],@[s2,v2],@[s3,v3],@[s4,v4]];
     
     [self.tableView reloadData];
     
     //创建比赛，并创建2条待支付记录
-    [self createMatchFight];
+    
+    if(totalPay>0)
+    {
+        [self createMatchFight];
+    }
+    
 }
 
 
 -(UIView*)getFoot
 {
     float w = [UIScreen mainScreen].bounds.size.width;
+    
+    if (totalPay==0) {
+        UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 200)];
+        
+        btnPayWeiXin = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, 20.0f, 120.0f, 30.0f)];
+        [btnPayWeiXin setTitle:@"免费创建比赛" forState:UIControlStateNormal];
+        [btnPayWeiXin.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+        [GlobalUtil set9PathImage:btnPayWeiXin imageName:@"shared_big_btn.png" top:2.0f right:5.0f];
+        [parent addSubview:btnPayWeiXin];
+        
+        [btnPayWeiXin addTarget:self  action:@selector(btnFreeClick) forControlEvents:UIControlEventTouchUpInside];
+        return parent;
+    }
+    
     
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 200)];
     
@@ -272,6 +291,9 @@
     [parent addSubview:btnPayWeiXin];
     
     [btnPayWeiXin addTarget:self  action:@selector(btn1Click) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
     
     btnPayAlipay = [[UIButton alloc] initWithFrame:CGRectMake((w-120.0f)*0.5f, btnPayWeiXin.frame.origin.y+btnPayWeiXin.frame.size.height+20, 120.0f, 30.0f)];
     [btnPayAlipay setTitle:@"微信支付" forState:UIControlStateNormal];
@@ -305,6 +327,95 @@
 
 }
 
+-(void)btnFreeClick
+{
+    NSString *uuid = [LoginUtil getLocalUUID];
+    if (uuid.length==0) {
+        return;
+    }
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[self.matchFight.start doubleValue]];
+    
+    NSString *start =  [formatter stringFromDate:startDate];
+    
+    
+    NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:[self.matchFight.end doubleValue]];
+    NSString *end = [formatter stringFromDate:endDate];
+    
+    
+    
+    
+    
+    
+    //    NSLog(@"%@",[self.matchFight description]);
+    
+    NSString *tid = [GlobalUtil toString:[self.matchFight.host objectForKey:@"hostid"]];
+    NSString *aid = [GlobalUtil toString:[self.matchFight.arena objectForKey:@"aid"]];
+    NSString *type = [GlobalUtil toString:self.matchFight.matchType];
+    NSString *size = [GlobalUtil toString:self.matchFight.teamSize];
+//    NSString *judge = [GlobalUtil toString:self.matchFight.judge];
+//    NSString *data  = [GlobalUtil toString:self.matchFight.dataRecord];
+//    NSString *total = [NSString stringWithFormat:@"%d",(int)(totalPay)];
+    NSString *content  = [GlobalUtil toString:self.matchFight.content];
+    
+    
+    NSDictionary *parameters = @{
+                                 @"uid":uuid,
+                                 @"tid":tid,
+                                 @"aid":aid,
+                                 @"matchType":type,
+                                 @"status":@"0",
+                                 @"startStr":start,
+                                 @"endStr":end,
+                                 @"guestScore":@"0",
+                                 @"hostScore":@"0",
+                                 @"teamSize":size,
+                                 @"judge":@"0",
+                                 @"dataRecord":@"0",
+                                 @"isPay":@"1",
+                                 @"fee":@"0",
+                                 @"content":content
+                                 };
+    
+    //    MCPay *c1 = [[MCPay alloc] initWithNibName:@"MCPay" bundle:nil];
+    //    [self.navigationController pushViewController:c1 animated:YES];
+    
+    [self showHud];
+    
+    [self post:@"matchfight/json/add" params:parameters success:^(id responseObj) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObj;
+        
+        
+        
+        if ([[dict objectForKey:@"code"] intValue]==1) {
+            
+            
+            NSDictionary *data = [dict objectForKey:@"data"];
+            MatchFight *model = [MTLJSONAdapter modelOfClass:[MatchFight class] fromJSONDictionary:data error:nil];
+            if (model) {
+                self.matchFight = model;
+            }
+            
+            if ([dict objectForKey:@"msg"]) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"成功创建比赛!" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                
+                [alert show];
+            }
+            
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            
+        }
+        
+   
+        [self hideHud];
+    }];
+
+}
 
 -(void)btn2Click
 {
@@ -351,6 +462,7 @@
     NSString *judge = [GlobalUtil toString:self.matchFight.judge];
     NSString *data  = [GlobalUtil toString:self.matchFight.dataRecord];
     NSString *total = [NSString stringWithFormat:@"%d",(int)(totalPay)];
+    NSString *content  = [GlobalUtil toString:self.matchFight.content];
     
     NSDictionary *parameters = @{
                                  @"uid":uuid,
@@ -366,7 +478,8 @@
                                  @"judge":judge,
                                  @"dataRecord":data,
                                  @"isPay":@"0",
-                                 @"fee":total
+                                 @"fee":total,
+                                 @"content":content
                                  };
     
     //    MCPay *c1 = [[MCPay alloc] initWithNibName:@"MCPay" bundle:nil];
