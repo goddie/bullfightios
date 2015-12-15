@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManaTIJoinTop">
@@ -20,8 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="335"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="zMM-q0-oU7">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holder.png" translatesAutoresizingMaskIntoConstraints="NO" id="zMM-q0-oU7">
                     <rect key="frame" x="260" y="32" width="80" height="80"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="enI-gm-GAV"/>
                         <constraint firstAttribute="height" constant="80" id="gGt-iZ-82Z"/>
@@ -29,6 +31,7 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京潮人球迷队" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4m-IM-pBT">
                     <rect key="frame" x="205" y="126" width="190" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="nxg-Oc-lRd"/>
                         <constraint firstAttribute="width" constant="190" id="qRO-Ny-reM"/>
@@ -39,6 +42,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015年12月1日成立" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSF-IS-bez">
                     <rect key="frame" x="230" y="151" width="141" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="bUF-Pj-9ZD"/>
                         <constraint firstAttribute="width" constant="141" id="k0J-xe-W01"/>
@@ -49,6 +53,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="国际在线综合(记者 姚毅婧)：即将于2015年10月召开的中国共产党第十八届中央委员会第五次全体会议最让人们关注的，就是研究关于制定国民经济和社会发展第十三个五年规划的建议。" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljg-oA-m98">
                     <rect key="frame" x="8" y="180" width="584" height="67"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="67" id="fjO-iX-UHC"/>
                     </constraints>
@@ -58,6 +63,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dN4-Rj-oGi">
                     <rect key="frame" x="250" y="255" width="100" height="26"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="EcD-7j-OCY"/>
                         <constraint firstAttribute="height" constant="26" id="PCY-7s-ah3"/>
@@ -73,12 +79,14 @@
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXr-pQ-gY8">
                     <rect key="frame" x="0.0" y="303" width="600" height="32"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="qTn-4U-Ska"/>
                     </constraints>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="dN4-Rj-oGi" secondAttribute="centerX" id="9ys-aC-qrY"/>
@@ -101,6 +109,6 @@
         </view>
     </objects>
     <resources>
-        <image name="teamIcon.png" width="147" height="147"/>
+        <image name="holder.png" width="511" height="511"/>
     </resources>
 </document>

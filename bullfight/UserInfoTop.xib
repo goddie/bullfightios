@@ -31,7 +31,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kxd-Us-Tse">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kxd-Us-Tse">
                     <rect key="frame" x="184" y="34" width="55" height="55"/>
                     <animations/>
                     <constraints>
@@ -94,7 +94,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="w09-mO-MER">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holder.png" translatesAutoresizingMaskIntoConstraints="NO" id="w09-mO-MER">
                     <rect key="frame" x="362" y="34" width="55" height="55"/>
                     <animations/>
                     <constraints>
@@ -144,6 +144,6 @@
         </view>
     </objects>
     <resources>
-        <image name="teamIcon.png" width="147" height="147"/>
+        <image name="holder.png" width="511" height="511"/>
     </resources>
 </document>

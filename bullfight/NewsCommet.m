@@ -15,6 +15,7 @@
 #import "AddMessage.h"
 #import "MyButton.h"
 #import "MIController.h"
+#import "NoDataCell.h"
 
 @interface NewsCommet ()
 
@@ -25,6 +26,7 @@
     NSMutableArray *dataArr;
     NSNumber *curPage;
     User *reply;
+    NSArray *nodata;
 }
 
 - (void)viewDidLoad {
@@ -157,6 +159,13 @@
             
         }
         
+//        if (dataArr.count==0) {
+//            
+//            nodata = [NSMutableArray arrayWithObject:@"暂无评论"];
+//            
+//        }
+
+        
         [self stopAnimation];
         
     }];
@@ -206,6 +215,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if(dataArr.count==0)
+    {
+        return 1;
+    }
+    
     return [dataArr count];
 }
 
@@ -223,8 +238,27 @@
     
     
     if (dataArr.count==0) {
-        return  cell;
+        
+        static NSString *CellIdentifier = @"NoDataCell";
+        NoDataCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if(cell==nil){
+            
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+            
+            
+            cell = [nib objectAtIndex:0];
+            
+        }
+        
+        
+        return cell;
     }
+
+    
+    
+//    if (dataArr.count==0) {
+//        return  cell;
+//    }
     
     Commet *commet = (Commet*)[dataArr objectAtIndex:indexPath.row];
     User *user = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:commet.from error:nil];
@@ -257,6 +291,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+        if (dataArr.count==0) {
+            return ;
+        }
     Commet *commet = (Commet*)[dataArr objectAtIndex:indexPath.row];
     reply = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:commet.from error:nil];
     [self showReply];
