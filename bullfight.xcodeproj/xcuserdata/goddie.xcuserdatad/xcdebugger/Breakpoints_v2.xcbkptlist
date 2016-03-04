@@ -436,11 +436,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
             landmarkName = "-openTeam1:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1918,11 +1918,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "-loadAvatar"
             landmarkType = "5">
          </BreakpointContent>
@@ -1934,11 +1934,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-leftAvatar"
             landmarkType = "5">
          </BreakpointContent>
@@ -1950,11 +1950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "-loadAvatar"
             landmarkType = "5">
          </BreakpointContent>
@@ -1966,11 +1966,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "-loadAvatar"
             landmarkType = "5">
          </BreakpointContent>
@@ -2318,11 +2318,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "464938185.919106"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "715"
-            endingLineNumber = "715"
+            startingLineNumber = "769"
+            endingLineNumber = "769"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2334,11 +2334,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "464938185.919106"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "723"
-            endingLineNumber = "723"
+            startingLineNumber = "777"
+            endingLineNumber = "777"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2558,11 +2558,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2830,11 +2830,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "464938185.919106"
+            timestampString = "478081172.545402"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "792"
-            endingLineNumber = "792"
+            startingLineNumber = "881"
+            endingLineNumber = "881"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3298,11 +3298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-leftAvatar"
             landmarkType = "5">
          </BreakpointContent>
@@ -3410,11 +3410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "464938185.919106"
+            timestampString = "478081172.545402"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "787"
-            endingLineNumber = "787"
+            startingLineNumber = "876"
+            endingLineNumber = "876"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -4432,11 +4432,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "477"
-            endingLineNumber = "477"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
             landmarkName = "-actionSheet:didDismissWithButtonIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -4448,11 +4448,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "481"
-            endingLineNumber = "481"
+            startingLineNumber = "529"
+            endingLineNumber = "529"
             landmarkName = "-actionSheet:didDismissWithButtonIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -4464,11 +4464,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819943.757992"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "-loadData"
             landmarkType = "5">
             <Locations>
@@ -4965,7 +4965,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "388"
             endingLineNumber = "388"
-            landmarkName = "-createMatchFight"
+            landmarkName = "-btnFreeClick"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5056,11 +5056,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819384.32079"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-countnew:"
             landmarkType = "5">
          </BreakpointContent>
@@ -5072,11 +5072,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463819580.530805"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "-countnew:"
             landmarkType = "5">
          </BreakpointContent>
@@ -5104,11 +5104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463856805.458719"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-leftAvatar"
             landmarkType = "5">
          </BreakpointContent>
@@ -5120,11 +5120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463856833.448313"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-leftAvatar"
             landmarkType = "5">
             <Locations>
@@ -5168,11 +5168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "463856833.754185"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-leftAvatar"
             landmarkType = "5">
             <Locations>
@@ -5253,7 +5253,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "-loadPage"
+            landmarkName = "-addRightNavButton"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5269,7 +5269,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "-loadPage"
+            landmarkName = "-addRightNavButton"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5408,43 +5408,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bullfight/MatchTeam.m"
-            timestampString = "465410099.23667"
+            timestampString = "478077771.633437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "-loadData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bullfight/MatchTeam.m"
-            timestampString = "465410161.315136"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "575"
-            endingLineNumber = "575"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bullfight/MatchTeam.m"
-            timestampString = "465410176.93819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "579"
-            endingLineNumber = "579"
+            startingLineNumber = "627"
+            endingLineNumber = "627"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -5893,7 +5861,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "355"
             endingLineNumber = "355"
-            landmarkName = "-createMatchFight"
+            landmarkName = "-btnFreeClick"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5909,7 +5877,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "377"
             endingLineNumber = "377"
-            landmarkName = "-createMatchFight"
+            landmarkName = "-btnFreeClick"
             landmarkType = "5">
             <Locations>
                <Location
@@ -5957,7 +5925,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "356"
             endingLineNumber = "356"
-            landmarkName = "-createMatchFight"
+            landmarkName = "-btnFreeClick"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5973,7 +5941,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "425"
             endingLineNumber = "425"
-            landmarkName = "-payHost"
+            landmarkName = "-btn2Click"
             landmarkType = "5">
             <Locations>
                <Location
@@ -6214,6 +6182,86 @@
             startingLineNumber = "135"
             endingLineNumber = "135"
             landmarkName = "-application:didReceiveRemoteNotification:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bullfight/MatchLeague.m"
+            timestampString = "478504247.729611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bullfight/MatchTeam.m"
+            timestampString = "478504247.729611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "904"
+            endingLineNumber = "904"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bullfight/LeagueJoin.m"
+            timestampString = "478515801.349707"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "-btn1Click:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bullfight/LeagueJoin.m"
+            timestampString = "478546926.00294"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
+            landmarkName = "-addOrder"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bullfight/LeagueJoin.m"
+            timestampString = "478546926.00294"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "-addOrder"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

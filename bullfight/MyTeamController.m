@@ -147,7 +147,7 @@ static NSString * const reuseIdentifier = @"MyTeamCell";
             [self hideHud];
         }];
     }
-    
+
     
 }
 

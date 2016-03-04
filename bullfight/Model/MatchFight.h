@@ -89,4 +89,9 @@
  */
 @property (nonatomic, strong) NSString *content;
 
+/**
+ * 联赛
+ */
+@property (nonatomic, strong) NSDictionary *league;
+
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 santao. All rights reserved.
 //
 
-#import "MatchTeam.h"
+#import "MatchLeague.h"
 #import "MatchBeginCell.h"
 #import "MFController.h"
 #import "MatchCreate.h"
@@ -24,15 +24,18 @@
 #import "MatchWild.h"
 #import "MatchWildCell.h"
 #import "MatchLeagueCell.h"
+#import "MatchLeagueRecordCell.h"
+#import "MatchLeagueHeadCell.h"
 #import "League.h"
-#import "MatchLeague.h"
+#import "LeagueRecord.h"
+#import "LeagueJoin.h"
 
 
-@interface MatchTeam ()
+@interface MatchLeague ()
 
 @end
 
-@implementation MatchTeam
+@implementation MatchLeague
 {
     NSArray *cellArr;
     NSInteger tabIndex;
@@ -44,7 +47,7 @@
     
     NSNumber *page;
     NSString *city;
-    NSNumber *matchType;
+
     NSNumber *status;
     
     NSNumber *curPage;
@@ -59,36 +62,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(countnew:) name:@"countnew" object:nil];
+    
 
     [self globalConfig];
     
     self.tableView.backgroundColor = [GlobalConst appBgColor];
     
-    [self addButton];
-    [self addLeftNavButton];
+ 
+
     [self addRightNavButton];
 
  
-    self.title = @"比赛";
+    self.title = @"联赛竞技";
     tabIndex = 0;
     
     cellArr = @[
                 @[@"MatchBeginCell"]
                 ,@[@"MatchWildCell"]
-                ,@[@"MatchLeagueCell"]
                 ];
     
     [self.topView addSubview:[self getTopView]];
     noticeIcon.image = [UIImage imageNamed:@"holder.png"];
     
-    matchType = [NSNumber numberWithInt:1];
+
     status = [NSNumber numberWithInt:-1];
     dataArr2 = [NSMutableArray arrayWithCapacity:10];
     
     
     curPage = [NSNumber numberWithInt:1];
-    __weak MatchTeam *wkSelf = self;
+    __weak MatchLeague *wkSelf = self;
     
     [self.tableView addPullToRefreshWithActionHandler:^{
         [wkSelf refresh];
@@ -106,122 +108,6 @@
     
 }
 
-/**
- *  新消息事件
- *
- *  @param notice <#notice description#>
- */
--(void)countnew:(NSNotification*)notice
-{
-    
-    int count = [(NSNumber *)notice.object intValue];
-    
-    if (count>0) {
-        [numButton setBackgroundImage:[UIImage imageNamed:@"redbg.png"] forState:UIControlStateNormal];
-        [numButton setTitle:[NSString stringWithFormat:@"%d",count] forState:UIControlStateNormal];
-        [numButton.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
-        numButton.hidden = NO;
-    }else
-    {
-        numButton.hidden=YES;
-    }
- 
-    
-
-}
-
-
-
-
--(void)leftAvatar
-{
-//    if(self.uu)
-//    {
-//        NSString *a1 = [@"" stringByAppendingString:[entity.host objectForKey:@"avatar"]];
-//        NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a1]];
-//        [cell.img1 sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
-//    }
-
-    NSString *uuid = [LoginUtil getLocalUUID];
-    if (!uuid) {
-        [noticeIcon setImage:[UIImage imageNamed:@"holder.png"]];
-        return;
-    }
-
-        
-    NSDictionary *parameters = @{
-                                 @"uid":uuid
-                                 };
-
-    [self post:@"user/json/getuser" params:parameters success:^(id responseObj) {
-        
-        NSDictionary *dict = (NSDictionary *)responseObj;
-        
-        if ([[dict objectForKey:@"code"] intValue]==1) {
-            NSDictionary *data = [dict objectForKey:@"data"];
-            NSError *error = nil;
-            user  = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:data error:&error];
-            
-            if (user) {
-                [self loadAvatar];
-            }
-            
-        }
-    }];
-    
-    
-//    //未读消息
-//    [self post:@"message/json/countnew" params:parameters success:^(id responseObj) {
-//        
-//        NSDictionary *dict = (NSDictionary *)responseObj;
-//        
-//        if ([[dict objectForKey:@"code"] intValue]==1) {
-//            NSNumber *count = (NSNumber*)[dict objectForKey:@"data"];
-//            
-////            UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 10, 10)];
-//            
-// 
-//            
-//            
-//            if ([count intValue]>0) {
-//                
-//                [numButton setBackgroundImage:[UIImage imageNamed:@"redbg.png"] forState:UIControlStateNormal];
-//                //            [btn setTitle:@"99" forState:UIControlStateNormal];
-//                [numButton setTitle:[NSString stringWithFormat:@"%d",[count intValue]] forState:UIControlStateNormal];
-//                [numButton.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
-//                //            btn.titleLabel.tintColor = [UIColor whiteColor];
-//                
-//                
-//            }else
-//            {
-//                numButton.hidden=YES;
-//            }
-//            
-//
-//        }
-//    }];
-    
-    
-}
-
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [self leftAvatar];
-}
-
--(void)loadAvatar
-{
-    if(user.avatar)
-    {
-        NSURL *imagePath1 = [NSURL URLWithString:[baseURL2 stringByAppendingString:user.avatar]];
-        [noticeIcon sd_setImageWithURL:imagePath1 placeholderImage:[UIImage imageNamed:@"holder.png"]];
-
-    }else
-    {
-        [noticeIcon setImage:[UIImage imageNamed:@"holder.png"]];
-    }
-}
 
 
 -(void)refresh
@@ -254,13 +140,23 @@
     
     [self showHud];
  
-    NSDictionary *parameters = @{
-                                 @"p":curPage,
-                                 @"matchType":matchType,
-                                 @"status":status
-                                 };
+
     
-    if ([matchType intValue]==1 || [matchType intValue]==2) {
+    //对阵
+    if (tabIndex==0) {
+        
+        if(!self.leagueid)
+        {
+            return;
+        }
+        
+        NSDictionary *parameters = @{
+                                     @"p":curPage,
+                                     @"matchType":@"3",
+                                     @"status":status,
+                                     @"leagueid":self.leagueid
+                                     };
+        
         [self post:@"matchfight/json/matchlist" params:parameters success:^(id responseObj) {
             
             NSDictionary *dict = (NSDictionary *)responseObj;
@@ -290,10 +186,16 @@
     
     
     /**
-     *  联赛
+     *  积分
      */
-    if ([matchType intValue]==3) {
-        [self post:@"league/json/list" params:parameters success:^(id responseObj) {
+    if (tabIndex == 1) {
+        
+        NSDictionary *parameters = @{
+                                     @"p":curPage,
+                                     @"leagueid":self.leagueid
+                                     };
+        
+        [self post:@"leaguerecord/json/list" params:parameters success:^(id responseObj) {
             
             NSDictionary *dict = (NSDictionary *)responseObj;
             
@@ -302,7 +204,7 @@
                 NSError *error = nil;
                 
                 for (NSDictionary *data in arr) {
-                    League *model = [MTLJSONAdapter modelOfClass:[League class] fromJSONDictionary:data error:&error];
+                    LeagueRecord *model = [MTLJSONAdapter modelOfClass:[LeagueRecord class] fromJSONDictionary:data error:&error];
                     //                NSLog(@"%@",[error description]);
                     if (model!=nil) {
                         [dataArr2 addObject:model];
@@ -327,21 +229,7 @@
 
 
 
-/**
- *  创建比赛按钮
- */
--(void)addButton
-{
-   
-    
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    
-    [btn setBackgroundImage:[UIImage imageNamed:@"fight_btn_add.png"] forState:UIControlStateNormal];
-    
-    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.btnParent addSubview:btn];
-}
+
 
 //SegmentedControl触发的动作
 
@@ -349,18 +237,6 @@
     
     UISegmentedControl *control = (UISegmentedControl *)sender;
     tabIndex = control.selectedSegmentIndex;
-    
-    if (tabIndex==0) {
-        matchType = [NSNumber numberWithInt:1];
-    }
-    
-    if (tabIndex==1) {
-        matchType = [NSNumber numberWithInt:2];
-    }
-    
-    if (tabIndex==2) {
-        matchType = [NSNumber numberWithInt:3];
-    }
     
     [dataArr2 removeAllObjects];
     curPage = [NSNumber numberWithInt:1];
@@ -411,32 +287,17 @@
 
 
 
--(void)addLeftNavButton
-{
-    refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [refreshButton setFrame:CGRectMake(0,0,30,30)];
-    refreshButton.userInteractionEnabled = YES;
-//    leftTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"holder.png"]];
-    noticeIcon = [[UIImageView alloc] initWithFrame:refreshButton.frame];
-    [refreshButton addSubview:noticeIcon];
-//    [refreshButton setBackgroundImage:[UIImage imageNamed:@"holder.png"] forState:UIControlStateNormal];
-    [GlobalUtil setMaskImageQuick:noticeIcon withMask:@"shared_avatar_mask_medium.png" point:CGPointMake(26, 30)];
-    UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
-    self.navigationItem.leftBarButtonItem = refreshBarButton;
-    [refreshButton addTarget:self action:@selector(leftPush) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
-    numButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 0, 14, 14)];
-    [refreshButton addSubview:numButton];
-}
 
 -(void)addRightNavButton
 {
+    
+    
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBtn setFrame:CGRectMake(0,0,26,30)];
+    [rightBtn setFrame:CGRectMake(0,0,40,30)];
     rightBtn.userInteractionEnabled = YES;
-    [rightBtn setImage:[UIImage imageNamed:@"nav_filter.png"] forState:UIControlStateNormal];
+    [rightBtn setTitle:@"加入" forState:UIControlStateNormal];
+    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    //[rightBtn setImage:[UIImage imageNamed:@"nav_filter.png"] forState:UIControlStateNormal];
     
     // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
     
@@ -460,31 +321,10 @@
 
 -(void)rightPush
 {
+    LeagueJoin *leagueJoin =  [[LeagueJoin alloc] initWithNibName:@"LeagueJoin" bundle:nil];
+    leagueJoin.league = self.league;
     
-    if (tabIndex==0) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                      initWithTitle:@"选择比赛"
-                                      delegate:self
-                                      cancelButtonTitle:@"关闭"
-                                      destructiveButtonTitle:@"全部比赛"
-                                      otherButtonTitles:@"待应战",@"未开始",@"已结束",nil];
-        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        actionSheet.tag = 100;
-        [actionSheet showInView:self.view];
-    }
-    
-    if (tabIndex==1) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                      initWithTitle:@"选择比赛"
-                                      delegate:self
-                                      cancelButtonTitle:@"关闭"
-                                      destructiveButtonTitle:@"全部比赛"
-                                      otherButtonTitles:@"未结束",@"已结束",nil];
-        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        actionSheet.tag = 200;
-        [actionSheet showInView:self.view];
-    }
-
+    [self.navigationController pushViewController:leagueJoin animated:YES];
 }
 
 
@@ -554,14 +394,14 @@
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 50.0f)];
     parent.backgroundColor = [GlobalConst appBgColor];
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"团队约战",@"野球娱乐",@"联赛竞技"]];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"对阵",@"积分"]];
     segmentedControl.layer.borderColor = [[GlobalConst tabTintColor] CGColor];
     segmentedControl.layer.borderWidth = 2.0f;
     
     
     segmentedControl.layer.masksToBounds = YES;
     segmentedControl.layer.cornerRadius = 15.0f;
-    segmentedControl.frame = CGRectMake((w-240.0f)*0.5f, 10.0f, 240.0f, 30.0f);
+    segmentedControl.frame = CGRectMake((w-160.0f)*0.5f, 10.0f, 160.0f, 30.0f);
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.tintColor = [GlobalConst tabTintColor];
     
@@ -601,12 +441,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(tabIndex==1)
+    {
+        return 80.0f;
+    }
     return 190.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *CellIdentifier = [[cellArr objectAtIndex:([matchType intValue]-1)] objectAtIndex:0];
+    NSString *CellIdentifier = [[cellArr objectAtIndex:tabIndex] objectAtIndex:0];
     
     MatchBeginCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell==nil){
@@ -619,11 +463,13 @@
         return cell;
     }
     
+    
+    
 
     
     
-    //团队约战
-    if ([matchType intValue]==1) {
+    //对战
+    if (tabIndex==0) {
         
         MatchFight *entity = (MatchFight*)[dataArr2 objectAtIndex:indexPath.row];
         int t = [entity.status intValue];
@@ -758,73 +604,50 @@
         
     }
     
-    //野球娱乐
-    if ([matchType intValue]==2)
+
+    
+    
+    //积分
+   if (tabIndex==1)
     {
         
-        MatchFight *entity = (MatchFight*)[dataArr2 objectAtIndex:indexPath.row];
-        int t = [entity.status intValue];
+        LeagueRecord *entity = (LeagueRecord*)[dataArr2 objectAtIndex:indexPath.row];
         
         
-        CellIdentifier = @"MatchWildCell";
-        MatchWildCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        CellIdentifier = @"MatchLeagueRecordCell";
+        MatchLeagueRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if(cell==nil){
             
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
             cell = [nib objectAtIndex:0];
+        }
+        
+        if (indexPath.row % 2 == 0) {
+            
+            cell.backgroundColor = [GlobalConst lightAppBgColor];
+        }else
+        {
+            cell.backgroundColor = [UIColor clearColor];
         }
 
-        [cell setCorner:t];
         
+        Team *team = [MTLJSONAdapter modelOfClass:[Team class] fromJSONDictionary:entity.team error:nil];
         
-        cell.txtDate.text = [GlobalUtil getDateFromUNIX:entity.start format:@"MM月dd日 HH:mm"];
-        cell.txtPlace.text = [entity.arena objectForKey:@"name"];
-        cell.txtWeather.text = entity.weather;
-        
-        
-        return  cell;
-        
-        
-        
-    }
-    
-    
-    //联赛竞技
-    if ([matchType intValue]==3)
-    {
-        
-        League *entity = (League*)[dataArr2 objectAtIndex:indexPath.row];
-        int t = [entity.status intValue];
-        
-        
-        
-        CellIdentifier = @"MatchLeagueCell";
-        MatchLeagueCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if(cell==nil){
-            
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
-            cell = [nib objectAtIndex:0];
-        }
-        
-        [cell setCorner:t];
-        
-        
-        //cell.txtDate.text = [GlobalUtil getDateFromUNIX:entity.start format:@"MM月dd日 HH:mm"];
-        //cell.txtPlace.text = [entity.arena objectForKey:@"name"];
-        //cell.txtWeather.text = entity.weather;
-        
-        cell.txtTitle.text = entity.name;
-        
-        cell.txtPlace.text = [entity.arena objectForKey:@"name"];
-        
-        if(entity.avatar)
+        if(team.avatar)
         {
-            NSString *a2 = [@"" stringByAppendingString:entity.avatar];
+            NSString *a2 = [@"" stringByAppendingString:team.avatar];
             NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
             [cell.img1 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
         }
         
+        cell.team.text = team.name;
+        cell.txt1.text = [GlobalUtil toString:entity.win];
+        cell.txt2.text = [GlobalUtil toString:entity.lose];
+        cell.txt3.text = [GlobalUtil toString:entity.score];
         
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return  cell;
         
@@ -844,11 +667,9 @@
         return;
     }
     
-   
+    MatchFight *entity = (MatchFight*)[dataArr2 objectAtIndex:indexPath.row];
     
     if (tabIndex==0) {
-        
-         MatchFight *entity = (MatchFight*)[dataArr2 objectAtIndex:indexPath.row];
         
         //    UITableViewCell *cell  = [tableView cellForRowAtIndexPath:indexPath];
         //    cell.selectionStyle  = UITableViewCellSelectionStyleNone;
@@ -885,25 +706,10 @@
     
     if (tabIndex==1) {
         
-        MatchFight *entity = (MatchFight*)[dataArr2 objectAtIndex:indexPath.row];
-        
-        MatchWild *c1 = [[MatchWild alloc] initWithNibName:@"MatchWild" bundle:nil];
-        c1.matchFight = entity;
-        c1.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:c1 animated:YES];
+        return;
     }
     
     
-    //联赛
-    if (tabIndex==2)
-    {
-        League *entity = (League*)[dataArr2 objectAtIndex:indexPath.row];
-        
-        MatchLeague *matchLeague = [[MatchLeague alloc] initWithNibName:@"MatchLeague" bundle:nil];
-        matchLeague.league = entity;
-        matchLeague.leagueid = entity.uuid;
-        [self.navigationController pushViewController:matchLeague animated:YES];
-    }
     
 
 }
@@ -911,11 +717,32 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (tabIndex==1) {
+         return 44;
+    }
+    
     return 0;
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+ 
+    if (tabIndex==1) {
+        
+        NSString *CellIdentifier = @"MatchLeagueHeadCell";
+        MatchLeagueHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if(cell==nil){
+            
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        cell.backgroundColor = [UIColor clearColor];
+        
+        return cell;
+    }
+    
     return nil;
 }
 
