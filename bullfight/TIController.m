@@ -320,16 +320,16 @@
 }
 
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (tabIndex==0 && indexPath.row==0)
-//    {
-//        return [[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:1] intValue];
-//    }
-//    
-//    int h  =[[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:0] intValue];
-//    return h;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tabIndex==0 && indexPath.row==0)
+    {
+        return [[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:1] intValue];
+    }
+    
+    int h  =[[[cellHeightArr objectAtIndex:tabIndex] objectAtIndex:0] intValue];
+    return h;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
