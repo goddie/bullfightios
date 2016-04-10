@@ -98,7 +98,7 @@
                                  @"uid":user.uuid,
                                  @"tid":self.team.uuid
                                  };
-    [dataArr removeAllObjects];
+    //[dataArr removeAllObjects];
     [self post:@"message/json/invite" params:parameters success:^(id responseObj) {
         NSDictionary *dict = (NSDictionary *)responseObj;
         if ([[dict objectForKey:@"code"] intValue]==1) {
@@ -160,6 +160,11 @@
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
     }
+    
+//    if([dataArr count]==0)
+//    {
+//        return cell;
+//    }
     
     User *entity = [dataArr objectAtIndex:indexPath.row];
     

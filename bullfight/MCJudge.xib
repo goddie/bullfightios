@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MCJudge">
@@ -25,7 +25,6 @@
             <subviews>
                 <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkg-bF-0vn">
                     <rect key="frame" x="250" y="81" width="100" height="36"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="3S0-tB-7Ns"/>
                         <constraint firstAttribute="height" constant="36" id="Nbo-pc-eeR"/>
@@ -40,7 +39,6 @@
                 </button>
                 <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yT8-eO-Jv1">
                     <rect key="frame" x="358" y="81" width="100" height="36"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="NIt-Gf-I59"/>
                         <constraint firstAttribute="width" constant="100" id="yXr-H6-31p"/>
@@ -55,7 +53,6 @@
                 </button>
                 <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsD-Jr-rWw">
                     <rect key="frame" x="142" y="81" width="100" height="36"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="NMf-s1-sUX"/>
                         <constraint firstAttribute="width" constant="100" id="mgN-aJ-mMK"/>
@@ -70,7 +67,6 @@
                 </button>
                 <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1E-dA-mif">
                     <rect key="frame" x="250" y="191" width="100" height="36"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="Ybq-XU-Opz"/>
                         <constraint firstAttribute="height" constant="36" id="xlT-Lh-cGj"/>
@@ -85,7 +81,6 @@
                 </button>
                 <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNU-NM-N1u">
                     <rect key="frame" x="358" y="191" width="100" height="36"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="59D-cM-uiz"/>
                         <constraint firstAttribute="width" constant="100" id="wHI-sV-tjT"/>
@@ -100,7 +95,6 @@
                 </button>
                 <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzw-Gh-rOP">
                     <rect key="frame" x="142" y="191" width="100" height="36"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="31w-TD-eBe"/>
                         <constraint firstAttribute="width" constant="100" id="6cl-Ja-Xsq"/>
@@ -115,7 +109,6 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="裁判" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKH-TS-abu">
                     <rect key="frame" x="279" y="40" width="42" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="IW2-rj-QZ0"/>
                         <constraint firstAttribute="width" constant="42" id="O7j-dN-GHn"/>
@@ -126,7 +119,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据员" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQR-69-d7Y">
                     <rect key="frame" x="254" y="154" width="93" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="36m-3P-mjs"/>
                         <constraint firstAttribute="width" constant="93" id="qlN-aa-nKJ"/>
@@ -137,7 +129,6 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhj-gY-21Z">
                     <rect key="frame" x="240" y="525" width="120" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="UMo-9g-7Y8"/>
                         <constraint firstAttribute="width" constant="120" id="pGd-9v-jN2"/>
@@ -153,7 +144,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oC9-i4-TBe">
                     <rect key="frame" x="240" y="487" width="120" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="QsH-aC-Q1u"/>
                         <constraint firstAttribute="height" constant="30" id="zDM-j3-CVj"/>
@@ -169,18 +159,20 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqh-WS-FYq">
                     <rect key="frame" x="150" y="262" width="301" height="114"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="301" id="mB4-dt-kxL"/>
                         <constraint firstAttribute="height" constant="114" id="oPj-27-ihm"/>
                     </constraints>
-                    <string key="text">符合以下情况请点击【无需服务】的按钮：1、自己的小伙伴就能吹比赛和做数据记录啦！2、将赛后数据拍照并拍照发送给“来斗牛公号”录入！3、数据统计表在“来斗牛公号”上回复“记录表”就有啦！4、如有疑问或其他比赛要求请拨打010-82566150！</string>
+                    <string key="text">符合以下情况请点击【无需服务】的按钮：
+1、自己的小伙伴就能吹比赛和做数据记录啦！
+2、将赛后数据拍照并拍照发送给“来斗牛公号”录入！
+3、数据统计表在“来斗牛公号”上回复“记录表”就有啦！
+4、如有疑问或其他比赛要求请拨打010-82566150！</string>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.13725490200000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="fKH-TS-abu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="0Co-pK-dY3"/>
