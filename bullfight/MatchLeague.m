@@ -29,6 +29,9 @@
 #import "League.h"
 #import "LeagueRecord.h"
 #import "LeagueJoin.h"
+#import "DataUser.h"
+#import "LeagueDataCell.h"
+#import "LeagueHeadCell.h"
 
 
 @interface MatchLeague ()
@@ -79,6 +82,9 @@
     cellArr = @[
                 @[@"MatchBeginCell"]
                 ,@[@"MatchWildCell"]
+                ,@[@"LeagueDataCell"]
+                ,@[@"LeagueDataCell"]
+                ,@[@"LeagueDataCell"]
                 ];
     
     [self.topView addSubview:[self getTopView]];
@@ -223,6 +229,57 @@
     }
 
     
+    
+    if (tabIndex == 2||tabIndex == 3||tabIndex == 4) {
+        
+        NSDictionary *parameters = @{
+                                     @"p":curPage,
+                                     @"leagueid":self.leagueid
+                                     };
+        
+        NSString *url;
+        
+        if(tabIndex == 2)
+        {
+            url = @"matchdatauser/json/leaguepoint";
+        }
+        
+        if(tabIndex == 3)
+        {
+            url = @"matchdatauser/json/leaguerebound";
+        }
+        
+        if(tabIndex == 4)
+        {
+            url = @"matchdatauser/json/leagueassist";
+        }
+        
+        [self post:url params:parameters success:^(id responseObj) {
+            
+            NSDictionary *dict = (NSDictionary *)responseObj;
+            
+            if ([[dict objectForKey:@"code"] intValue]==1) {
+                NSArray *arr = [dict objectForKey:@"data"];
+                NSError *error = nil;
+                
+                for (NSDictionary *data in arr) {
+                    DataUser *model = [MTLJSONAdapter modelOfClass:[DataUser class] fromJSONDictionary:data error:&error];
+                    //                NSLog(@"%@",[error description]);
+                    if (model!=nil) {
+                        [dataArr2 addObject:model];
+                    }
+                }
+            }else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[dict objectForKey:@"msg"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                [alert show];
+            }
+            
+            [self.tableView reloadData];
+            [self stopAnimation];
+        }];
+        
+    }
     
     
 }
@@ -394,14 +451,14 @@
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 50.0f)];
     parent.backgroundColor = [GlobalConst appBgColor];
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"对阵",@"积分"]];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"对阵",@"积分",@"得分",@"篮板",@"助攻"]];
     segmentedControl.layer.borderColor = [[GlobalConst tabTintColor] CGColor];
     segmentedControl.layer.borderWidth = 2.0f;
     
     
     segmentedControl.layer.masksToBounds = YES;
     segmentedControl.layer.cornerRadius = 15.0f;
-    segmentedControl.frame = CGRectMake((w-160.0f)*0.5f, 10.0f, 160.0f, 30.0f);
+    segmentedControl.frame = CGRectMake((w-280.0f)*0.5f, 10.0f, 280.0f, 30.0f);
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.tintColor = [GlobalConst tabTintColor];
     
@@ -442,6 +499,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tabIndex==1)
+    {
+        return 80.0f;
+    }
+    if(tabIndex==2||tabIndex==3||tabIndex==4)
     {
         return 80.0f;
     }
@@ -654,6 +715,74 @@
         
         
     }
+    
+    //得分 篮板 助攻
+    if (tabIndex==2||tabIndex==3||tabIndex==4)
+    {
+        DataUser *entity = (DataUser*)[dataArr2 objectAtIndex:indexPath.row];
+        
+        
+        
+        CellIdentifier = @"LeagueDataCell";
+        LeagueDataCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if(cell==nil){
+            
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        if (indexPath.row % 2 == 0) {
+            
+            cell.backgroundColor = [GlobalConst lightAppBgColor];
+        }else
+        {
+            cell.backgroundColor = [UIColor clearColor];
+        }
+        
+        
+        User *u = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:entity.user error:nil];
+        
+        if(u.avatar)
+        {
+            NSString *a2 = [@"" stringByAppendingString:u.avatar];
+            NSURL *imagePath2 = [NSURL URLWithString:[baseURL2 stringByAppendingString:a2]];
+            [cell.img1 sd_setImageWithURL:imagePath2 placeholderImage:[UIImage imageNamed:@"holder.png"]];
+        }
+        
+        cell.txt1.text = u.nickname;
+        
+        
+        if(tabIndex==2)
+        {
+            cell.txt2.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.plays floatValue]];
+            cell.txt3.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.scoring floatValue]];
+            cell.txt4.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.avgscoring floatValue]];
+        }
+        
+
+        if(tabIndex==3)
+        {
+            
+            cell.txt2.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.plays floatValue]];
+            cell.txt3.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.rebound floatValue]];
+            cell.txt4.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.avgrebound floatValue]];
+            
+        }
+        
+        if(tabIndex==4)
+        {
+            
+            cell.txt2.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.plays floatValue]];
+            cell.txt3.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.assist floatValue]];
+            cell.txt4.text = [GlobalUtil decimalwithFormat:@"0.0" floatV:[entity.avgassist floatValue]];
+            
+        }
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        return  cell;
+
+    }
 
  
 
@@ -718,7 +847,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (tabIndex==1) {
-         return 44;
+        return 44;
+    }
+    if (tabIndex==2||tabIndex==3||tabIndex==4) {
+        return 44;
     }
     
     return 0;
@@ -738,7 +870,22 @@
             cell = [nib objectAtIndex:0];
         }
         
-        cell.backgroundColor = [UIColor clearColor];
+        //cell.backgroundColor = [UIColor clearColor];
+        
+        return cell;
+    }
+    
+    if (tabIndex==2||tabIndex==3||tabIndex==4) {
+        
+        NSString *CellIdentifier = @"LeagueHeadCell";
+        LeagueHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if(cell==nil){
+            
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        //cell.backgroundColor = [UIColor clearColor];
         
         return cell;
     }

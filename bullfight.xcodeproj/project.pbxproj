@@ -24,6 +24,11 @@
 		C219F5921C852A15003A180D /* LeagueRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C219F5911C852A15003A180D /* LeagueRecord.m */; };
 		C219F5961C853454003A180D /* LeagueJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = C219F5941C853454003A180D /* LeagueJoin.m */; };
 		C219F5971C853454003A180D /* LeagueJoin.xib in Resources */ = {isa = PBXBuildFile; fileRef = C219F5951C853454003A180D /* LeagueJoin.xib */; };
+		C220FBA41CD0675E0096FE9D /* LeagueHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C220FBA21CD0675E0096FE9D /* LeagueHeadCell.m */; };
+		C220FBA51CD0675E0096FE9D /* LeagueHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C220FBA31CD0675E0096FE9D /* LeagueHeadCell.xib */; };
+		C220FBA91CD084D30096FE9D /* LeagueDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C220FBA71CD084D30096FE9D /* LeagueDataCell.m */; };
+		C220FBAA1CD084D30096FE9D /* LeagueDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C220FBA81CD084D30096FE9D /* LeagueDataCell.xib */; };
+		C220FBAD1CD089390096FE9D /* DataUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C220FBAC1CD089390096FE9D /* DataUser.m */; };
 		C22348261B980A0500A2FB89 /* TabBarBlue.m in Sources */ = {isa = PBXBuildFile; fileRef = C22348251B980A0500A2FB89 /* TabBarBlue.m */; };
 		C223482A1B980D7800A2FB89 /* tabbarblue_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C22348271B980D7800A2FB89 /* tabbarblue_bg.png */; };
 		C223482B1B980D7800A2FB89 /* tabbarblue_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22348281B980D7800A2FB89 /* tabbarblue_bg@2x.png */; };
@@ -713,6 +718,14 @@
 		C219F5931C853454003A180D /* LeagueJoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueJoin.h; sourceTree = "<group>"; };
 		C219F5941C853454003A180D /* LeagueJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueJoin.m; sourceTree = "<group>"; };
 		C219F5951C853454003A180D /* LeagueJoin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueJoin.xib; sourceTree = "<group>"; };
+		C220FBA11CD0675E0096FE9D /* LeagueHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeadCell.h; sourceTree = "<group>"; };
+		C220FBA21CD0675E0096FE9D /* LeagueHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueHeadCell.m; sourceTree = "<group>"; };
+		C220FBA31CD0675E0096FE9D /* LeagueHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueHeadCell.xib; sourceTree = "<group>"; };
+		C220FBA61CD084D30096FE9D /* LeagueDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueDataCell.h; sourceTree = "<group>"; };
+		C220FBA71CD084D30096FE9D /* LeagueDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueDataCell.m; sourceTree = "<group>"; };
+		C220FBA81CD084D30096FE9D /* LeagueDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueDataCell.xib; sourceTree = "<group>"; };
+		C220FBAB1CD089390096FE9D /* DataUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUser.h; sourceTree = "<group>"; };
+		C220FBAC1CD089390096FE9D /* DataUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataUser.m; sourceTree = "<group>"; };
 		C22348241B980A0500A2FB89 /* TabBarBlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarBlue.h; sourceTree = "<group>"; };
 		C22348251B980A0500A2FB89 /* TabBarBlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarBlue.m; sourceTree = "<group>"; };
 		C22348271B980D7800A2FB89 /* tabbarblue_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbarblue_bg.png; sourceTree = "<group>"; };
@@ -1804,6 +1817,12 @@
 				C28DEE371B77B809008FB14A /* TITeamDataCell.h */,
 				C28DEE381B77B809008FB14A /* TITeamDataCell.m */,
 				C28DEE391B77B809008FB14A /* TITeamDataCell.xib */,
+				C220FBA11CD0675E0096FE9D /* LeagueHeadCell.h */,
+				C220FBA21CD0675E0096FE9D /* LeagueHeadCell.m */,
+				C220FBA31CD0675E0096FE9D /* LeagueHeadCell.xib */,
+				C220FBA61CD084D30096FE9D /* LeagueDataCell.h */,
+				C220FBA71CD084D30096FE9D /* LeagueDataCell.m */,
+				C220FBA81CD084D30096FE9D /* LeagueDataCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1979,6 +1998,8 @@
 				C25C19F71C7DDE9B00B8ADE9 /* League.m */,
 				C219F5901C852A15003A180D /* LeagueRecord.h */,
 				C219F5911C852A15003A180D /* LeagueRecord.m */,
+				C220FBAB1CD089390096FE9D /* DataUser.h */,
+				C220FBAC1CD089390096FE9D /* DataUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3223,6 +3244,7 @@
 				C2D8589F1B70F71C00F645B1 /* shared_icon_time@3x.png in Resources */,
 				C296FBA11B827AD700C99B44 /* RegThree.xib in Resources */,
 				C2D858871B70F71C00F645B1 /* shared_icon_badge_active@3x.png in Resources */,
+				C220FBA51CD0675E0096FE9D /* LeagueHeadCell.xib in Resources */,
 				C2D858E91B70F71C00F645B1 /* tab_icon_activities_active@2x.png in Resources */,
 				C2D858911B70F71C00F645B1 /* shared_icon_jurge.png in Resources */,
 				C2D857C21B70F71C00F645B1 /* activities_btn_add_photo_from_photos@2x.png in Resources */,
@@ -3241,6 +3263,7 @@
 				C28DEE1D1B779F53008FB14A /* MCPayTotalCell.xib in Resources */,
 				C2D8585E1B70F71C00F645B1 /* round_mask.png in Resources */,
 				C2D8587E1B70F71C00F645B1 /* shared_checkbox_unchecked@3x.png in Resources */,
+				C220FBAA1CD084D30096FE9D /* LeagueDataCell.xib in Resources */,
 				C2D858FB1B70F71C00F645B1 /* tab_icon_profile_active@2x.png in Resources */,
 				C28DEE721B77E03D008FB14A /* MIMemberCell.xib in Resources */,
 				C2D858C41B70F71C00F645B1 /* shared_switch_bg_off.png in Resources */,
@@ -3498,6 +3521,7 @@
 				C28DEE581B77D6BA008FB14A /* MatchWildCell.m in Sources */,
 				C2D856411B70F10B00F645B1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				C2B850D81BA86BE8006C668C /* NewsDetail.m in Sources */,
+				C220FBA41CD0675E0096FE9D /* LeagueHeadCell.m in Sources */,
 				C291F4C61B76F464000A1999 /* MatchTeam.m in Sources */,
 				C2D856461B70F10B00F645B1 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				C291F4B51B764E83000A1999 /* MFTeamInfoTopCell.m in Sources */,
@@ -3505,6 +3529,7 @@
 				C2AA01B41B95F42300D3246D /* About.m in Sources */,
 				C28DEE3A1B77B809008FB14A /* TITeamDataCell.m in Sources */,
 				C219F5841C7EE268003A180D /* MatchLeague.m in Sources */,
+				C220FBAD1CD089390096FE9D /* DataUser.m in Sources */,
 				C219F58E1C7F17B3003A180D /* MatchLeagueHeadCell.m in Sources */,
 				C28C5ABB1BA48E8700577E88 /* Order.m in Sources */,
 				C2D8564C1B70F10B00F645B1 /* UIAlertView+AFNetworking.m in Sources */,
@@ -3630,6 +3655,7 @@
 				C25C19F41C7CA11B00B8ADE9 /* MatchLeagueCell.m in Sources */,
 				C2B2A7F91B8376AA00F0C122 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				C263511E1B8897510061A93E /* MatchDataUser.m in Sources */,
+				C220FBA91CD084D30096FE9D /* LeagueDataCell.m in Sources */,
 				C2D856441B70F10B00F645B1 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				C28C5AC21BA48E8700577E88 /* RSADataSigner.m in Sources */,
 				C2B2A80E1B83935400F0C122 /* MyData.m in Sources */,
@@ -3797,8 +3823,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Santao Technology Company Limited (M8JXEQ9HPT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Santao Technology Company Limited (M8JXEQ9HPT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/bullfight/Alipay",
@@ -3823,6 +3849,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.santao.newbasketball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3831,8 +3858,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Santao Technology Company Limited (M8JXEQ9HPT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Santao Technology Company Limited (M8JXEQ9HPT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/bullfight/Alipay",
@@ -3857,6 +3884,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.santao.newbasketball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -459,8 +459,22 @@
         
         
         cell.txtPos.text = entity.position;
-        cell.txtWeight.text = [NSString stringWithFormat:@"身高:%@cm",[GlobalUtil toString:entity.weight]];
-        cell.txtHeight.text = [NSString stringWithFormat:@"体重:%@kg",[GlobalUtil toString:entity.height]];
+        if([entity.weight floatValue]>0)
+        {
+            cell.txtWeight.text = [NSString stringWithFormat:@"体重:%@kj",[GlobalUtil toString:entity.weight]];
+        }else
+        {
+            cell.txtWeight.text = @"体重:保密";
+        }
+        
+        if([entity.height floatValue]>0)
+        {
+            cell.txtHeight.text = [NSString stringWithFormat:@"身高:%@cm",[GlobalUtil toString:entity.height]];
+        }else
+        {
+            cell.txtHeight.text = @"身高:保密";
+        }
+        
         
         if(entity.avatar)
         {

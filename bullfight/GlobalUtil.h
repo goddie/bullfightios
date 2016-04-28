@@ -158,4 +158,16 @@
  *  @return <#return value description#>
  */
 +(NSString*)toPercentString:(id)value;
+
+
+/**
+ *  四舍五入
+ *
+ *  @param format <#format description#>
+ *  @param floatV <#floatV description#>
+ *
+ *  @return <#return value description#>
+ */
++ (NSString *) decimalwithFormat:(NSString *)format  floatV:(float)floatV;
+
 @end
