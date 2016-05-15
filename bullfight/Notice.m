@@ -432,16 +432,18 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-       
+        NSUInteger row = [indexPath row];
         
         Message *message = (Message*)[dataArr objectAtIndex:indexPath.row];
         [self deleteMessage:message.uuid];
         
 
         
-        [dataArr removeObjectAtIndex:indexPath.row];
+        [dataArr removeObjectAtIndex:row];
         // Delete the row from the data source.
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [tableView reloadData];
         
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {

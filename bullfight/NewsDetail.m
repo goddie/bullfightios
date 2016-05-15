@@ -155,7 +155,7 @@
 - (void)handleLongTouch {
     NSLog(@"%@", _imgURL);
     if (_imgURL && _gesState == GESTURE_STATE_START) {
-        UIActionSheet* sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"保存到手机", nil];
+        UIActionSheet* sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"保存压缩图",@"保存高清图", nil];
         sheet.cancelButtonIndex = sheet.numberOfButtons - 1;
         [sheet showInView:[UIApplication sharedApplication].keyWindow];
     }
@@ -166,11 +166,14 @@
         return;
     }
     NSString* title = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if ([title isEqualToString:@"保存到手机"]) {
+    if ([title isEqualToString:@"保存压缩图"]) {
         if (_imgURL) {
             NSLog(@"imgurl = %@", _imgURL);
         }
         NSString *urlToSave = [self.webview stringByEvaluatingJavaScriptFromString:_imgURL];
+        
+        
+        
         NSLog(@"image url = %@", urlToSave);
         
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlToSave]];
@@ -180,6 +183,25 @@
         NSLog(@"UIImageWriteToSavedPhotosAlbum = %@", urlToSave);
         UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     }
+    
+    if ([title isEqualToString:@"保存高清图"]) {
+        if (_imgURL) {
+            NSLog(@"imgurl = %@", _imgURL);
+        }
+        NSString *urlToSave = [self.webview stringByEvaluatingJavaScriptFromString:_imgURL];
+        
+        NSString *url =  [self replaceDomain:urlToSave];
+        
+        NSLog(@"image url = %@", url);
+        
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+        UIImage* image = [UIImage imageWithData:data];
+        
+        //UIImageWriteToSavedPhotosAlbum(image, nil, nil,nil);
+        NSLog(@"UIImageWriteToSavedPhotosAlbum = %@", url);
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }
+    
 }
 // 功能：显示对话框
 -(void)showAlert:(NSString *)msg {
@@ -204,14 +226,31 @@
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
+
+-(NSString*)replaceDomain:(NSString*)str
+{
+    NSMutableString *tempString = [NSMutableString stringWithString:str];
+    
+    NSError *error;
+    
+    NSString *regulaStr = @"_\\d*x\\d*";
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regulaStr
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    NSArray *arrayOfAllMatches = [regex matchesInString:tempString options:0 range:NSMakeRange(0, [tempString length])];
+    
+    NSString *substringForMatch = [NSString string];
+    for (NSTextCheckingResult *match in arrayOfAllMatches)
+    {
+        substringForMatch = [tempString substringWithRange:match.range];
+//        NSLog(@"substringForMatch: %@",substringForMatch);
+    }
+    [tempString replaceOccurrencesOfString:substringForMatch withString:@"" options:NSBackwardsSearch range:NSMakeRange(0, [tempString length])];
+    
+    return tempString;
+}
+
 
 @end

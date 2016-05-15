@@ -354,27 +354,30 @@
                     }
                 }
                 
-                int size =  fmin(marr1.count,marr2.count);
+                
+                int size =  fmax(marr1.count,marr2.count);
+                
                 for (int i=0; i<size; i++) {
                     
+                    NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:10];
                     
-                    NSArray *tmp =[ NSArray arrayWithObjects:[marr1 objectAtIndex:i],[marr2 objectAtIndex:i], nil];
+                    if (i<marr1.count) {
+                        [tmp addObject:[marr1 objectAtIndex:i]];
+                    }else
+                    {
+                        [tmp addObject:[NSNull null]];
+                    }
                     
-                    [dataArr3 addObject: tmp];
+                    if (i<marr2.count) {
+                        [tmp addObject:[marr2 objectAtIndex:i]];
+                    }else
+                    {
+                        [tmp addObject:[NSNull null]];
+                    }
+                    
+                    [dataArr3 addObject:tmp];
                     
                 }
-                
-                if (marr1.count>marr2.count) {
-                    
-                    [dataArr3 addObject:@[[marr1 lastObject],[NSNull null]]];
-                }
-                
-                if (marr2.count>marr1.count)
-                {
-                    [dataArr3 addObject:@[[NSNull null],[marr2 lastObject]]];
-                }
-                
-                
                 
                 
             }

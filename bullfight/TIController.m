@@ -461,7 +461,7 @@
         cell.txtPos.text = entity.position;
         if([entity.weight floatValue]>0)
         {
-            cell.txtWeight.text = [NSString stringWithFormat:@"体重:%@kj",[GlobalUtil toString:entity.weight]];
+            cell.txtWeight.text = [NSString stringWithFormat:@"体重:%@kg",[GlobalUtil toString:entity.weight]];
         }else
         {
             cell.txtWeight.text = @"体重:保密";
